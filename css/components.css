@@ -1,0 +1,277 @@
+/* === HEADER === */
+.header {
+  display: flex;
+  justify-content: center; /* Centers the container horizontally */
+  align-items: center;
+  width: 100%;
+  height: 5.5rem; /* Set header height */
+  background-color: rgba(29, 29, 29, 0.6); /* Semi-transparent background */
+  padding-left: 3.75rem; /* 60px left padding */
+  padding-right: 3.4375rem; /* 55px right padding */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Header Flex Container */
+.header__container {
+  display: flex;
+  justify-content: space-between; /* Distribute items across available space */
+  align-items: center;
+  max-width: 1200px; /* Restrict max width for large screens */
+  width: 100%;
+}
+
+/* Logo */
+.header__logo {
+  flex-grow: 0; /* Logo takes only as much space as needed */
+}
+
+.header__logo img {
+  width: 15rem; /* Maintain aspect ratio */
+  height: auto;
+}
+
+/* Spacer Between Logo and Navigation */
+.header__spacer--logo-nav {
+  flex-grow: 2; /* Fluid spacing proportional to the container */
+}
+
+/* Navigation */
+.header__nav {
+  display: flex;
+  align-items: center;
+}
+
+.header__nav-list {
+  display: flex;
+  gap: 2rem; /* Space between navigation items */
+  list-style: none; /* Remove default list styles */
+  margin: 0;
+  padding: 0;
+}
+
+.header__nav-link {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Spacer Between Navigation and CTA */
+.header__spacer--nav-cta {
+  flex-grow: 1; /* Fluid spacing proportional to the container */
+}
+.hero__nav-icon {
+  width: 0.665rem;
+  height: auto;
+  margin-left: 0.5rem; /* Space between text and icon */
+}
+
+/* CTA Button */
+.header__cta {
+  background-color: #C41E3D;
+  color: #FFFFFF;
+  padding: 0.75rem 2rem; /* Padding inside the button */
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header__cta:hover {
+  background-color: #FFFFFF;
+  color: #C41E3D;
+}
+
+
+/* Footer Section */
+.footer {
+    background: #1D1D1D;
+    padding: 8.25rem 3.75rem 11rem; /* Top: 132px, sides: 60px, bottom: 176px (converted to rem) */
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  
+  /* Footer Container */
+  .footer__container {
+    display: flex;
+    justify-content: space-between; /* Space between branding and links */
+    gap: 5.875rem; /* 94px converted to rem */
+  }
+  
+  /* Branding Section */
+  .footer__branding {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem; /* 24px converted to rem */
+  }
+  
+  .footer__logo img {
+    width: 15rem; /* 240.16px converted to rem */
+    height: 1.39rem; /* 22.24px converted to rem */
+  }
+  
+  .footer__tagline,
+  .footer__copyright {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem; /* 15px */
+    font-weight: 400;
+    line-height: 1.5rem; /* 24px */
+    text-align: left;
+  }
+  
+  .footer__socials {
+    display: flex;
+    gap: 1.5rem; /* 24px converted to rem */
+  }
+  
+  .footer__social-link img {
+    width: 2.625rem; /* 42px converted to rem */
+    height: 2.625rem; /* 42px converted to rem */
+  }
+  
+  /* Links Section */
+  .footer__links {
+    display: flex;
+    gap: 1.5rem; /* 24px converted to rem */
+  }
+  
+  .footer__links-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem; /* 24px converted to rem */
+    width: 10rem; /* 160px converted to rem */
+  }
+  
+  .footer__heading {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.9375rem; /* 15px */
+    font-weight: 600;
+    line-height: 1.5rem; /* 24px */
+    text-align: left;
+  }
+  
+  .footer__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* 16px converted to rem */
+  }
+  
+  .footer__link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem; /* 15px */
+    font-weight: 400;
+    line-height: 1.5rem; /* 24px */
+    text-align: left;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer__link:hover {
+    color: #C41E3D; /* Red color on hover */
+  }
+  
+
+  /* === SECTION HEADER === */
+.section-header {
+  text-align: center; /* Center aligns the entire header */
+  margin-bottom: 5.5rem; /* Default spacing below header (88px converted to rem) */
+}
+
+.section-header__title {
+  font-family: 'Barlow', sans-serif;
+  font-size: 1.875rem; /* 30px */
+  font-weight: 700; /* Bold */
+  line-height: 2.25rem; /* 36px */
+  color: #C41E3D; /* Red */
+  margin-bottom: 1rem; /* 16px spacing below the title */
+}
+
+.section-header__subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; /* 16px */
+  font-weight: 400; /* Regular weight */
+  line-height: 1.6rem; /* 25.6px */
+  color: #000000; /* Black text for the subtitle */
+  max-width: 35rem; /* 560px */
+  margin: 0 auto; /* Center the subtitle within its container */
+}
+
+
+/* Milestone Section */
+.career-milestone-section {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  padding: 88px 1rem; /* 88px at top and bottom, 1rem at sides */
+  background-color: #f5f5f5; /* Background for the section */
+  box-sizing: border-box; /* Include padding in width/height calculations */
+}
+
+/* Milestone Container (Black Box) */
+.career-milestone {
+  background-color: #212121; /* Dark background */
+  color: #fff;
+  text-align: center;
+  padding: 48px 48px; /* 48px spacing on all sides inside the container */
+  border-radius: 0.5rem; /* Rounded corners */
+  max-width: 437px; /* Ensures it doesn’t grow too wide */
+  box-sizing: border-box; /* Includes padding in width/height calculations */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center content horizontally */
+}
+
+/* Milestone Heading */
+.career-milestone__heading {
+  margin-bottom: 16px; /* Space between heading and description */
+  font-family: 'Barlow', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+  text-align: center;
+}
+
+/* Milestone Description */
+.career-milestone__description {
+  margin-bottom: 36px; /* Space between description and button */
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25.6px;
+  text-align: center;
+}
+
+/* Milestone Button */
+.career-milestone__button {
+  width: 80%;
+  background-color: #C41E3D;
+  color: #FFFFFF;
+  padding: 0.75rem 2.25rem;
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.9375rem; /* Matches 19px */
+  font-weight: 600;
+  line-height: 1.5rem; /* Matches 22.8px */
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+}
+
+.career-milestone__button:hover {
+  background-color: #a91e1e; /* Darker red on hover */
+}

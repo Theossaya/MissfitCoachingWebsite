@@ -1,0 +1,150 @@
+/* === HERO SECTION === */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 32.375rem; /* 518px */
+
+    /* Apply the gradient, image, and black base */
+    background: url('../assets/images/background-about-us.png');
+
+    background-size: cover; /* Ensure full coverage */
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #FFFFFF; /* White text */
+}
+
+.header{
+    background-color: transparent;
+}
+
+/* Hero Content */
+.hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 8.25rem 0; /* 132px spacing above and below */
+    gap: 1.0625rem; /* 17px gap between title and description */
+}
+
+/* Hero Title */
+.hero__title {
+    font-family: 'Barlow', sans-serif;
+    font-size: 3.75rem; /* 60px */
+    font-weight: 700;
+    line-height: 4.5rem; /* 72px */
+    margin: 0;
+}
+
+/* Hero Description */
+.hero__description {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem; /* 16px */
+    font-weight: 400;
+    line-height: 1.6rem; /* 25.6px */
+    max-width: 52.375rem; /* 838px */
+    margin: 0;
+}
+
+
+/* === STORY SECTION === */
+.story {
+    padding-top: 88px; /* Space under the previous section */
+    padding-bottom: 88px; /* Space at the bottom of the section */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .story__content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 48px; /* Space between the text and image columns */
+    margin-bottom: 88px; /* Space between each content block */
+    max-width: 1200px; /* Optional: Limit overall width */
+  }
+  
+  .story__text {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 36.8px;
+    text-align: left;
+    max-width: 453px; /* Width of the text column */
+    display: flex;
+    flex-direction: column;
+    gap: 56px; /* Space between paragraphs */
+  }
+  
+  .story__image img {
+    width: 453px;
+    height: 448px;
+    border-radius: 4px;
+    object-fit: cover; /* Ensures image doesn't stretch */
+  }
+  
+
+  /* === VALUES SECTION === */
+.values {
+    padding: 88px 3.75rem; /* Space above, below, and side padding */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  
+  .values__container {
+    max-width: 1104px; /* Restrict maximum width */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+/* General adjustments for responsiveness */
+.values__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); /* Flexible column sizing */
+    gap: 3rem; /* 48px converted to rem */
+    justify-items: center; /* Center items horizontally */
+  }
+  .values__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2.5rem 2.25rem 2rem; /* Adjust padding: top, sides, bottom */
+    border: 1px solid #EFEFEF; /* Border around the box */
+    box-sizing: border-box; /* Include padding and border in size calculations */
+    height:fit-content;
+  }
+  
+  .values__icon {
+    width: 4rem; /* 64px converted to rem */
+    height: 3.9rem; /* 62.45px converted to rem */
+    margin-bottom: 0.84375rem; /* 13.5px converted to rem */
+  }
+  
+  .values__title {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.5rem; /* 24px converted to rem */
+    font-weight: 600;
+    line-height: 1.8rem; /* 28.8px converted to rem */
+    text-align: center;
+    margin-bottom: 0.75rem; /* 12px converted to rem */
+  }
+  
+  .values__description {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem; /* 16px converted to rem */
+    font-weight: 400;
+    line-height: 1.6rem; /* 25.6px converted to rem */
+    text-align: left;
+  }
+  
+  .career-milestone-section {
+    background-color: #FFFFFF; /* Background for the section */
+  }
