@@ -275,3 +275,125 @@
 .career-milestone__button:hover {
   background-color: #a91e1e; /* Darker red on hover */
 }
+
+
+/* === SHARED HERO STYLES === */
+.shared-hero {
+  /* height: 29.125rem; 266px */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: #ffffff; /* White text */
+  box-sizing: border-box;
+  
+}
+
+.shared-hero .hero__content {
+  margin: 8.25rem 0; /* 132px */
+  padding-left: 10rem; /* 160px for left alignment */
+
+}
+
+.shared-hero .hero__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Left-align text */
+}
+
+.shared-hero .hero__title {
+  font-family: 'Barlow', sans-serif;
+  font-size: 3.75rem; /* 60px */
+  font-weight: 700;
+  line-height: 4.5rem; /* 72px */
+  text-align: left;
+  margin: 0;
+}
+
+.shared-hero .hero__subtitle {
+  margin-top: 1rem; /* 16px */
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; /* 16px */
+  font-weight: 400;
+  line-height: 1.6rem; /* 25.6px */
+  text-align: left;
+}
+
+
+
+.newsletter__container {
+  background-color: #1d1d1d; /* Box background */
+  padding: 3.5rem; /* 56px padding on all sides */
+  max-width: 28.3125rem; /* 453px max width */
+  width: 100%; /* Full width */
+  box-sizing: border-box; /* Include padding in width */
+  text-align: center; /* Center text alignment */
+  border-radius: 0.25rem; /* Rounded corners */
+}
+
+.newsletter__header {
+  margin-bottom: 2.25rem; /* 36px space below */
+}
+
+.newsletter__title {
+  font-family: "Barlow", sans-serif;
+  font-size: 2.5rem; /* 40px */
+  font-weight: 700;
+  line-height: 3rem; /* 48px */
+  color: #ffffff;
+}
+
+.newsletter__highlight {
+  color: #c41e3d; /* Highlight color */
+}
+
+.newsletter__subtitle {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem; /* 16px */
+  font-weight: 400;
+  line-height: 1.6rem; /* 25.6px */
+  color: #ffffff;
+  margin-top: 1rem; /* 16px space above */
+}
+
+/* Newsletter Form */
+.newsletter__form {
+  margin-top: 2.25rem; /* 36px space above */
+  display: flex;
+  flex-direction: column; /* Stack input and button */
+  gap: 1.5rem; /* Space between elements (24px) */
+}
+
+.newsletter__input {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem; /* 16px */
+  font-weight: 400;
+  line-height: 1.5rem; /* 24px */
+  padding: 0.75rem; /* 12px padding inside the input */
+  border: 1px solid #cccccc; /* Light border */
+  border-radius: 0.25rem; /* Rounded corners */
+  outline: none;
+  width: 100%; /* Full width */
+}
+
+.newsletter__input::placeholder {
+  color: #888888; /* Placeholder text color */
+}
+
+.newsletter__submit {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem; /* 16px */
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #c41e3d; /* Button color */
+  border: none;
+  border-radius: 0.25rem; /* Rounded corners */
+  padding: 1rem 9rem; /* 16px vertical, 144px horizontal */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.newsletter__submit:hover {
+  background-color: #ffffff;
+  color: #c41e3d; /* Inverted colors on hover */
+}
