@@ -397,3 +397,43 @@
   background-color: #ffffff;
   color: #c41e3d; /* Inverted colors on hover */
 }
+
+
+/* Common styles for articles */
+.article {
+  display: flex;
+  flex-direction: column;
+}
+
+.article__image {
+  width: 21rem; /* 336px */
+  height: 13.75rem; /* 220px */
+  border-radius: 0.25rem; /* 4px */
+  border: 1px solid #eaeaea;
+  object-fit: cover;
+}
+
+.article__title {
+  font-family: "Inter", sans-serif;
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600;
+  line-height: 1.5125rem; /* 24.2px */
+  margin-top: 2.25rem; /* 36px */
+}
+
+.article__description {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem; /* 16px */
+  font-weight: 400;
+  line-height: 1.6rem; /* 25.6px */
+  margin-top: 1rem; /* 16px */
+}
+
+.article__time {
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem; /* 14px */
+  font-weight: 400;
+  line-height: 1.4rem; /* 22.4px */
+  margin-top: 1rem; /* 16px */
+  color: #888888;
+}

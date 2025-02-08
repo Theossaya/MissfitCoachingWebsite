@@ -87,3 +87,27 @@
     align-self: flex-start;
   }
   
+
+  /* Read Next Section */
+.read-next {
+    margin: 6.25rem 0 8.25rem; /* 110px */
+    padding-left: 10.5rem; /* Aligns with left alignment */
+  }
+  
+  .read-next__title {
+    font-family: "Barlow", sans-serif;
+    font-size: 1.875rem; /* 30px */
+    font-weight: 700;
+    line-height: 2.25rem; /* 36px */
+    margin-bottom: 5.5rem; /* 36px spacing */
+    text-align: center;
+  }
+  
+  .read-next__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem; /* 48px gap between columns */
+    max-width: 69rem;
+
+  }
+  
