@@ -1,0 +1,285 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url('../assets/images/resume-background.png') center/cover no-repeat;
+  }
+
+/* HERO CONTENT SECTION */
+.hero__content {
+    justify-content: center;
+    align-items: center;
+    margin: 8.25rem 0;
+    text-align: center;
+  }
+
+  .header{
+    background-color: #020D4399;
+    ;
+}
+.hero__title {
+    text-align: center;
+}
+.hero__subtitle {
+    text-align: center;
+    justify-self: center;
+}
+
+/* === Shared Testimonial Styles === */
+.testimonial-section--dark {
+    background-color: #020D43; /* Dark blue background */
+    color: #ffffff; /* White text */
+
+
+}
+.testimonial-section--light {
+    background-color: #1D55C4; /* Light blue background */
+    color: #ffffff; /* White text */
+
+}
+
+.testimonial .testimonial-section--white {
+    background-color: #FFFFFF; /* Light blue background */
+    color: #1D1D1D;
+}
+.testimonial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5.5rem 0; /* 64px vertical padding */
+    text-align: center;
+  }
+  
+  .testimonial__quote {
+    font-family: "Barlow", sans-serif;
+    font-size: 1.25rem; /* 24px */
+    font-weight: 400;
+    line-height: 2.5rem; /* 36px */
+    margin-bottom: 1.5rem; /* 24px below quote */
+    max-width: 43.75rem; /* 960px max width */
+  }
+  
+  .testimonial__author {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem; /* 16px */
+    font-weight: 400;
+    line-height: 2.3rem; /* 38.86x */
+    font-style: normal; /* Removes the default italic style */
+
+  }
+  
+  
+
+  
+/* Masonry Section Styling */
+.masonry-section {
+    background-color: #020D43;
+    color: #ffffff; /* White text */
+    padding: 8.25rem 10.5rem; /* Section padding */
+    text-align: left;
+  }
+  
+  .masonry-section__title {
+    font-family: "Barlow", sans-serif;
+    font-size: 1.875rem; /* 30px */
+    font-weight: 700;
+    margin-bottom: 3rem; /* Spacing below the title */
+    text-align: center;
+  }
+  
+  /* Masonry Grid using Columns */
+  .masonry-grid {
+    column-count: 3; /* 3 columns */
+    column-gap: 3rem; /* 48px horizontal gap */
+  }
+  
+  .masonry-item {
+    background-color: #020E4A;
+    display: inline-block; /* Ensure items fit within column */
+    margin-bottom: 3rem; /* 48px vertical gap */
+    padding: 1.875rem 2.25rem ;
+    border-radius: 0.25rem; /* 4px rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%; /* Stretch to fill column width */
+    border: 1px solid #01051A
+  }
+  
+  /* Number Styling */
+  .masonry-item__number {
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem; /* 24px */
+    font-weight: 400;
+    font-size: 1.5rem; /* 24px */
+    line-height: 1.8125rem; /* 29px */
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+  
+  /* Title Styling */
+  .masonry-item__title {
+    font-family: "Inter", sans-serif;
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.5125rem; /* 24px */
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  /* Description Styling */
+  .masonry-item__description {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem; /* 14px */
+    line-height: 1.6rem; /* 22.4px */
+    color: #d1d1d1;
+    text-align: left;
+  }
+
+
+  /* === Pricing Section === */
+.pricing {
+    margin: 8.25rem 0; /* 132px equivalent */
+    text-align: center;
+    padding: 0 5%; /* Ensures responsiveness on wider screens */
+    background-color: #FAFAFA ;
+}
+
+/* === Pricing Header === */
+.pricing__header {
+    margin-bottom: 8.25rem; /* 132px equivalent */
+}
+
+.pricing__title {
+    font-family: "Barlow", sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem; /* 40px */
+    line-height: 3rem; /* 48px */
+    letter-spacing: 0;
+    text-align: center;
+    color: #020D43;
+}
+
+/* === Pricing Grid === */
+.pricing__grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem; /* 48px */
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/* === Pricing Items === */
+.pricing__item {
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 0.5rem; /* 8px */
+    padding: 2rem 1.875rem 3.75rem; /* 32px top, 30px sides, 60px bottom */
+    text-align: left;
+    width: 100%;
+    max-width: 22rem; /* 352px */
+    flex: 1 1 30%;
+    height: fit-content;
+}
+
+/* Ensures all pricing cards adjust dynamically */
+.pricing__item--popular {
+    position: relative;
+}
+
+/* === "Most Popular" Badge === */
+.pricing__item--popular::before {
+    content: "Most Popular";
+    position: absolute;
+    top: -0.875rem; /* 14px */
+    right: 0.625rem; /* 10px */
+    background-color: #00D084;
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem; /* 12px */
+    padding: 0.3125rem 0.625rem; /* 5px 10px */
+    border-radius: 0.75rem; /* 12px */
+}
+
+/* === Pricing Plan Title === */
+.pricing__plan {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 1rem; /* 16px */
+    line-height: 1.2rem;
+    letter-spacing: 0;
+    margin-bottom: 1.3rem;
+}
+
+/* === Pricing Price === */
+.pricing__price {
+    font-family: "Barlow", sans-serif;
+    font-weight: 600;
+    font-size: 2.5rem; /* 40px */
+    line-height: 3rem;
+    letter-spacing: 0;
+    margin-bottom: 2.25rem;
+}
+
+/* === Order Button === */
+.pricing__button {
+    font-family: "Barlow", sans-serif;
+    font-weight: 600;
+    font-size: 0.9375rem; /* 15px */
+    line-height: 1.5rem; /* 24px */
+    text-align: center;
+    padding: 0.9375rem 5rem; /* 15px 80px */
+    background-color: #0044CC;
+    color: white;
+    border: none;
+    border-radius: 0.375rem; /* 6px */
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-transform: uppercase;
+    transition: background 0.3s ease;
+}
+
+.pricing__button:hover {
+    background-color: #002C99;
+}
+
+/* === Contact Info === */
+.pricing__contact {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 1rem; /* 16px */
+    line-height: 1.6rem; /* 25.6px */
+    letter-spacing: 0;
+    margin-top: 1.9rem;
+}
+
+/* === Included Title === */
+.pricing__included-title {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 1rem; /* 16px */
+    line-height: 1.6rem;
+    letter-spacing: 0;
+    margin-top: 2rem;
+}
+
+/* === Features List === */
+.pricing__features {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 1rem; /* 16px */
+    line-height: 1.6rem; /* 25.6px */
+    letter-spacing: 0;
+    margin-top: 1rem;
+    padding-left: 1.75rem; /* 28px */
+    padding-right: 2.75rem; /* 44px */
+}
+
+.pricing__features li {
+    margin-bottom: 0.625rem; /* 10px */
+}
+
+
+  

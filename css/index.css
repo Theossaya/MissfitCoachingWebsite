@@ -34,62 +34,7 @@ button, input, select, textarea {
 
 
 
-/* HERO CONTENT SECTION */
-.hero__content {
-  
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-left: 10rem; /* Align the content properly */
-    margin-top: 7.9375rem;
-}
 
-.hero__text {
-  
-    max-width: 51.75rem; /* Restrict text width for readability */
-}
-
-/* Hero Title */
-.hero__title {
-    font-family: 'Barlow', sans-serif;
-    font-size: 3.47vw; /* Convert 100px to vw */
-    font-weight: 700;
-    line-height: 4.17vw;
-    text-align: left;
-    color: var(--color-white);
-    margin-bottom: 1rem; /* Space below the title */
-}
-
-/* Hero Subtitle */
-.hero__subtitle {
-    max-width: 35rem;
-    color: var(--color-white);
-    font-family: 'Inter', sans-serif;
-    font-size: 1.11vw; /* Convert 20px to vw */
-    font-weight: 400;
-    line-height: 1.6rem; /* Matches 24px */
-    text-align: left;
-    padding-bottom: 2.5rem; /* Space below the subtitle */
-}
-
-/* Hero Button */
-.hero__button {
-    background-color: #C41E3D;
-    color: #FFFFFF;
-    padding: 0.9375rem 2.25rem;
-    font-family: 'Barlow', sans-serif;
-    font-size: 0.9375rem; /* Matches 19px */
-    font-weight: 600;
-    line-height: 1.5rem; /* Matches 22.8px */
-    text-align: center;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.hero__button:hover {
-    background-color: #DDD; /* Hover effect */
-}
 
 /* === CLIENTS SECTION === */
 .clients {
@@ -323,79 +268,13 @@ button, input, select, textarea {
 }
 
 .info__container {
-  width: 100%; /* Full width for the container */
   padding: 0; /* Remove internal padding to allow full-width background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem; /* Responsive gap between text and image */
-  box-sizing: border-box;
-  
 }
 
 .info__container--reversed {
   padding: 5.5rem 0;
   background-color: #1D1D1D; /* Full-width background */
   color: #FFFFFF; /* Contrast text for dark background */
-}
-
-.info__content {
-  max-width: 35rem; /* Max width for readability (560px equivalent) */
-}
-
-.info__title {
-  font-family: 'Barlow', sans-serif;
-  font-size: 1.875rem; /* 30px equivalent */
-  font-weight: 700;
-  line-height: 2.25rem; /* 36px equivalent */
-  text-align: left;
-  margin-bottom: 2rem; /* 32px spacing */
-}
-
-.info__description {
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem; /* 16px equivalent */
-  font-weight: 400;
-  line-height: 2.3rem; /* 36.8px equivalent */
-  text-align: left;
-  margin-bottom: 2rem; /* 32px spacing */
-  max-width: 31.25rem;
-
-}
-
-.info__features {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem; /* 20px gap between features */
-}
-
-.info__feature {
-  display: flex;
-  align-items: center;
-  max-width: 16.5rem; /* 264px equivalent */
-  font-size: 1rem;
-  line-height: 1.6rem;
-  font-weight: 400;
-}
-
-.info__icon {
-  width: 1.5rem; /* 24px equivalent */
-  height: 1.5rem;
-  margin-right: 0.875rem; /* 14px spacing */
-}
-
-.info__image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.info__image img {
-  width: 100%;
-  max-width: 28.31rem; /* 453px equivalent */
-  height: auto;
-  object-fit: cover;
-  border-radius: 0.5rem; /* Optional 8px rounding */
 }
 
 

@@ -1,0 +1,164 @@
+/* Newsletter Hero Section */
+.shared-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url('../assets/images/newsletter-background.png') center/cover no-repeat;
+  }
+
+  
+  .header{
+    background-color: transparent;
+}
+
+
+  .shared-hero .newsletter-hero__content{
+    padding: 0;
+  }
+  
+  .newsletter-hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 41rem; /* 640px */
+    width: 100%;
+    margin: 6rem 0;
+  }
+  
+  .shared-hero .hero__title {
+    text-align: center;
+  }
+  
+  .newsletter-hero__subtitle {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem; /* 16px */
+    font-weight: 400;
+    line-height: 1.5rem; /* 24px */
+    margin-bottom: 2rem; /* 32px */
+  }
+  
+  .newsletter-hero__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; 
+    width: 50.9%;
+  }
+  
+  .newsletter-hero__input {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem; /* 16px */
+    font-weight: 400;
+    padding: 1rem 1.75rem; /* 12px vertical, 16px horizontal */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  .newsletter-hero__submit {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem; /* 16px */
+    font-weight: 700;
+    background-color: #c41e3d;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 1rem 2rem; /* 12px vertical, 32px horizontal */
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .newsletter-hero__submit:hover {
+    background-color: #ffffff;
+    color: #c41e3d;
+    border: 1px solid #c41e3d;
+  }
+  
+  /* === Newsletter Archive Section === */
+.newsletter-archive {
+    margin: 4rem 0 8.25rem; /* 64px from previous section */
+    padding: 0 10.5rem; /* 168px on both sides */
+    text-align: center;
+  }
+  
+  .newsletter-archive__header {
+    margin-bottom: 5.5rem; /* 88px below the title */
+  }
+  
+  .newsletter-archive__title {
+    font-family: "Barlow", sans-serif;
+    font-weight: 700;
+    font-size: 1.875rem; /* 30px */
+    line-height: 2.25rem; /* 36px */
+    letter-spacing: 0;
+    text-align: center;
+  }
+  
+  .newsletter-archive__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem; /* 48px between columns and rows */
+  }
+  
+  .newsletter-item {
+    padding: 1.875rem 2.25rem; /* 30px vertically, 36px horizontally */
+    text-align: left;
+    background-color: #fff; /* Ensure a white background */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Optional box-shadow */
+    border-radius: 0.25rem; /* 4px */
+    height: fit-content;
+  }
+  
+  .newsletter-item__number {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem; /* 24px */
+    line-height: 1.8125rem; /* 29.05px */
+    letter-spacing: 0;
+    margin: 0;
+  }
+  
+  .newsletter-item__title {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.5125rem; /* 24.2px */
+    letter-spacing: 0;
+    margin-top: 1rem; /* 16px below the number */
+  }
+  
+  .newsletter-item__date {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.4rem; /* 22.4px */
+    letter-spacing: 0;
+    margin-top: 1rem; /* 16px below the title */
+    color: #888888; /* Gray text for the date */
+  }
+  
+  /* Load More Button */
+  .newsletter-archive__load-more {
+    margin-top: 8.25rem; /* 132px below the grid */
+    font-family: "Barlow", sans-serif;
+    font-weight: 600;
+    font-size: 0.9375rem; /* 15px */
+    line-height: 1.5rem; /* 24px */
+    letter-spacing: 0;
+    text-align: center;
+    padding: 0.75rem 1.8125rem; /* 12px vertically, 29px horizontally */
+    background-color: #c41e3d; /* Button background color */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 0.25rem; /* 4px */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .newsletter-archive__load-more:hover {
+    background-color: #fff;
+    color: #c41e3d;
+    border: 1px solid #c41e3d;
+  }
+  
