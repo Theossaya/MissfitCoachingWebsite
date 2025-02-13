@@ -1,0 +1,445 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url('../assets/images/executive-backgrounds.png') center/cover no-repeat;
+
+  }
+
+/* HERO CONTENT SECTION */
+.hero__content {
+    
+    justify-content: center;
+    align-items: center;
+    margin:  0;
+    padding: 8rem 0;
+    text-align: center;
+  }
+
+  .header{
+    background-color:#1D1D1D;
+}
+.hero__title {
+    text-align: center;
+}
+.hero__subtitle {
+    text-align: center;
+    justify-self: center;
+}
+.hero__session__subtitle{
+    font-weight: 900;
+}
+
+.header__cta {
+    background-color: #FFB400;
+    color: #000000;
+  }
+  
+  .header__cta:hover {
+    background-color: #000000;
+    color: #FFB400;
+  }
+  .hero__button {
+    background-color: #FFB400;
+    color: #000000;
+  }
+  
+  .hero__button:hover {
+    background-color: #FFB400; /* Hover effect */
+  }
+
+  /* === Content Section Styling === */
+.content-section {
+    border: 1px solid #000000; /* Bottom border */
+    background: #1D1D1D; /* Dark background */
+    padding: 8.25rem 0 5.5rem; /* 132px from previous section, 88px before next section */
+    color: #FFFFFF;
+}
+
+/* Centers the content container with 375px space on both sides */
+.content-container {
+    max-width: calc(100% - 750px); /* 375px space on both sides */
+    margin: 0 auto;
+    text-align: left;
+    
+}
+
+/* === Content Title === */
+.content-title {
+    font-family: "Barlow", sans-serif;
+    font-weight: 700;
+    font-size: 1.875rem; /* 30px */
+    line-height: 2.25rem; /* 36px */
+    letter-spacing: 0;
+    max-width: 27.375rem; /* 438px */
+    margin-bottom: 2rem; /* Adjusted for spacing */
+}
+
+/* === Content Text === */
+.content-text {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 1rem; /* 16px */
+    line-height: 2.3rem; /* 36.8px */
+    letter-spacing: 0;
+    margin-bottom: 2.3rem; /* Matches line height for consistent spacing */
+}
+
+/* === Unordered List Styling === */
+.content-list {
+    padding-left: 1.5rem; /* Indentation for bullet points */
+}
+
+.content-list li {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 1rem; /* 16px */
+    line-height: 2.3rem; /* 36.8px */
+    letter-spacing: 0;
+    margin-bottom: 0.5rem; /* Small spacing between list items */
+}
+
+/* === Ordered List Styling (For Numbered Items) === */
+.content-list--numbered {
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+}
+
+
+/* === Testimonial Section === */
+.testimonial-section {
+    text-align: center;
+    padding: 8.25rem 5%; /* Ensures responsiveness on all screens */
+    color: #FFFFFF;
+    background-color: #1D1D1D;
+    border-bottom: 2px solid #000000;
+
+}
+
+/* === Testimonial Header === */
+.testimonial-title {
+    font-family: "Barlow", sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem; /* 40px */
+    line-height: 3rem; /* 48px */
+    letter-spacing: 0;
+    text-align: center;
+}
+
+/* === Spacing Below Header === */
+.testimonial-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem; /* 48px */
+    margin-top: 5.5rem; /* 88px */
+}
+
+/* === Testimonial Card === */
+.testimonial-card {
+    background-color: #272727;
+    padding: 2.5rem 2.25rem; /* 40px top/bottom, 36px sides */
+    border-radius: 8px;
+    flex: 1 1 30%;
+    text-align: left;
+
+}
+
+
+/* === Stars Row === */
+.testimonial-stars {
+    display: flex;
+    gap: 0.88rem; /* 14.1px */
+}
+
+/* === Testimonial Text === */
+.testimonial-text {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 1rem; /* 16px */
+    line-height: 1.6rem; /* 25.6px */
+    letter-spacing: 0;
+    margin-top: 1.5rem; /* 24px */
+}
+
+/* === Testimonial Author === */
+.testimonial-author {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 1rem; /* 16px */
+    line-height: 1.6rem; /* 25.6px */
+    letter-spacing: 0;
+    margin-top: 1.5rem; /* 24px */
+}
+
+
+/* === Program Breakdown Section === */
+.program-breakdown {
+    padding: 8.125rem 10.625rem; /* Responsive spacing from the previous section */
+    background-color: #1D1D1D;
+    color: #E1E2E9;
+    border-bottom: 2px solid #000000;
+
+
+}
+
+/* === Program Breakdown Title === */
+.program-breakdown__header {
+    text-align: center;
+    margin-bottom: 5.5rem; /* Keeps spacing proportional */
+}
+
+.program-breakdown__title {
+    font-family: "Barlow", sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem; /* Scales naturally */
+    line-height: 1.2em; /* Keeps spacing proportional */
+}
+
+/* === Program Breakdown Content === */
+.program-breakdown__content {
+    display: flex;
+    flex-direction: column;
+}
+.program-breakdown__content .program-phase--reverse {
+    gap: 9.4375rem;
+    margin-right: 3.25rem;
+}
+/* === Program Phase === */
+.program-phase {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 0.07em solid #000000;
+    border-bottom: 0.07em solid #000000;
+    padding: 3.75rem 0; /* Centers content vertically between the borders */
+    gap: 11.6865rem; /* Dynamic spacing between text and walkaway box */
+}
+
+
+/* === Phase Details === */
+.program-phase__details {
+   max-width: 35rem;
+}
+
+/* Phase Number */
+.program-phase__number {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.4em;
+}
+
+/* Phase Title */
+.program-phase__title {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.2em;
+    margin-top: 0.8em;
+}
+
+/* Phase Description */
+.program-phase__description {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6em;
+    margin-top: 1.6em; /* Matches the line-height for paragraph spacing */
+}
+
+/* === Walkaway Section === */
+.program-phase__walkaway {
+    background: #272727;
+    border: 0.07em solid #000000;
+    padding: 2.5rem 2.25rem; /* 40px top/bottom, 36px left/right equivalent */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Walkaway Title */
+.walkaway__title {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.6em;
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+/* Walkaway List */
+.walkaway__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3em;
+}
+
+/* Walkaway List Items */
+.walkaway__list li {
+    display: flex;
+    align-items: center;
+    gap: 0.8em; /* Responsive spacing between checkmark and text */
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6em;
+}
+
+/* Walkaway Checkmark Icon */
+.walkaway__list li img {
+    width: 1.5em; /* Adjust size for responsiveness */
+    height: auto;
+}
+
+
+
+
+
+
+
+/* === CTA Section === */
+.cta-section {
+    background-color: #1D1D1D;
+    padding: 8.25rem 0; /* 132px from the top of the section */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 2px solid #000000;
+
+}
+
+/* CTA Section Header */
+.cta-section__header {
+    text-align: center;
+    margin-bottom: 5.5rem; /* 88px below the header */
+}
+
+.cta-section__title {
+    font-family: "Barlow", sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem; /* 40px */
+    line-height: 3rem; /* 48px */
+    text-align: center;
+    color: #FFFFFF;
+}
+
+/* CTA Section Card */
+.cta-section__card {
+    background-color: #272727;
+    padding: 3rem; /* 48px on all sides */
+    text-align: center;
+    max-width: 27.325rem; /* Responsive card width */
+    border-radius: 0.5rem; /* Rounded edges for a sleek look */
+}
+
+/* CTA Section Card Title */
+.cta-section__card-title {
+    font-family: "Barlow", sans-serif;
+    font-weight: 700;
+    font-size: 1.875rem; /* 30px */
+    line-height: 2.25rem; /* 36px */
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 1rem; /* 16px */
+}
+
+/* CTA Section Description */
+.cta-section__description {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 1rem; /* 16px */
+    line-height: 1.6rem; /* 25.6px */
+    text-align: center;
+    color: #E1E2E9;
+    margin-bottom: 1.6rem; /* Space between paragraphs */
+}
+
+/* CTA Button */
+.cta-section__button {
+    font-family: "Barlow", sans-serif;
+    font-weight: 600;
+    font-size: 0.9375rem; /* 15px */
+    line-height: 1.5rem; /* 24px */
+    letter-spacing: 0%;
+    background-color: #FFB400;
+    color: #1D1D1D;
+    border: none;
+    width: 100%; /* Fills the padded width */
+    padding: 1rem 0;
+    text-transform: uppercase;
+    border-radius: 0.3rem; /* Slight rounding */
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 2.25rem; /* 36px below description */
+}
+
+/* CTA Button Hover */
+.cta-section__button:hover {
+    background-color: #E5A100;
+}
+
+  
+
+  .story {
+    background-color: #1D1D1D;
+    color: #E1E2E9;
+    border-bottom: 3px solid #000000;
+
+  }
+  .section-header__title{
+    color: #E1E2E9;
+  }
+
+  .faq {
+    background-color:#1D1D1D;
+    color: #E1E2E9;
+  }
+
+  .faq__item {
+    background-color: #272727;
+    border: 1px solid #000000;
+  }
+
+
+  /* Footer Styles */
+.footer {
+    background-color: #1D1D1D; /* Matches background */
+    color: #E1E2E9; /* Text color */
+    text-align: center;
+    padding: 2rem 0; /* Spacing */
+    font-family: "Inter", sans-serif;
+}
+
+/* Footer Links */
+.footer__links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Space between links */
+    margin-bottom: 1rem; /* Space below links */
+}
+
+.footer__link {
+    color: #E1E2E9;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.footer__link:hover {
+    text-decoration: underline;
+}
+
+/* Copyright Text */
+.footer__copyright {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #E1E2E9;
+    text-align: center;
+}
