@@ -40,6 +40,7 @@
     text-align: left;
   }
   .header{
+    padding-top: 1.25rem;
     background-color: transparent;
 }
 
@@ -252,6 +253,7 @@
     border-radius: 0.25rem; /* Rounded corners */
     outline: none;
     width: 100%; /* Full width */
+    padding-left: 1.75rem;
   }
   
   .newsletter__input::placeholder {
@@ -261,7 +263,7 @@
   .newsletter__submit {
     font-family: "Inter", sans-serif;
     font-size: 1rem; /* 16px */
-    font-weight: 700;
+    font-weight: 500;
     color: #ffffff;
     background-color: #c41e3d; /* Button color */
     border: none;

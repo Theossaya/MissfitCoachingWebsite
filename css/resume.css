@@ -74,7 +74,9 @@
   }
   
   
-
+.info__title{
+  color: #020D43;
+}
   
 /* Masonry Section Styling */
 .masonry-section {
@@ -86,9 +88,10 @@
   
   .masonry-section__title {
     font-family: "Barlow", sans-serif;
-    font-size: 1.875rem; /* 30px */
-    font-weight: 700;
-    margin-bottom: 3rem; /* Spacing below the title */
+    font-size: 2.5rem; /* 30px */
+    line-height: 3rem;
+    font-weight: 600;
+    margin-bottom: 5.5rem; /* Spacing below the title */
     text-align: center;
   }
   
@@ -136,6 +139,18 @@
     line-height: 1.6rem; /* 22.4px */
     color: #d1d1d1;
     text-align: left;
+  }
+
+  
+  .footer__heading{
+    color:#E1E2E9 ;
+  }
+  .footer__link{
+    color: #E1E2E9;
+  }
+  .footer__tagline,
+  .footer__copyright {
+    color: #E1E2E9;
   }
 
 

@@ -42,36 +42,32 @@ button, input, select, textarea {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 13.375rem; /* Responsive height for the section */
-    background-color: #000000; /* Assuming a black background for contrast */
+    background-color: #1D1D1D; /* Assuming a black background for contrast */
     color: #FFFFFF; /* White text */
+    padding: 3.75rem 0;
 }
 
 .clients__title {
-  color: var(--color-white);
-    font-family: 'Barlow', sans-serif;
-    font-size: 1.25rem; /* Responsive font size (20px equivalent) */
-    font-weight: 400;
-    line-height: 1.5rem; /* Responsive line height (24px equivalent) */
+    color: var(--color-white);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem; /* Responsive font size (20px equivalent) */
+    font-weight: 300;
+    line-height: 2.3rem; /* Responsive line height (24px equivalent) */
     text-align: center;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
     text-shadow: 1px 1px 1px #00000033; /* Apply shadow to the text */
     margin: 0 0 1.25rem; /* Space between the title and the logos */
 }
 
 .clients__logos {
     display: flex;
-    justify-content: space-between; /* Distribute logos evenly */
     align-items: center;
-    width: 51.25rem; /* Responsive width for the container */
-    height: 3.125rem; /* Responsive height for the container */
+    gap: 5rem;
+
 }
 
 .clients__logo {
-    max-width: 10vw; /* Restrict logo width */
-    max-height: 70%; /* Restrict logo height */
-    object-fit: contain; /* Ensure logos fit within the box without distortion */
+    width: 6.25rem; /* Restrict logo width */
+    height: 3.125rem; /* Restrict logo height */
 }
 
 
@@ -96,7 +92,9 @@ button, input, select, textarea {
     font-weight: 700;
     line-height: 2.25rem; /* 36px converted to rem */
     text-align: left;
+    align-self: flex-start;
     color: #000000; /* Black text color */
+    margin-left: 11.85rem;
   }
   
   .coaching-programs__cards {
@@ -141,17 +139,16 @@ button, input, select, textarea {
     color: var(--color-white);
 
     margin-top: 15.875rem; /* 254px converted to rem */
-    font-family: 'Barlow', sans-serif;
-    font-size: 1.5rem; /* 24px converted to rem */
-    font-weight: 700;
-    line-height: 2rem; /* 32px converted to rem */
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem; /* 24px converted to rem */
+    font-weight: 400;
+    line-height: 1.51rem; /* 32px converted to rem */
     text-align: left;
     margin-bottom: 0.75rem; /* 12px converted to rem */
   }
   
   .coaching-programs__card-description {
     color: var(--color-white);
-
     font-family: 'Inter', sans-serif;
     font-size: 1rem; /* 16px converted to rem */
     font-weight: 400;
@@ -204,10 +201,11 @@ button, input, select, textarea {
   
   .testimonial-slider__pagination {
     font-family: 'Inter', sans-serif;
-    font-size: 1rem; /* 16px */
+    font-size: 1.25rem; /* 16px */
+    line-height: 1.5124rem;
     font-weight: 400;
     text-align: center;
-    margin: 0 1rem; /* Space between arrows and text */
+    margin: 0 2rem; /* Space between arrows and text */
   }
   
   .testimonial-slider__content {
@@ -225,7 +223,7 @@ button, input, select, textarea {
     font-size: 1.25rem; /* 20px */
     font-weight: 400;
     line-height: 2rem; /* 32px */
-    margin-bottom: 2rem; /* Space beneath the quote */
+    margin-bottom: 2.25rem; /* Space beneath the quote */
   }
   
   .testimonial-slider__author {
@@ -233,7 +231,6 @@ button, input, select, textarea {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 1.5rem; /* Space above the author section */
   }
   
   .testimonial-slider__avatar {

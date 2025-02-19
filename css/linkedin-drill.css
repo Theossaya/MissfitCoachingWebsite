@@ -3,4 +3,21 @@
     max-width: 22.3125rem; /* 264px */
 
   }
-  
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url('../assets/images/background-linkedin.png') center/cover no-repeat;
+  }
+  .hero__subtitle{
+    padding-bottom: 1.6rem;
+    font-weight: 200;
+  }
+.hero__session__subtitle{
+  font-weight: 500 ;
+}
+
+.hero__title{
+  font-weight: 600;
+}
