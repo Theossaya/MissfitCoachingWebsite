@@ -306,11 +306,8 @@
 /* Footer Container */
 .footer__container {
   display: flex;
-  justify-content: space-between; /* Space between branding and links */
   gap: 5.875rem; /* 94px converted to rem */
-  max-width: 1200px; /* Limit content width */
   margin: 0 auto; /* Center horizontally */
-  width: 100%;
 }
 
 /* Branding Section */
@@ -401,7 +398,7 @@
   .footer__links {
     grid-template-columns: repeat(4, 1fr); /* Four columns */
     grid-template-rows: repeat(2, auto); /* Two rows, auto height */
-    gap: 1.5rem 3.75rem; /* 24px horizontal, 60px vertical (3.75rem) between rows */
+    gap: 3.75rem 1.5rem; /* 24px horizontal, 60px vertical (3.75rem) between rows */
   }
 
   /* Position groups to match one on bottom row */
@@ -417,7 +414,7 @@
   .footer__links {
     grid-template-columns: repeat(3, 1fr); /* Three columns */
     grid-template-rows: repeat(2, auto); /* Two rows, auto height */
-    gap: 1.5rem 3.75rem; /* 24px horizontal, 60px vertical (3.75rem) between rows */
+    gap: 3.75rem 1.5rem; /* 24px horizontal, 60px vertical (3.75rem) between rows */
   }
 
   /* Position groups to match two on bottom row */
@@ -433,7 +430,7 @@
   .footer__links {
     grid-template-columns: repeat(2, 1fr); /* Two columns */
     grid-template-rows: repeat(3, auto); /* Three rows, auto height */
-    gap: 1.5rem 3.75rem; /* 24px horizontal, 60px vertical (3.75rem) between rows */
+    gap: 3.75rem 1.5rem; /* 24px horizontal, 60px vertical (3.75rem) between rows */
   }
 
   /* Position groups to match two top, two middle, one bottom */
@@ -451,7 +448,7 @@
     grid-template-rows: repeat(5, auto); /* Five rows, auto height */
     gap: 3.75rem; /* 60px vertical spacing between rows */
     width: 100%; /* Full width on mobile */
-    justify-items: center; /* Center groups horizontally */
+    justify-items: flex-start; /* Center groups horizontally */
   }
 
   /* Position groups to stack vertically */
@@ -463,12 +460,12 @@
 
   .footer__links-group {
     width: auto; /* Allow full width, centered */
-    align-items: center; /* Center text */
+    align-items: left; /* Center text */
   }
 
   .footer__heading,
   .footer__link {
-    text-align: center; /* Center text on mobile */
+    text-align: left; /* Center text on mobile */
   }
 }
 
@@ -481,16 +478,16 @@
   .footer__container {
     flex-direction: column; /* Stack branding above links */
     gap: 3.75rem; /* 60px vertical spacing between branding and links */
-    align-items: center; /* Center both sections */
+    align-items: left; /* Center both sections */
   }
 
   .footer__branding {
-    align-items: center; /* Center branding on mobile */
-    text-align: center; /* Center text */
+    align-items: left; /* Center branding on mobile */
+    text-align: left; /* Center text */
   }
 
   .footer__socials {
-    justify-content: center; /* Center social icons */
+    justify-content: flex-start; /* Center social icons */
   }
 
   .footer__links {
@@ -498,17 +495,17 @@
     grid-template-rows: repeat(5, auto); /* Five rows, auto height */
     gap: 3.75rem; /* Maintain 60px vertical spacing */
     width: 100%; /* Full width on mobile */
-    justify-items: center; /* Center links horizontally */
+    justify-items: flex-start; /* Center links horizontally */
   }
 
   .footer__links-group {
     width: auto; /* Allow full width, centered */
-    align-items: center; /* Center text */
+    align-items: left; /* Center text */
   }
 
   .footer__heading,
   .footer__link {
-    text-align: center; /* Center text on mobile */
+    text-align: left; /* Center text on mobile */
   }
 }
 
@@ -544,6 +541,18 @@
   padding: 5.5rem 0; /* Top and bottom padding for the entire section */
   display: grid;
   gap: 5.5rem; /* Space between individual sections, matching your max vertical gap */
+  width: 100%; /* Ensure full width for parent */
+}
+
+/* Wrapper for full-width background */
+.info__wrapper {
+  width: 100%; /* Full width of the viewport */
+}
+
+/* Reversed wrapper for dark background */
+.info__wrapper--reversed {
+  background-color: #1D1D1D; /* Full-width background, can be any color */
+  color: #FFFFFF; /* Contrast text for dark background */
 }
 
 /* Ensure .info__container uses grid with high specificity */
@@ -551,30 +560,11 @@
 .info__container--reversed {
   display: grid;
   grid-template-columns: 1fr 28.31rem; /* Left column (flexible) and right column (fixed image width) */
-  gap: 3rem; /* 48px horizontal spacing between columns */
   box-sizing: border-box;
-  width: 100%;
   padding: 5.5rem 3.75rem; /* 88px top and bottom */
   max-width: 1200px; /* Limit content width to 1200px */
-  margin: 0 auto; /* Center the container horizontally */
-}
-
-/* Extend background color to full width for reversed containers */
-.info__container--reversed {
-  background-color: #1D1D1D; /* Full-width background */
-  color: #FFFFFF; /* Contrast text for dark background */
-  position: relative; /* Allow positioning for full-width background */
-}
-
-.info__container--reversed::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #1D1D1D; /* Match background color */
-  z-index: -1; /* Place behind content */
+  margin: 0 auto; /* Center the container horizontally within the full-width background */
+  width: 100%; /* Ensure full width for content alignment */
 }
 
 /* === Child Elements === */
@@ -625,7 +615,6 @@
   justify-content: center;
   align-items: center;
   /* Match the blue dashed border and rounded corners from the image */
-  border: 2px dashed #007bff; /* Blue dashed border, adjust color as needed */
   border-radius: 0.5rem; /* 8px */
 }
 
@@ -661,6 +650,11 @@
 
 /* === Mobile Layout (Below 1074px) === */
 @media (max-width: 1074px) {
+  .info__wrapper,
+  .info__wrapper--reversed {
+    width: 100vw; /* Full viewport width for mobile */
+  }
+
   .info__container,
   .info__container--reversed {
     display: flex; /* Switch to flex for stacking on mobile */
@@ -669,6 +663,7 @@
     padding: 3.75rem 1.5rem; /* Reduce padding for mobile */
     max-width: 100%; /* Full width on mobile */
     margin: 0; /* Remove margin for full-width stacking */
+    width: 100%; /* Ensure full width for content alignment */
   }
 
   .info__title,
