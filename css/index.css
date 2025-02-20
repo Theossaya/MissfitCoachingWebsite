@@ -35,127 +35,274 @@ button, input, select, textarea {
 
 
 
-
 /* === CLIENTS SECTION === */
 .clients {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #1D1D1D; /* Assuming a black background for contrast */
-    color: #FFFFFF; /* White text */
-    padding: 3.75rem 0;
+  display: grid;
+  justify-items: center;
+  background-color: #1D1D1D; /* Black background for contrast */
+  color: #FFFFFF; /* White text */
+  padding: 3.75rem 0;
 }
 
+/* Container Element */
+.clients__container {
+  display: grid;
+  max-width: 1200px; /* Limit overall content width */
+  margin: 0 auto; /* Center horizontally */
+  padding: 0 3.75rem; /* Initial side padding (60px converted to rem) */
+}
+
+/* Title Element */
 .clients__title {
-    color: var(--color-white);
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem; /* Responsive font size (20px equivalent) */
-    font-weight: 300;
-    line-height: 2.3rem; /* Responsive line height (24px equivalent) */
-    text-align: center;
-    text-shadow: 1px 1px 1px #00000033; /* Apply shadow to the text */
-    margin: 0 0 1.25rem; /* Space between the title and the logos */
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; /* 16px, responsive font size */
+  font-weight: 300;
+  line-height: 2.3rem; /* 36.8px, responsive line height */
+  text-align: center;
+  text-shadow: 1px 1px 1px #00000033; /* Apply shadow to the text */
+  margin-bottom: 1.25rem; /* 20px spacing between title and logos */
 }
 
+/* Logos Wrapper Element */
 .clients__logos {
-    display: flex;
-    align-items: center;
-    gap: 5rem;
+  display: grid;
+  gap: 5rem; /* 80px spacing between logos, matching original */
+  justify-items: center;
+  max-width: calc(5 * 6.25rem + 4 * 5rem); /* Max width: 5 logos * 6.25rem + 4 gaps * 5rem = 31.25rem + 20rem = 51.25rem (820px) */
+}
+
+/* Logo Element */
+.clients__logo {
+  width: 6.25rem; /* 100px, restrict logo width */
+  height: 3.125rem; /* 50px, restrict logo height */
+  object-fit: contain; /* Ensures logos scale proportionally within bounds */
+}
+
+/* === Responsive Design === */
+
+/* Desktop (Above 940px): One row, five columns */
+@media (min-width: 940px) {
+  .clients__logos {
+    grid-template-columns: repeat(5, 1fr); /* Five equal columns */
+    grid-template-rows: 1fr; /* Single row */
+    max-width: 51.25rem; /* Cap width to keep logos together, separated by gaps */
+  }
+
 
 }
 
-.clients__logo {
-    width: 6.25rem; /* Restrict logo width */
-    height: 3.125rem; /* Restrict logo height */
+/* Tablet (Below 940px, Above 666px): Two rows, four columns */
+@media (max-width: 940px) and (min-width: 666px) {
+  .clients__logos {
+    grid-template-columns: repeat(4, 1fr); /* Four columns */
+    grid-template-rows: repeat(2, 1fr); /* Two rows */
+    max-width: calc(4 * 6.25rem + 3 * 5rem); /* Max width: 4 logos * 6.25rem + 3 gaps * 5rem = 25rem + 15rem = 40rem (640px) */
+  }
+
+  /* Position logos to match two rows (four in first, one in second) */
+  .clients__logo:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .clients__logo:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .clients__logo:nth-child(3) { grid-column: 3; grid-row: 1; }
+  .clients__logo:nth-child(4) { grid-column: 4; grid-row: 1; }
+  .clients__logo:nth-child(5) { grid-row: 2; } /* Span all four columns in second row */
+
+  .clients__container {
+    padding: 0 calc((100% - 40rem) / 2); /* Dynamic padding to center and allow margins to grow */
+  }
+}
+
+/* Tablet/Mobile (Below 666px, Above 520px): Three columns, two rows */
+@media (max-width: 666px) and (min-width: 520px) {
+  .clients__logos {
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    grid-template-rows: repeat(2, 1fr); /* Two rows */
+    max-width: calc(3 * 6.25rem + 2 * 5rem); /* Max width: 3 logos * 6.25rem + 2 gaps * 5rem = 18.75rem + 10rem = 28.75rem (460px) */
+  }
+
+  /* Position logos to match three columns, two rows */
+  .clients__logo:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .clients__logo:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .clients__logo:nth-child(3) { grid-column: 3; grid-row: 1; }
+  .clients__logo:nth-child(4) { grid-column: 1; grid-row: 2; }
+  .clients__logo:nth-child(5) {  grid-row: 2; } /* Span remaining columns in second row */
+
+  .clients__container {
+    padding: 0 calc((100% - 28.75rem) / 2); /* Dynamic padding to center and allow margins to grow */
+  }
+}
+
+/* Mobile (Below 520px, Above 370px): Two columns, three rows */
+@media (max-width: 520px) and (min-width: 370px) {
+  .clients__logos {
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-template-rows: repeat(3, 1fr); /* Three rows */
+    max-width: calc(2 * 6.25rem + 1 * 5rem); /* Max width: 2 logos * 6.25rem + 1 gap * 5rem = 12.5rem + 5rem = 17.5rem (280px) */
+  }
+
+  /* Position logos to match two columns, three rows */
+  .clients__logo:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .clients__logo:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .clients__logo:nth-child(3) { grid-column: 1; grid-row: 2; }
+  .clients__logo:nth-child(4) { grid-column: 2; grid-row: 2; }
+  .clients__logo:nth-child(5) { grid-row: 3; } /* Span both columns in third row */
+
+  .clients__container {
+    padding: 0 calc((100% - 17.5rem) / 2); /* Dynamic padding to center and allow margins to grow */
+  }
+}
+
+/* Mobile (Below 370px): Single column */
+@media (max-width: 370px) {
+  .clients__logos {
+    grid-template-columns: 1fr; /* Single column */
+    grid-template-rows: repeat(5, 1fr); /* Five rows */
+    max-width: 6.25rem; /* Max width: single logo width (100px) */
+  }
+
+  /* Position logos to stack vertically */
+  .clients__logo:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .clients__logo:nth-child(2) { grid-column: 1; grid-row: 2; }
+  .clients__logo:nth-child(3) { grid-column: 1; grid-row: 3; }
+  .clients__logo:nth-child(4) { grid-column: 1; grid-row: 4; }
+  .clients__logo:nth-child(5) { grid-column: 1; grid-row: 5; }
+
+  .clients__container {
+    padding: 0 calc((100% - 6.25rem) / 2); /* Dynamic padding to center and allow margins to grow */
+  }
 }
 
 
 /* === COACHING PROGRAMS SECTION === */
+/* === COACHING PROGRAMS SECTION === */
 .coaching-programs {
-    background-color: #FFFFFF; /* White background for contrast */
-  }
-  
-  .coaching-programs__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-  }
-  
-  .coaching-programs__title {
-    color: var(--color-white);
+  background-color: #FFFFFF; /* White background for contrast */
+}
 
-    margin-top: 8.25rem; /* 132px converted to rem */
-    font-family: 'Barlow', sans-serif;
-    font-size: 1.875rem; /* 30px converted to rem */
-    font-weight: 700;
-    line-height: 2.25rem; /* 36px converted to rem */
-    text-align: left;
-    align-self: flex-start;
-    color: #000000; /* Black text color */
-    margin-left: 11.85rem;
-  }
-  
+/* Container Element */
+.coaching-programs__container {
+  display: grid;
+  max-width: 1200px; /* Limit content width, matching original intent */
+  margin: 0 auto; /* Center horizontally */
+  padding: 0 3.75rem; /* Match your original side padding (60px converted to rem) */
+  justify-content: center;
+}
+
+/* Title Element */
+.coaching-programs__title {
+  margin-top: 8.25rem; /* 132px converted to rem */
+  font-family: 'Barlow', sans-serif;
+  font-size: 1.875rem; /* 30px converted to rem */
+  font-weight: 700;
+  line-height: 2.25rem; /* 36px converted to rem */
+  text-align: left;
+  color: #000000; /* Black text color */
+  margin-bottom: 5.5rem; /* 88px converted to rem, spacing above cards */
+}
+
+/* Cards Wrapper Element */
+.coaching-programs__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns on desktop, matching flex layout */
+  gap: 3rem; /* 48px spacing between cards, matching original gap */
+  margin-bottom: 8.3125rem; /* 133px converted to rem */
+}
+
+/* Card Element */
+.coaching-programs__card {
+  position: relative;
+  width: 20rem; /* 320px converted to rem */
+  height: 22.875rem; /* 366px converted to rem */
+  overflow: hidden;
+  border-radius: 0.5rem; /* Optional: Rounded corners */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex; /* Keep flex for internal card layout, as overlay uses absolute positioning */
+  flex-direction: column;
+}
+
+/* Image Element */
+.coaching-programs__image {
+  flex: 1; /* Take up available space, matching original */
+}
+
+.coaching-programs__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the card */
+}
+
+/* Overlay Element (Unchanged, Preserving Original) */
+.coaching-programs__overlay {
+  position: absolute;
+  top: 0;
+  left: 1.5rem; /* 24px converted to rem */
+  right: 1.5rem; /* Align text within image boundaries */
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #FFFFFF; /* White text for contrast */
+  padding-bottom: 1rem; /* Padding for spacing inside the overlay */
+}
+
+/* Card Title Element */
+.coaching-programs__card-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem; /* 20px converted to rem */
+  font-weight: 400;
+  line-height: 1.5rem; /* 24px converted to rem */
+  text-align: left;
+  margin-bottom: 0.75rem; /* 12px converted to rem */
+}
+
+/* Card Description Element */
+.coaching-programs__card-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; /* 16px converted to rem */
+  font-weight: 400;
+  line-height: 1.6rem; /* 25.6px converted to rem */
+  text-align: left;
+}
+
+/* === Responsive Design === */
+
+/* Tablet Layout (Below 1152px, Above 796px) - Two Columns */
+@media (max-width: 1152px) and (min-width: 796px){
   .coaching-programs__cards {
-    display: flex;
-    justify-content: center;
-    gap: 3rem; /* Space between cards */
-    margin-top: 5.5rem; /* 88px converted to rem */
-    margin-bottom: 8.3125rem; /* 133px converted to rem */
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
   }
-  
+
+  .coaching-programs__card:nth-child(3) {
+    grid-column: span 2; /* Third card spans both columns on the bottom row */
+  }
+}
+
+/* Mobile Layout (Below 796px) - Single Column */
+@media (max-width: 796px) {
+  .coaching-programs {
+    padding: 3.75rem 1.5rem; /* Reduce padding for mobile, matching original */
+  }
+
+  .coaching-programs__title {
+    font-size: 1.5rem; /* Reduce heading size, matching original */
+    line-height: 2rem; /* Adjust line height, matching original */
+    margin-bottom: 3.5rem; /* Reduce spacing above cards, matching original */
+  }
+
+  .coaching-programs__cards {
+    grid-template-columns: 1fr; /* Single column, three rows */
+    gap: 3rem; /* Maintain original gap between cards (48px) */
+    justify-items: center; /* Center cards horizontally */
+    width: 100%; /* Ensure full width to center properly */
+    max-width: 20rem; /* Cap width to match card width, ensuring centering */
+  }
+
   .coaching-programs__card {
-    
-    position: relative;
-    width: 20rem; /* 320px converted to rem */
-    height: 22.875rem; /* 366px converted to rem */
-    overflow: hidden;
-    border-radius: 0.5rem; /* Optional: Rounded corners */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for depth */
+    width: 20rem; /* Maintain original card width (320px) */
+    height: 22.875rem; /* Maintain original card height (366px) */
+    /* Keep other styling (border-radius, shadow, etc.) as is */
   }
-  
-  .coaching-programs__image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures image covers the card */
-  }
-  
-  .coaching-programs__overlay {
-    position: absolute;
-    top: 0;
-    left: 1.5rem; /* 24px converted to rem */
-    right: 1.5rem; /* Align text within image boundaries */
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    color: #FFFFFF; /* White text for contrast */
-    padding-bottom: 1rem; /* Padding for spacing inside the overlay */
+}
 
-  }
-  
-  .coaching-programs__card-title {
-    color: var(--color-white);
-
-    margin-top: 15.875rem; /* 254px converted to rem */
-    font-family: 'Inter', sans-serif;
-    font-size: 1.25rem; /* 24px converted to rem */
-    font-weight: 400;
-    line-height: 1.51rem; /* 32px converted to rem */
-    text-align: left;
-    margin-bottom: 0.75rem; /* 12px converted to rem */
-  }
-  
-  .coaching-programs__card-description {
-    color: var(--color-white);
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem; /* 16px converted to rem */
-    font-weight: 400;
-    line-height: 1.6rem; /* 25.6px converted to rem */
-    text-align: left;
-  }
-  
 
  /* === Testimonial Slider Section === */
 .testimonial-slider {
@@ -256,23 +403,7 @@ button, input, select, textarea {
     text-align: center;
   }
   
-/* === INFO SECTION === */
-.info {
-  padding: 5.5rem 0; /* Top and bottom padding for the entire section */
-  display: flex;
-  flex-direction: column;
-  gap: 5.5rem; /* Space between individual sections */
-}
 
-.info__container {
-  padding: 0; /* Remove internal padding to allow full-width background */
-}
-
-.info__container--reversed {
-  padding: 5.5rem 0;
-  background-color: #1D1D1D; /* Full-width background */
-  color: #FFFFFF; /* Contrast text for dark background */
-}
 
 
 
