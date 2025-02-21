@@ -744,42 +744,99 @@ body {
   }
 }
 
+
+
 /* === STORY SECTION === */
 .story {
-  padding-top: 88px; /* Space under the previous section */
-  padding-bottom: 88px; /* Space at the bottom of the section */
+  padding-top: 5.5rem; /* 88px / 16 = 5.5rem */
+  padding-bottom: 5.5rem; /* 88px / 16 = 5.5rem */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.story__container {
+  max-width: 75rem; /* 1200px / 16 = 75rem */
+  width: 100%;
+  padding: 0 3.75rem; /* 24px / 16 = 1.5rem */
+}
+
+.story__header {
+  text-align: center;
+  margin-bottom: 3.5rem; /* 56px / 16 = 3.5rem */
+}
+
 .story__content {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 48px; /* Space between the text and image columns */
-  margin-bottom: 88px; /* Space between each content block */
-  max-width: 1200px; /* Optional: Limit overall width */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns for desktop */
+  gap: 3rem; /* 48px / 16 = 3rem */
+  align-items: start;
+  margin-bottom: 5.5rem; /* 88px / 16 = 5.5rem */
 }
 
 .story__text {
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 1rem; /* 16px / 16 = 1rem */
   font-weight: 400;
-  line-height: 36.8px;
+  line-height: 2.3rem; /* 36.8px / 16 = 2.3rem */
   text-align: left;
-  max-width: 453px; /* Width of the text column */
+  max-width: 28.3125rem; /* 453px / 16 = 28.3125rem */
   display: flex;
   flex-direction: column;
-  gap: 56px; /* Space between paragraphs */
+  gap: 3.5rem; /* 56px / 16 = 3.5rem */
 }
 
 .story__image img {
-  width: 453px;
-  height: 448px;
-  border-radius: 4px;
+  width: 28.3125rem; /* 453px / 16 = 28.3125rem */
+  height: 28rem; /* 448px / 16 = 28rem */
+  border-radius: 0.25rem; /* 4px / 16 = 0.25rem */
   object-fit: cover; /* Ensures image doesn't stretch */
 }
+
+/* === RESPONSIVE BREAKPOINTS === */
+
+/* At 1074px: Switch to a single column layout */
+@media (max-width: 1074px) { /* 1074px / 16 = 67.125rem */
+  .story__content {
+    grid-template-columns: 1fr; /* Single column */
+    justify-items: center; /* Center content */
+    text-align: center; /* Center text */
+  }
+
+  .story__text {
+    max-width: 28.3125rem; /* 453px / 16 = 28.3125rem */
+    text-align: center; /* Center text */
+    order: 1;
+  }
+
+  /* Ensure image comes first before text */
+
+}
+
+/* At 549px: Adjust header alignment and scale images */
+@media (max-width: 34.3125rem) { /* 549px / 16 = 34.3125rem */
+  .story__header {
+    text-align: left; /* Align header to the left */
+  }
+
+  .story__content {
+    gap: 1.5rem; /* 24px / 16 = 1.5rem */
+  }
+
+  .story__text {
+    max-width: 100%; /* Allow text to take full width */
+    text-align: left; /* Align text to the left */
+    order: 1;
+  }
+
+  .story__image img {
+    width: 100%; /* Allow image to scale down */
+    max-width: 28.3125rem; /* 453px / 16 = 28.3125rem */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+
+
 
 /* Milestone Section */
 .career-milestone-section {
@@ -1344,4 +1401,69 @@ body {
 
 .pricing__features li {
     margin-bottom: 0.625rem; /* 10px */
+}
+
+
+ 
+/* Masonry Section Styling */
+.masonry-section {
+  background-color: #020D43;
+  color: #ffffff; /* White text */
+  padding: 8.25rem 10.5rem; /* Section padding */
+  text-align: left;
+}
+
+.masonry-section__title {
+  font-family: "Barlow", sans-serif;
+  font-size: 2.5rem; /* 30px */
+  line-height: 3rem;
+  font-weight: 600;
+  margin-bottom: 5.5rem; /* Spacing below the title */
+  text-align: center;
+}
+
+/* Masonry Grid using Columns */
+.masonry-grid {
+  column-count: 3; /* 3 columns */
+  column-gap: 3rem; /* 48px horizontal gap */
+}
+
+.masonry-item {
+  background-color: #020E4A;
+  display: inline-block; /* Ensure items fit within column */
+  margin-bottom: 3rem; /* 48px vertical gap */
+  padding: 1.875rem 2.25rem ;
+  border-radius: 0.25rem; /* 4px rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: 100%; /* Stretch to fill column width */
+  border: 1px solid #01051A
+}
+
+/* Number Styling */
+.masonry-item__number {
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem; /* 24px */
+  font-weight: 400;
+  font-size: 1.5rem; /* 24px */
+  line-height: 1.8125rem; /* 29px */
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+/* Title Styling */
+.masonry-item__title {
+  font-family: "Inter", sans-serif;
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.5125rem; /* 24px */
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Description Styling */
+.masonry-item__description {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem; /* 14px */
+  line-height: 1.6rem; /* 22.4px */
+  color: #d1d1d1;
+  text-align: left;
 }

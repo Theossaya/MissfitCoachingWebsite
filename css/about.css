@@ -7,11 +7,7 @@ body {
 
 
 .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: 32.375rem; /* 518px */
+
 
     /* Apply the gradient, image, and black base */
     background: url('../assets/images/background-about-us.png');
@@ -32,16 +28,17 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin: 8.25rem 0; /* 132px spacing above and below */
+    margin:  0; /* 132px spacing above and below */
     gap: 1.0625rem; /* 17px gap between title and description */
+    padding: 8.25rem 3.75rem;
 }
 
 /* Hero Title */
 .hero__title {
     font-family: 'Barlow', sans-serif;
-    font-size: 3.75rem; /* 60px */
+    line-height: 3.75rem; /* 60px */
     font-weight: 700;
-    line-height: 4.5rem; /* 72px */
+    font-size: 3.125rem; /* 72px */
     margin: 0;
 }
 
@@ -58,7 +55,13 @@ body {
 
 
 
-  
+
+@media (max-width: 753px) {
+  .hero__title {
+    font-size: clamp(2.188rem, 7.937vw + -0.61rem, 3.125rem);
+line-height: clamp(2.625rem, 9.524vw + -0.732rem, 3.75rem);
+  }
+}
 
   /* === VALUES SECTION === */
 .values {
