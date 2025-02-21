@@ -73,9 +73,8 @@
   }
   
   .newsletter-hero__submit:hover {
-    background-color: #ffffff;
-    color: #c41e3d;
-    border: 1px solid #c41e3d;
+    background-color: #a91e1e; /* Darker red on hover */
+
   }
   
   /* === Newsletter Archive Section === */
@@ -160,9 +159,7 @@
   }
   
   .newsletter-archive__load-more:hover {
-    background-color: #fff;
-    color: #c41e3d;
-    border: 1px solid #c41e3d;
+    background-color: #a91e1e; /* Darker red on hover */
   }
   
 
@@ -176,3 +173,23 @@
   .footer__copyright {
     color: #E1E2E9;
   }
+
+  .newsletter-item__link {
+    display: block; /* Makes the link a block element to fill the newsletter item */
+    text-decoration: none; /* Remove default underline */
+    color: inherit; /* Inherit text color from parent (newsletter-item) */
+    width: 100%; /* Ensure full width */
+    height: 100%; /* Ensure full height */
+  }
+  
+  /* Ensure the newsletter item content inside the link is styled as before */
+  .newsletter-item {
+    /* No changes needed here, as the newsletter item’s original styling (number, title, date) remains intact */
+  }
+  
+  /* Optional: Add hover effect for better UX */
+  .newsletter-item__link:hover .newsletter-item__title,
+  .newsletter-item__link:hover .newsletter-item__date {
+    color: #C41E3D; /* Red color on hover, matching your theme */
+  }
+  

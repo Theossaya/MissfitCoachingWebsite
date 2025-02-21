@@ -1,8 +1,8 @@
-/* body {
+body {
   font-family: 'Barlow', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-} */
+}
 
 /* === HEADER === */
 /* === HEADER === */
@@ -32,7 +32,7 @@
 /* Logo (Reverted to SVG) */
 .header__logo {
   flex-grow: 0; /* Logo takes only as much space as needed */
-  line-height: 1.3rem;
+  height: 22.8906px;
 }
 
 .header__logo img {
@@ -64,8 +64,6 @@
   line-height: 1.5rem;
   display: flex;
   align-items: center;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
 /* Navigation Icon */
@@ -82,7 +80,7 @@
   padding: 0.75rem 2.25rem; /* Padding inside the button */
   font-family: "Barlow", serif;
   font-size: 0.9375rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.5rem;
   text-align: center;
   text-decoration: none;
@@ -97,18 +95,19 @@
 /* Hamburger Menu Icon (Hidden by default) */
 .header__menu-toggle {
   display: none; /* Hidden on desktop */
-  font-size: 1.5rem;
-  background: none;
+  background: url('../assets/icons/hamburger.svg') no-repeat center; /* Use local SVG as background */
+  background-size: 24.719209671020508px 14.000005722045898px; /* Match your specified dimensions */
   border: none;
-  color: #FFFFFF;
+  width: 24.719209671020508px; /* Match SVG width */
+  height: 14.000005722045898px; /* Match SVG height */
+  color: #FFFFFF; /* For accessibility, though not visible if using background */
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0.5rem; /* Maintain padding for clickable area, adjust as needed */
 }
 
-/* Hamburger Icon Styling (Using CSS for three lines) */
+/* Remove the ::before pseudo-element since we’re using a background image */
 .header__menu-toggle::before {
-  content: "☰"; /* Unicode for hamburger menu (three lines) */
-  font-size: 1.5rem;
+  content: none; /* Remove the Unicode content */
 }
 
 /* Mobile Menu (Hidden by default) */
@@ -257,7 +256,7 @@
 .hero__title {
   font-family: 'Barlow', sans-serif;
   font-size: 3.125rem; /* Convert 100px to vw */
-  font-weight: 600;
+  font-weight: 700;
   line-height: 3.75rem;
   text-align: left;
   color: var(--color-white);
@@ -270,7 +269,7 @@
   color: var(--color-white);
   font-family: 'Inter', sans-serif;
   font-size: 1rem; /* Convert 20px to vw */
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.6rem; /* Matches 24px */
   text-align: left;
   padding-bottom: 2.5rem; /* Space below the subtitle */
@@ -283,7 +282,7 @@
   padding: 1.1rem 2.25rem;
   font-family: 'Barlow', sans-serif;
   font-size: 0.9375rem; /* Matches 19px */
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.5rem; /* Matches 22.8px */
   text-align: center;
   text-decoration: none;
@@ -292,7 +291,7 @@
 }
 
 .hero__button:hover {
-  background-color: #DDD; /* Hover effect */
+  background-color: #a91e1e; /* Darker red on hover */
 }
 
 @media (max-width: 664px) {

@@ -135,3 +135,9 @@
   }
 
 
+
+  .article__link {
+    text-decoration: none; /* Remove default underline */
+    color: inherit; /* Inherit text color from parent (article) */
+    cursor:pointer;
+  }

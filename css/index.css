@@ -56,7 +56,7 @@ button, input, select, textarea {
 .clients__title {
   font-family: 'Inter', sans-serif;
   font-size: 1rem; /* 16px, responsive font size */
-  font-weight: 300;
+  font-weight: 400;
   line-height: 2.3rem; /* 36.8px, responsive line height */
   text-align: center;
   text-shadow: 1px 1px 1px #00000033; /* Apply shadow to the text */
@@ -248,7 +248,7 @@ button, input, select, textarea {
 .coaching-programs__card-title {
   font-family: 'Inter', sans-serif;
   font-size: 1.25rem; /* 20px converted to rem */
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.5rem; /* 24px converted to rem */
   text-align: left;
   margin-bottom: 0.75rem; /* 12px converted to rem */
@@ -274,6 +274,9 @@ button, input, select, textarea {
   .coaching-programs__card:nth-child(3) {
     grid-column: span 2; /* Third card spans both columns on the bottom row */
   }
+  .coaching-programs__title{
+    text-align: center;
+  }
 }
 
 /* Mobile Layout (Below 796px) - Single Column */
@@ -283,6 +286,7 @@ button, input, select, textarea {
     font-size: 1.5rem; /* Reduce heading size, matching original */
     line-height: 2rem; /* Adjust line height, matching original */
     margin-bottom: 3.5rem; /* Reduce spacing above cards, matching original */
+    text-align: left;
   }
 
   .coaching-programs__cards {
@@ -395,7 +399,7 @@ button, input, select, textarea {
 
     font-family: 'Inter', sans-serif;
     font-size: 1rem; /* 16px */
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.21rem; /* 19.36px */
     text-align: center;
   }
