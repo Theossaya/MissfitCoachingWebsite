@@ -1,4 +1,11 @@
 /* === HERO SECTION === */
+body {
+  font-family: 'Barlow', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+
 .hero {
     display: flex;
     flex-direction: column;
@@ -114,3 +121,4 @@
   .career-milestone-section {
     background-color: #FFFFFF; /* Background for the section */
   }
+

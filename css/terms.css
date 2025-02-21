@@ -1,4 +1,9 @@
-
+body {
+    font-family: 'Barlow', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  
 /* Hero Section */
 .header {
   background: #000000;

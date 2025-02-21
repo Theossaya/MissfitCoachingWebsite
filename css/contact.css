@@ -1,3 +1,10 @@
+body {
+  font-family: 'Barlow', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+
 /* === CONTACT HERO SECTION === */
 .contact-hero {
     height: 29.125rem; /* 266px converted to rem */

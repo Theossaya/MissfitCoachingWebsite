@@ -3,7 +3,12 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     box-sizing: border-box; /* Include padding and border in element's total width and height */
+    font-family: 'Barlow', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
+
+
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, li,
