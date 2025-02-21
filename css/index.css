@@ -27,7 +27,7 @@ button, input, select, textarea {
     height: 38.3125rem; /* Full viewport height */
     max-width: 100%; /* Full width */
     background-image: url('../assets/images/hero-woman.png'); /* Background image */
-    background-size: cover; /* Cover the hero section */
+    background-size:cover; /* Cover the hero section */
     background-repeat: no-repeat;
     color: #FFFFFF; /* White text */
 }
@@ -278,9 +278,6 @@ button, input, select, textarea {
 
 /* Mobile Layout (Below 796px) - Single Column */
 @media (max-width: 796px) {
-  .coaching-programs {
-    padding: 3.75rem 1.5rem; /* Reduce padding for mobile, matching original */
-  }
 
   .coaching-programs__title {
     font-size: 1.5rem; /* Reduce heading size, matching original */
@@ -312,7 +309,7 @@ button, input, select, textarea {
     justify-content: center;
     background-color: #1D1D1D; /* Dark background */
     color: #FFFFFF;
-    padding: 88px 0; /* Space at the top and bottom of the section */
+    padding: 5.5rem 3.75rem; /* Space at the top and bottom of the section */
   }
   .testimonial-slider__container{
     display: flex;

@@ -1,5 +1,12 @@
+/* body {
+  font-family: 'Barlow', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+} */
+
 /* === HEADER === */
 /* === HEADER === */
+
 .header {
   display: flex;
   justify-content: center; /* Centers the container horizontally */
@@ -49,7 +56,7 @@
 
 .header__nav-link {
   font-family: "Barlow", serif;
-  font-weight: 410;
+  font-weight: 600;
   font-style: normal;
   text-decoration: none;
   color: #FFFFFF;
@@ -57,6 +64,8 @@
   line-height: 1.5rem;
   display: flex;
   align-items: center;
+  /* -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility; */
 }
 
 /* Navigation Icon */
@@ -181,7 +190,10 @@
   .header__container {
     justify-content: space-between; /* Maintain space between logo and right elements */
   }
-
+  .header {
+    padding-left: clamp(3rem, 2.0709rem + 2.2388vw, 3.75rem);;
+    padding-right: clamp(3rem, 2.0709rem + 2.2388vw, 3.75rem);;
+}
   .header__nav {
     display: none; /* Hide default nav */
   }
@@ -210,7 +222,10 @@
   .header__cta {
     display: none; /* Hide desktop CTA */
   }
-
+  .header {
+    padding-left: clamp(2.25rem, 0.6058rem + 5.7692vw, 3rem);
+    padding-right: clamp(2.25rem, 0.6058rem + 5.7692vw, 3rem);
+}
   .header__mobile-menu.active {
     display: flex;
   }
@@ -538,9 +553,9 @@
 /* === INFO SECTION === */
 /* === INFO SECTION === */
 .info {
-  padding: 5.5rem 0; /* Top and bottom padding for the entire section */
+  padding: 0; /* Top and bottom padding for the entire section */
   display: grid;
-  gap: 5.5rem; /* Space between individual sections, matching your max vertical gap */
+  gap: 0; /* Space between individual sections, matching your max vertical gap */
   width: 100%; /* Ensure full width for parent */
 }
 
@@ -646,6 +661,7 @@
   .info__features {
     max-width: 35rem; /* Cap width for readability */
   }
+  
 }
 
 /* === Mobile Layout (Below 1074px) === */
@@ -654,13 +670,14 @@
   .info__wrapper--reversed {
     width: 100vw; /* Full viewport width for mobile */
   }
-
+  .info__description{
+    margin-top: 2rem;
+  }
   .info__container,
   .info__container--reversed {
     display: flex; /* Switch to flex for stacking on mobile */
     flex-direction: column; /* Stack vertically for mobile */
     align-items: center; /* Center the items */
-    padding: 3.75rem 1.5rem; /* Reduce padding for mobile */
     max-width: 100%; /* Full width on mobile */
     margin: 0; /* Remove margin for full-width stacking */
     width: 100%; /* Ensure full width for content alignment */
@@ -671,6 +688,9 @@
   .info__description,
   .info__features {
     width: 100%; /* Full width for all elements */
+  }
+  .info__features{
+    margin-top: 0;
   }
 
   .info__image img {
@@ -690,11 +710,9 @@
 
 /* Below 573px: Scale image down and wrap text more flexibly */
 @media (max-width: 573px) {
-  .info__container,
-  .info__container--reversed {
-    padding: 3rem 1rem; /* Further reduce padding for smaller screens */
+  .info__description{
+    margin-top: 2rem;
   }
-
   .info__title {
     font-size: 1.5rem; /* Reduce title size for mobile */
     line-height: 2rem; /* Adjust line height */
@@ -708,6 +726,7 @@
 
   .info__features {
     gap: 1rem; /* Reduce gap between features */
+    margin-top: 0;
   }
 
   .info__feature {
@@ -769,7 +788,7 @@
   display: flex;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
-  padding: 88px 0; /* 88px at top and bottom, 1rem at sides */
+  padding: 5.5rem 3.75em; /* 88px at top and bottom, 1rem at sides */
   margin: 0 auto;
   background-color: #f5f5f5; /* Background for the section */
   box-sizing: border-box; /* Include padding in width/height calculations */
@@ -780,7 +799,7 @@
   background-color: #212121; /* Dark background */
   color: #fff;
   text-align: center;
-  padding: 3rem 3rem; /* 48px spacing on all sides inside the container */
+  padding: 2.25rem; /* 48px spacing on all sides inside the container */
   border-radius: 0.5rem; /* Rounded corners */
   box-sizing: border-box; /* Includes padding in width/height calculations */
   display: flex;
@@ -829,6 +848,11 @@
   background-color: #a91e1e; /* Darker red on hover */
 }
 
+@media (max-width: 1074px) {
+  .career-milestone-section { 
+    padding: 5.5rem clamp(3rem, 0.8741rem + 8.6331vw, 3.75rem);
+  }
+}
 
 /* === SHARED HERO STYLES === */
 .shared-hero {

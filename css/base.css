@@ -10,11 +10,11 @@
     scroll-behavior: smooth;
 } */
 
-body {
+/* body {
     font-family: 'Barlow', sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-}
+} */
 
 /* === VARIABLES === */
 :root {
