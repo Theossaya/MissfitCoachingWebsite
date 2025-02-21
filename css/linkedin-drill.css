@@ -27,3 +27,11 @@ body {
 .hero__title{
   font-weight: 600;
 }
+.info__wrapper--reversed{
+  background: #FFFFFF;
+  color: #000000;
+}
+
+.info__icon{
+  content: url('../assets/icons/checkmark-blue.svg');
+}
