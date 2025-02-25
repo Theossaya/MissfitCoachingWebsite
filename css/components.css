@@ -1252,9 +1252,8 @@ body {
 
   /* === Pricing Section === */
   .pricing {
-    margin: 8.25rem 0; /* 132px equivalent */
+    padding: 8.25rem 0; /* 132px equivalent */
     text-align: center;
-    padding: 0 5%; /* Ensures responsiveness on wider screens */
     background-color: #FAFAFA ;
 }
 

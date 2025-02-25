@@ -2,6 +2,7 @@ body {
     font-family: 'Barlow', sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    background-color: #1D1D1D;
   }
   
 .hero {
@@ -52,7 +53,7 @@ body {
   }
   
   .hero__button:hover {
-    background-color: #FFB400; /* Hover effect */
+    background-color: #E5A200; /* Slightly darker yellow on hover */
   }
 
 
@@ -72,7 +73,7 @@ body {
     justify-content: flex-start; /* Align items from left, adjust spacing manually */
     align-items: center;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
   }
   
@@ -102,15 +103,15 @@ body {
     font-weight: 600;
     font-style: normal;
     text-decoration: none;
-    color: #FFB400; /* Yellow text for active category */
+    color: #E1E2E9; /* Yellow text for active category */
     font-size: 1.125rem; /* Larger than nav links, match image */
-    line-height: 1.5rem;
+    line-height: 1.8rem;
     cursor: pointer;
   }
   
   /* Navigation (positioned 375px from left, 180px from right) */
   .header__nav.executive-nav {
-    margin-left: 375px; /* 375px from header__left */
+    margin-left: 340px; /* 375px from header__left */
     margin-right: 180px; /* 180px from header__right */
   }
   
@@ -145,7 +146,7 @@ body {
     line-height: 1.5rem;
     text-align: center;
     text-decoration: none;
-    border-radius: 0.5rem; /* Rounded corners */
+    border-radius: 0.25rem; /* Rounded corners */
     transition: background-color 0.3s ease, color 0.3s ease;
     border: none;
   }
@@ -260,7 +261,7 @@ body {
 
   /* === Content Section Styling === */
 .content-section {
-    border: 1px solid #000000; /* Bottom border */
+    border-bottom: 1px solid #000000; /* Bottom border */
     background: #1D1D1D; /* Dark background */
     padding: 8.25rem 0 5.5rem; /* 132px from previous section, 88px before next section */
     color: #FFFFFF;
@@ -406,7 +407,7 @@ body {
     padding: 8.125rem 3.75rem; /* Responsive spacing from the previous section */
     background-color: #1D1D1D;
     color: #E1E2E9;
-    border-bottom: 2px solid #000000;
+    border-bottom: 1px solid #000000;
   }
   
   /* === Program Breakdown Title === */
@@ -663,6 +664,19 @@ body {
 .cta-section__button:hover {
     background-color: #E5A100;
 }
+
+@media (max-width: 1220px) {
+    .cta-section {
+        padding: 8.25rem clamp(0rem, 11.5036rem + -34.5324vw, 3rem);
+
+    }
+  
+    .program-breakdown__content .program-phase--reverse {
+      gap: clamp(3rem, -41.2319rem + 66.4516vw, 9.4375rem);
+      margin-right: 0;
+    }
+  }
+
 
   
 
