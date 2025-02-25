@@ -921,36 +921,47 @@ body {
   
 }
 
-.shared-hero .hero__content {
-  margin: 8.25rem 0; /* 132px */
-  padding-left: 10rem; /* 160px for left alignment */
+-----
 
+.shared-hero .hero__content {
+  margin-top: 8.25rem; /* 132px converted to rem */
+  padding-left: clamp(3rem, 0.2083rem + 7.4074vw, 3.75rem); /* 160px converted to rem for left alignment */
+  padding-right: 48px;
 }
 
 .shared-hero .hero__text {
   display: flex;
   flex-direction: column;
   align-items: flex-start; /* Left-align text */
+  
 }
 
 .shared-hero .hero__title {
   font-family: 'Barlow', sans-serif;
-  font-size: 3.75rem; /* 60px */
-  font-weight: 600;
-  line-height: 4.5rem; /* 72px */
+  font-size: 3.125rem; /* 60px converted to rem */
+  font-weight: 700;
+  line-height: 4.5rem; /* 72px converted to rem */
   text-align: left;
   margin: 0;
 }
 
 .shared-hero .hero__subtitle {
-  margin-top: 1rem; /* 16px */
   font-family: 'Inter', sans-serif;
-  font-size: 1rem; /* 16px */
-  font-weight: 200;
-  line-height: 1.6rem; /* 25.6px */
+  font-size: 1rem; /* 16px converted to rem */
+  font-weight: 400;
+  line-height: 1.6rem; /* 25.6px converted to rem */
   text-align: left;
 }
 
+
+
+@media (max-width: 603px) {
+  .shared-hero .hero__title{
+    font-size: clamp(2.188rem, 8.523vw + -0.087rem, 3.125rem);
+    line-height: clamp(2.625rem, 10.227vw + -0.104rem, 3.75rem);
+    }
+
+}
 
 
 .newsletter__container {
@@ -1013,6 +1024,7 @@ body {
   color: #888888; /* Placeholder text color */
 }
 
+ 
 .newsletter__submit {
   font-family: "Inter", sans-serif;
   font-size: 1rem; /* 16px */
@@ -1021,7 +1033,8 @@ body {
   background-color: #c41e3d; /* Button color */
   border: none;
   border-radius: 0.25rem; /* Rounded corners */
-  padding: 1rem 9rem; /* 16px vertical, 144px horizontal */
+  padding: 1rem; /* 16px padding on all sides */
+  width: 100%; /* Full width of the container */
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -1224,7 +1237,7 @@ body {
   margin-top: 1rem; /* Ensure spacing is applied when visible */
   font-family: 'Inter', sans-serif;
   font-size: 1rem; /* Responsive font size */
-  font-weight: 300;
+  font-weight: 400;
   line-height: 2.3rem; /* 36.8px */
   text-align: left;
   color: #000000; /* Subtle text color */
@@ -1262,25 +1275,25 @@ body {
 
 /* === Pricing Grid === */
 .pricing__grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 3rem; /* 48px */
-    max-width: 90%;
-    margin: 0 auto;
+  display: grid;
+  justify-content: center;
+  gap: 3rem; /* 48px */
+  max-width: 90%;
+  margin: 0 auto;
+  /* Default: 3 columns on desktop (above 1200px) */
+  grid-template-columns: repeat(3, 1fr);
 }
 
 /* === Pricing Items === */
 .pricing__item {
-    background: #FFFFFF;
-    border: 1px solid #CCCFD9;
-    border-radius: 0.5rem; /* 8px */
-    padding: 2rem 1.875rem 3.75rem; /* 32px top, 30px sides, 60px bottom */
-    text-align: left;
-    width: 100%;
-    max-width: 22rem; /* 352px */
-    flex: 1 1 30%;
-    height: fit-content;
+  background: #FFFFFF;
+  border: 1px solid #CCCFD9;
+  border-radius: 0.5rem; /* 8px */
+  padding: 2rem 1.875rem 3.75rem; /* 32px top, 30px sides, 60px bottom */
+  text-align: left;
+  width: 100%;
+  max-width: 22rem; /* 352px */
+  height: fit-content;
 }
 
 /* Ensures all pricing cards adjust dynamically */
@@ -1404,7 +1417,46 @@ body {
 }
 
 
- 
+/* Media query for 1200px and below (two-column layout with masonry effect) */
+@media (max-width: 1200px) {
+  .pricing__grid {
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    /* Use auto-flow to create a masonry-like effect, but control order */
+    grid-auto-flow: dense; /* Ensures items fill gaps efficiently */
+  }
+
+  /* Position items explicitly to match the desired layout */
+  .pricing__item--popular { /* Premier (first column, top) */
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .pricing__item:nth-child(2) { /* Standard (second column, top) */
+    grid-column: 2;
+    grid-row: 1 / span 2; /* Span two rows to create space for Starter below */
+  }
+
+  .pricing__item:nth-child(3) { /* Starter (second column, under Standard) */
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+/* Optional: Adjust for smaller screens if needed */
+@media (max-width: 768px) {
+  .pricing__grid {
+    grid-template-columns: 1fr; /* Single column for very small screens */
+    grid-auto-flow: row; /* Stack vertically */
+  }
+
+  /* Reset explicit positioning for mobile */
+  .pricing__item--popular,
+  .pricing__item:nth-child(2),
+  .pricing__item:nth-child(3) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
 /* Masonry Section Styling */
 .masonry-section {
   background-color: #020D43;
@@ -1436,7 +1488,7 @@ body {
   border-radius: 0.25rem; /* 4px rounded corners */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   width: 100%; /* Stretch to fill column width */
-  border: 1px solid #01051A
+  border: 1px solid #01051A;
 }
 
 /* Number Styling */

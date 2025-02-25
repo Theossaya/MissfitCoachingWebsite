@@ -35,6 +35,33 @@ body {
     font-weight: 900;
 }
 
+
+@media (max-width: 948px) {
+
+  .hero__title {
+    font-size: clamp(2.188rem, 5.515vw + -0.142rem, 3.125rem);
+    line-height: clamp(2.625rem, 6.618vw + -0.171rem, 3.75rem);
+  }
+  .hero__content{
+    padding: 0 clamp(3rem, -0.1066rem + 7.3529vw, 4.25rem);;
+  }
+
+}
+
+@media (max-width: 675px) {
+
+  .hero__title {
+   text-align: left;
+  }
+  .hero__content{
+    text-align: left;
+  }
+  .hero__subtitle{
+    text-align: left;
+  }
+
+}
+
 /* === Shared Testimonial Styles === */
 .testimonial-section--dark {
     background-color: #020D43; /* Dark blue background */
@@ -83,70 +110,7 @@ body {
 .info__title{
   color: #020D43;
 }
-  
-/* Masonry Section Styling */
-.masonry-section {
-    background-color: #020D43;
-    color: #ffffff; /* White text */
-    padding: 8.25rem 10.5rem; /* Section padding */
-    text-align: left;
-  }
-  
-  .masonry-section__title {
-    font-family: "Barlow", sans-serif;
-    font-size: 2.5rem; /* 30px */
-    line-height: 3rem;
-    font-weight: 600;
-    margin-bottom: 5.5rem; /* Spacing below the title */
-    text-align: center;
-  }
-  
-  /* Masonry Grid using Columns */
-  .masonry-grid {
-    column-count: 3; /* 3 columns */
-    column-gap: 3rem; /* 48px horizontal gap */
-  }
-  
-  .masonry-item {
-    background-color: #020E4A;
-    display: inline-block; /* Ensure items fit within column */
-    margin-bottom: 3rem; /* 48px vertical gap */
-    padding: 1.875rem 2.25rem ;
-    border-radius: 0.25rem; /* 4px rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    width: 100%; /* Stretch to fill column width */
-    border: 1px solid #01051A
-  }
-  
-  /* Number Styling */
-  .masonry-item__number {
-    font-family: "Inter", sans-serif;
-    font-size: 1.5rem; /* 24px */
-    font-weight: 400;
-    font-size: 1.5rem; /* 24px */
-    line-height: 1.8125rem; /* 29px */
-    margin-bottom: 1rem;
-    color: #ffffff;
-  }
-  
-  /* Title Styling */
-  .masonry-item__title {
-    font-family: "Inter", sans-serif;
-    font-size: 1.25rem; /* 20px */
-    line-height: 1.5125rem; /* 24px */
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
-  
-  /* Description Styling */
-  .masonry-item__description {
-    font-family: "Inter", sans-serif;
-    font-size: 1rem; /* 14px */
-    line-height: 1.6rem; /* 22.4px */
-    color: #d1d1d1;
-    text-align: left;
-  }
-
+ 
   
   .footer__heading{
     color:#E1E2E9 ;

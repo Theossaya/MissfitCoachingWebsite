@@ -35,3 +35,21 @@ body {
 .info__icon{
   content: url('../assets/icons/checkmark-blue.svg');
 }
+
+
+@media (max-width: 675px) {
+
+  .hero__title {
+   text-align: left;
+  }
+  .hero__content{
+    text-align: left;
+  }
+  .hero__subtitle{
+    text-align: left;
+  }
+  .hero__session__subtitle{
+    justify-self: left;
+  }
+
+}

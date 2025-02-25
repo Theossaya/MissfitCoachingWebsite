@@ -13,42 +13,147 @@ body {
   .header{
     background-color: transparent;
 }
-
-.articles-hero .articles-hero__categories {
-    display: flex;
-    gap: 2.25rem;
-    background-color: #ffffff; /* Ensure solid white background */
-    width: 100%;
-    padding: 1rem 0 1rem 10rem ;
-    border: none;
-
-  }
   
-  .hero__subtitle{
-    padding-bottom: 0;
-  }
-  .articles-hero .category {
-    padding: 0.5rem 1rem;
-    background-color: #F0F0F0;
-    border-radius: 2rem;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 1.4rem;
-    color: #676767;
-    cursor: pointer;
-    border: none;
-  }
-  
-  .articles-hero .category.active {
-    background-color: #000;
-    color: #FFB400;
-  }
-
-  .articles-hero__categories {
-  outline: 1px solid #ffffff; /* Temporary */
+.hero__subtitle{
+  padding-bottom: 0;
+}
+.hero__content{
+  margin-bottom: 7.9375rem;
 }
 
+/* General container styling */
+.articles-hero__categories {
+  display: flex;
+  gap: 2.25rem;
+  background-color: #ffffff;
+  width: 100%;
+  padding: 1rem 2.25rem;
+  border: none;
+  position: relative;
+}
+
+/* Horizontal button styling */
+.category {
+  padding: 0.5rem 1rem;
+  background-color: #f0f0f0;
+  border-radius: 2rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.4rem;
+  color: #676767;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.category.active {
+  background-color: #1d1d1d;
+  color: #ffb400;
+}
+
+.category:hover {
+  background-color: #e0e0e0;
+}
+
+/* Dropdown styling (hidden by default) */
+.category-dropdown {
+  display: none;
+  width: 100%;
+}
+
+.category-dropdown__toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 36px 0 48px; /* 36px right, 48px left padding */
+  background: none; /* Remove background */
+  border: none; /* Remove border */
+  cursor: pointer;
+  outline: none;
+}
+
+.category-dropdown__text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25.6px;
+  color: #000; /* Default text color, can adjust based on design */
+}
+
+.category-dropdown__icon {
+  width: 0.8rem;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.category-dropdown__list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0.5rem 0;
+  margin: 0;
+  z-index: 10;
+}
+
+.category-dropdown__list.active {
+  display: block;
+}
+
+.category-dropdown__item {
+  padding: 0.5rem 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.4rem;
+  color: #676767;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.category-dropdown__item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Media query for mobile (952px and below) */
+@media (max-width: 952px) {
+  .articles-hero__categories {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .category {
+    display: none;
+  }
+
+  .category-dropdown {
+    display: block;
+  }
+
+  .category-dropdown__toggle.open .category-dropdown__icon {
+    transform: rotate(180deg); /* Rotate icon when dropdown is open */
+  }
+
+  /* Ensure text color in dropdown matches active state if needed */
+  .category-dropdown__text {
+    color: #000000; /* Match active state color if desired, adjust based on design */
+  }
+}
+
+/* Existing media query for desktop adjustments (unchanged, but included for completeness) */
+@media (min-width: 952px) and (max-width: 1012px) {
+  .articles-hero .articles-hero__categories {
+    gap: clamp(1.5rem, -10.4rem + 20vw, 2.25rem);
+  }
+}
 
 .newsletter {
     display: flex;
@@ -58,32 +163,146 @@ body {
 
 
 
-  
 /* === Articles Section === */
 .articles {
-    padding: 6.625rem 7.8125rem 8.25rem 6.875rem; /* 106px from previous section */
-    display: flex;
-    flex-direction: column; /* Stack articles and button */
+  padding: 6.625rem 3.75rem 8.25rem 6.875rem; /* 106px from previous section */
   background-color: #fafafa;
+}
+
+.articles__wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Articles take 2 parts, newsletter 1 part on desktop */
+  gap: 3rem; /* 48px gap between articles and newsletter */
+  max-width: 72rem; /* 1152px */
+  width: 100%;
+  margin: 0 auto; /* Center the wrapper */
+}
+
+/* Articles Content and Load More */
+.articles__main {
+  display: flex;
+  flex-direction: column;
+  gap: 8.25rem; /* 132px gap between grid and load more */
+}
+
+.articles__content {
+  flex: 1;
+}
+
+.articles__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem 3rem; /* 48px horizontal, 63px vertical */
+}
+
+.articles__load-more {
+  font-family: "Barlow", sans-serif;
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 300;
+  line-height: 1.5rem; /* 24px */
+  text-align: center;
+  padding: 0.75rem 1.8125rem; /* 15px vertical, 36px horizontal */
+  background-color: #c41e3d;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.25rem; /* 4px */
+  cursor: pointer;
+  display: block; /* Ensure the button behaves like a block element */
+  margin-left: auto; /* Align to the end (right) on desktop */
+  margin-right: 0; /* Clear right margin */
+  width: fit-content; /* Only as wide as content */
+}
+
+.articles__load-more:hover {
+  background-color: #ffffff;
+  color: #c41e3d;
+  border: 1px solid #c41e3d;
+}
+
+.article__link {
+  text-decoration: none; /* Remove default underline */
+  color: inherit; /* Inherit text color from parent (article) */
+  cursor: pointer;
+}
+
+/* Newsletter Section */
+.newsletter {
+  align-self: flex-start;
+}
+
+/* Newsletter Styles (unchanged, but included for completeness) */
+.newsletter__title {
+  font-size: 1.875rem; /* 40px */
+  font-weight: 500;
+  line-height: 2.25rem; /* 48px */
+  color: #ffffff;
+}
+
+.newsletter__highlight {
+  color: #ffffff; /* Highlight color */
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1301px) {
+  .articles {
+    padding: 6.625rem 3.75rem 8.25rem 3.75rem; /* Reduce padding for smaller screens */
   }
-  
-  .articles__layout {
-    display: flex;
-    gap: 3rem; /* 48px gap between articles and newsletter */
-    max-width: 72rem; /* 1152px */
-    width: 100%;
+
+  .articles__wrapper {
+    grid-template-columns: 1fr; /* Stack newsletter below articles */
+    gap: 3rem; /* Maintain gap */
+    max-width: 45rem;
   }
-  
-  /* Articles Content */
-  .articles__content {
-    flex: 2;
+
+  .articles__main {
+    order: 1; /* Articles first */
   }
-  
+
+  .newsletter {
+    order: 2; /* Newsletter second */
+  }
+
+  .articles__load-more {
+    margin-left: auto;
+    margin-right: auto; /* Center the button */
+  }
+}
+
+@media (max-width: 840px) {
   .articles__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4rem 3rem; /* 48px horizontal, 63px vertical */
+    grid-template-columns: 1fr; /* Single column for articles */
+    gap: 3rem; /* Reduce gap for mobile */
   }
+
+  .articles__load-more {
+    margin-left: auto;
+    margin-right: auto; /* Keep centered */
+  }
+  .articles__wrapper{
+    max-width: 21rem;
+  }
+}
+
+@media (max-width: 432px) {
+  .articles {
+    padding: 6.625rem 1.5rem 8.25rem 1.5rem; /* Further reduce padding for small screens */
+  }
+
+  .articles__grid {
+    gap: 2rem; /* Even smaller gap on tiny screens */
+  }
+
+  .articles__load-more {
+    padding: 0.75rem 1rem; /* Reduce padding for smaller screens */
+  }
+
+  .newsletter__title {
+    font-size: 1.5rem; /* Reduce title size for mobile */
+    line-height: 2rem; /* Adjust line height */
+  }
+}
+
+
   .footer__heading{
     color:#E1E2E9 ;
   }
@@ -95,55 +314,3 @@ body {
     color: #E1E2E9;
   }
   
-  .articles__load-more {
-    margin-top: 8.25rem; /* 132px from the top */
-    font-family: "Barlow", sans-serif;
-    font-size: 0.9375rem; /* 15px */
-    font-weight: 300;
-    line-height: 1.5rem; /* 24px */
-    text-align: center;
-    padding: 0.75rem 1.8125rem; /* 15px vertical, 36px horizontal */
-    background-color: #c41e3d;
-    color: #ffffff;
-    border: none;
-    border-radius: 0.25rem; /* 4px */
-    cursor: pointer;
-    display: block; /* Ensure the button behaves like a block element */
-    margin-left: auto; /* Center horizontally */
-    margin-right: auto; /* Center horizontally */
-  }
-  
-  .articles__load-more:hover {
-    background-color: #ffffff;
-    color: #c41e3d;
-    border: 1px solid #c41e3d;
-  }
-  
-  
-  
-  /* Newsletter Section beside Articles */
-  .newsletter {
-    flex: 1;
-    align-self: flex-start;
-  }
-  
-  /* === Newsletter Section beside Articles === */
-
-  .newsletter__title {
-    font-size: 1.875rem; /* 40px */
-    font-weight: 500;
-    line-height: 2.25rem; /* 48px */
-    color: #ffffff;
-  }
-  
-  .newsletter__highlight {
-    color: #ffffff; /* Highlight color */
-  }
-
-
-
-  .article__link {
-    text-decoration: none; /* Remove default underline */
-    color: inherit; /* Inherit text color from parent (article) */
-    cursor:pointer;
-  }

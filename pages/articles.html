@@ -93,99 +93,116 @@
       </div>
     </div>
     <div class="articles-hero__categories">
-        <button class="category active">Executive Coaching</button>
-        <button class="category">Career Coaching</button>
-        <button class="category">Job Search Coaching</button>
-        <button class="category">Guides</button>
-        <button class="category">Workbook</button>
-        <button class="category">Templates</button>
+      <!-- Horizontal buttons for desktop -->
+      <button class="category active" data-value="Executive Coaching">Executive Coaching</button>
+      <button class="category" data-value="Career Coaching">Career Coaching</button>
+      <button class="category" data-value="Job Search Coaching">Job Search Coaching</button>
+      <button class="category" data-value="Guides">Guides</button>
+      <button class="category" data-value="Workbook">Workbook</button>
+      <button class="category" data-value="Templates">Templates</button>
+    
+      <!-- Dropdown for mobile -->
+      <div class="category-dropdown">
+        <button class="category-dropdown__toggle" aria-label="Toggle category menu" aria-expanded="false">
+          <span class="category-dropdown__text">Executive Coaching</span>
+          <img src="../assets/icons/angle-icon.svg" alt="Toggle dropdown" class="category-dropdown__icon" />
+        </button>
+        <ul class="category-dropdown__list">
+          <li class="category-dropdown__item" data-value="Executive Coaching">Executive Coaching</li>
+          <li class="category-dropdown__item" data-value="Career Coaching">Career Coaching</li>
+          <li class="category-dropdown__item" data-value="Job Search Coaching">Job Search Coaching</li>
+          <li class="category-dropdown__item" data-value="Guides">Guides</li>
+          <li class="category-dropdown__item" data-value="Workbook">Workbook</li>
+          <li class="category-dropdown__item" data-value="Templates">Templates</li>
+        </ul>
       </div>
+    </div>
   </section>
   
 <!-- Articles Section -->
 <section class="articles">
-  <div class="articles__layout">
-    <!-- Articles Content -->
-    <div class="articles__content">
-      <div class="articles__grid">
-        <a href="article-selected.html" class="article__link">
-          <article class="article">
-            <img src="../assets/images/article-image-1.jpg" alt="Article 1" class="article__image" />
-            <h3 class="article__title">From a Sea of Resumes to Recognition: How to Be Remembered</h3>
-            <p class="article__description">We’d love to hear from you and resolve enquiries or complaints.</p>
-            <p class="article__time">8 min read</p>
-          </article>
-        </a>
-        <a href="article-selected.html" class="article__link">
-          <article class="article">
-            <img src="../assets/images/article-image-2.jpg" alt="Article 2" class="article__image" />
-            <h3 class="article__title">Are you losing out on a 30% pay increase?</h3>
-            <p class="article__description">Hey there, career rockstars! Let’s talk about the job market shake-up and why you...</p>
-            <p class="article__time">8 min read</p>
-          </article>
-        </a>
-        <a href="article-selected.html" class="article__link">
-          <article class="article">
-            <img src="../assets/images/article-image-3.jpg" alt="Article 3" class="article__image" />
-            <h3 class="article__title">Harnessing Intuition and Structure in Job Interviews</h3>
-            <p class="article__description">Why identify and manage interview anxiety. Notice subtle cues about company...</p>
-            <p class="article__time">5 min read</p>
-          </article>
-        </a>
-        <a href="article-selected.html" class="article__link">
-          <article class="article">
-            <img src="../assets/images/article-image-4.jpg" alt="Article 4" class="article__image" />
-            <h3 class="article__title">Food Innovation Jobs In Chicago</h3>
-            <p class="article__description">Chicago is unique in the world in terms of food innovation and manufacturing...</p>
-            <p class="article__time">6 min read</p>
-          </article>
-        </a>
-        <a href="article-selected.html" class="article__link">
-          <article class="article">
-            <img src="../assets/images/article-image-5.jpg" alt="Article 5" class="article__image" />
-            <h3 class="article__title">Unlocking Career Opportunities in Chicago's Vibrant Food Scene</h3>
-            <p class="article__description">Are you a food enthusiast or job seeker interested in pursuing an...</p>
-            <p class="article__time">8 min read</p>
-          </article>
-        </a>
-        <a href="article-selected.html" class="article__link">
-          <article class="article">
-            <img src="../assets/images/article-image-6.jpg" alt="Article 6" class="article__image" />
-            <h3 class="article__title">Top Chicago Companies Recognized for Workplace Excellence</h3>
-            <p class="article__description">As a professional resume writer and career coach based in Chicago, I’ve...</p>
-            <p class="article__time">5 min read</p>
-          </article>
-        </a>
-      </div>
-    </div>
-  
-  
-      <!-- Newsletter Section -->
-      <aside class="newsletter">
-        <div class="newsletter__container shared-box">
-          <header class="newsletter__header">
-            <h2 class="newsletter__title">
-              SUBSCRIBE TO OUR<span class="newsletter__highlight"> NEWSLETTER</span>
-            </h2>
-            <p class="newsletter__subtitle">
-              Join the Insider Edge Newsletter. 45k+ professionals subscribed.
-            </p>
-          </header>
-          <form class="newsletter__form">
-            <input
-              type="email"
-              class="newsletter__input"
-              placeholder="Email Address"
-              required
-            />
-            <button type="submit" class="newsletter__submit">SUBMIT</button>
-          </form>
+  <div class="articles__wrapper">
+    <!-- Articles Content and Load More -->
+    <div class="articles__main">
+      <div class="articles__content">
+        <div class="articles__grid">
+          <a href="article-selected.html" class="article__link">
+            <article class="article">
+              <img src="../assets/images/article-image-1.jpg" alt="Article 1" class="article__image" />
+              <h3 class="article__title">From a Sea of Resumes to Recognition: How to Be Remembered</h3>
+              <p class="article__description">We’d love to hear from you and resolve enquiries or complaints.</p>
+              <p class="article__time">8 min read</p>
+            </article>
+          </a>
+          <a href="article-selected.html" class="article__link">
+            <article class="article">
+              <img src="../assets/images/article-image-2.jpg" alt="Article 2" class="article__image" />
+              <h3 class="article__title">Are you losing out on a 30% pay increase?</h3>
+              <p class="article__description">Hey there, career rockstars! Let’s talk about the job market shake-up and why you...</p>
+              <p class="article__time">8 min read</p>
+            </article>
+          </a>
+          <a href="article-selected.html" class="article__link">
+            <article class="article">
+              <img src="../assets/images/article-image-3.jpg" alt="Article 3" class="article__image" />
+              <h3 class="article__title">Harnessing Intuition and Structure in Job Interviews</h3>
+              <p class="article__description">Why identify and manage interview anxiety. Notice subtle cues about company...</p>
+              <p class="article__time">5 min read</p>
+            </article>
+          </a>
+          <a href="article-selected.html" class="article__link">
+            <article class="article">
+              <img src="../assets/images/article-image-4.jpg" alt="Article 4" class="article__image" />
+              <h3 class="article__title">Food Innovation Jobs In Chicago</h3>
+              <p class="article__description">Chicago is unique in the world in terms of food innovation and manufacturing...</p>
+              <p class="article__time">6 min read</p>
+            </article>
+          </a>
+          <a href="article-selected.html" class="article__link">
+            <article class="article">
+              <img src="../assets/images/article-image-5.jpg" alt="Article 5" class="article__image" />
+              <h3 class="article__title">Unlocking Career Opportunities in Chicago's Vibrant Food Scene</h3>
+              <p class="article__description">Are you a food enthusiast or job seeker interested in pursuing an...</p>
+              <p class="article__time">8 min read</p>
+            </article>
+          </a>
+          <a href="article-selected.html" class="article__link">
+            <article class="article">
+              <img src="../assets/images/article-image-6.jpg" alt="Article 6" class="article__image" />
+              <h3 class="article__title">Top Chicago Companies Recognized for Workplace Excellence</h3>
+              <p class="article__description">As a professional resume writer and career coach based in Chicago, I’ve...</p>
+              <p class="article__time">5 min read</p>
+            </article>
+          </a>
         </div>
-      </aside>
+      </div>
+      <button class="articles__load-more">LOAD MORE</button>
     </div>
-    <button class="articles__load-more">LOAD MORE</button>
-  </section>
-  
+
+    <!-- Newsletter Section -->
+    <aside class="newsletter">
+      <div class="newsletter__container shared-box">
+        <header class="newsletter__header">
+          <h2 class="newsletter__title">
+            SUBSCRIBE TO OUR<span class="newsletter__highlight"> NEWSLETTER</span>
+          </h2>
+          <p class="newsletter__subtitle">
+            Join the Insider Edge Newsletter. 45k+ professionals subscribed.
+          </p>
+        </header>
+        <form class="newsletter__form">
+          <input
+            type="email"
+            class="newsletter__input"
+            placeholder="Email Address"
+            required
+          />
+          <button type="submit" class="newsletter__submit">SUBMIT</button>
+        </form>
+      </div>
+    </aside>
+  </div>
+</section>
 
 
   
@@ -254,7 +271,7 @@
 
 
     <script src="assets/js/slider.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="../assets/js/script.js"></script>
 
 </body>
 </html>

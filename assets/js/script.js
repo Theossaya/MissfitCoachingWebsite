@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const minusIcon = document.createElement("img");
 
       // Set minus icon attributes
-      minusIcon.src = "assets/icons/minus.svg";
+      minusIcon.src = "/assets/icons/minus.svg";
       minusIcon.alt = "Collapse";
       minusIcon.classList.add("faq__icon", "faq__icon--minus");
       minusIcon.style.display = "none"; // Hide minus icon initially
@@ -32,4 +32,68 @@ document.addEventListener("DOMContentLoaded", () => {
           answer.style.display = isExpanded ? "block" : "none";
       });
   });
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const categories = document.querySelectorAll('.category');
+  const dropdownToggle = document.querySelector('.category-dropdown__toggle');
+  const dropdownList = document.querySelector('.category-dropdown__list');
+  const dropdownItems = document.querySelectorAll('.category-dropdown__item');
+  const dropdownText = document.querySelector('.category-dropdown__text');
+
+  // Function to update the active category
+  const updateActiveCategory = (value) => {
+    categories.forEach(category => {
+      if (category.getAttribute('data-value') === value) {
+        category.classList.add('active');
+      } else {
+        category.classList.remove('active');
+      }
+    });
+    dropdownText.textContent = value; // Update dropdown toggle text
+    dropdownText.style.color = '#000000'; // Set text color to match active state
+  };
+
+  // Handle clicks on horizontal buttons
+  categories.forEach(category => {
+    category.addEventListener('click', () => {
+      const value = category.getAttribute('data-value');
+      updateActiveCategory(value);
+    });
+  });
+
+  // Toggle dropdown visibility
+  dropdownToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    dropdownList.classList.toggle('active');
+    dropdownToggle.classList.toggle('open');
+    dropdownToggle.setAttribute('aria-expanded', dropdownToggle.classList.contains('open'));
+  });
+
+  // Handle dropdown item selection
+  dropdownItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const value = item.getAttribute('data-value');
+      updateActiveCategory(value);
+      dropdownList.classList.remove('active');
+      dropdownToggle.classList.remove('open');
+      dropdownToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!dropdownToggle.contains(e.target) && !dropdownList.contains(e.target)) {
+      dropdownList.classList.remove('active');
+      dropdownToggle.classList.remove('open');
+      dropdownToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Initialize with the current active category
+  const initialActive = document.querySelector('.category.active');
+  if (initialActive) {
+    updateActiveCategory(initialActive.getAttribute('data-value'));
+  }
 });

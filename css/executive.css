@@ -55,6 +55,209 @@ body {
     background-color: #FFB400; /* Hover effect */
   }
 
+
+
+/* Extend or override existing header styles for executive-header */
+.header.executive-header {
+    background-color: #000; /* Black background */
+    height: 5.5rem; /* Match existing height */
+    padding-left: 3.75rem; /* 60px left padding, match existing */
+    padding-right: 3.4375rem; /* 55px right padding, match existing */
+    box-sizing: border-box;
+  }
+  
+  /* Executive Header Container (override spacing for specific layout) */
+  .header__container.executive-container {
+    display: flex;
+    justify-content: flex-start; /* Align items from left, adjust spacing manually */
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Left Section (Zigzag, Divider, and Active Category) */
+  .header__left {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between elements, adjust as needed */
+  }
+  
+  .header__zigzag-icon {
+    width: 1.5rem; /* Adjust based on your SVG size */
+    height: auto;
+  }
+  
+  .header__divider {
+    width: 1px; /* 1px width */
+    height: 44px; /* 44px length */
+    background-color: #000000; /* Black color */
+    margin-top: 24px; /* Offset 24px from the top */
+    margin-left: 0.5rem; /* Space between zigzag icon and line */
+    margin-right: 0.5rem; /* Space between line and text */
+  }
+  
+  .header__active-category {
+    font-family: "Barlow", serif;
+    font-weight: 600;
+    font-style: normal;
+    text-decoration: none;
+    color: #FFB400; /* Yellow text for active category */
+    font-size: 1.125rem; /* Larger than nav links, match image */
+    line-height: 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* Navigation (positioned 375px from left, 180px from right) */
+  .header__nav.executive-nav {
+    margin-left: 375px; /* 375px from header__left */
+    margin-right: 180px; /* 180px from header__right */
+  }
+  
+  .header__nav-list.executive-nav-list {
+    display: flex;
+    gap: 2.625rem; /* Space between navigation items, match existing */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header__nav-link.executive-nav-link {
+    font-family: "Barlow", serif;
+    font-weight: 600;
+    font-style: normal;
+    text-decoration: none;
+    color: #FFFFFF; /* White text for nav links */
+    font-size: 0.9375rem; /* Match existing nav link size */
+    line-height: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* CTA Button (APPLY NOW) */
+  .header__cta.executive-cta {
+    background-color: #FFB400; /* Yellow button */
+    color: #000; /* Black text for contrast */
+    padding: 0.75rem 2.25rem; /* Padding inside the button */
+    font-family: "Barlow", serif;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0.5rem; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+  }
+  
+  .header__cta.executive-cta:hover {
+    background-color: #E5A200; /* Slightly darker yellow on hover */
+  }
+  
+  /* Reuse existing hamburger menu, mobile menu, and responsiveness styles */
+  .header__menu-toggle,
+  .header__mobile-menu,
+  .header__mobile-nav-list,
+  .header__mobile-nav-link,
+  .header__mobile-cta {
+    /* These can remain as-is from your original CSS, no changes needed */
+  }
+  
+  /* Header Right Container */
+  .header__right {
+    display: flex;
+    align-items: center;
+    gap: 2.1875rem; /* 35px gap between hamburger and CTA */
+  }
+  
+  /* === Responsive Design === (Reuse existing media queries, no changes needed) */
+  
+  /* At 1200px: Break nav links into hamburger menu */
+  @media (max-width: 1200px) {
+    .header.executive-header {
+      padding-left: clamp(3rem, 2.0709rem + 2.2388vw, 3.75rem);
+      padding-right: clamp(3rem, 2.0709rem + 2.2388vw, 3.75rem);
+    }
+  
+    .header__container.executive-container {
+      justify-content: space-between; /* Maintain space between logo and right elements */
+    }
+  
+    .header__nav.executive-nav {
+      display: none; /* Hide default nav */
+    }
+  
+    .header__menu-toggle {
+      display: flex; /* Show hamburger menu */
+    }
+  
+    .header__right {
+      /* No additional margin needed here, gap handles 35px spacing */
+    }
+  
+    .header__mobile-menu.active {
+      display: flex;
+    }
+  
+    .header__mobile-nav-list {
+      flex-direction: column; /* Stack vertically in mobile menu */
+      gap: 1rem;
+    }
+  }
+  
+  /* At 664px: Move CTA into hamburger menu */
+  @media (max-width: 664px) {
+    .header__cta.executive-cta {
+      display: none; /* Hide desktop CTA */
+    }
+  
+    .header.executive-header {
+      padding-left: clamp(2.25rem, 0.6058rem + 5.7692vw, 3rem);
+      padding-right: clamp(2.25rem, 0.6058rem + 5.7692vw, 3rem);
+    }
+  
+    .header__mobile-menu.active {
+      display: flex;
+    }
+  
+    .header__mobile-nav-list {
+      flex-direction: column; /* Stack vertically */
+      gap: 1rem;
+    }
+  
+    .header__mobile-cta {
+      display: block; /* Show CTA in mobile menu */
+    }
+  }
+
+
+  
+@media (max-width: 948px) {
+
+    .hero__title {
+      font-size: clamp(2.188rem, 5.515vw + -0.142rem, 3.125rem);
+      line-height: clamp(2.625rem, 6.618vw + -0.171rem, 3.75rem);
+    }
+    .hero__content{
+      padding: 8rem clamp(3rem, -0.1066rem + 7.3529vw, 4.25rem);;
+    }
+  
+  }
+  
+  @media (max-width: 675px) {
+  
+    .hero__title {
+     text-align: left;
+    }
+    .hero__content{
+      text-align: left;
+    }
+    .hero__subtitle{
+      text-align: left;
+    }
+  
+  }
+
   /* === Content Section Styling === */
 .content-section {
     border: 1px solid #000000; /* Bottom border */
@@ -65,9 +268,10 @@ body {
 
 /* Centers the content container with 375px space on both sides */
 .content-container {
-    max-width: calc(100% - 750px); /* 375px space on both sides */
+    max-width: 43rem; /* 375px space on both sides */
     margin: 0 auto;
     text-align: left;
+    padding: 0 clamp(3rem, 1.1004rem + 5.2402vw, 3.75rem);
     
 }
 
@@ -120,143 +324,165 @@ body {
     color: #FFFFFF;
     background-color: #1D1D1D;
     border-bottom: 2px solid #000000;
-
-}
-
-/* === Testimonial Header === */
-.testimonial-title {
+  }
+  
+  /* === Testimonial Header === */
+  .testimonial-title {
     font-family: "Barlow", sans-serif;
     font-weight: 700;
     font-size: 2.5rem; /* 40px */
     line-height: 3rem; /* 48px */
     letter-spacing: 0;
     text-align: center;
-}
-
-/* === Spacing Below Header === */
-.testimonial-grid {
-    display: flex;
-    flex-wrap: wrap;
+  }
+  
+  /* === Spacing Below Header === */
+  .testimonial-grid {
+    display: grid;
     justify-content: center;
     gap: 3rem; /* 48px */
     margin-top: 5.5rem; /* 88px */
-}
-
-/* === Testimonial Card === */
-.testimonial-card {
+    max-width: 1296px; /* Max width for three-column layout */
+    margin-left: auto;
+    margin-right: auto;
+    /* Default: 3 columns on desktop (above 1416px) */
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* === Testimonial Card === */
+  .testimonial-card {
     background-color: #272727;
     padding: 2.5rem 2.25rem; /* 40px top/bottom, 36px sides */
     border-radius: 8px;
-    flex: 1 1 30%;
     text-align: left;
-
-}
-
-
-/* === Stars Row === */
-.testimonial-stars {
+  }
+  
+  /* === Stars Row === */
+  .testimonial-stars {
     display: flex;
     gap: 0.88rem; /* 14.1px */
-}
-
-/* === Testimonial Text === */
-.testimonial-text {
+  }
+  
+  /* === Testimonial Text === */
+  .testimonial-text {
     font-family: "Inter", sans-serif;
     font-weight: 400;
     font-size: 1rem; /* 16px */
     line-height: 1.6rem; /* 25.6px */
     letter-spacing: 0;
     margin-top: 1.5rem; /* 24px */
-}
-
-/* === Testimonial Author === */
-.testimonial-author {
+  }
+  
+  /* === Testimonial Author === */
+  .testimonial-author {
     font-family: "Inter", sans-serif;
     font-weight: 600;
     font-size: 1rem; /* 16px */
     line-height: 1.6rem; /* 25.6px */
     letter-spacing: 0;
     margin-top: 1.5rem; /* 24px */
-}
+  }
+  
+  /* Responsive Breakpoint at 1416px (Two Columns, Max Width 848px) */
+  @media (max-width: 1416px) {
+    .testimonial-grid {
+      grid-template-columns: repeat(2, 1fr); /* Two columns */
+      max-width: 848px; /* Max width for two-column layout */
+    }
+  }
+  
+  /* Responsive Breakpoint at 944px (Single Column, Max Width 400px) */
+  @media (max-width: 944px) {
+    .testimonial-grid {
+      grid-template-columns: 1fr; /* Single column */
+      max-width: 400px; /* Max width for single-column layout */
+    }
+  }
+
 
 
 /* === Program Breakdown Section === */
 .program-breakdown {
-    padding: 8.125rem 10.625rem; /* Responsive spacing from the previous section */
+    padding: 8.125rem 3.75rem; /* Responsive spacing from the previous section */
     background-color: #1D1D1D;
     color: #E1E2E9;
     border-bottom: 2px solid #000000;
-
-
-}
-
-/* === Program Breakdown Title === */
-.program-breakdown__header {
+  }
+  
+  /* === Program Breakdown Title === */
+  .program-breakdown__header {
     text-align: center;
     margin-bottom: 5.5rem; /* Keeps spacing proportional */
-}
-
-.program-breakdown__title {
+  }
+  
+  .program-breakdown__title {
     font-family: "Barlow", sans-serif;
     font-weight: 700;
     font-size: 2.5rem; /* Scales naturally */
     line-height: 1.2em; /* Keeps spacing proportional */
-}
-
-/* === Program Breakdown Content === */
-.program-breakdown__content {
-    display: flex;
-    flex-direction: column;
-}
-.program-breakdown__content .program-phase--reverse {
-    gap: 9.4375rem;
-    margin-right: 3.25rem;
-}
-/* === Program Phase === */
-.program-phase {
-    display: flex;
-    justify-content: space-between;
+  }
+  
+  /* === Program Breakdown Content (Converted to Grid) === */
+  .program-breakdown__content {
+    display: grid;
+    max-width: 68.75rem; /* 1100px, match existing */
+    margin: 0 auto;
+    gap: 0; /* No gap by default, handle within phases */
+  }
+  
+  /* === Program Phase (Grid Layout) === */
+  .program-phase {
+    display: grid;
+    grid-template-columns: 1fr 336px; /* Details take remaining space, walkaway fixed at 336px */
     align-items: center;
     border-top: 0.07em solid #000000;
     border-bottom: 0.07em solid #000000;
     padding: 3.75rem 0; /* Centers content vertically between the borders */
-    gap: 11.6865rem; /* Dynamic spacing between text and walkaway box */
-}
-
-
-/* === Phase Details === */
-.program-phase__details {
-   max-width: 35rem;
-}
-
-/* Phase Number */
-.program-phase__number {
+    gap: 11.6865rem; /* Dynamic spacing between text and walkaway box, match existing */
+  }
+  
+  /* Reverse Phase (Swap columns for program-phase--reverse) */
+  .program-breakdown__content .program-phase--reverse {
+    grid-template-columns: 336px 1fr; /* Walkaway first, then details */
+    gap: 9.4375rem; /* Match existing gap for reverse phases */
+    margin-right: 3.25rem; /* Maintain existing margin */
+  }
+  
+  /* === Phase Details (Allow wrapping) === */
+  .program-phase__details {
+    max-width: 35rem; /* Match existing, but allow wrapping */
+    overflow-wrap: break-word; /* Allow text to wrap within its container */
+    word-wrap: break-word; /* Fallback for older browsers */
+  }
+  
+  /* Phase Number, Title, Description (Unchanged, keep existing styling) */
+  .program-phase__number {
     font-family: "Inter", sans-serif;
     font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.4em;
-}
-
-/* Phase Title */
-.program-phase__title {
+  }
+  
+  .program-phase__title {
     font-family: "Inter", sans-serif;
     font-weight: 600;
     font-size: 1.25rem;
     line-height: 1.2em;
     margin-top: 0.8em;
-}
-
-/* Phase Description */
-.program-phase__description {
+  }
+  
+  .program-phase__description {
     font-family: "Inter", sans-serif;
     font-weight: 400;
     font-size: 1rem;
     line-height: 1.6em;
     margin-top: 1.6em; /* Matches the line-height for paragraph spacing */
-}
-
-/* === Walkaway Section === */
+  }
+  
+  /* === Walkaway Section (Fixed at 336px, no wrapping) === */
+  /* === Walkaway Section (Fixed at 336px, allow natural wrapping) === */
 .program-phase__walkaway {
+    width: 336px; /* Fixed width across all screen sizes */
     background: #272727;
     border: 0.07em solid #000000;
     padding: 2.5rem 2.25rem; /* 40px top/bottom, 36px left/right equivalent */
@@ -264,20 +490,19 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-}
-
-/* Walkaway Title */
-.walkaway__title {
+  }
+  
+  /* Walkaway Title and List (Allow natural wrapping) */
+  .walkaway__title {
     font-family: "Inter", sans-serif;
     font-weight: 600;
     font-size: 1rem;
     line-height: 1.6em;
     text-align: center;
     margin-bottom: 1.5em;
-}
-
-/* Walkaway List */
-.walkaway__list {
+  }
+  
+  .walkaway__list {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -285,10 +510,9 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1.3em;
-}
-
-/* Walkaway List Items */
-.walkaway__list li {
+  }
+  
+  .walkaway__list li {
     display: flex;
     align-items: center;
     gap: 0.8em; /* Responsive spacing between checkmark and text */
@@ -296,13 +520,62 @@ body {
     font-weight: 400;
     font-size: 1rem;
     line-height: 1.6em;
-}
-
-/* Walkaway Checkmark Icon */
-.walkaway__list li img {
+  }
+  
+  .walkaway__list li img {
     width: 1.5em; /* Adjust size for responsiveness */
     height: auto;
-}
+  }
+  
+  /* Keep the rest of your grid and responsive CSS unchanged */
+  
+  /* Responsive Breakpoint at 816px (Single Column, Max Width 336px) */
+  @media (max-width: 816px) {
+    .program-breakdown {
+      padding: 4rem 1.5rem; /* Reduce padding for mobile */
+    }
+  
+    .program-breakdown__content {
+      max-width: 336px; /* Single column max width */
+      margin: 0 auto;
+    }
+  
+    .program-phase,
+    .program-breakdown__content .program-phase--reverse {
+      grid-template-columns: 1fr; /* Single column */
+      gap: 2rem; /* Reduce gap for mobile */
+      padding: 2rem 0; /* Reduce vertical padding */
+      margin-right: 0; /* Remove margin for reverse phases */
+    }
+  
+    .program-phase__details,
+    .program-phase__walkaway {
+      width: 100%; /* Full width in single column */
+      max-width: 336px; /* Ensure max width matches */
+    }
+  
+    .program-phase__walkaway {
+      white-space: normal; /* Allow wrapping in walkaway on mobile if content is long */
+      overflow-wrap: break-word; /* Allow text to wrap within walkaway on mobile */
+    }
+  
+    .walkaway__list li {
+      white-space: normal; /* Allow wrapping in list items on mobile */
+      overflow-wrap: break-word; /* Allow text to wrap within list items */
+    }
+  }
+  
+  /* Existing media query (adjusted for grid system) */
+  @media (max-width: 1220px) {
+    .program-phase {
+      gap: clamp(3rem, -56.6915rem + 89.6774vw, 11.6875rem);
+    }
+  
+    .program-breakdown__content .program-phase--reverse {
+      gap: clamp(3rem, -41.2319rem + 66.4516vw, 9.4375rem);
+      margin-right: 0;
+    }
+  }
 
 
 
@@ -339,7 +612,7 @@ body {
 /* CTA Section Card */
 .cta-section__card {
     background-color: #272727;
-    padding: 3rem; /* 48px on all sides */
+    padding: 2.25rem; /* 48px on all sides */
     text-align: center;
     max-width: 27.325rem; /* Responsive card width */
     border-radius: 0.5rem; /* Rounded edges for a sleek look */
@@ -421,14 +694,16 @@ body {
     text-align: center;
     padding: 2rem 0; /* Spacing */
     font-family: "Inter", sans-serif;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Footer Links */
 .footer__links {
     display: flex;
     justify-content: center;
-    gap: 2rem; /* Space between links */
-    margin-bottom: 1rem; /* Space below links */
+    gap: 3.5rem; /* Space between links */
+    margin-bottom: 2rem; /* Space below links */
 }
 
 .footer__link {

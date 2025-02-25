@@ -125,3 +125,120 @@ line-height: clamp(2.625rem, 9.524vw + -0.732rem, 3.75rem);
     background-color: #FFFFFF; /* Background for the section */
   }
 
+/* === MASONRY SECTION === */
+.masonry-section {
+  background-color: #ffffff; /* White background */
+  color: #000000; /* Black text */
+  padding: 5.5rem 10.5rem; /* 88px top/bottom, 168px left/right */
+  text-align: left;
+}
+
+.masonry-section__title {
+  font-family: "Barlow", sans-serif;
+  font-size: 2.5rem; /* 40px */
+  line-height: 3rem; /* 48px */
+  font-weight: 600;
+  margin-bottom: 5.5rem; /* 88px spacing below the title */
+  text-align: center;
+  color: #000000; /* Black text */
+}
+
+/* Masonry Grid using Column Count */
+.masonry-grid {
+  column-count: 3; /* 3 columns for desktop */
+  column-gap: 3rem; /* 48px gap between columns */
+  max-width: 1200px; /* Limit grid width */
+  margin: 0 auto; /* Center the grid */
+}
+
+/* Masonry Item */
+.masonry-item {
+  background-color: #1d1d1d; /* Dark background */
+  padding: 1.875rem 2.25rem; /* 30px top/bottom, 36px left/right */
+  border-radius: 0.25rem; /* 4px rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border: 1px solid #01051a; /* Border color */
+  break-inside: avoid; /* Prevent items from breaking across columns */
+  margin-bottom: 3rem; /* 48px vertical gap */
+  position: relative;
+  width: 100%; /* Ensure items take full column width */
+  max-width: 28rem; /* Fixed width for items (448px) */
+  height: auto; /* Allow height to adjust based on content */
+}
+
+/* Icon Styling */
+.masonry-item__icon {
+  position: absolute;
+  width: 6rem; /* 96px */
+  height: auto; /* Maintain aspect ratio */
+  opacity: 0.7; /* Semi-transparent */
+}
+
+/* Adjust icon positions for specific items */
+.masonry-item:nth-child(3) .masonry-item__icon {
+  right: 1.3rem; /* Adjust position */
+}
+
+.masonry-item:nth-child(5) .masonry-item__icon {
+  right: 6.6rem; /* Adjust position */
+}
+
+.masonry-item:nth-child(2) .masonry-item__icon {
+  top: 4rem; /* Adjust position */
+  right: 10rem; /* Adjust position */
+}
+
+.masonry-item:nth-child(4) .masonry-item__icon {
+  top: 3rem; /* Adjust position */
+  right: 6rem; /* Adjust position */
+}
+
+.masonry-item:nth-child(6) .masonry-item__icon {
+  right: 2rem; /* Adjust position */
+  top: 2rem; /* Adjust position */
+}
+
+/* Title Styling */
+.masonry-item__title {
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem; /* 24px */
+  line-height: 1.8rem; /* 28.8px */
+  font-weight: 600;
+  margin-bottom: 1rem; /* 16px spacing below title */
+  color: #c41e3d; /* Red text */
+}
+
+/* Description Styling */
+.masonry-item__description {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem; /* 16px */
+  line-height: 1.6rem; /* 25.6px */
+  color: #d1d1d1; /* Light gray text */
+  text-align: left;
+  position: relative;
+  z-index: 2; /* Ensure text is above icons */
+}
+
+/* === RESPONSIVE BREAKPOINTS === */
+
+/* Tablet View (816px - 1219px): 2 columns */
+@media (max-width: 1219px) {
+  .masonry-grid {
+    column-count: 2; /* 2 columns */
+  }
+}
+
+/* Mobile View (≤ 815px): 1 column */
+@media (max-width: 815px) {
+  .masonry-grid {
+    column-count: 1; /* 1 column */
+  }
+
+  .masonry-section {
+    padding: 5.5rem 1.5rem; /* 88px top/bottom, 24px left/right */
+  }
+
+  .masonry-item {
+    max-width: 100%; /* Allow items to take full width on mobile */
+  }
+}
