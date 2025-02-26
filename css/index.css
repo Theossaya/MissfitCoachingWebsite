@@ -309,108 +309,270 @@ button, input, select, textarea {
   }
 }
 
-
- /* === Testimonial Slider Section === */
+/* === Testimonial Slider Section 1 === */
 .testimonial-slider {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #1D1D1D; /* Dark background */
-    color: #FFFFFF;
-    padding: 5.5rem 3.75rem; /* Space at the top and bottom of the section */
-  }
-  .testimonial-slider__container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .testimonial-slider__navigation {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center navigation horizontally */
-    width: 12.5rem; /* 200px */
-    height: 3rem; /* 48px */
-    margin-bottom: 2.25rem; /* 36px beneath the navigation */
-  }
-  
-  .testimonial-slider__arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem; /* 48px */
-    height: 3rem; /* 48px */
-    border: 1px solid #FFFFFF;
-    border-radius: 50%;
-    background-color: transparent;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .testimonial-slider__arrow:hover {
-    background-color: #FFFFFF;
-    transform: scale(1.1);
-  }
-  
-  .testimonial-slider__pagination {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.25rem; /* 16px */
-    line-height: 1.5124rem;
-    font-weight: 400;
-    text-align: center;
-    margin: 0 2rem; /* Space between arrows and text */
-  }
-  
-  .testimonial-slider__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    max-width: 43.75rem; /* 700px */
-    margin: 0 auto; /* Center the content horizontally */
-  }
-  
-  .testimonial-slider__quote {
-    color: var(--color-white);
-    font-family: 'Barlow', sans-serif;
-    font-size: 1.25rem; /* 20px */
-    font-weight: 400;
-    line-height: 2rem; /* 32px */
-    margin-bottom: 2.25rem; /* Space beneath the quote */
-  }
-  
-  .testimonial-slider__author {
-    color: var(--color-white);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .testimonial-slider__avatar {
-    width: 3.75rem; /* 60px */
-    height: 3.75rem; /* 60px */
-    border-radius: 50%;
-    background-color: #FFFFFF; /* Assuming a white background */
-    margin-bottom: 1rem; /* 16px space beneath the avatar */
-  }
-  .testimonial-slider__name{
-    color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1D1D1D; /* Dark background */
+  color: #FFFFFF;
+  padding: 5.5rem 3.75rem; /* Space at the top and bottom of the section */
+}
 
-    margin-bottom: 0.5rem;
-  }
-  .testimonial-slider__name,
-  .testimonial-slider__company {
-    color: var(--color-white);
+.testimonial-slider__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Relative positioning for slides */
+}
 
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem; /* 16px */
-    font-weight: 500;
-    line-height: 1.21rem; /* 19.36px */
-    text-align: center;
-  }
-  
+.testimonial-slider__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center navigation horizontally */
+  margin-bottom: 2.25rem; /* 36px beneath the navigation */
+}
 
+.testimonial-slider__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem; /* 48px */
+  height: 3rem; /* 48px */
+  border: 1px solid #FFFFFF;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
+.testimonial-slider__arrow:hover {
+  background-color: #FFFFFF;
+  transform: scale(1.1);
+}
 
+.testimonial-slider__arrow--left img {
+  transform: rotate(180deg); /* Rotate left arrow icon */
+}
 
+.testimonial-slider__pagination {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem; /* 16px */
+  line-height: 1.5124rem;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 2rem; /* Space between arrows and text */
+}
 
+.testimonial-slider__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 43.75rem; /* 700px */
+  margin: 0 auto; /* Center the content horizontally */
+  position: relative; /* For positioning slides */
+  overflow: hidden; /* Hide overflow slides */
+}
+
+.testimonial-slider__slides {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease; /* Smooth slide transition */
+}
+
+.testimonial-slider__slide {
+  flex: 0 0 100%; /* Each slide takes full width of container */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px; /* Minimum height to ensure content fits, adjust as needed */
+}
+
+.testimonial-slider__quote {
+  color: var(--color-white);
+  font-family: 'Barlow', sans-serif;
+  font-size: 1.25rem; /* 20px */
+  font-weight: 400;
+  line-height: 2rem; /* 32px */
+  margin-bottom: 2.25rem; /* Space beneath the quote */
+  max-width: 100%; /* Ensure text wraps within container */
+}
+
+.testimonial-slider__author {
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial-slider__avatar {
+  width: 3.75rem; /* 60px */
+  height: 3.75rem; /* 60px */
+  border-radius: 50%;
+  background-color: #FFFFFF; /* Assuming a white background */
+  margin-bottom: 1rem; /* 16px space beneath the avatar */
+  overflow: hidden; /* Ensure image fits circle */
+}
+
+.testimonial-slider__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure image fills the circle */
+}
+
+.testimonial-slider__name {
+  color: var(--color-white);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; /* 16px */
+  font-weight: 500;
+  line-height: 1.21rem; /* 19.36px */
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-slider__company {
+  color: var(--color-white);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; /* 16px */
+  font-weight: 500;
+  line-height: 1.21rem; /* 19.36px */
+  text-align: center;
+}
+
+/* === Testimonial Slider Section 2 === */
+.testimonial-slider-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1D1D1D; /* Dark background */
+  color: #FFFFFF;
+  padding: 5.5rem 3.75rem; /* Space at the top and bottom of the section */
+}
+
+.testimonial-slider-2__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Relative positioning for slides */
+}
+
+.testimonial-slider-2__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center navigation horizontally */
+  margin-bottom: 2.25rem; /* 36px beneath the navigation */
+}
+
+.testimonial-slider-2__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem; /* 48px */
+  height: 3rem; /* 48px */
+  border: 1px solid #FFFFFF;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.testimonial-slider-2__arrow:hover {
+  background-color: #FFFFFF;
+  transform: scale(1.1);
+}
+
+.testimonial-slider-2__arrow--left img {
+  transform: rotate(180deg); /* Rotate left arrow icon */
+}
+
+.testimonial-slider-2__pagination {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem; /* 16px */
+  line-height: 1.5124rem;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 2rem; /* Space between arrows and text */
+}
+
+.testimonial-slider-2__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 43.75rem; /* 700px */
+  margin: 0 auto; /* Center the content horizontally */
+  position: relative; /* For positioning slides */
+  overflow: hidden; /* Hide overflow slides */
+}
+
+.testimonial-slider-2__slides {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease; /* Smooth slide transition */
+}
+
+.testimonial-slider-2__slide {
+  flex: 0 0 100%; /* Each slide takes full width of container */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px; /* Minimum height to ensure content fits, adjust as needed */
+}
+
+.testimonial-slider-2__quote {
+  color: var(--color-white);
+  font-family: 'Barlow', sans-serif;
+  font-size: 1.25rem; /* 20px */
+  font-weight: 400;
+  line-height: 2rem; /* 32px */
+  margin-bottom: 2.25rem; /* Space beneath the quote */
+  max-width: 100%; /* Ensure text wraps within container */
+}
+
+.testimonial-slider-2__author {
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial-slider-2__avatar {
+  width: 3.75rem; /* 60px */
+  height: 3.75rem; /* 60px */
+  border-radius: 50%;
+  background-color: #FFFFFF; /* Assuming a white background */
+  margin-bottom: 1rem; /* 16px space beneath the avatar */
+  overflow: hidden; /* Ensure image fits circle */
+}
+
+.testimonial-slider-2__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure image fills the circle */
+}
+
+.testimonial-slider-2__name {
+  color: var(--color-white);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; /* 16px */
+  font-weight: 500;
+  line-height: 1.21rem; /* 19.36px */
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-slider-2__company {
+  color: var(--color-white);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; /* 16px */
+  font-weight: 500;
+  line-height: 1.21rem; /* 19.36px */
+  text-align: center;
+}

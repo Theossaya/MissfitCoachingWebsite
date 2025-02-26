@@ -190,3 +190,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Function to initialize a slider
+  function initSlider(sliderClass, slideClass, navigationClass, paginationClass, arrowLeftClass, arrowRightClass) {
+    const slidesContainer = document.querySelector(`.${sliderClass}__slides`);
+    const slides = document.querySelectorAll(`.${sliderClass}__slide`);
+    const prevArrow = document.querySelector(`.${sliderClass}__arrow--left`);
+    const nextArrow = document.querySelector(`.${sliderClass}__arrow--right`);
+    const pagination = document.querySelector(`.${sliderClass}__pagination`);
+    let currentSlide = 0;
+
+    // Show the initial slide
+    function showSlide(index) {
+      const slideWidth = slides[0].offsetWidth; // Get the width of one slide
+      slidesContainer.style.transform = `translateX(-${index * slideWidth}px)`; // Move to the correct slide
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+          slide.classList.add('active');
+        }
+      });
+      pagination.textContent = `${index + 1} / ${slides.length}`;
+    }
+
+    // Navigate to previous slide
+    prevArrow.addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    });
+
+    // Navigate to next slide
+    nextArrow.addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    });
+
+    // Initialize slider
+    showSlide(currentSlide);
+
+    // Resize handler to update slide width on window resize
+    window.addEventListener('resize', () => {
+      showSlide(currentSlide); // Recalculate position on resize
+    });
+  }
+
+  // Initialize both sliders
+  initSlider('testimonial-slider', 'testimonial-slider__slide', 'testimonial-slider__navigation', 'testimonial-slider__pagination', 'testimonial-slider__arrow--left', 'testimonial-slider__arrow--right');
+  initSlider('testimonial-slider-2', 'testimonial-slider-2__slide', 'testimonial-slider-2__navigation', 'testimonial-slider-2__pagination', 'testimonial-slider-2__arrow--left', 'testimonial-slider-2__arrow--right');
+});
