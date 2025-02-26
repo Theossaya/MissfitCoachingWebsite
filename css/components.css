@@ -5,8 +5,7 @@ body {
 }
 
 /* === HEADER === */
-/* === HEADER === */
-
+/* Header */
 .header {
   display: flex;
   justify-content: center; /* Centers the container horizontally */
@@ -17,6 +16,7 @@ body {
   padding-left: 3.75rem; /* 60px left padding */
   padding-right: 3.4375rem; /* 55px right padding */
   box-sizing: border-box; /* Include padding in width calculation */
+  position: relative; /* For positioning mobile menu */
 }
 
 /* Header Flex Container */
@@ -52,8 +52,14 @@ body {
   list-style: none; /* Remove default list styles */
   margin: 0;
   padding: 0;
+  position: relative; /* For positioning dropdowns */
 }
 
+.hero__nav-item {
+  position: relative; /* Make each nav item the positioning context for its dropdown */
+}
+
+/* Navigation Link */
 .header__nav-link {
   font-family: "Barlow", serif;
   font-weight: 600;
@@ -64,6 +70,11 @@ body {
   line-height: 1.5rem;
   display: flex;
   align-items: center;
+  cursor: pointer;
+}
+
+.header__nav-link--dropdown:hover {
+  color: #E1E2E9; /* Slight highlight on hover, optional */
 }
 
 /* Navigation Icon */
@@ -71,6 +82,56 @@ body {
   width: 0.665rem;
   height: auto;
   margin-left: 0.5rem; /* Space between text and icon */
+  transition: transform 0.3s ease; /* Smooth rotation for desktop dropdowns */
+}
+
+/* Desktop Dropdown Menu (Positioned under each nav item) */
+.header__nav-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%; /* Position directly below the nav item */
+  left: 0; /* Align with the left edge of the nav item */
+  background-color: #000; /* Black background, match image */
+  min-width: 200px; /* Adjust based on content width */
+  padding: 0.5rem 0;
+  list-style: none;
+  margin: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+  z-index: 10; /* Ensure dropdown appears above other elements */
+  animation: slideDownFade 0.3s ease-out; /* Add animation effect */
+}
+
+/* Animation for dropdown */
+@keyframes slideDownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header__nav-dropdown.active {
+  display: block;
+}
+
+.header__nav-dropdown-link {
+  font-family: "Barlow", serif;
+  font-weight: 600;
+  font-style: normal;
+  text-decoration: none;
+  color: #FFFFFF; /* White text, match image */
+  font-size: 0.875rem; /* Slightly smaller for dropdown items */
+  line-height: 1.25rem;
+  display: block;
+  padding: 0.5rem 1rem;
+  white-space: nowrap; /* Prevent wrapping in dropdown items */
+}
+
+.header__nav-dropdown-link:hover {
+  background-color: #272727; /* Darker background on hover, optional */
 }
 
 /* CTA Button */
@@ -92,7 +153,7 @@ body {
   background-color: #a91e1e; /* Darker red on hover */
 }
 
-/* Hamburger Menu Icon (Hidden by default) */
+/* Hamburger Menu Icon */
 .header__menu-toggle {
   display: none; /* Hidden on desktop */
   background: url('../assets/icons/hamburger.svg') no-repeat center; /* Use local SVG as background */
@@ -102,7 +163,8 @@ body {
   height: 14.000005722045898px; /* Match SVG height */
   color: #FFFFFF; /* For accessibility, though not visible if using background */
   cursor: pointer;
-  padding: 0.5rem; /* Maintain padding for clickable area, adjust as needed */
+  padding: 0.5rem; /* Maintain padding for clickable area */
+  position: relative; /* For positioning mobile menu dropdown */
 }
 
 /* Remove the ::before pseudo-element since we’re using a background image */
@@ -110,23 +172,28 @@ body {
   content: none; /* Remove the Unicode content */
 }
 
-/* Mobile Menu (Hidden by default) */
+/* Mobile Menu (Medium width, positioned under hamburger) */
 .header__mobile-menu {
   display: none;
   position: absolute;
-  top: 5.5rem; /* Below header height */
-  left: 0;
-  right: 0;
+  top: 100%; /* Position directly below the hamburger */
+  right: 3rem; /* Align with the left edge of the hamburger */
   background-color: rgba(29, 29, 29, 0.9); /* Darker semi-transparent background */
-  padding: 1rem 3.75rem;
+  max-width: 400px; /* Medium width, typical dropdown size */
+  width: 50%; /* Full width within max-width, but limited to 400px */
+  padding: 1rem;
   flex-direction: column;
   gap: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+  border-radius: 0.25rem; /* Optional rounded corners */
+  z-index: 10; /* Ensure menu appears above other elements */
 }
 
 .header__mobile-menu.active {
   display: flex;
 }
 
+/* Mobile Navigation List */
 .header__mobile-nav-list {
   display: flex;
   flex-direction: column;
@@ -134,11 +201,13 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
+  width: 100%; /* Ensure full width within the menu */
 }
 
+/* Mobile Navigation Link */
 .header__mobile-nav-link {
   font-family: "Barlow", serif;
-  font-weight: 410;
+  font-weight: 600;
   font-style: normal;
   text-decoration: none;
   color: #FFFFFF;
@@ -146,51 +215,101 @@ body {
   line-height: 1.5rem;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
+/* Mobile Navigation Link with Dropdown */
+.header__mobile-nav-link--dropdown {
+  cursor: pointer;
+}
+
+/* Mobile Navigation Icon */
 .header__mobile-nav-icon {
   width: 0.665rem;
   height: auto;
   margin-left: 0.5rem; /* Space between text and icon */
+  transition: transform 0.3s ease; /* Smooth rotation for mobile dropdowns */
 }
 
-/* Mobile CTA in Menu */
-.header__mobile-cta {
-  background-color: #C41E3D;
-  color: #FFFFFF;
-  padding: 0.75rem 2.25rem;
+/* Mobile Dropdown Menu */
+.header__mobile-nav-dropdown {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 1rem; /* Indent dropdown items */
+  flex-direction: column;
+  gap: 0.5rem;
+  animation: slideDownFade 0.3s ease-out; /* Add animation effect */
+}
+
+.header__mobile-nav-dropdown.active {
+  display: flex;
+}
+
+.header__mobile-nav-dropdown-link {
   font-family: "Barlow", serif;
-  font-size: 0.9375rem;
-  font-weight: 400;
-  line-height: 1.5rem;
-  text-align: center;
+  font-weight: 600;
+  font-style: normal;
   text-decoration: none;
-  border-radius: 0.25rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #FFFFFF; /* White text, match image */
+  font-size: 0.875rem; /* Slightly smaller for dropdown items */
+  line-height: 1.25rem;
+  display: block;
+  padding: 0.5rem 1rem;
+  white-space: nowrap; /* Prevent wrapping in dropdown items */
 }
 
-.header__mobile-cta:hover {
-  background-color: #a91e1e; /* Darker red on hover */
+.header__mobile-nav-dropdown-link:hover {
+  background-color: #272727; /* Darker background on hover, optional */
 }
 
-/* Header Right Container (New) */
+/* Mobile CONTACT Link (Text, not button) */
+.header__mobile-nav-link[href="pages/contact.html"] {
+  background: none; /* Remove button background */
+  color: #FFFFFF; /* Ensure white text */
+  padding: 0; /* Remove button padding */
+  font-weight: 600; /* Match other nav links */
+  text-align: left; /* Align left like other links */
+  border: none; /* Remove button border */
+  cursor: pointer; /* Maintain clickable behavior */
+  transition: none; /* Remove button transition */
+}
+
+/* Fix Hamburger and CTA Spacing in Desktop */
 .header__right {
   display: flex;
   align-items: center;
-  gap: 2.1875rem; /* 35px gap between hamburger and CTA */
+  gap: 2.1875rem; /* 35px gap between hamburger and CTA, ensure proper spacing */
 }
 
-/* === Responsive Design === */
+/* Hide desktop CTA at 664px and below */
+@media (max-width: 664px) {
+  .header__cta {
+    display: none; /* Hide desktop CTA */
+  }
 
-/* At 1200px: Break nav links into hamburger menu, 35px from CTA */
+  .header {
+    padding-left: clamp(2.25rem, 0.6058rem + 5.7692vw, 3rem);
+    padding-right: clamp(2.25rem, 0.6058rem + 5.7692vw, 3rem);
+  }
+
+  /* Ensure CONTACT appears as a text link in mobile menu */
+  .header__mobile-nav-link[href="pages/contact.html"] {
+    display: block; /* Ensure it’s visible in mobile menu */
+  }
+}
+
+/* At 1200px: Break nav links into hamburger menu */
 @media (max-width: 1200px) {
   .header__container {
     justify-content: space-between; /* Maintain space between logo and right elements */
   }
+
   .header {
-    padding-left: clamp(3rem, 2.0709rem + 2.2388vw, 3.75rem);;
-    padding-right: clamp(3rem, 2.0709rem + 2.2388vw, 3.75rem);;
-}
+    padding-left: clamp(3rem, 2.0709rem + 2.2388vw, 3.75rem);
+    padding-right: clamp(3rem, 2.0709rem + 2.2388vw, 3.75rem);
+  }
+
   .header__nav {
     display: none; /* Hide default nav */
   }
@@ -203,7 +322,6 @@ body {
     /* No additional margin needed here, gap handles 35px spacing */
   }
 
-  /* Show mobile menu when toggled */
   .header__mobile-menu.active {
     display: flex;
   }
@@ -211,30 +329,6 @@ body {
   .header__mobile-nav-list {
     flex-direction: column; /* Stack vertically in mobile menu */
     gap: 1rem;
-  }
-}
-
-/* At 664px: Move CTA into hamburger menu */
-@media (max-width: 664px) {
-  .header__cta {
-    display: none; /* Hide desktop CTA */
-  }
-  .header {
-    padding-left: clamp(2.25rem, 0.6058rem + 5.7692vw, 3rem);
-    padding-right: clamp(2.25rem, 0.6058rem + 5.7692vw, 3rem);
-}
-  .header__mobile-menu.active {
-    display: flex;
-  }
-
-  .header__mobile-nav-list {
-    flex-direction: column; /* Stack vertically */
-    gap: 1rem;
-  }
-
-  /* Add CTA to mobile menu */
-  .header__mobile-cta {
-    display: block; /* Show CTA in mobile menu */
   }
 }
 
@@ -1324,15 +1418,16 @@ body {
 .pricing__item--best::before {
     content: "Best Value";
     position: absolute;
-    top: -10%; /* 14px */
-    right:35%; /* 10px */
+    top: -4.375rem; /* 14px */
+    left:30%; /* 10px */
     background-color: #B3DBFF;
     color: #1D55C4;
     font-family: "Inter", sans-serif;
     font-weight: 600;
-    font-size: 0.75rem; /* 12px */
-    padding: 0.3125rem 0.625rem; /* 5px 10px */
-    border-radius: 0.75rem; /* 12px */
+    font-size: 0.875rem; /* 12px */
+    line-height: 1.4rem;
+    padding: 0.5rem 1rem; /* 5px 10px */
+    border-radius: 2rem; /* 12px */
 }
 
 

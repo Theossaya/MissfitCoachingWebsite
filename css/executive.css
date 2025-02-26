@@ -57,179 +57,202 @@ body {
   }
 
 
-
 /* Extend or override existing header styles for executive-header */
 .header.executive-header {
-    background-color: #000; /* Black background */
-    height: 5.5rem; /* Match existing height */
-    padding-left: 3.75rem; /* 60px left padding, match existing */
-    padding-right: 3.4375rem; /* 55px right padding, match existing */
-    box-sizing: border-box;
+  background-color: #000; /* Black background */
+  height: 5.5rem; /* Match existing height */
+  padding-left: 3.75rem; /* 60px left padding, match existing */
+  padding-right: 3.4375rem; /* 55px right padding, match existing */
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent container overflow */
+}
+
+/* Executive Header Container (Switch to Grid with fr units for intuitive spacing) */
+.header__container.executive-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /* Distribute space intuitively: left (1fr), nav (2fr), right (1fr) */
+  align-items: center;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  gap: 1rem; /* Add a small gap between grid items for spacing, adjustable */
+}
+
+/* Left Section (Zigzag, Divider, and Active Category) */
+.header__left {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Space between elements, maintain existing design */
+  grid-column: 1; /* Place in the first column */
+  min-width: 0; /* Prevent overflow */
+  justify-content: flex-start;
+  overflow-wrap: break-word; /* Allow word breaking if absolutely necessary */
+}
+
+.header__zigzag-icon {
+  width: 2.21rem; /* Adjust based on your SVG size */
+  height: 1.39rem;
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.header__divider {
+  width: 1px; /* 1px width */
+  height: 44px; /* 44px length */
+  background-color: #000000; /* Black color */
+  flex-shrink: 0; /* Prevent divider from shrinking */
+}
+
+.header__active-category {
+  font-family: "Barlow", serif;
+  font-weight: 600;
+  font-style: normal;
+  text-decoration: none;
+  color: #E1E2E9; /* Yellow text for active category */
+  font-size: 1.125rem; /* Larger than nav links, match image */
+  line-height: 1.8rem;
+  cursor: pointer;
+  min-width: 0; /* Prevent overflow */
+  overflow-wrap: break-word; /* Allow word breaking if absolutely necessary */
+}
+
+/* Navigation (Positioned in grid with proportional spacing) */
+.header__nav.executive-nav {
+  grid-column: 2; /* Place in the second column (larger share of space) */
+  min-width: 0; /* Prevent overflow */
+  justify-content: flex-end;
+  overflow-wrap: break-word; /* Allow word breaking if absolutely necessary */
+}
+
+.header__nav-list.executive-nav-list {
+  display: flex;
+  gap: 2.625rem; /* Space between navigation items, match existing */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0; /* Prevent overflow */
+  overflow-wrap: break-word; /* Allow word breaking if absolutely necessary */
+}
+
+.header__nav-link.executive-nav-link {
+  font-family: "Barlow", serif;
+  font-weight: 600;
+  font-style: normal;
+  text-decoration: none;
+  color: #FFFFFF; /* White text for nav links */
+  font-size: 0.9375rem; /* Match existing nav link size */
+  line-height: 1.5rem;
+  display: flex;
+  align-items: center;
+  min-width: 0; /* Prevent overflow */
+  overflow-wrap: break-word; /* Allow word breaking if absolutely necessary */
+}
+
+/* Right Section (CTA and Hamburger) */
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 2.1875rem; /* 35px gap between hamburger and CTA */
+  grid-column: 3; /* Place in the third column */
+  min-width: 0; /* Prevent overflow */
+  justify-content: flex-end;
+  overflow-wrap: break-word; /* Allow word breaking if absolutely necessary */
+}
+
+/* CTA Button (APPLY NOW) */
+.header__cta.executive-cta {
+  background-color: #FFB400; /* Yellow button */
+  color: #000; /* Black text for contrast */
+  padding: 0.75rem 2.25rem; /* Padding inside the button */
+  font-family: "Barlow", serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.25rem; /* Rounded corners */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: none;
+  min-width: 0; /* Prevent overflow */
+  overflow-wrap: break-word; /* Allow word breaking if absolutely necessary */
+}
+
+.header__cta.executive-cta:hover {
+  background-color: #E5A200; /* Slightly darker yellow on hover */
+}
+
+/* Reuse existing hamburger menu, mobile menu, and responsiveness styles */
+.header__menu-toggle,
+.header__mobile-menu,
+.header__mobile-nav-list,
+.header__mobile-nav-link,
+.header__mobile-cta {
+  /* These can remain as-is from your original CSS, no changes needed */
+}
+
+/* === Responsive Design === (Adjust for grid, reuse existing media queries) */
+
+/* At 1200px: Break nav links into hamburger menu */
+@media (max-width: 1200px) {
+  .header.executive-header {
+    padding-left: clamp(3rem, 2.0709rem + 2.2388vw, 3.75rem);
+    padding-right: clamp(3rem, 2.0709rem + 2.2388vw, 3.75rem);
   }
-  
-  /* Executive Header Container (override spacing for specific layout) */
+
   .header__container.executive-container {
-    display: flex;
-    justify-content: flex-start; /* Align items from left, adjust spacing manually */
-    align-items: center;
-    width: 100%;
-    max-width: 1300px;
-    margin: 0 auto;
+    grid-template-columns: 1fr auto; /* Simplify to left and right for mobile */
+    justify-content: space-between; /* Maintain space between logo and right elements */
   }
-  
-  /* Left Section (Zigzag, Divider, and Active Category) */
+
   .header__left {
-    display: flex;
-    align-items: center;
-    gap: 1rem; /* Space between elements, adjust as needed */
+    grid-column: 1;
   }
-  
-  .header__zigzag-icon {
-    width: 1.5rem; /* Adjust based on your SVG size */
-    height: auto;
-  }
-  
-  .header__divider {
-    width: 1px; /* 1px width */
-    height: 44px; /* 44px length */
-    background-color: #000000; /* Black color */
-    margin-top: 24px; /* Offset 24px from the top */
-    margin-left: 0.5rem; /* Space between zigzag icon and line */
-    margin-right: 0.5rem; /* Space between line and text */
-  }
-  
-  .header__active-category {
-    font-family: "Barlow", serif;
-    font-weight: 600;
-    font-style: normal;
-    text-decoration: none;
-    color: #E1E2E9; /* Yellow text for active category */
-    font-size: 1.125rem; /* Larger than nav links, match image */
-    line-height: 1.8rem;
-    cursor: pointer;
-  }
-  
-  /* Navigation (positioned 375px from left, 180px from right) */
+
   .header__nav.executive-nav {
-    margin-left: 340px; /* 375px from header__left */
-    margin-right: 180px; /* 180px from header__right */
+    display: none; /* Hide default nav */
   }
-  
-  .header__nav-list.executive-nav-list {
-    display: flex;
-    gap: 2.625rem; /* Space between navigation items, match existing */
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .header__nav-link.executive-nav-link {
-    font-family: "Barlow", serif;
-    font-weight: 600;
-    font-style: normal;
-    text-decoration: none;
-    color: #FFFFFF; /* White text for nav links */
-    font-size: 0.9375rem; /* Match existing nav link size */
-    line-height: 1.5rem;
-    display: flex;
-    align-items: center;
-  }
-  
-  /* CTA Button (APPLY NOW) */
-  .header__cta.executive-cta {
-    background-color: #FFB400; /* Yellow button */
-    color: #000; /* Black text for contrast */
-    padding: 0.75rem 2.25rem; /* Padding inside the button */
-    font-family: "Barlow", serif;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    line-height: 1.5rem;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 0.25rem; /* Rounded corners */
-    transition: background-color 0.3s ease, color 0.3s ease;
-    border: none;
-  }
-  
-  .header__cta.executive-cta:hover {
-    background-color: #E5A200; /* Slightly darker yellow on hover */
-  }
-  
-  /* Reuse existing hamburger menu, mobile menu, and responsiveness styles */
-  .header__menu-toggle,
-  .header__mobile-menu,
-  .header__mobile-nav-list,
-  .header__mobile-nav-link,
-  .header__mobile-cta {
-    /* These can remain as-is from your original CSS, no changes needed */
-  }
-  
-  /* Header Right Container */
+
   .header__right {
+    grid-column: 2;
+  }
+
+  .header__menu-toggle {
+    display: flex; /* Show hamburger menu */
+  }
+
+  .header__mobile-menu.active {
     display: flex;
-    align-items: center;
-    gap: 2.1875rem; /* 35px gap between hamburger and CTA */
   }
-  
-  /* === Responsive Design === (Reuse existing media queries, no changes needed) */
-  
-  /* At 1200px: Break nav links into hamburger menu */
-  @media (max-width: 1200px) {
-    .header.executive-header {
-      padding-left: clamp(3rem, 2.0709rem + 2.2388vw, 3.75rem);
-      padding-right: clamp(3rem, 2.0709rem + 2.2388vw, 3.75rem);
-    }
-  
-    .header__container.executive-container {
-      justify-content: space-between; /* Maintain space between logo and right elements */
-    }
-  
-    .header__nav.executive-nav {
-      display: none; /* Hide default nav */
-    }
-  
-    .header__menu-toggle {
-      display: flex; /* Show hamburger menu */
-    }
-  
-    .header__right {
-      /* No additional margin needed here, gap handles 35px spacing */
-    }
-  
-    .header__mobile-menu.active {
-      display: flex;
-    }
-  
-    .header__mobile-nav-list {
-      flex-direction: column; /* Stack vertically in mobile menu */
-      gap: 1rem;
-    }
+
+  .header__mobile-nav-list {
+    flex-direction: column; /* Stack vertically in mobile menu */
+    gap: 1rem;
   }
-  
-  /* At 664px: Move CTA into hamburger menu */
-  @media (max-width: 664px) {
-    .header__cta.executive-cta {
-      display: none; /* Hide desktop CTA */
-    }
-  
-    .header.executive-header {
-      padding-left: clamp(2.25rem, 0.6058rem + 5.7692vw, 3rem);
-      padding-right: clamp(2.25rem, 0.6058rem + 5.7692vw, 3rem);
-    }
-  
-    .header__mobile-menu.active {
-      display: flex;
-    }
-  
-    .header__mobile-nav-list {
-      flex-direction: column; /* Stack vertically */
-      gap: 1rem;
-    }
-  
-    .header__mobile-cta {
-      display: block; /* Show CTA in mobile menu */
-    }
+}
+
+/* At 664px: Move CTA into hamburger menu */
+@media (max-width: 664px) {
+  .header__cta.executive-cta {
+    display: none; /* Hide desktop CTA */
   }
+
+  .header.executive-header {
+    padding-left: clamp(2.25rem, 0.6058rem + 5.7692vw, 3rem);
+    padding-right: clamp(2.25rem, 0.6058rem + 5.7692vw, 3rem);
+  }
+
+  .header__mobile-menu.active {
+    display: flex;
+  }
+
+  .header__mobile-nav-list {
+    flex-direction: column; /* Stack vertically */
+    gap: 1rem;
+  }
+
+  .header__mobile-cta {
+    display: block; /* Show CTA in mobile menu */
+  }
+}
 
 
   

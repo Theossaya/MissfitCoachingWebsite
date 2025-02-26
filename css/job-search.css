@@ -10,27 +10,28 @@ body {
   }
 
 
-  .header{
+  .header.executive-header{
     background-color:#1D55C4;
 }
 
-.header__cta {
+.header__cta.executive-cta  {
     background-color: #FFFFFF;
     color: #1D55C4;
   }
   
   .header__cta:hover {
-    color: #FFFFFF;
-    background-color: #1D55C4;
+    background-color: #FAFAFA; /* Hover effect */
   }
   .hero__button {
     background-color: #FFFFFF;
     color: #1D55C4;
   }
+  .header__divider{
+    background-color: #3F7ECB;
+  }
   
   .hero__button:hover {
-    background-color: #1D55C4; /* Hover effect */
-    color: #FFFFFF;
+    background-color: #FAFAFA; /* Hover effect */
   }
 
   .content-section {
@@ -477,3 +478,22 @@ body {
       grid-row: auto;
     }
   }
+
+.pricing__item--popular::before{
+    top: -4.375rem;
+    content: "Most Flexible";
+
+}
+
+
+.pricing__plan-subtitle{
+  font-size:  1rem;
+  line-height: 1.6rem;
+  color: #000000;
+  font-weight: 400;
+  margin-bottom: 0.375rem;
+}
+
+.pricing__plan {
+  margin-bottom: 1rem;
+}

@@ -91,90 +91,110 @@ body {
 
   }
   
-  /* === Contact Form === */
-  .contact-form {
-    background-color: #1D1D1D; /* Dark background */
-    border-radius: 8px; /* Smooth edges */
-    flex: 1;
-    padding: 2.25rem; /* 36px padding all around */
-    box-sizing: border-box; /* Include padding in width */
-  }
-  
-  .contact-form__title {
-    font-family: "Barlow", sans-serif;
-    font-size: 1.5rem; /* 24px */
-    font-weight: 700;
-    line-height: 1.575rem; /* 25.25px */
-    text-align: left;
-    color: #C41E3D;
-    margin-bottom: 2.0625rem; /* 33px below */
-  }
-  
-  .contact-form__body {
-    display: flex;
-    flex-direction: column;
-    gap: 1.625rem; /* 26px between form fields */
-  }
-  
-  .contact-form__field {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .contact-form__label {
-    color: #ffffff; /* White text */
+/* === Contact Form === */
+.contact-form {
+  background-color: #1D1D1D; /* Dark background */
+  border-radius: 8px; /* Smooth edges */
+  flex: 1;
+  padding: 2.25rem; /* 36px padding all around */
+  box-sizing: border-box; /* Include padding in width */
+}
 
-    font-family: "Inter", sans-serif;
-    font-size: 1rem; /* 16px */
-    font-weight: 400;
-    line-height: 1.6rem; /* 25.6px */
-    text-align: left;
-    margin-bottom: 0.5rem; /* Space between label and input */
-  }
-  
-  .contact-form__input,
-  .contact-form__select {
-    font-family: "Inter", sans-serif;
-    font-size: 0.9375rem; /* 15px */
-    font-weight: 400;
-    line-height: 1.5rem; /* 24px */
-    text-align: left;
-    padding: 0.75rem; /* Add padding inside */
-    border: 1px solid #EFEFEF; /* Light border */
-    border-radius: 4px;
-    background-color: #ffffff;
-    width: 100%;
-    box-sizing: border-box; /* Include padding in width */
-  }
-  
-  .contact-form__submit {
-    font-family: "Inter", sans-serif;
-    font-size: 1rem; /* 16px */
-    font-weight: 600;
-    text-align: center;
-    color: #ffffff;
-    background-color: #C41E3D;
-    border: none;
-    border-radius: 4px;
-    padding: 1rem; /* 16px padding */
-    cursor: pointer;
-    transition: background-color 0.3s ease, opacity 0.3s ease;
-  }
-  
-  .contact-form__submit:hover {
-    opacity: 0.8;
-  }
-  
-  .contact-form__terms {
-    color: #ffffff; /* White text */
-    font-family: "Inter", sans-serif;
-    font-size: 0.8125rem; /* 13px */
-    font-weight: 400;
-    line-height: 1.3rem; /* 20.8px */
-    text-align: left;
-    margin-top: 1.5rem; /* 24px above */
-  }
+/* Contact Form Title */
+.contact-form__title {
+  font-family: "Barlow", sans-serif;
+  font-size: 1.5rem; /* 24px */
+  font-weight: 700;
+  line-height: 1.575rem; /* 25.25px */
+  text-align: left;
+  color: #C41E3D;
+  margin-bottom: 2.0625rem; /* 33px below */
+}
+
+/* Contact Form Body */
+.contact-form__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.625rem; /* 26px between form fields */
+}
+
+/* Contact Form Field */
+.contact-form__field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Contact Form Label */
+.contact-form__label {
+  color: #ffffff; /* White text */
+  font-family: "Inter", sans-serif;
+  font-size: 1rem; /* 16px */
+  font-weight: 400;
+  line-height: 1.6rem; /* 25.6px */
+  text-align: left;
+  margin-bottom: 0.5rem; /* Space between label and input */
+}
+
+/* Contact Form Input and Select */
+.contact-form__input,
+.contact-form__select {
+  font-family: "Inter", sans-serif;
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 400;
+  line-height: 1.5rem; /* 24px */
+  text-align: left;
+  padding: 1rem 1.5rem; /* Add padding inside, now affects both input and select */
+  border: 1px solid #EFEFEF; /* Light border */
+  border-radius: 4px;
+  background-color: #ffffff;
+  width: 100%;
+  box-sizing: border-box; /* Include padding in width */
+  appearance: none; /* Remove default browser styling for select */
+  -webkit-appearance: none; /* For Safari */
+  -moz-appearance: none; /* For Firefox */
+  position: relative; /* For positioning the custom arrow */
+  background-image: url('../assets/icons/angle.svg'); /* Custom arrow image (replace with your SVG or image path) */
+  background-repeat: no-repeat;
+  background-position: right 1.5rem center; /* Position the arrow 1.5rem from the right, centered vertically */
+  background-size: 0.8rem auto; /* Adjust size of the custom arrow */
+}
+
+/* Ensure the custom arrow doesn’t interfere with text */
+.contact-form__select:focus {
+  outline: none; /* Remove default focus outline if desired */
+  border-color: #C41E3D; /* Optional: Highlight on focus */
+}
+
+/* Contact Form Submit Button */
+.contact-form__submit {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem; /* 16px */
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
+  background-color: #C41E3D;
+  border: none;
+  border-radius: 4px;
+  padding: 1rem; /* 16px padding */
+  cursor: pointer;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.contact-form__submit:hover {
+  opacity: 0.8;
+}
+
+/* Contact Form Terms */
+.contact-form__terms {
+  color: #ffffff; /* White text */
+  font-family: "Inter", sans-serif;
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 400;
+  line-height: 1.3rem; /* 20.8px */
+  text-align: left;
+  margin-top: 1.5rem; /* 24px above */
+}
 
   @media (max-width: 902px) {
     .contact-section__container {
