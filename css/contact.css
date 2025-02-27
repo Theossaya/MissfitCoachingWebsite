@@ -2,8 +2,11 @@ body {
   font-family: 'Barlow', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  
 }
-
+* {
+  z-index: 100;
+}
 
 /* === CONTACT HERO SECTION === */
 .contact-hero {
