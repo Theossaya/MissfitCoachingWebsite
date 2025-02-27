@@ -1304,6 +1304,7 @@ body {
   border: 1px solid #F0F0F0;
   padding: 1.5625rem 2.25rem 1.5625rem 2rem ; /* Vertical and horizontal padding */
   margin-bottom: 1.25rem; /* 20px margin below each FAQ item */
+  cursor: pointer;
   
 }
 

@@ -352,9 +352,7 @@ button, input, select, textarea {
   transform: scale(1.1);
 }
 
-.testimonial-slider__arrow--left img {
-  transform: rotate(180deg); /* Rotate left arrow icon */
-}
+
 
 .testimonial-slider__pagination {
   font-family: 'Inter', sans-serif;
@@ -486,9 +484,7 @@ button, input, select, textarea {
   transform: scale(1.1);
 }
 
-.testimonial-slider-2__arrow--left img {
-  transform: rotate(180deg); /* Rotate left arrow icon */
-}
+
 
 .testimonial-slider-2__pagination {
   font-family: 'Inter', sans-serif;
