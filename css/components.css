@@ -949,7 +949,7 @@ body {
   color: #fff;
   text-align: center;
   padding: 2.25rem; /* 48px spacing on all sides inside the container */
-  border-radius: 0.5rem; /* Rounded corners */
+  border-radius: 0.25rem; /* Rounded corners */
   box-sizing: border-box; /* Includes padding in width/height calculations */
   display: flex;
   max-width: 27.13rem;
