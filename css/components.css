@@ -1367,37 +1367,34 @@ body {
 
 
 
-  /* === Pricing Section === */
-  .pricing {
-    padding: 8.25rem 0; /* 132px equivalent */
-    text-align: center;
-    background-color: #FAFAFA ;
+/* === Pricing Section === */
+.pricing {
+  padding: 8.25rem 0; /* 132px equivalent */
+  text-align: center;
+  background-color: #FAFAFA;
 }
 
 /* === Pricing Header === */
 .pricing__header {
-    margin-bottom: 8.25rem; /* 132px equivalent */
+  margin-bottom: 8.25rem; /* 132px equivalent */
 }
 
 .pricing__title {
-    font-family: "Barlow", sans-serif;
-    font-weight: 700;
-    font-size: 2.5rem; /* 40px */
-    line-height: 3rem; /* 48px */
-    letter-spacing: 0;
-    text-align: center;
-    color: #020D43;
+  font-family: "Barlow", sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem; /* 40px */
+  line-height: 3rem; /* 48px */
+  letter-spacing: 0;
+  text-align: center;
+  color: #020D43;
 }
 
 /* === Pricing Grid === */
 .pricing__grid {
-  display: grid;
-  justify-content: center;
-  gap: 3rem; /* 48px */
+  position: relative; /* Required for Masonry positioning */
   max-width: 90%;
   margin: 0 auto;
-  /* Default: 3 columns on desktop (above 1200px) */
-  grid-template-columns: repeat(3, 1fr);
+  /* Remove grid-related properties since Masonry handles layout */
 }
 
 /* === Pricing Items === */
@@ -1407,173 +1404,152 @@ body {
   border-radius: 0.5rem; /* 8px */
   padding: 2rem 1.875rem 3.75rem; /* 32px top, 30px sides, 60px bottom */
   text-align: left;
-  width: 100%;
-  max-width: 22rem; /* 352px */
-  height: fit-content;
+  width: 100%; /* Full width, Masonry will calculate columns */
+  max-width: 22rem; /* 352px, but Masonry will adjust based on available space */
+  box-sizing: border-box; /* Include padding in width */
+  margin-bottom: 48px; /* Adds 48px vertical gap to match gutter */
+  /* Remove transitions to prevent motion during resize */
+  transition: none; /* Disable all transitions for static positioning */
 }
 
 /* Ensures all pricing cards adjust dynamically */
-.pricing__item--popular {
-    position: relative;
+.pricing__item--popular,
+.pricing__item--best {
+  position: relative; /* Ensure badges position correctly */
 }
 
 /* === "Most Popular" Badge === */
 .pricing__item--popular::before {
-    content: "Most Popular";
-    position: absolute;
-    background-color: #D0FFDA;
-    left: 30%;
-    top: -4%;
-    color: #00901F;
-    font-family: "Inter", sans-serif;
-    font-weight: 600;
-    font-size: 0.875rem; /* 12px */
-    line-height: 1.4rem;
-    padding: 0.5rem 1rem; /* 5px 10px */
-    border-radius: 2rem; /* 12px */
+  content: "Most Popular";
+  position: absolute;
+  background-color: #D0FFDA;
+  left: 30%;
+  top: -4%;
+  color: #00901F;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem; /* 12px */
+  line-height: 1.4rem;
+  padding: 0.5rem 1rem; /* 5px 10px */
+  border-radius: 2rem; /* 12px */
 }
 
-.pricing__item--best {
-    position: relative;
-}
-
-/* === "M=Best value" Badge === */
+/* === "Best Value" Badge === */
 .pricing__item--best::before {
-    content: "Best Value";
-    position: absolute;
-    top: -4.375rem; /* 14px */
-    left:30%; /* 10px */
-    background-color: #B3DBFF;
-    color: #1D55C4;
-    font-family: "Inter", sans-serif;
-    font-weight: 600;
-    font-size: 0.875rem; /* 12px */
-    line-height: 1.4rem;
-    padding: 0.5rem 1rem; /* 5px 10px */
-    border-radius: 2rem; /* 12px */
+  content: "Best Value";
+  position: absolute;
+  top: -4.375rem; /* 14px */
+  left: 30%; /* 10px */
+  background-color: #B3DBFF;
+  color: #1D55C4;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem; /* 12px */
+  line-height: 1.4rem;
+  padding: 0.5rem 1rem; /* 5px 10px */
+  border-radius: 2rem; /* 12px */
 }
-
 
 /* === Pricing Plan Title === */
 .pricing__plan {
-    font-family: "Inter", sans-serif;
-    font-weight: 600;
-    font-size: 1rem; /* 16px */
-    line-height: 1.2rem;
-    letter-spacing: 0;
-    margin-bottom: 1.3rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 1rem; /* 16px */
+  line-height: 1.2rem;
+  letter-spacing: 0;
+  margin-bottom: 1.3rem;
 }
 
 /* === Pricing Price === */
 .pricing__price {
-    font-family: "Barlow", sans-serif;
-    font-weight: 600;
-    font-size: 2.5rem; /* 40px */
-    line-height: 3rem;
-    letter-spacing: 0;
-    margin-bottom: 2.25rem;
+  font-family: "Barlow", sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem; /* 40px */
+  line-height: 3rem;
+  letter-spacing: 0;
+  margin-bottom: 2.25rem;
 }
 
 /* === Order Button === */
 .pricing__button {
-    font-family: "Barlow", sans-serif;
-    font-weight: 600;
-    font-size: 0.9375rem; /* 15px */
-    line-height: 1.5rem; /* 24px */
-    text-align: center;
-    padding: 0.9375rem 5rem; /* 15px 80px */
-    background-color: #0044CC;
-    color: white;
-    border: none;
-    border-radius: 0.375rem; /* 6px */
-    cursor: pointer;
-    display: block;
-    width: 100%;
-    text-transform: uppercase;
-    transition: background 0.3s ease;
+  font-family: "Barlow", sans-serif;
+  font-weight: 600;
+  font-size: 0.9375rem; /* 15px */
+  line-height: 1.5rem; /* 24px */
+  text-align: center;
+  padding: 0.9375rem 5rem; /* 15px 80px */
+  background-color: #0044CC;
+  color: white;
+  border: none;
+  border-radius: 0.375rem; /* 6px */
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  text-transform: uppercase;
+  transition: background 0.3s ease; /* Keep button transition */
 }
 
 .pricing__button:hover {
-    background-color: #002C99;
+  background-color: #002C99;
 }
 
 /* === Contact Info === */
 .pricing__contact {
-    font-family: "Inter", sans-serif;
-    font-weight: 400;
-    font-size: 1rem; /* 16px */
-    line-height: 1.6rem; /* 25.6px */
-    letter-spacing: 0;
-    margin-top: 1.9rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 1rem; /* 16px */
+  line-height: 1.6rem; /* 25.6px */
+  letter-spacing: 0;
+  margin-top: 1.9rem;
 }
 
 /* === Included Title === */
 .pricing__included-title {
-    font-family: "Inter", sans-serif;
-    font-weight: 600;
-    font-size: 1rem; /* 16px */
-    line-height: 1.6rem;
-    letter-spacing: 0;
-    margin-top: 2rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 1rem; /* 16px */
+  line-height: 1.6rem;
+  letter-spacing: 0;
+  margin-top: 2rem;
 }
 
 /* === Features List === */
 .pricing__features {
-    font-family: "Inter", sans-serif;
-    font-weight: 400;
-    font-size: 1rem; /* 16px */
-    line-height: 1.6rem; /* 25.6px */
-    letter-spacing: 0;
-    margin-top: 1rem;
-    padding-left: 1.75rem; /* 28px */
-    padding-right: 2.75rem; /* 44px */
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 1rem; /* 16px */
+  line-height: 1.6rem; /* 25.6px */
+  letter-spacing: 0;
+  margin-top: 1rem;
+  padding-left: 1.75rem; /* 28px */
+  padding-right: 2.75rem; /* 44px */
 }
 
 .pricing__features li {
-    margin-bottom: 0.625rem; /* 10px */
+  margin-bottom: 0.625rem; /* 10px */
 }
 
-
-/* Media query for 1200px and below (two-column layout with masonry effect) */
+/* Responsive Breakpoints (Masonry will handle columns, but define max-width for container) */
 @media (max-width: 1200px) {
   .pricing__grid {
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    /* Use auto-flow to create a masonry-like effect, but control order */
-    grid-auto-flow: dense; /* Ensures items fill gaps efficiently */
-  }
-
-  /* Position items explicitly to match the desired layout */
-  .pricing__item--popular { /* Premier (first column, top) */
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .pricing__item:nth-child(2) { /* Standard (second column, top) */
-    grid-column: 2;
-    grid-row: 1 / span 2; /* Span two rows to create space for Starter below */
-  }
-
-  .pricing__item:nth-child(3) { /* Starter (second column, under Standard) */
-    grid-column: 2;
-    grid-row: 2;
+    max-width: 60%; /* Fits 2 × 352px + 1 × 48px = ~752px */
   }
 }
 
-/* Optional: Adjust for smaller screens if needed */
 @media (max-width: 768px) {
   .pricing__grid {
-    grid-template-columns: 1fr; /* Single column for very small screens */
-    grid-auto-flow: row; /* Stack vertically */
-  }
-
-  /* Reset explicit positioning for mobile */
-  .pricing__item--popular,
-  .pricing__item:nth-child(2),
-  .pricing__item:nth-child(3) {
-    grid-column: auto;
-    grid-row: auto;
+    max-width: 100%; /* Full width for single column on mobile */
   }
 }
+
+/* Optional: Add a class to freeze layout during resize */
+.pricing__grid.freeze {
+  transition: none !important; /* Force no transitions during resize */
+}
+
+
+
+
 /* Masonry Section Styling */
 .masonry-section {
   background-color: #020D43;
