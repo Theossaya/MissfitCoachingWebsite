@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const minusIcon = document.createElement("img");
 
       // Set minus icon attributes
-      minusIcon.src = "/assets/icons/minus.svg";
+      minusIcon.src = "/MissfitCoachingWebsite/assets/icons/minus.svg";
       minusIcon.alt = "Collapse";
       minusIcon.classList.add("faq__icon", "faq__icon--minus");
       minusIcon.style.display = "none"; // Hide minus icon initially
@@ -193,50 +193,86 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Function to initialize a slider
-  function initSlider(sliderClass, slideClass, navigationClass, paginationClass, arrowLeftClass, arrowRightClass) {
+  function initSlider(sliderClass) {
+    // Select slider elements
     const slidesContainer = document.querySelector(`.${sliderClass}__slides`);
     const slides = document.querySelectorAll(`.${sliderClass}__slide`);
     const prevArrow = document.querySelector(`.${sliderClass}__arrow--left`);
     const nextArrow = document.querySelector(`.${sliderClass}__arrow--right`);
     const pagination = document.querySelector(`.${sliderClass}__pagination`);
-    let currentSlide = 0;
+    const totalSlides = slides.length;
+    let currentSlide = 1; // Start at first actual slide
+    let isTransitioning = false; // Prevent multiple clicks during transition
 
-    // Show the initial slide
-    function showSlide(index) {
-      const slideWidth = slides[0].offsetWidth; // Get the width of one slide
-      slidesContainer.style.transform = `translateX(-${index * slideWidth}px)`; // Move to the correct slide
-      slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        if (i === index) {
-          slide.classList.add('active');
-        }
-      });
-      pagination.textContent = `${index + 1} / ${slides.length}`;
+    // Clone slides for infinite loop
+    const firstSlideClone = slides[0].cloneNode(true);
+    const lastSlideClone = slides[totalSlides - 1].cloneNode(true);
+    slidesContainer.appendChild(firstSlideClone);
+    slidesContainer.insertBefore(lastSlideClone, slides[0]);
+    const allSlides = document.querySelectorAll(`.${sliderClass}__slide`);
+
+    // Initialize position
+    function updateSlideWidth() {
+      return allSlides[0].offsetWidth || 700; // Fallback to 700px if undefined
+    }
+    let slideWidth = updateSlideWidth();
+    slidesContainer.style.transition = 'none';
+    slidesContainer.style.transform = `translateX(-${slideWidth}px)`;
+    setTimeout(() => {
+      slidesContainer.style.transition = 'transform 0.5s ease';
+    }, 0);
+
+    // Show slide with bounds checking
+    function showSlide(index, skipTransition = false) {
+      if (isTransitioning && !skipTransition) return;
+      isTransitioning = true;
+
+      slideWidth = updateSlideWidth();
+      slidesContainer.style.transition = skipTransition ? 'none' : 'transform 0.1s ease';
+      slidesContainer.style.transform = `translateX(-${index * slideWidth}px)`;
+      currentSlide = index;
+
+      // Normalize pagination (1 to totalSlides)
+      let paginationNumber = ((currentSlide - 1 + totalSlides) % totalSlides) + 1;
+      pagination.textContent = `${paginationNumber} / ${totalSlides}`;
+
+      if (!skipTransition) {
+        setTimeout(() => { isTransitioning = false; }, 500); // Match transition duration
+      } else {
+        isTransitioning = false;
+      }
     }
 
-    // Navigate to previous slide
+    // Handle transition end for looping
+    slidesContainer.addEventListener('transitionend', () => {
+      if (currentSlide === 0) {
+        showSlide(totalSlides, true); // Jump to last slide
+      } else if (currentSlide === totalSlides + 1) {
+        showSlide(1, true); // Jump to first slide
+      } else {
+        isTransitioning = false;
+      }
+    });
+
+    // Navigation
     prevArrow.addEventListener('click', () => {
-      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-      showSlide(currentSlide);
+      if (!isTransitioning) showSlide(currentSlide - 1);
     });
 
-    // Navigate to next slide
     nextArrow.addEventListener('click', () => {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
+      if (!isTransitioning) showSlide(currentSlide + 1);
     });
 
-    // Initialize slider
-    showSlide(currentSlide);
-
-    // Resize handler to update slide width on window resize
+    // Handle resize
     window.addEventListener('resize', () => {
-      showSlide(currentSlide); // Recalculate position on resize
+      slideWidth = updateSlideWidth();
+      showSlide(currentSlide, true); // Update position without transition
     });
+
+    // Start at first slide
+    showSlide(1);
   }
 
-  // Initialize both sliders
-  initSlider('testimonial-slider', 'testimonial-slider__slide', 'testimonial-slider__navigation', 'testimonial-slider__pagination', 'testimonial-slider__arrow--left', 'testimonial-slider__arrow--right');
-  initSlider('testimonial-slider-2', 'testimonial-slider-2__slide', 'testimonial-slider-2__navigation', 'testimonial-slider-2__pagination', 'testimonial-slider-2__arrow--left', 'testimonial-slider-2__arrow--right');
+  initSlider('testimonial-slider');
+  initSlider('testimonial-slider-2');
 });

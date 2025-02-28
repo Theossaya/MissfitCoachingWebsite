@@ -22,7 +22,6 @@ body {
   
 
   .header{
-    padding-top: 1.25rem;
     background-color: transparent;
 }
 
@@ -217,22 +216,5 @@ body {
   
 
   /* === Newsletter Section === */
-.newsletter {
-    display: flex;
-    justify-content: center; /* Horizontally center */
-    align-items: center; /* Vertically center */
-    padding: 8.25rem 3.75rem; /* 132px on top and bottom */
-    background-color: #ffffff; /* Background color for contrast */
-  }
-  
-  .newsletter__container {
-    background-color: #1d1d1d; /* Box background */
-    padding: 2.25rem; /* 56px padding on all sides */
-    max-width: 28.3125rem; /* 453px max width */
-    width: 100%; /* Full width */
-    box-sizing: border-box; /* Include padding in width */
-    text-align: center; /* Center text alignment */
-    border-radius: 0.25rem; /* Rounded corners */
-  }
-  
+
   

@@ -25,7 +25,6 @@ body {
   justify-content: space-between; /* Distribute items across available space */
   align-items: center;
   width: 100%;
-  max-width: 1200px; /* Limit content width */
   margin: 0 auto; /* Center horizontally */
 }
 
@@ -89,16 +88,18 @@ body {
 .header__nav-dropdown {
   display: none;
   position: absolute;
-  top: 100%; /* Position directly below the nav item */
-  left: 0; /* Align with the left edge of the nav item */
+  top: 3rem; /* Position directly below the nav item */
+  right: -6rem; /* Align with the left edge of the nav item */
   background-color: #000; /* Black background, match image */
-  min-width: 200px; /* Adjust based on content width */
-  padding: 0.5rem 0;
+  min-width: 13.43rem; /* Adjust based on content width */
+  padding:  1.125rem 0 1.125rem 1.25rem ;
   list-style: none;
   margin: 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
-  z-index: 10; /* Ensure dropdown appears above other elements */
+  z-index: 100; /* Ensure dropdown appears above other elements */
   animation: slideDownFade 0.3s ease-out; /* Add animation effect */
+  border: 1px solid #333333;
+  border-radius: 0.25rem;
 }
 
 /* Animation for dropdown */
@@ -122,17 +123,22 @@ body {
   font-weight: 600;
   font-style: normal;
   text-decoration: none;
-  color: #FFFFFF; /* White text, match image */
-  font-size: 0.875rem; /* Slightly smaller for dropdown items */
-  line-height: 1.25rem;
+  color: #D6D6D6; /* White text, match image */
+  font-size: 0.9375rem; /* Slightly smaller for dropdown items */
+  line-height: 1.5rem;
   display: block;
-  padding: 0.5rem 1rem;
+  padding-bottom: 1rem;
   white-space: nowrap; /* Prevent wrapping in dropdown items */
 }
 
 .header__nav-dropdown-link:hover {
   background-color: #272727; /* Darker background on hover, optional */
 }
+
+.hero__nav-item:nth-child(2) .header__nav-dropdown li:nth-child(3) a {
+  padding-bottom: 0;
+}
+
 
 /* CTA Button */
 .header__cta {
@@ -340,6 +346,7 @@ body {
   align-items: flex-start;
   margin-left: clamp(3.75rem, -5.0754rem + 16.7504vw, 10rem);/* Align the content properly */
   margin-top: 7.9375rem;
+  margin-right: 60px;
 }
 
 .hero__text {
@@ -1034,9 +1041,9 @@ body {
   font-family: 'Barlow', sans-serif;
   font-size: 3.125rem; /* 60px converted to rem */
   font-weight: 700;
-  line-height: 4.5rem; /* 72px converted to rem */
+  line-height: 3.75rem; /* 72px converted to rem */
   text-align: left;
-  margin: 0;
+  margin-bottom: 1rem;
 }
 
 .shared-hero .hero__subtitle {
@@ -1058,15 +1065,29 @@ body {
 }
 
 
+.newsletter {
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  padding: 8.25rem 3.75rem; /* 132px on top and bottom */
+  background-color: #ffffff; /* Background color for contrast */
+}
+
 .newsletter__container {
   background-color: #1d1d1d; /* Box background */
-  padding: 3.5rem; /* 56px padding on all sides */
+  padding: 2.25rem; /* 56px padding on all sides */
   max-width: 28.3125rem; /* 453px max width */
   width: 100%; /* Full width */
   box-sizing: border-box; /* Include padding in width */
   text-align: center; /* Center text alignment */
   border-radius: 0.25rem; /* Rounded corners */
+  max-width: 25.1825rem;
+
 }
+
+
+
+
 
 .newsletter__header {
   margin-bottom: 2.25rem; /* 36px space below */
@@ -1074,9 +1095,9 @@ body {
 
 .newsletter__title {
   font-family: "Barlow", sans-serif;
-  font-size: 2.5rem; /* 40px */
+  font-size: 2.1875rem; /* 40px */
   font-weight: 700;
-  line-height: 3rem; /* 48px */
+  line-height: 2.625rem; /* 48px */
   color: #ffffff;
 }
 
@@ -1090,15 +1111,16 @@ body {
   font-weight: 400;
   line-height: 1.6rem; /* 25.6px */
   color: #ffffff;
-  margin-top: 1rem; /* 16px space above */
+  margin-top: 1.375rem; /* 16px space above */
 }
 
 /* Newsletter Form */
 .newsletter__form {
-  margin-top: 2.25rem; /* 36px space above */
+  margin-top: 1.875rem; /* 36px space above */
   display: flex;
   flex-direction: column; /* Stack input and button */
   gap: 1.5rem; /* Space between elements (24px) */
+  
 }
 
 .newsletter__input {

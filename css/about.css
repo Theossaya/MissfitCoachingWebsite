@@ -3,6 +3,7 @@ body {
   font-family: 'Barlow', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  
 }
 
 
@@ -206,6 +207,7 @@ line-height: clamp(2.625rem, 9.524vw + -0.732rem, 3.75rem);
   font-weight: 600;
   margin-bottom: 1rem; /* 16px spacing below title */
   color: #c41e3d; /* Red text */
+  z-index: 100;
 }
 
 /* Description Styling */

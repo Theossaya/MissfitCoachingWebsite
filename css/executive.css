@@ -363,14 +363,11 @@ body {
   /* === Spacing Below Header === */
   .testimonial-grid {
     display: grid;
-    justify-content: center;
-    gap: 3rem; /* 48px */
     margin-top: 5.5rem; /* 88px */
     max-width: 1296px; /* Max width for three-column layout */
     margin-left: auto;
     margin-right: auto;
     /* Default: 3 columns on desktop (above 1416px) */
-    grid-template-columns: repeat(3, 1fr);
   }
   
   /* === Testimonial Card === */
@@ -379,6 +376,10 @@ body {
     padding: 2.5rem 2.25rem; /* 40px top/bottom, 36px sides */
     border-radius: 8px;
     text-align: left;
+    width: 400px;
+    box-sizing: border-box; /* Include padding in width */
+
+    transition: transform 0.1s ease, opacity 0.1s ease;
   }
   
   /* === Stars Row === */
@@ -410,15 +411,14 @@ body {
   /* Responsive Breakpoint at 1416px (Two Columns, Max Width 848px) */
   @media (max-width: 1416px) {
     .testimonial-grid {
-      grid-template-columns: repeat(2, 1fr); /* Two columns */
       max-width: 848px; /* Max width for two-column layout */
     }
+
   }
   
   /* Responsive Breakpoint at 944px (Single Column, Max Width 400px) */
   @media (max-width: 944px) {
     .testimonial-grid {
-      grid-template-columns: 1fr; /* Single column */
       max-width: 400px; /* Max width for single-column layout */
     }
   }
