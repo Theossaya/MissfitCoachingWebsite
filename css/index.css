@@ -572,3 +572,44 @@ button, input, select, textarea {
   line-height: 1.21rem; /* 19.36px */
   text-align: center;
 }
+.testimonial-slider__content,
+.testimonial-slider-2__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%; /* Ensure container takes full viewport width */
+  max-width: 43.75rem; /* 700px on larger screens */
+  margin: 0 auto; /* Center the content horizontally */
+  position: relative; /* For positioning slides */
+  overflow: hidden; /* Hide overflow slides */
+}
+
+.testimonial-slider__slide,
+.testimonial-slider-2__slide {
+  width: 100%; /* Ensure slides match container width */
+  flex: 0 0 100%; /* Maintain flex behavior */
+  box-sizing: border-box; /* Include padding in width */
+  min-height: 300px; /* Minimum height to ensure content fits, adjust as needed */
+}
+
+/* Ensure quote wraps properly at all widths */
+.testimonial-slider__quote,
+.testimonial-slider-2__quote {
+  color: var(--color-white);
+  font-family: 'Barlow', sans-serif;
+  font-size: 1.25rem; /* 20px */
+  font-weight: 400;
+  line-height: 2rem; /* 32px */
+  margin-bottom: 2.25rem; /* Space beneath the quote */
+  max-width: 100%; /* Ensure text wraps within container */
+  word-wrap: break-word; /* Force wrapping of long words */
+  word-break: break-word; /* Ensure breaking across words for better wrapping */
+}
+
+/* Reinforce slide width */
+.testimonial-slider__slide,
+.testimonial-slider-2__slide {
+  width: 100%;
+  flex: 0 0 100%;
+}

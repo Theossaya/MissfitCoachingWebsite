@@ -194,15 +194,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   function initSlider(sliderClass) {
-    // Select slider elements
     const slidesContainer = document.querySelector(`.${sliderClass}__slides`);
     const slides = document.querySelectorAll(`.${sliderClass}__slide`);
     const prevArrow = document.querySelector(`.${sliderClass}__arrow--left`);
     const nextArrow = document.querySelector(`.${sliderClass}__arrow--right`);
     const pagination = document.querySelector(`.${sliderClass}__pagination`);
     const totalSlides = slides.length;
-    let currentSlide = 1; // Start at first actual slide
-    let isTransitioning = false; // Prevent multiple clicks during transition
+    let currentSlide = 1;
+    let isTransitioning = false;
 
     // Clone slides for infinite loop
     const firstSlideClone = slides[0].cloneNode(true);
@@ -213,7 +212,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize position
     function updateSlideWidth() {
-      return allSlides[0].offsetWidth || 700; // Fallback to 700px if undefined
+      const containerWidth = slidesContainer.parentElement.offsetWidth;
+      return containerWidth > 0 ? containerWidth : 700; // Fallback to 700px if width is 0
     }
     let slideWidth = updateSlideWidth();
     slidesContainer.style.transition = 'none';
@@ -222,22 +222,21 @@ document.addEventListener('DOMContentLoaded', () => {
       slidesContainer.style.transition = 'transform 0.5s ease';
     }, 0);
 
-    // Show slide with bounds checking
+    // Show slide function
     function showSlide(index, skipTransition = false) {
       if (isTransitioning && !skipTransition) return;
       isTransitioning = true;
 
       slideWidth = updateSlideWidth();
-      slidesContainer.style.transition = skipTransition ? 'none' : 'transform 0.1s ease';
+      slidesContainer.style.transition = skipTransition ? 'none' : 'transform 0.5s ease';
       slidesContainer.style.transform = `translateX(-${index * slideWidth}px)`;
       currentSlide = index;
 
-      // Normalize pagination (1 to totalSlides)
       let paginationNumber = ((currentSlide - 1 + totalSlides) % totalSlides) + 1;
       pagination.textContent = `${paginationNumber} / ${totalSlides}`;
 
       if (!skipTransition) {
-        setTimeout(() => { isTransitioning = false; }, 500); // Match transition duration
+        setTimeout(() => { isTransitioning = false; }, 500);
       } else {
         isTransitioning = false;
       }
@@ -246,9 +245,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle transition end for looping
     slidesContainer.addEventListener('transitionend', () => {
       if (currentSlide === 0) {
-        showSlide(totalSlides, true); // Jump to last slide
+        showSlide(totalSlides, true);
       } else if (currentSlide === totalSlides + 1) {
-        showSlide(1, true); // Jump to first slide
+        showSlide(1, true);
       } else {
         isTransitioning = false;
       }
@@ -258,15 +257,16 @@ document.addEventListener('DOMContentLoaded', () => {
     prevArrow.addEventListener('click', () => {
       if (!isTransitioning) showSlide(currentSlide - 1);
     });
-
     nextArrow.addEventListener('click', () => {
       if (!isTransitioning) showSlide(currentSlide + 1);
     });
 
     // Handle resize
     window.addEventListener('resize', () => {
-      slideWidth = updateSlideWidth();
-      showSlide(currentSlide, true); // Update position without transition
+      setTimeout(() => {
+        slideWidth = updateSlideWidth();
+        showSlide(currentSlide, true); // Update position without transition
+      }, 100);
     });
 
     // Start at first slide

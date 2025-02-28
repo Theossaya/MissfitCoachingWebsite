@@ -362,12 +362,12 @@ body {
   
   /* === Spacing Below Header === */
   .testimonial-grid {
-    display: grid;
-    margin-top: 5.5rem; /* 88px */
+    position: relative; /* Better for Masonry.js absolute positioning */    margin-top: 5.5rem; /* 88px */
     max-width: 1296px; /* Max width for three-column layout */
     margin-left: auto;
     margin-right: auto;
     /* Default: 3 columns on desktop (above 1416px) */
+    margin-bottom: -48px; /* Offsets the extra margin from the last row */
   }
   
   /* === Testimonial Card === */
@@ -378,7 +378,7 @@ body {
     text-align: left;
     width: 400px;
     box-sizing: border-box; /* Include padding in width */
-
+    margin-bottom: 48px; /* Adds 48px vertical gap between cards */
     transition: transform 0.1s ease, opacity 0.1s ease;
   }
   
