@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MissFit Coaching - Homepage</title>
-    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&family=Big+Shoulders+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/typography.css">
@@ -1040,29 +1039,21 @@
 
     <script src="../assets/js/script.js"></script>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
     <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize Masonry for all testimonial grids on the page
   const grids = document.querySelectorAll('.testimonial-grid');
-  grids.forEach(grid => {
+  grids.forEach((grid, index) => {
     const msnry = new Masonry(grid, {
-      itemSelector: '.testimonial-card', // Target each testimonial card
-      columnWidth: '.testimonial-card', // Use card width for column sizing
-      gutter: 48, // Horizontal and vertical gap between cards (48px)
-      percentPosition: true, // Use percentage-based positioning for responsiveness
-      transitionDuration: '0.5s', // Smooth transitions for layout changes
-      fitWidth: true, // Center the grid within its container
+      itemSelector: '.testimonial-card',
+      columnWidth: '.testimonial-card',
+      gutter: 48,
+      percentPosition: true,
+      transitionDuration: '0.5s',
+      fitWidth: true
     });
-
-    // Re-layout Masonry on window resize
-    window.addEventListener('resize', () => {
-      msnry.layout();
-    });
-
-    // Re-layout if images load asynchronously
-    imagesLoaded(grid, () => {
-      msnry.layout();
-    });
+    window.addEventListener('resize', () => { msnry.layout(); });
+    imagesLoaded(grid, () => { msnry.layout(); });
   });
 });
     </script>
