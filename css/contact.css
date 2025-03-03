@@ -34,10 +34,9 @@ body {
 
 /* === Contact Section === */
 .contact-section {
-    margin-top: 8.25rem; /* 132px */
     display: flex;
     justify-content: center; /* Horizontally center the container */
-    padding: 0 3.75rem;
+    padding: 8.25rem 3.75rem 5.5rem;
   }
   
   .contact-section__container {
@@ -58,10 +57,11 @@ body {
   .contact-info__item {
     display: flex;
     position: relative; /* For proper placement of the icon */
-    padding: 2.25rem 2.25rem 3.25rem 2.25rem; /* Top: 36px, Sides: 36px, Bottom: 39px */
+    padding: 2.25rem 2.25rem 2.375rem 2.25rem; /* Top: 36px, Sides: 36px, Bottom: 39px */
     background-color: #1D1D1D; /* Dark background */
-    border-radius: 8px; /* Smooth edges */
+    border-radius: 4px; /* Smooth edges */
     overflow: hidden; /* Prevent icon overflow */
+    max-width: 20rem;
   }
   
   .contact-info__icon {
@@ -96,7 +96,7 @@ body {
 /* === Contact Form === */
 .contact-form {
   background-color: #1D1D1D; /* Dark background */
-  border-radius: 8px; /* Smooth edges */
+  border-radius: 4px; /* Smooth edges */
   flex: 1;
   padding: 2.25rem; /* 36px padding all around */
   box-sizing: border-box; /* Include padding in width */
@@ -136,6 +136,12 @@ body {
   line-height: 1.6rem; /* 25.6px */
   text-align: left;
   margin-bottom: 0.5rem; /* Space between label and input */
+}
+
+.required-asterisk {
+  color: #C41E3D; /* Red color as specified */
+  margin-left: 3px;
+  font-weight: bold; /* Make it stand out */
 }
 
 /* Contact Form Input and Select */
@@ -189,13 +195,12 @@ body {
 
 /* Contact Form Terms */
 .contact-form__terms {
-  color: #ffffff; /* White text */
+  color: #999999; /* White text */
   font-family: "Inter", sans-serif;
   font-size: 0.8125rem; /* 13px */
   font-weight: 400;
   line-height: 1.3rem; /* 20.8px */
   text-align: left;
-  margin-top: 1.5rem; /* 24px above */
 }
 
   @media (max-width: 902px) {
@@ -217,4 +222,7 @@ body {
 
   /* === Newsletter Section === */
 
-  
+  .newsletter {
+
+    background-color: #fafafa; /* Background color for contrast */
+  }

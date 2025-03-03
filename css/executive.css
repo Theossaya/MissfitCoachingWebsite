@@ -3,6 +3,8 @@ body {
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     background-color: #1D1D1D;
+    color: #E1E2E9;
+
   }
   
 .hero {
@@ -11,7 +13,7 @@ body {
     align-items: center;
     justify-content: center;
     background: url('../assets/images/executive-backgrounds.png') center/cover no-repeat;
-
+    background-position: 0 90px;
   }
 
 /* HERO CONTENT SECTION */
@@ -59,7 +61,6 @@ body {
 
 /* Extend or override existing header styles for executive-header */
 .header.executive-header {
-  background-color: #000; /* Black background */
   height: 5.5rem; /* Match existing height */
   padding-left: 3.75rem; /* 60px left padding, match existing */
   padding-right: 3.4375rem; /* 55px right padding, match existing */
@@ -73,7 +74,6 @@ body {
   grid-template-columns: 1fr 2fr 1fr; /* Distribute space intuitively: left (1fr), nav (2fr), right (1fr) */
   align-items: center;
   width: 100%;
-  max-width: 1300px;
   margin: 0 auto;
   gap: 1rem; /* Add a small gap between grid items for spacing, adjustable */
 }
@@ -82,7 +82,7 @@ body {
 .header__left {
   display: flex;
   align-items: center;
-  gap: 1rem; /* Space between elements, maintain existing design */
+  gap: 1.5rem; /* Space between elements, maintain existing design */
   grid-column: 1; /* Place in the first column */
   min-width: 0; /* Prevent overflow */
   justify-content: flex-start;
@@ -287,16 +287,19 @@ body {
     border-bottom: 1px solid #000000; /* Bottom border */
     background: #1D1D1D; /* Dark background */
     padding: 8.25rem 0 5.5rem; /* 132px from previous section, 88px before next section */
-    color: #FFFFFF;
 }
 
 /* Centers the content container with 375px space on both sides */
 .content-container {
-    max-width: 43rem; /* 375px space on both sides */
+    max-width: 50.7rem;; /* 375px space on both sides */
     margin: 0 auto;
     text-align: left;
     padding: 0 clamp(3rem, 1.1004rem + 5.2402vw, 3.75rem);
     
+}
+
+.content-text.preamble{
+  margin-bottom: 0;
 }
 
 /* === Content Title === */
@@ -319,10 +322,14 @@ body {
     letter-spacing: 0;
     margin-bottom: 2.3rem; /* Matches line height for consistent spacing */
 }
+section.content-section p.content-text:last-of-type {
+  margin-bottom: 0;
+}
 
 /* === Unordered List Styling === */
 .content-list {
     padding-left: 1.5rem; /* Indentation for bullet points */
+    margin-bottom: 2.3rem;
 }
 
 .content-list li {
@@ -331,13 +338,16 @@ body {
     font-size: 1rem; /* 16px */
     line-height: 2.3rem; /* 36.8px */
     letter-spacing: 0;
-    margin-bottom: 0.5rem; /* Small spacing between list items */
 }
 
 /* === Ordered List Styling (For Numbered Items) === */
 .content-list--numbered {
     list-style-type: decimal;
     padding-left: 1.5rem;
+}
+
+.content-section.content-sub{
+  padding-top: 5.5rem;
 }
 
 
@@ -374,12 +384,13 @@ body {
   .testimonial-card {
     background-color: #272727;
     padding: 2.5rem 2.25rem; /* 40px top/bottom, 36px sides */
-    border-radius: 8px;
+    border-radius: 4px;
     text-align: left;
     width: 400px;
     box-sizing: border-box; /* Include padding in width */
     margin-bottom: 48px; /* Adds 48px vertical gap between cards */
     transition: transform 0.1s ease, opacity 0.1s ease;
+    border: 1px solid #000000;
   }
   
   /* === Stars Row === */
@@ -499,8 +510,8 @@ body {
     font-family: "Inter", sans-serif;
     font-weight: 400;
     font-size: 1rem;
-    line-height: 1.6em;
-    margin-top: 1.6em; /* Matches the line-height for paragraph spacing */
+    line-height: 1.6rem;
+    margin-top: 1.6rem; /* Matches the line-height for paragraph spacing */
   }
   
   /* === Walkaway Section (Fixed at 336px, no wrapping) === */
@@ -610,12 +621,10 @@ body {
 /* === CTA Section === */
 .cta-section {
     background-color: #1D1D1D;
-    padding: 8.25rem 0; /* 132px from the top of the section */
+    padding: 5.5rem 0; /* 132px from the top of the section */
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-bottom: 2px solid #000000;
-
 }
 
 /* CTA Section Header */
@@ -638,19 +647,20 @@ body {
     background-color: #272727;
     padding: 2.25rem; /* 48px on all sides */
     text-align: center;
-    max-width: 27.325rem; /* Responsive card width */
+    max-width: 25.8125rem; /* Responsive card width */
     border-radius: 0.5rem; /* Rounded edges for a sleek look */
+    border: 1px solid #000000;
 }
 
 /* CTA Section Card Title */
 .cta-section__card-title {
     font-family: "Barlow", sans-serif;
     font-weight: 700;
-    font-size: 1.875rem; /* 30px */
-    line-height: 2.25rem; /* 36px */
+    font-size: 2.1875rem; /* 30px */
+    line-height: 2.625rem; /* 36px */
     text-align: center;
     color: #FFFFFF;
-    margin-bottom: 1rem; /* 16px */
+    margin-bottom: 1.375rem; /* 16px */
 }
 
 /* CTA Section Description */
@@ -662,6 +672,10 @@ body {
     text-align: center;
     color: #E1E2E9;
     margin-bottom: 1.6rem; /* Space between paragraphs */
+}
+
+.cta-section__description:nth-of-type(2){
+  margin-bottom: 0;
 }
 
 /* CTA Button */
@@ -723,16 +737,23 @@ body {
     border: 1px solid #000000;
   }
 
+  .faq__question{
+    color: #E1E2E9;
+  }
+.faq__answer {
+  color: #E1E2E9;
+}
 
   /* Footer Styles */
 .footer {
     background-color: #1D1D1D; /* Matches background */
     color: #E1E2E9; /* Text color */
     text-align: center;
-    padding: 2rem 0; /* Spacing */
+    padding: 3.5rem 0; /* Spacing */
     font-family: "Inter", sans-serif;
     justify-content: center;
     align-items: center;
+    border-top: 1px solid #000000;
 }
 
 /* Footer Links */
@@ -745,9 +766,11 @@ body {
 
 .footer__link {
     color: #E1E2E9;
-    font-size: 1rem;
-    text-decoration: none;
+    font-size: 1rem; 
+    text-decoration: underline;
+    text-underline-offset: 3px;
     font-weight: 400;
+    line-height: 1.6rem;
 }
 
 .footer__link:hover {
@@ -756,8 +779,9 @@ body {
 
 /* Copyright Text */
 .footer__copyright {
-    font-size: 0.875rem;
-    font-weight: 400;
-    color: #E1E2E9;
-    text-align: center;
+  color: #E1E2E9;
+  font-size: 1rem; 
+  font-weight: 400;
+  line-height: 1.6rem;
+  text-align: center;
 }

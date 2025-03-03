@@ -78,9 +78,9 @@
             <img src="../assets/icons/angle.svg" alt="Dropdown icon" class="header__mobile-nav-icon">
           </a>
           <ul class="header__mobile-nav-dropdown">
-            <li><a href="../pages/executive-coaching.html" class="header__mobile-nav-dropdown-link">EXECUTIVE COACHING</a></li>
-            <li><a href="../pages/career-coaching.html" class="header__mobile-nav-dropdown-link">CAREER COACHING</a></li>
-            <li><a href="../pages/job-search-coaching.html" class="header__mobile-nav-dropdown-link">JOB SEARCH COACHING</a></li>
+            <li><a href="../pages/executive.html" class="header__mobile-nav-dropdown-link">EXECUTIVE COACHING</a></li>
+            <li><a href="../pages/career.html" class="header__mobile-nav-dropdown-link">CAREER COACHING</a></li>
+            <li><a href="../pages/job-search.html" class="header__mobile-nav-dropdown-link">JOB SEARCH COACHING</a></li>
           </ul>
         </li>
         <li>
@@ -162,7 +162,7 @@
         </div>
       </div>
   
-      <div class="story__content">
+      <div class="story__content preamble">
         <div class="story__text">
           <p>
             MissFit Coaching isn’t just about careers; it’s about meeting people where they are, understanding their unique challenges and ambitions, and helping them move forward with clarity and confidence.
@@ -332,6 +332,38 @@
 
     <script src="assets/js/slider.js"></script>
     <script src="../assets/js/script.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.querySelector('.masonry-grid');
+  if (grid) { // Ensure the grid exists
+    console.log('Initializing Masonry for masonry grid');
+    const msnry = new Masonry(grid, {
+      itemSelector: '.masonry-item', // Target each masonry item
+      columnWidth: '.masonry-item', // Use item width for column sizing
+      gutter: 48, // 48px gap between items (matches your design)
+      percentPosition: true, // Use percentage-based positioning for responsiveness
+      transitionDuration: '0.5s', // Smooth transitions for layout changes (optional, can remove for instant changes)
+      fitWidth: true, // Center the grid within its container
+    });
+
+    // Re-layout on window resize
+    window.addEventListener('resize', () => {
+      msnry.layout();
+    });
+
+    // Re-layout after images load (for icons)
+    imagesLoaded(grid, () => {
+      msnry.layout();
+    });
+  } else {
+    console.warn('Masonry grid not found');
+  }
+});
+
+    </script>
 
 </body>
 </html>

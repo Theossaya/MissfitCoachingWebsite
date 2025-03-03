@@ -338,8 +338,8 @@ button, input, select, textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 3rem; /* 48px */
-  height: 3rem; /* 48px */
+  width: 2.4rem; /* 48px */
+  height: 2.4rem; /* 48px */
   border: 1px solid #FFFFFF;
   border-radius: 50%;
   background-color: transparent;
@@ -352,15 +352,18 @@ button, input, select, textarea {
   transform: scale(1.1);
 }
 
-
+.testimonial-slider__arrow img{
+  width: 2.4rem; /* 48px */
+  height: 2.4rem; /* 48px */
+}
 
 .testimonial-slider__pagination {
   font-family: 'Inter', sans-serif;
-  font-size: 1.25rem; /* 16px */
-  line-height: 1.5124rem;
+  font-size: 1rem; /* 16px */
+  line-height: 1.21rem;
   font-weight: 400;
   text-align: center;
-  margin: 0 2rem; /* Space between arrows and text */
+  margin: 0 1.6rem; /* Space between arrows and text */
 }
 
 .testimonial-slider__content {
@@ -393,9 +396,10 @@ button, input, select, textarea {
 .testimonial-slider__quote {
   color: var(--color-white);
   font-family: 'Barlow', sans-serif;
-  font-size: 1.25rem; /* 20px */
+  font-size: 1.125rem; /* 20px */
   font-weight: 400;
-  line-height: 2rem; /* 32px */
+  line-height: 1.8rem; /* 32px */
+  
   margin-bottom: 2.25rem; /* Space beneath the quote */
   max-width: 100%; /* Ensure text wraps within container */
 }
@@ -470,8 +474,8 @@ button, input, select, textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 3rem; /* 48px */
-  height: 3rem; /* 48px */
+  width: 2.4rem; /* 48px */
+  height: 2.4rem; /* 48px */
   border: 1px solid #FFFFFF;
   border-radius: 50%;
   background-color: transparent;
@@ -484,15 +488,19 @@ button, input, select, textarea {
   transform: scale(1.1);
 }
 
+.testimonial-slider-2__arrow img{
+  width: 2.4rem; /* 48px */
+  height: 2.4rem; /* 48px */
+}
 
 
 .testimonial-slider-2__pagination {
   font-family: 'Inter', sans-serif;
-  font-size: 1.25rem; /* 16px */
-  line-height: 1.5124rem;
+  font-size: 1rem; /* 16px */
+  line-height: 1.21rem;
   font-weight: 400;
   text-align: center;
-  margin: 0 2rem; /* Space between arrows and text */
+  margin: 0 1.6rem; /* Space between arrows and text */
 }
 
 .testimonial-slider-2__content {
@@ -525,9 +533,9 @@ button, input, select, textarea {
 .testimonial-slider-2__quote {
   color: var(--color-white);
   font-family: 'Barlow', sans-serif;
-  font-size: 1.25rem; /* 20px */
+  font-size: 1.125rem; /* 20px */
   font-weight: 400;
-  line-height: 2rem; /* 32px */
+  line-height: 1.8rem; /* 32px */
   margin-bottom: 2.25rem; /* Space beneath the quote */
   max-width: 100%; /* Ensure text wraps within container */
 }
@@ -598,9 +606,9 @@ button, input, select, textarea {
 .testimonial-slider-2__quote {
   color: var(--color-white);
   font-family: 'Barlow', sans-serif;
-  font-size: 1.25rem; /* 20px */
+  font-size: 1.125rem; /* 20px */
   font-weight: 400;
-  line-height: 2rem; /* 32px */
+  line-height: 1.8rem; /* 32px */
   margin-bottom: 2.25rem; /* Space beneath the quote */
   max-width: 100%; /* Ensure text wraps within container */
   word-wrap: break-word; /* Force wrapping of long words */

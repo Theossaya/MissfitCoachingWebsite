@@ -94,7 +94,7 @@ body {
   
   /* === Newsletter Archive Section === */
 .newsletter-archive {
-    padding: 4rem 3rem; /* 64px from previous section */
+    padding: 5.5rem 3rem 8.25rem; /* 64px from previous section */
     text-align: center;
     background-color: #FAFAFA ;
   }

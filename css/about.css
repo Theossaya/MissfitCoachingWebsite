@@ -130,41 +130,36 @@ line-height: clamp(2.625rem, 9.524vw + -0.732rem, 3.75rem);
 .masonry-section {
   background-color: #ffffff; /* White background */
   color: #000000; /* Black text */
-  padding: 5.5rem 10.5rem; /* 88px top/bottom, 168px left/right */
+  padding: 2.75rem 3.75rem 1rem; /* 88px top/bottom, 168px left/right */
   text-align: left;
 }
 
 .masonry-section__title {
   font-family: "Barlow", sans-serif;
-  font-size: 2.5rem; /* 40px */
-  line-height: 3rem; /* 48px */
+  font-size: 2.5rem;
+  line-height: 3rem;
   font-weight: 600;
-  margin-bottom: 5.5rem; /* 88px spacing below the title */
+  margin-bottom: 5.5rem;
   text-align: center;
-  color: #000000; /* Black text */
+  color: #000000;
 }
 
-/* Masonry Grid using Column Count */
+/* Masonry Grid using Masonry.js */
 .masonry-grid {
-  column-count: 3; /* 3 columns for desktop */
-  column-gap: 3rem; /* 48px gap between columns */
-  max-width: 1200px; /* Limit grid width */
-  margin: 0 auto; /* Center the grid */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Masonry Item */
 .masonry-item {
-  background-color: #1d1d1d; /* Dark background */
-  padding: 1.875rem 2.25rem; /* 30px top/bottom, 36px left/right */
-  border-radius: 0.25rem; /* 4px rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  border: 1px solid #01051a; /* Border color */
-  break-inside: avoid; /* Prevent items from breaking across columns */
-  margin-bottom: 3rem; /* 48px vertical gap */
+  width: 336px; /* Fixed width of 336px */
+  background-color: #1d1d1d;
+  padding: 1.875rem 2.25rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #01051a;
+  margin-bottom: 3rem;
   position: relative;
-  width: 100%; /* Ensure items take full column width */
-  max-width: 28rem; /* Fixed width for items (448px) */
-  height: auto; /* Allow height to adjust based on content */
+  height: auto;
 }
 
 /* Icon Styling */
@@ -175,7 +170,10 @@ line-height: clamp(2.625rem, 9.524vw + -0.732rem, 3.75rem);
   opacity: 0.7; /* Semi-transparent */
 }
 
-/* Adjust icon positions for specific items */
+.masonry-item:nth-child(1) .masonry-item__icon {
+  right: 4.4rem; /* Adjust position */
+}
+
 .masonry-item:nth-child(3) .masonry-item__icon {
   right: 1.3rem; /* Adjust position */
 }
@@ -205,9 +203,10 @@ line-height: clamp(2.625rem, 9.524vw + -0.732rem, 3.75rem);
   font-size: 1.5rem; /* 24px */
   line-height: 1.8rem; /* 28.8px */
   font-weight: 600;
-  margin-bottom: 1rem; /* 16px spacing below title */
-  color: #c41e3d; /* Red text */
-  z-index: 100;
+  margin-bottom: 1.5rem; /* 16px spacing below title */
+  color: #C41E3D; /* Red text */
+  z-index: 2; /* Ensure text is above icons */
+  position: relative;
 }
 
 /* Description Styling */
@@ -226,21 +225,21 @@ line-height: clamp(2.625rem, 9.524vw + -0.732rem, 3.75rem);
 /* Tablet View (816px - 1219px): 2 columns */
 @media (max-width: 1219px) {
   .masonry-grid {
-    column-count: 2; /* 2 columns */
+    max-width: 720px; /* Fits 2 × 448px + 1 × 48px = 944px, but limit to 848px for alignment */
   }
 }
 
-/* Mobile View (≤ 815px): 1 column */
 @media (max-width: 815px) {
-  .masonry-grid {
-    column-count: 1; /* 1 column */
-  }
-
   .masonry-section {
-    padding: 5.5rem 1.5rem; /* 88px top/bottom, 24px left/right */
+    padding: 5.5rem 1.5rem;
   }
-
-  .masonry-item {
-    max-width: 100%; /* Allow items to take full width on mobile */
+  
+  /* Even on mobile, we'll keep the 336px width, but center it */
+  .masonry-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
+
+

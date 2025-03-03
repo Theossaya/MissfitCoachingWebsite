@@ -373,7 +373,7 @@ body {
   font-weight: 400;
   line-height: 1.6rem; /* Matches 24px */
   text-align: left;
-  padding-bottom: 2.5rem; /* Space below the subtitle */
+  padding-bottom: 1.875rem; /* Space below the subtitle */
 }
 
 /* Hero Button */
@@ -636,7 +636,7 @@ body {
   font-weight: 700; /* Bold */
   line-height: 2.25rem; /* 36px */
   color: #C41E3D; /* Red */
-  margin-bottom: 1rem; /* 16px spacing below the title */
+  margin-bottom: 1.75rem; /* 16px spacing below the title */
 }
 
 .section-header__subtitle {
@@ -872,7 +872,11 @@ body {
   grid-template-columns: 1fr 1fr; /* Two columns for desktop */
   gap: 3rem; /* 48px / 16 = 3rem */
   align-items: start;
-  margin-bottom: 5.5rem; /* 88px / 16 = 5.5rem */
+  margin: 5.5rem auto;
+  max-width: 59.6rem;
+}
+.story__content.preamble{
+  margin-bottom: 0;
 }
 
 .story__text {
@@ -966,7 +970,7 @@ body {
 
 /* Milestone Heading */
 .career-milestone__heading {
-  margin-bottom: 1rem; /* Space between heading and description */
+  margin-bottom: 1.375rem; /* Space between heading and description */
   font-family: 'Barlow', sans-serif;
   font-size: 2.1875rem;
   font-weight: 700;
@@ -1069,19 +1073,18 @@ body {
   display: flex;
   justify-content: center; /* Horizontally center */
   align-items: center; /* Vertically center */
-  padding: 8.25rem 3.75rem; /* 132px on top and bottom */
+  padding: 5.5rem 3.75rem; /* 132px on top and bottom */
   background-color: #ffffff; /* Background color for contrast */
 }
 
 .newsletter__container {
   background-color: #1d1d1d; /* Box background */
   padding: 2.25rem; /* 56px padding on all sides */
-  max-width: 28.3125rem; /* 453px max width */
   width: 100%; /* Full width */
   box-sizing: border-box; /* Include padding in width */
   text-align: center; /* Center text alignment */
   border-radius: 0.25rem; /* Rounded corners */
-  max-width: 25.1825rem;
+  max-width: 25.8125rem;
 
 }
 
@@ -1089,9 +1092,7 @@ body {
 
 
 
-.newsletter__header {
-  margin-bottom: 2.25rem; /* 36px space below */
-}
+
 
 .newsletter__title {
   font-family: "Barlow", sans-serif;
@@ -1125,13 +1126,13 @@ body {
 
 .newsletter__input {
   font-family: "Inter", sans-serif;
-  font-size: 1rem; /* 16px */
+  font-size: 0.9375rem; /* 16px */
   font-weight: 400;
   line-height: 1.5rem; /* 24px */
   border: 1px solid #cccccc; /* Light border */
   border-radius: 0.25rem; /* Rounded corners */
   outline: none;
-  padding: 0.75rem; /* 12px padding inside the input */
+  padding: 1rem; /* 12px padding inside the input */
   padding-left: 1.75rem;
   width: 100%; /* Full width */
 }
@@ -1164,6 +1165,10 @@ body {
 .article {
   display: flex;
   flex-direction: column;
+}
+
+.article__link {
+  max-width: 21rem;
 }
 
 .article__image {
@@ -1203,8 +1208,13 @@ body {
 /* Shared Details Section */
 .details {
   margin-top: 5.625rem; /* 90px */
-  padding-left: 10rem; /* 160px */
-  padding-right: 7.8125rem; /* 125px */
+  display: grid;
+  grid-template-columns: 1fr; /* Single column by default */
+  max-width: 1200px; /* Optional: reasonable max-width for the entire section */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .details__back-link {
@@ -1217,7 +1227,7 @@ body {
   font-weight: 400;
   line-height: 1.4rem; /* 22.4px */
   text-align: left;
-  color: #000;
+  color: #C41E3D;
   display: inline-flex;
   align-items: center;
   gap: 0.75rem; /* 12px */
@@ -1242,12 +1252,16 @@ body {
 }
 
 .details__body-wrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   gap: 3rem; /* 48px */
+  max-width: 1200px; /* Matches .details max-width */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .details__body {
-  flex: 2;
+  max-width: 689px; /* Explicitly set to 689px as requested */
 }
 
 .details__body p {
@@ -1255,7 +1269,11 @@ body {
   font-size: 1rem; /* 16px */
   font-weight: 400;
   line-height: 2.3rem; /* 36.8px */
-  margin-bottom: 2.3rem; /* Same as line-height */
+  margin-bottom: 2.3rem;
+}
+
+.details__body a {
+  color: #C41E3D;
 }
 
 .details__body strong {
@@ -1265,35 +1283,104 @@ body {
   line-height: 3.45rem; /* 55.2px */
 }
 
-/* Newsletter Box (Already Existing in Component.css) */
 .newsletter {
-  flex: 1;
   align-self: flex-start;
 }
 
+/* Responsive Design */
+@media screen and (max-width: 1270px) {
+  .details {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 
-  /* Read Next Section */
-  .read-next {
-    margin: 6.25rem 0 8.25rem; /* 110px */
-    padding-left: 10.5rem; /* Aligns with left alignment */
+  .details__body-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
-  
-  .read-next__title {
-    font-family: "Barlow", sans-serif;
-    font-size: 1.875rem; /* 30px */
-    font-weight: 700;
-    line-height: 2.25rem; /* 36px */
-    margin-bottom: 5.5rem; /* 36px spacing */
-    text-align: center;
+
+  .details__body {
+    max-width: 100%; /* Overrides 689px on mobile */
   }
-  
+
+  .newsletter {
+    width: 100%;
+  }
+
+  .details__header {
+    margin-bottom: 3rem;
+  }
+
+  .details__title {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+  }
+}
+
+/* For very small screens */
+@media screen and (max-width: 768px) {
+  .details {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .details__meta {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+
+
+/* Read Next Section */
+.read-next {
+  margin: 6.25rem 0 8.25rem; /* 100px top, 132px bottom */
+}
+
+.read-next__title {
+  font-family: "Barlow", sans-serif;
+  font-size: 1.875rem; /* 30px */
+  font-weight: 700;
+  line-height: 2.25rem; /* 36px */
+  margin-bottom: 5.5rem; /* 88px spacing */
+  text-align: center;
+}
+
+.read-next__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
+  gap: 3rem; /* 48px gap between columns */
+  max-width: 69rem; /* 1104px */
+  margin: 0 auto;
+  padding: 0 1rem; /* Added small padding for mobile edges */
+}
+
+/* Optional: Basic article styling (you might already have this elsewhere) */
+.article {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive Breakpoints */
+@media screen and (max-width: 1224px) {
   .read-next__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem; /* 48px gap between columns */
-    max-width: 69rem;
-    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 2rem; /* Slightly reduced gap */
   }
+}
+
+@media screen and (max-width: 704px) {
+  .read-next__grid {
+    grid-template-columns: 1fr; /* 1 column */
+    gap: 1.5rem; /* Further reduced gap for mobile */
+  }
+
+  .read-next__title {
+    font-size: 1.5rem; /* 24px - slightly smaller on mobile */
+    line-height: 1.875rem; /* 30px */
+    margin-bottom: 3rem; /* Reduced spacing */
+  }
+}
   
 /* === FAQ Section === */
 .faq {
@@ -1365,8 +1452,7 @@ body {
   display: block; /* Show answer when expanded */
 }
 
-
-
+/* === Pricing Section === */
 /* === Pricing Section === */
 .pricing {
   padding: 8.25rem 0; /* 132px equivalent */
@@ -1391,10 +1477,9 @@ body {
 
 /* === Pricing Grid === */
 .pricing__grid {
-  position: relative; /* Required for Masonry positioning */
-  max-width: 90%;
+  /* Center the grid */
   margin: 0 auto;
-  /* Remove grid-related properties since Masonry handles layout */
+  position: relative;
 }
 
 /* === Pricing Items === */
@@ -1404,18 +1489,14 @@ body {
   border-radius: 0.5rem; /* 8px */
   padding: 2rem 1.875rem 3.75rem; /* 32px top, 30px sides, 60px bottom */
   text-align: left;
-  width: 100%; /* Full width, Masonry will calculate columns */
-  max-width: 22rem; /* 352px, but Masonry will adjust based on available space */
-  box-sizing: border-box; /* Include padding in width */
-  margin-bottom: 48px; /* Adds 48px vertical gap to match gutter */
-  /* Remove transitions to prevent motion during resize */
-  transition: none; /* Disable all transitions for static positioning */
+  width: 22rem; /* Fixed width: 352px */
+  margin-bottom: 2rem; /* Spacing between items */
+  float: left; /* For Masonry */
 }
 
 /* Ensures all pricing cards adjust dynamically */
-.pricing__item--popular,
-.pricing__item--best {
-  position: relative; /* Ensure badges position correctly */
+.pricing__item--popular {
+  position: relative;
 }
 
 /* === "Most Popular" Badge === */
@@ -1434,7 +1515,11 @@ body {
   border-radius: 2rem; /* 12px */
 }
 
-/* === "Best Value" Badge === */
+.pricing__item--best {
+  position: relative;
+}
+
+/* === "Best value" Badge === */
 .pricing__item--best::before {
   content: "Best Value";
   position: absolute;
@@ -1450,7 +1535,7 @@ body {
   border-radius: 2rem; /* 12px */
 }
 
-/* === Pricing Plan Title === */
+/* Rest of your styles remain unchanged */
 .pricing__plan {
   font-family: "Inter", sans-serif;
   font-weight: 600;
@@ -1460,7 +1545,6 @@ body {
   margin-bottom: 1.3rem;
 }
 
-/* === Pricing Price === */
 .pricing__price {
   font-family: "Barlow", sans-serif;
   font-weight: 600;
@@ -1470,7 +1554,6 @@ body {
   margin-bottom: 2.25rem;
 }
 
-/* === Order Button === */
 .pricing__button {
   font-family: "Barlow", sans-serif;
   font-weight: 600;
@@ -1486,14 +1569,13 @@ body {
   display: block;
   width: 100%;
   text-transform: uppercase;
-  transition: background 0.3s ease; /* Keep button transition */
+  transition: background 0.3s ease;
 }
 
 .pricing__button:hover {
   background-color: #002C99;
 }
 
-/* === Contact Info === */
 .pricing__contact {
   font-family: "Inter", sans-serif;
   font-weight: 400;
@@ -1503,7 +1585,6 @@ body {
   margin-top: 1.9rem;
 }
 
-/* === Included Title === */
 .pricing__included-title {
   font-family: "Inter", sans-serif;
   font-weight: 600;
@@ -1513,7 +1594,6 @@ body {
   margin-top: 2rem;
 }
 
-/* === Features List === */
 .pricing__features {
   font-family: "Inter", sans-serif;
   font-weight: 400;
@@ -1529,86 +1609,20 @@ body {
   margin-bottom: 0.625rem; /* 10px */
 }
 
-/* Responsive Breakpoints (Masonry will handle columns, but define max-width for container) */
+/* Media queries for Masonry columns */
 @media (max-width: 1200px) {
   .pricing__grid {
-    max-width: 60%; /* Fits 2 × 352px + 1 × 48px = ~752px */
+      /* No max-width here - Masonry will handle it */
   }
 }
 
-@media (max-width: 768px) {
-  .pricing__grid {
-    max-width: 100%; /* Full width for single column on mobile */
+@media (max-width: 805px) {
+  .pricing__item {
+      width: 100%; /* Full width on mobile */
+      max-width: 352px; /* Match original max-width */
+      margin-left: auto;
+      margin-right: auto;
+      float: none; /* Remove float on mobile */
   }
 }
 
-/* Optional: Add a class to freeze layout during resize */
-.pricing__grid.freeze {
-  transition: none !important; /* Force no transitions during resize */
-}
-
-
-
-
-/* Masonry Section Styling */
-.masonry-section {
-  background-color: #020D43;
-  color: #ffffff; /* White text */
-  padding: 8.25rem 10.5rem; /* Section padding */
-  text-align: left;
-}
-
-.masonry-section__title {
-  font-family: "Barlow", sans-serif;
-  font-size: 2.5rem; /* 30px */
-  line-height: 3rem;
-  font-weight: 600;
-  margin-bottom: 5.5rem; /* Spacing below the title */
-  text-align: center;
-}
-
-/* Masonry Grid using Columns */
-.masonry-grid {
-  column-count: 3; /* 3 columns */
-  column-gap: 3rem; /* 48px horizontal gap */
-}
-
-.masonry-item {
-  background-color: #020E4A;
-  display: inline-block; /* Ensure items fit within column */
-  margin-bottom: 3rem; /* 48px vertical gap */
-  padding: 1.875rem 2.25rem ;
-  border-radius: 0.25rem; /* 4px rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  width: 100%; /* Stretch to fill column width */
-  border: 1px solid #01051A;
-}
-
-/* Number Styling */
-.masonry-item__number {
-  font-family: "Inter", sans-serif;
-  font-size: 1.5rem; /* 24px */
-  font-weight: 400;
-  font-size: 1.5rem; /* 24px */
-  line-height: 1.8125rem; /* 29px */
-  margin-bottom: 1rem;
-  color: #ffffff;
-}
-
-/* Title Styling */
-.masonry-item__title {
-  font-family: "Inter", sans-serif;
-  font-size: 1.25rem; /* 20px */
-  line-height: 1.5125rem; /* 24px */
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-/* Description Styling */
-.masonry-item__description {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem; /* 14px */
-  line-height: 1.6rem; /* 22.4px */
-  color: #d1d1d1;
-  text-align: left;
-}

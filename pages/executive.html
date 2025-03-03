@@ -14,32 +14,35 @@
 
 <!-- HERO SECTION -->
 <section class="hero">
-    <header class="header executive-header">
-        <div class="header__container executive-container">
-          <div class="header__left">
+    <header class="header hero__header executive-header">
+        <div class="header__container hero__container executive-container">
+         <div class="header__left">
             <img src="../assets/icons/zigzag-icon.svg" alt="Zigzag Icon" class="header__zigzag-icon" />
             <span class="header__divider"></span> <!-- Vertical line -->
             <a href="#" class="header__active-category">EXECUTIVE COACHING</a>
           </div>
-          <nav class="header__nav executive-nav">
-            <ul class="header__nav-list executive-nav-list">
-              <li class="executive-nav-item">
-                <a href="#about" class="header__nav-link executive-nav-link">ABOUT</a>
+          <nav class="header__nav hero__nav executive-nav">
+            <ul class="header__nav-list hero__nav-list">
+              <li class="hero__nav-item">
+                <a href="../pages/about.html" class="header__nav-link hero__nav-link executive-nav-link">ABOUT</a>
               </li>
-              <li class="executive-nav-item">
-                <a href="#testimonials" class="header__nav-link executive-nav-link">TESTIMONIALS</a>
+              <li class="hero__nav-item">
+                <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown executive-nav-link" aria-haspopup="true" aria-expanded="false">TESTIMOIALS
+                </a>
               </li>
-              <li class="executive-nav-item">
-                <a href="#deep-dive" class="header__nav-link executive-nav-link">DEEP DIVE</a>
+              <li class="hero__nav-item">
+                <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown executive-nav-link" aria-haspopup="true" aria-expanded="false">DEEP DIVE
+                </a>
               </li>
-              <li class="executive-nav-item">
-                <a href="#faq" class="header__nav-link executive-nav-link">FAQ</a>
+              <li class="hero__nav-item">
+                <a href="#" class="header__nav-link hero__nav-link header__nav-link--dropdown executive-nav-link" aria-haspopup="true" aria-expanded="false">FAQ
+                </a>
               </li>
             </ul>
           </nav>
           <div class="header__right">
             <button class="header__menu-toggle" aria-label="Toggle menu"></button>
-            <a href="../pages/apply.html" class="header__cta executive-cta">APPLY NOW</a>
+            <a href="../pages/contact.html" class="header__cta hero__cta ">APPLY NOW</a>
           </div>
         </div>
         <div class="header__mobile-menu">
@@ -48,16 +51,19 @@
               <a href="../pages/about.html" class="header__mobile-nav-link">ABOUT</a>
             </li>
             <li>
-              <a href="../pages/testimonials.html" class="header__mobile-nav-link">TESTIMONIALS</a>
+              <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">TESTIMONIALS
+              </a>
             </li>
             <li>
-              <a href="../pages/deep-dive.html" class="header__mobile-nav-link">DEEP DIVE</a>
+              <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">DEEP DIVE
+              </a>              
             </li>
             <li>
-              <a href="../pages/faq.html" class="header__mobile-nav-link">FAQ</a>
+              <a href="#" class="header__mobile-nav-link header__mobile-nav-link--dropdown">FAQ
+              </a>              
             </li>
             <li>
-              <a href="../pages/apply.html" class="header__mobile-cta">APPLY NOW</a>
+              <a href="../pages/contact.html" class="header__mobile-nav-link">APPLY NOW</a> <!-- Changed to text link -->
             </li>
           </ul>
         </div>
@@ -65,11 +71,11 @@
 
     <div class="hero__content">
         <div class="hero__text">
-            <h1 class="hero__title">BUILD A RESUME DESIGNED TO MEET EMPLOYER EXPECTATIONS HEAD-ON.</h1>
+            <h1 class="hero__title">MAXIMIZE THE HEALTH OF YOUR ORGANIZATION.</h1>
             <p class="hero__subtitle">
-                We craft resumes that align your career with employer priorities and role-specific requirements, using proven strategies and expert insights.
+                Develop visionary leadership, foster a thriving workplace culture, and drive sustainable growth with tailored executive strategies.
             </p>
-            <a href="../pages/resume.html" class="hero__button">GET CUSTOM RESUME</a>
+            <a href="../pages/resume.html" class="hero__button">APPLY NOW</a>
         </div>
     </div>
 </section>
@@ -91,7 +97,7 @@
         <p class="content-text">
             It feels like the ground beneath you is shifting, leaving you questioning if you’re keeping up.
         </p>
-        <p class="content-text">You might already be asking yourself:</p>
+        <p class="preamble content-text">You might already be asking yourself:</p>
         <ul class="content-list">
             <li>“Am I still leading effectively?”</li>
             <li>“Is my approach still relevant in today’s world?”</li>
@@ -106,7 +112,7 @@
     </div>
 </section>
 
-<section class="content-section content-section--alt">
+<section class="content-section content-section--alt content-sub">
     <div class="content-container">
         <h2 class="content-title">A WAY FORWARD</h2>
         <p class="content-text">
@@ -118,7 +124,7 @@
         <p class="content-text">
             Imagine having a coaching program designed specifically for executives like you—one that helps you move beyond the challenges of today and equips you for the opportunities of tomorrow.
         </p>
-        <p class="content-text">
+        <p class="content-text preamble">
             A coaching program that delivers transformative results by focusing on three core pillars:
         </p>
         <ol class="content-list content-list--numbered">
@@ -141,7 +147,7 @@
     </div>
 </section>
 
-<section class="content-section">
+<section class="content-section content-sub">
     <div class="content-container">
         <h2 class="content-title">INTRODUCING THE MISSFIT EXECUTIVE COACHING PROGRAM</h2>
         <p class="content-text">
@@ -169,7 +175,7 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “Dacia has great vision, she can analyze a situation, focus on the right group of people and get the organization to engage and move forward together. As a leader, she has complete control over the group she looks at, an issue, and all the possible solutions available. She is able to motivate her team, up, down, and across the organization. She truly has the goal set to definitely improve the whole organization, for her and for her team.”
+                “Dacia has great vision, she can analyze a problem and rally a team behind the vision. She has excellent people skills, can look at an issue and compile the right group of people to get the problem fixed. We teamed really well together and I saw her to the same with others. I would welcome the chance to work with her, for her or along side her any time.”
             </p>
             <p class="testimonial-author"><strong>Chris H.</strong></p>
         </div>
@@ -184,8 +190,7 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “I have worked with Dacia for 19 years and she has always been an outstanding leader. Her results-oriented, strategic goals, and meetings with Dacia’s and my peers in building leaders and leaders in her organization fosters an environment of development.”
-            </p>
+                “I have worked with Dacia for 16 years and find her a talented and energetic leader. She is results oriented, sets aggressive goals, and meets them. Dacia’s open and collaborative style allows her to effectively balance multiple and conflicting priorities to arrive at the best decision. She believes in building leaders and talent in her organizations and fosters an environment of ownership, learning, and personal development.”            </p>
             <p class="testimonial-author"><strong>Edward S.</strong></p>
         </div>
 
@@ -199,8 +204,8 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “Dacia’s an unparalleled quality that focuses on the goals of her operation, and willing to work hard. As a top of the top executive she is passionate about the expertise of others in her group and the experience of her group in growing the capabilities of her group.”
-            </p>
+                “Dacia's got an unparalleled quality that keeps her people happy & motivated, focused on the goals of her operation, and willing to work hard. As is typical of the best leaders, she's able to seek and sort the expertise of others in order to grow the capacities of her group.    She's an executive who's approachable & relates easily to others yet is clearly able to keep to the priorities of business.”
+             </p>
             <p class="testimonial-author"><strong>Wayne R.</strong></p>
         </div>
 
@@ -214,9 +219,9 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “Chatting with ML, Dacia was an on-point strategic manager for a broad range of technical and customer-facing regions in the role she felt energized between customer satisfaction, budget, and personnel. In addition, her regular duties, she was able to develop the charter and direction for executives – A highly recommended executive.”
+                “During my time with MCI, Dacia was an on-point manager responsible for a broad range of technical and customer operations functions in the central region. In this role she deftly maneuvered between issues related to equipment and facilities, customer satisfaction, budget and personnel. In addition to her regular duties, Dacia was selected by executive leadership to develop the charter and initial processes for MCI's first centralized regional operations centers. -- A highly recommended executive.”
             </p>
-            <p class="testimonial-author"><strong>Jen M.</strong></p>
+            <p class="testimonial-author"><strong>Scott W.</strong></p>
         </div>
 
         <!-- Testimonial Item 5 -->
@@ -229,9 +234,9 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “Dacia has been instrumental in helping consumer-oriented organization, Dacia ‘listening’ posts that Motorola could learn from the voice of the customer, a new approach yielding new improved products. Dacia and I worked with a strong organizational leader and found her professional skills and outstanding execution.”
+                “Dacia has been instrumental in helping Motorola shift to becoming a more consumer-oriented organization. Dacia created and delivered new innovative "listening posts" so Motorola could learn from the voice of the consumer. This has been extremely beneficial in helping Motorola to develop improved new products and services. I thoroughly enjoyed working with Dacia and found her to be a a strong organizational leader with both a strategic mindset and outstanding execution skills.”
             </p>
-            <p class="testimonial-author"><strong>Jen E.</strong></p>
+            <p class="testimonial-author"><strong>Jim E.</strong></p>
         </div>
 
         <!-- Testimonial Item 6 -->
@@ -244,8 +249,7 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “He has the ability to manage multiple initiatives in management event-driven environment is active, responsive senior management and secured position as he had focused in organizational leadership and support, providing Dacia with outstanding job of preparing employees who are willing to work hard.”
-            </p>
+                “Her ability to manage multiple priorities in a customer event driven (and often crisis management event driven) environment is excellent. This ability has allowed her to achieve increasing responsibility and respected senior management status in each position she has held.”            </p>
             <p class="testimonial-author"><strong>Ed T.</strong></p>
         </div>
 
@@ -259,9 +263,9 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “Working with Dacia was one of the best experiences I’ve had in my career. She not only constantly drew forth continuous improvement and an eye on the future. She helped her employees find new alternatives to high standards, set goals and then did everything she could to give them the encouragement and positive feedback and pleasure to come into work every day.”
+                “Dacia is great leader not only for the staffs in western world but also for the employees in eastern world, she is good listener and like to learn everything , help to address any issue and find all the possible solution together with team. she is result-orientated and once the goal set up, the whole team are motivated at the same time, finally the goal will be definitely achieved.”
             </p>
-            <p class="testimonial-author"><strong>Arthur B.</strong></p>
+            <p class="testimonial-author"><strong>Zhang Y.</strong></p>
         </div>
 
         <!-- Testimonial Item 8 -->
@@ -274,9 +278,9 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “I had the pleasure of working for Dacia during my employment at Motorola. I am grateful for leaders I would rather work with or with whom to make everyone contribute to an organization, either the fight to be recognized and valued.”
+                “Working for Dacia was one of the best experiences I had in my career. She not only taught me how to think critically, but constantly drove for continous improvement with an eye to the future. She was tough but always fair. She encouraged her employees to find new alternatives to business challenges. She held herself to high standards, set lofty goals and then did everything to reach them. She held her employees to the same high standards and they gladly worked tirelessly to achieve their own goals, all the while receiving encouragement and positive feedback along the way. No detail was too small, no challenge too big and it was truly a pleasure to come into work every day ready for whatever challenge was facing us, knowing we had Dacia's support and leadership.”
             </p>
-            <p class="testimonial-author"><strong>Mike Z.</strong></p>
+            <p class="testimonial-author"><strong>Arthur B.</strong></p>
         </div>
 
         <!-- Testimonial Item 9 -->
@@ -289,9 +293,9 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “Dacia does not only lead. She is a true team player, her vision, expertise, is a day-to-day delivery into the big picture, and her drive parts are excellent, and she and her team strive towards a great future.”
+                “I partnered with Dacia on securing organizational buy-in and secure support and funding for strategic product initiatives. Dacia did an outstanding job of presenting compelling vision to the senior leadership and working with the multiple partner organizations. It was a pleasure to work with and look forward to continue working with her.”
             </p>
-            <p class="testimonial-author"><strong>Christina Q.</strong></p>
+            <p class="testimonial-author"><strong>Sanjay G.</strong></p>
         </div>
 
         <!-- Testimonial Item 10 -->
@@ -304,9 +308,9 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “Dacia is a talented senior leader with an exceptional reputation for excellence. She has the ability to view situations tactically and strategically to reach the business objectives the organization would be an asset to any organization.”
+                “Dacia is not only a great leader, she is a true team player. Her vision is exceptional, but she also listens to and incorprates the feedback from all directions. She's intuitive and understand far beyond the basics of the day-to-day deliverables into the big picture. Her leadership skills are excellent, but her ability to envision what the end-game is, and do her part to strive towards that goal are truly what makes her a great asset to any organization.”
             </p>
-            <p class="testimonial-author"><strong>John W.</strong></p>
+            <p class="testimonial-author"><strong>Christiana Q.</strong></p>
         </div>
 
         <!-- Testimonial Item 11 -->
@@ -319,9 +323,9 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “Daca led her management team to metrics while maintaining focus on financial results. I’m impressed with Dacia’s ability to multi-task and work across strategic processes and drive continuous improvement. She demonstrated exceptional engagement employees and variety of levels.”
-            </p>
-            <p class="testimonial-author"><strong>Dominic M.</strong></p>
+                “Working for Dacia was one of the best experiences I had in my career. She not only taught me how to think critically, but constantly drove for continous improvement with an eye to the future. She was tough but always fair. She encouraged her employees to find new alternatives to business challenges. She held herself to high standards, set lofty goals and then did everything to reach them. She held her employees to the same high standards and they gladly worked tirelessly to achieve their own goals, all the while receiving encouragement and positive feedback along the way. No detail was too small, no challenge too big and it was truly a pleasure to come into work every day ready for whatever challenge was facing us, knowing we had Dacia's support and leadership.”
+             </p>
+            <p class="testimonial-author"><strong>Arthur B.</strong></p>
         </div>
 
         <!-- Testimonial Item 12 -->
@@ -334,9 +338,9 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “Dacia balances intellectual curiosity with drive and information, she has a wealth of knowledge along the planning and execution path. This demonstrates the ability to apply this knowledge and again the ability for results was outstanding.”
-            </p>
-            <p class="testimonial-author"><strong>Zeng Z.</strong></p>
+                “I had the pleasure of working for Dacia during my employment at Worldcom. I am hard pressed to think of managers or leaders who I would rather work for or with than Dacia. She had an amazing ability to make everyone's contribution to an organization, either from the front-line employee or senior level manager, both be recognized and valued.    Dacia did an incredible job of walking the fine line of getting things done while fostering a workplace environment where it was truly enjoyable to work.    I would happily work for Dacia again if given the opportunity.”
+             </p>
+            <p class="testimonial-author"><strong>Mike Z.</strong></p>
         </div>
 
         <!-- Testimonial Item 13 -->
@@ -349,9 +353,9 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “I witnessed Dacia’s effectiveness within ML, when she created the organization, she demonstrated astounding organizational skills and core values, while establishing excellent service center for internal and external clients.”
+                “Dacia is a talented senior leader with unsurpassed communication skills and a tireless passion for excellence. She has the unique ability to view situations strategically while identifying the tactical steps required to reach the business objectives. Dacia was a pleasure to work with and for and would be an asset to any organization.”
             </p>
-            <p class="testimonial-author"><strong>David W.</strong></p>
+            <p class="testimonial-author"><strong>John W.</strong></p>
         </div>
 
         <!-- Testimonial Item 14 -->
@@ -364,9 +368,9 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “I’d first met Dacia as a truly hard working leader, she and her team really motivated at the top of their game, operations and customer functions. Her work and dedication truly lend nothing but a team which consistently produces outstanding results.”
+                “Dacia is a dedicated and hard working leader with a genuine drive for customer satisfaction. She has an "all in" approach, creating the framework and resource strategy necessary to acheive project and business goals. One of her main assets is embracement of change. New research findings, benchmarking results (within and outwith industry), or any out-of-the-box method is given consideration. Whatever it takes to get the job done in a profitable manner while fulfilling consumer needs is basically the tactic Dacia would adopt as necessary (if only all senior leadership personnel would take such an open-minded attitude). A great leader and person to match.”
             </p>
-            <p class="testimonial-author"><strong>Zeng P.</strong></p>
+            <p class="testimonial-author"><strong>Gary V.</strong></p>
         </div>
 
         <!-- Testimonial Item 15 -->
@@ -379,9 +383,9 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “Working with Dacia was one of the best experiences I’ve had in my career. She not only constantly drew forth continuous improvement and an eye on the future. She helped her employees find new alternatives to high standards, set goals and then did everything she could to give them the encouragement and positive feedback and pleasure to come into work every day.”
-            </p>
-            <p class="testimonial-author"><strong>Arthur B.</strong></p>
+                “Dacia and I worked together for 4 months at Omnicell. Even though a short time together there was a lot she accomplished in rallying her team and getting everyone engaged. It was exactly what was needed within the organization. To see it happen so quickly shows her strong strategic abilities to stay the course and priortize.    There were a lot of areas in need and Dacia rose to each occasion making sure there was clear direction and expectations through collabrotative means. She made sure each step of the way the organizaiton was engage and held accountable.”
+             </p>
+            <p class="testimonial-author"><strong>Kumar N.</strong></p>
         </div>
 
         <!-- Testimonial Item 16 -->
@@ -394,9 +398,9 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “Dacia is a dedicated and hard-working professional with a strong track record of leadership and strategic success. She has an ‘all-in’ approach, business acumen, and results-oriented mindset that inspires her team and fosters a collaborative environment.”
+                “Dacia led her management team to develop key performance indicators and metrics while maintaining focus on business trends and improving overall financial results. I was impressed with Dacia’s ability to multi task and work effectively with other departments to streamline processes and drive continuous improvement efforts. I respect Dacia’s leadership qualities and her determination to succeed. She demonstrated exceptional communications skills and the ability to engage employees at a variety of levels. Dacia kept the team motivated to reach key objectives and rewarded top performers for their contributions. I learned much from Dacia and enjoyed working with her at Tellabs.”
             </p>
-            <p class="testimonial-author"><strong>Gary V.</strong></p>
+            <p class="testimonial-author"><strong>Dominic M.</strong></p>
         </div>
 
         <!-- Testimonial Item 17 -->
@@ -409,9 +413,9 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “Dacia excels at Analytics with a large company experience. Dacia managed to grow all her centers, and her delivery system that works effectively. She’s a true leader who brings people together and helps build and manage a very large and well-organized center. She has done and continues to do amazing work.”
+                “Dacia came to Analyte with "large company" experience. Analyte was a very small company at the time. Dacia had managed huge call centers in her past, her challenge was to take that experience and lead and grow Analyte's Care center.    Dacia created an care center and care delivery system that works exceptionally for the care agents, patients, doctors, and all the internal stake holders within Analyte. I consider myself very lucky to witness the skill it took in knowing what our patients needed in a care agent and to be able to build and manage a very large team of them. This is not your ordinary call center. She has done and continues to do an amazing job.”
             </p>
-            <p class="testimonial-author"><strong>Dave Q.</strong></p>
+            <p class="testimonial-author"><strong>Dave G.</strong></p>
         </div>
 
         <!-- Testimonial Item 18 -->
@@ -424,9 +428,9 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “Dacia and I worked together for about three years at Analytics, in time, she more than met expectations of our people using their individual talents to serve our clients’ needs of a professional business focused on the career growth and focused leadership tracking, optimizing metrics critical to organizational success and understanding the valuable contribution and perspective on business strategy.”
+                “I strongly recommend my colleague, Dacia, as an exceptional and passionate  Leader in the area of customer retention and satisfaction development. I have had the pleasure of working with her for five years and have seen how she has developed her department. She has been entrusted with a great deal of responsibility and has a proven track record of measurable success.    I have had the opportunity to observe Dacia's professional skills as well as her interpersonal style. She is consistently pleasant, and takes on all assignments with enthusiasm and dedication.    Regardless of deadlines or other pressure, Dacia always delivers. Her superior organizational skills make her the consummate multi-tasker.”
             </p>
-            <p class="testimonial-author"><strong>Leon C.</strong></p>
+            <p class="testimonial-author"><strong>Steven W.</strong></p>
         </div>
 
         <!-- Testimonial Item 19 -->
@@ -439,9 +443,9 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “I worked with Dacia for the past 8 years at leadership and ability to execute to perfection. She has an ability to see and analyze leadership focus on excellent customer service and remarkable writing skills. Dacia is truly outstanding.”
+                “Dacia balances intellectual curiosity with business results. With a constant self-driven quest for information, she has a wealth of knowledge along the total business spectrum, from strategic planning to technology innovation. This understanding is not simply for self-reflection. Dacia has demonstrated again and again the ability to apply this knowledge in meaningful, measurable ways. This application for results was never at the expense of the people around her. She views people as an enabler and in turn they view her as a mentor. I am no exception to this view point.”
             </p>
-            <p class="testimonial-author"><strong>Michelle S.</strong></p>
+            <p class="testimonial-author"><strong>Spencer S.</strong></p>
         </div>
 
         <!-- Testimonial Item 20 -->
@@ -454,9 +458,9 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “Dacia started at Analytics with a very large company experience. Dacia managed to grow all her centers, and her delivery system that works effectively. She’s a true leader who brings people together and helps build and manage a very large and well-organized center. She has done and continues to do amazing work.”
-            </p>
-            <p class="testimonial-author"><strong>Steve W.</strong></p>
+                “Dacia and I worked together for more than three years at Analyte. In that time, she transformed the customer care group from a collection of people using their individual talents to serve our clients needs to a robust, processed, and disciplined group of professionals optimizing business processes. Under Dacia’s strong leadership the care group became focused on tracking and optimizing metrics critical to business success. Dacia’s leadership and experience in finding, acquiring, and developing talent was a critical success factor for the company as a whole. Dacia was a very valuable member of the executive team who always brought valuable contributions and perspectives on the overall business strategy and direction.”
+             </p>
+            <p class="testimonial-author"><strong>Leon C.</strong></p>
         </div>
 
         <!-- Testimonial Item 21 -->
@@ -469,9 +473,9 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “Dacia is a dedicated and hard-working professional with a strong track record of leadership and strategic success. She has an ‘all-in’ approach, business acumen, and results-oriented mindset that inspires her team and fosters a collaborative environment.”
+                “Dacia and I started with Analyte at the same time. I was lucky to arrive when she did, because Dacia's entrance meant that the customer service team would go from being four people taking calls to a well-oiled, service delivery machine. Dacia's dedication to a flawless customer experience is evident in everything she does. Her team accomplishes even the most difficult goals under her watch. She taught me the importance of being clear and concise with customer communication, and how to effectively manage both my time and the time of others. If you want your service team to "WOW," then make sure Dacia is at the helm.”
             </p>
-            <p class="testimonial-author"><strong>Kumar N.</strong></p>
+            <p class="testimonial-author"><strong>Jake G.</strong></p>
         </div>
 
         <!-- Testimonial Item 22 -->
@@ -484,9 +488,9 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “I had the pleasure of working with Dacia at Omnicell. Even though it was a short time I was engaged with her, it was exactly what I needed. It so quickly shows her strong passion and ability to stay ahead of challenges and opportunities.”
+                “I witnessed Dacia's start-up effectiveness within MCI, when she created the Operations Support organization from scratch. She demonstrated astounding organizational and people skills building the rapidly expanding support center, while establishing excellent service to internal organizations as well as external customers.”
             </p>
-            <p class="testimonial-author"><strong>Andrew B.</strong></p>
+            <p class="testimonial-author"><strong>Daniel W.</strong></p>
         </div>
 
         <!-- Testimonial Item 23 -->
@@ -499,9 +503,9 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “I strongly recommend my colleague, Leader in the development of customer retention areas and has been an excellent leader of I had the opportunity to observe. Dacia’s exceptional skills will enhance with enthusiasm and dedication.”
+                “I worked with Dacia for the past 6 years at Analyte Health. I greatly value her leadership and ability to execute to perfection. She has an unique ability to see the big picture and sweat the details. Her laser focus on excellent customer experience transformed our business and helped us optimize every single day. Specifically, Dacia developed "listening posts" so everyone in the company could hear and learn from the voice of our customer, an insight which resonated across all departments and impacted product development, marketing, sales and partner management. As the head of service delivery, Dacia built a very special team of care advisors and administrators to ensure a great experience for our customers. Moreover, her ability to source and develop great talent not only contributed significantly to our bottom line, it just made Analyte Health a great place to work. She built a department of "yes"! Simply put, Dacia is a champion for the customer experience and for the company culture at large.”
             </p>
-            <p class="testimonial-author"><strong>Steven K.</strong></p>
+            <p class="testimonial-author"><strong>Michelle S.</strong></p>
         </div>
 
         <!-- Testimonial Item 24 -->
@@ -514,9 +518,9 @@
                 <img src="../assets/icons/star.svg" alt="Star">
             </div>
             <p class="testimonial-text">
-                “I worked with Dacia for the past 8 years at leadership and ability to execute to perfection. She has an ability to see and analyze leadership focus on excellent customer service and remarkable writing skills. Dacia is truly outstanding.”
+                “I had the pleasure of working with Dacia at Analyte Health where she heads up the operations and customer care functions there. Her many accomplishments at Analyte are a testament to her leadership, hard work and dedication. She literally built a world class customer care center from nothing – a team which continuously informs and delights Analyte’s patients. As the company’s CMO, I was particularly pleased to collaborate with her and her team on our many customer acquisition and retention efforts. I found her to be a smart and innovative partner, always willing to find creative solutions to address our business goals. Dacia is a consummate professional with a no nonsense, service minded focus that would make her an asset to any organization. I would be happy to work with her again in the future.”
             </p>
-            <p class="testimonial-author"><strong>Jake G.</strong></p>
+            <p class="testimonial-author"><strong>Tony P.</strong></p>
         </div>
     </div>
 </section>
@@ -692,7 +696,7 @@
 
     <div class="cta-section__card">
         <h3 class="cta-section__card-title">
-            TRY THE PROGRAM FOR <br> 14 DAYS RISK FREE
+            TRY THE PROGRAM FOR 14 DAYS RISK FREE
         </h3>
         <p class="cta-section__description">
             We’re confident that MissFit Coaching will transform your job search experience. 
@@ -921,7 +925,7 @@
 
 
 
-  <section id="faq" class="faq">
+<section class="faq">
     <div class="faq__container">
       <!-- FAQ Section Title -->
       <h2 class="faq__title">F.A.Q's</h2>
@@ -931,12 +935,12 @@
         <!-- FAQ Item 1 -->
         <div class="faq__item">
           <div class="faq__header">
-            <span class="faq__question">HOW DO I KNOW WHICH RESUME SERVICE PACKAGE IS THE RIGHT FOR ME?</span>
-            <span class="faq__icon faq__icon--minus">−</span>
+            <span class="faq__question">IS THIS PROGRAM RELEVANT TO MY CURRENT CHALLENGES AS AN EXECUTIVE?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
           </div>
           <div class="faq__answer">
             <p>
-                Our packages are designed for various career stages. For comprehensive support, including coaching and unlimited personalized documents, the Career Mastery package is best. If you're focused on optimizing your profile and gaining interview support, the Career Success and Career Launch packages provide excellent value. The Career Starter is ideal for those who need a foundational, ATS-optimized resume and minimal extras. We offer guidance to help you decide the right fit for your situation.
+              Yes, this program is designed to address the specific challenges executives face today, such as adapting leadership styles to a rapidly changing market, re-engaging teams, and driving organizational growth. It provides strategies to navigate uncertainty, stay relevant, and lead effectively.
             </p>
           </div>
         </div>
@@ -944,8 +948,8 @@
         <!-- FAQ Item 2 -->
         <div class="faq__item">
           <div class="faq__header">
-            <span class="faq__question">WHAT DOES THE "TAILORED FOR SPECIFIC ROLE" FEATURE MEAN IN MY PACKAGE</span>
-            <span class="faq__icon faq__icon--plus">+</span>
+            <span class="faq__question">WHAT MAKES THIS PROGRAM DIFFERENT FROM OTHER EXECUTIVE COACHING OPTIONS?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
           </div>
           <div class="faq__answer">
             <p>[Add answer content here]</p>
@@ -955,8 +959,8 @@
         <!-- FAQ Item 3 -->
         <div class="faq__item">
           <div class="faq__header">
-            <span class="faq__question">HOW LONG DOES IT TAKE TO RECEIVE MY FINISHED RESUME</span>
-            <span class="faq__icon faq__icon--plus">+</span>
+            <span class="faq__question">WHAT OUTCOMES CAN I EXPECT FROM PARTICIPATING IN THIS PROGRAM?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
           </div>
           <div class="faq__answer">
             <p>[Add answer content here]</p>
@@ -966,8 +970,8 @@
         <!-- FAQ Item 4 -->
         <div class="faq__item">
           <div class="faq__header">
-            <span class="faq__question">CAN I REVISE MY RESUME AFTER RECEIVING IT?</span>
-            <span class="faq__icon faq__icon--plus">+</span>
+            <span class="faq__question">HOW IS THE PROGRAM STRUCTURED, AND WHAT DOES EACH PHASE ACCOMPLISH?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
           </div>
           <div class="faq__answer">
             <p>[Add answer content here]</p>
@@ -977,17 +981,72 @@
         <!-- FAQ Item 5 -->
         <div class="faq__item">
           <div class="faq__header">
-            <span class="faq__question">WHY SHOULD I INVEST INA PROFESSIONAL RESUME WHEN I CAN DO IT MYSELF</span>
-            <span class="faq__icon faq__icon--plus">+</span>
+            <span class="faq__question">WHAT KIND OF SUPPORT AND PERSONALIZATION WILL I RECEIVE?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
           </div>
           <div class="faq__answer">
             <p>[Add answer content here]</p>
           </div>
         </div>
-
+  
+        <!-- FAQ Item 6 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHO IS THE COACH, AND WHAT MAKES THEM QUALIFIED TO GUIDE ME?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>[Add answer content here]</p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 7 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT IS THE TIME COMMITMENT, AND HOW FLEXIBLE IS THE PROGRAM?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>[Add answer content here]</p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 8 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT ASSURANCES OR GUARANTEES DO I HAVE?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>[Add answer content here]</p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 9 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">HOW WILL THIS PROGRAM HELP ME FUTURE-PROOF MY CAREER?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>[Add answer content here]</p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item 10 -->
+        <div class="faq__item">
+          <div class="faq__header">
+            <span class="faq__question">WHAT IS THE APPLICATION PROCESS?</span>
+            <img src="../assets/icons/plus.svg" alt="Expand" class="faq__icon faq__icon--plus">
+          </div>
+          <div class="faq__answer">
+            <p>[Add answer content here]</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
   
   <section class="content-section">
     <div class="content-container">
@@ -1011,7 +1070,7 @@
 
     <div class="cta-section__card">
         <h3 class="cta-section__card-title">
-            TRY THE PROGRAM FOR <br> 14 DAYS RISK FREE
+            TRY THE PROGRAM FOR 14 DAYS RISK FREE
         </h3>
         <p class="cta-section__description">
             We’re confident that MissFit Coaching will transform your job search experience. 
@@ -1040,22 +1099,6 @@
     <script src="../assets/js/script.js"></script>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
-    <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const grids = document.querySelectorAll('.testimonial-grid');
-  grids.forEach((grid, index) => {
-    const msnry = new Masonry(grid, {
-      itemSelector: '.testimonial-card',
-      columnWidth: '.testimonial-card',
-      gutter: 48,
-      percentPosition: true,
-      transitionDuration: '0.5s',
-      fitWidth: true
-    });
-    window.addEventListener('resize', () => { msnry.layout(); });
-    imagesLoaded(grid, () => { msnry.layout(); });
-  });
-});
-    </script>
+
 </body>
 </html>

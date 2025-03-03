@@ -425,6 +425,9 @@ body {
     background-color: #1D55C4 ;
     color: #FFFFFF;
 }
+.cta-section__button:hover{
+  background-color: #3F7ECB;
+}
 
 .cta-section__title{
     color: #1D55C4;

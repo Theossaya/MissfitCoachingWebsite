@@ -466,57 +466,47 @@
 
 <!-- Masonry initialization script -->
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const grid = document.querySelector('.pricing__grid');
-  if (grid) {
-    console.log('Initializing Masonry for pricing grid');
-
-    // Add class to grid for initial freezing
-    grid.classList.add('freeze');
-
-    const msnry = new Masonry(grid, {
-      itemSelector: '.pricing__item',
-      columnWidth: '.pricing__item',
-      gutter: 48,
-      percentPosition: true,
-      transitionDuration: 0, // Disable transitions for instant layout changes
-      fitWidth: true
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Masonry with options
+    var grid = document.querySelector('.pricing__grid');
+    var masonry = new Masonry(grid, {
+        // Options
+        itemSelector: '.pricing__item',
+        columnWidth: '.pricing__item', // Use the item itself as column width
+        percentPosition: true, // Use percentage-based widths
+        gutter: 30, // Space between items
+        horizontalOrder: true, // Attempt to place items in horizontal order
+        fitWidth: true // Sets the width of the container to fit the available number of columns
     });
-
-    let currentBreakpoint = getBreakpoint();
-    function getBreakpoint() {
-      if (window.innerWidth > 1200) return 'desktop';
-      if (window.innerWidth > 768) return 'medium';
-      return 'mobile';
-    }
-
-    // Handle resize with breakpoint-based layout
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        const newBreakpoint = getBreakpoint();
-        if (newBreakpoint !== currentBreakpoint) {
-          // Only update layout if a breakpoint is crossed
-          grid.classList.add('freeze'); // Disable transitions during layout
-          msnry.layout();
-          setTimeout(() => {
-            grid.classList.remove('freeze'); // Re-enable transitions after layout
-          }, 100); // Give time for layout to settle
-          currentBreakpoint = newBreakpoint;
-        }
-      }, 100); // Debounce resize to prevent excessive recalculations
+    
+    // Layout Masonry again after all images have loaded
+    imagesLoaded(grid).on('progress', function() {
+        masonry.layout();
     });
-
-    // Re-layout after images load
-    imagesLoaded(grid, () => {
-      msnry.layout();
-      grid.classList.remove('freeze'); // Remove freeze after initial load
+    
+    // Re-layout Masonry on window resize
+    window.addEventListener('resize', function() {
+        masonry.layout();
     });
-  } else {
-    console.warn('Pricing grid not found');
-  }
 });
+
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var grid = document.querySelector('.masonry-grid');
+    var masonry = new Masonry(grid, {
+      itemSelector: '.masonry-item',
+      columnWidth: 336,
+      gutter: 36,
+      fitWidth: true // Centers the layout within the container
+    });
+
+    // Re-layout on window resize
+    window.addEventListener('resize', function() {
+      masonry.layout();
+    });
+  });
 </script>
 
 </body>
