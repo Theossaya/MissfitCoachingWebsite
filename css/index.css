@@ -35,6 +35,7 @@ button, input, select, textarea {
     background-size:cover; /* Cover the hero section */
     background-repeat: no-repeat;
     color: #FFFFFF; /* White text */
+    background-position: right; /* Center the image vertically and position it to keep the face visible */
 }
 
 

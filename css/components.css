@@ -706,6 +706,8 @@ body {
   display: grid; /* Use grid for features list for consistency */
   gap: 1.25rem; /* 20px between features */
   margin-top: 1rem; /* Add spacing above features */
+  font-family: 'Inter', sans-serif;
+
 }
 
 .info__feature {
@@ -831,6 +833,7 @@ body {
   .info__feature {
     font-size: 0.875rem; /* Reduce feature text size */
     line-height: 1.25rem; /* Adjust line height */
+    font-family: 'Inter', sans-serif;
   }
 
   .info__icon {
