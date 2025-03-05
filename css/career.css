@@ -7,3 +7,21 @@ body {
 .benefit-item {
     border-bottom: none;
 }
+
+
+/* .faq {
+  background-color:#1D1D1D;
+  color: #E1E2E9;
+}
+
+.faq__item {
+  background-color: #272727;
+  border: 1px solid #000000;
+} */
+
+.faq__question{
+  color: #000000;
+}
+.faq__answer {
+color: #000000;
+}

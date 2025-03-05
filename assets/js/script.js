@@ -216,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const containerWidth = slidesContainer.parentElement.offsetWidth;
       return containerWidth > 0 ? containerWidth : 700; // Fallback to 700px if width is 0
     }
-    
+
     let slideWidth = updateSlideWidth();
     slidesContainer.style.transition = 'none';
     slidesContainer.style.transform = `translateX(-${slideWidth}px)`;
@@ -280,19 +280,59 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
-document.addEventListener('DOMContentLoaded', () => {
-  const grids = document.querySelectorAll('.testimonial-grid');
-  grids.forEach((grid, index) => {
-    const msnry = new Masonry(grid, {
-      itemSelector: '.testimonial-card',
-      columnWidth: '.testimonial-card',
-      gutter: 48,
-      percentPosition: true,
-      transitionDuration: '0.5s',
-      fitWidth: true
-    });
-    window.addEventListener('resize', () => { msnry.layout(); });
-    imagesLoaded(grid, () => { msnry.layout(); });
+// Footer dropdown functionality
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all footer headings
+  const footerHeadings = document.querySelectorAll('.footer__heading');
+  
+  // Function to check if we're in mobile view
+  function isMobileView() {
+    return window.innerWidth <= 723;
+  }
+  
+  // Function to handle click on headings
+  function toggleDropdown(event) {
+    if (!isMobileView()) return; // Don't do anything if not in mobile view
+    
+    const heading = event.currentTarget;
+    const list = heading.nextElementSibling;
+    const upIcon = heading.querySelector('.footer__heading-icon-up');
+    const downIcon = heading.querySelector('.footer__heading-icon-down');
+    
+    // Toggle the active class on the list
+    list.classList.toggle('active');
+    
+    // Toggle the visibility of the icons
+    if (upIcon && downIcon) {
+      if (list.classList.contains('active')) {
+        upIcon.style.display = 'block';
+        downIcon.style.display = 'none';
+      } else {
+        upIcon.style.display = 'none';
+        downIcon.style.display = 'block';
+      }
+    }
+  }
+  
+  // Add click event listener to all headings
+  footerHeadings.forEach(heading => {
+    heading.addEventListener('click', toggleDropdown);
+  });
+  
+  // Reset all dropdowns when resizing above mobile breakpoint
+  window.addEventListener('resize', function() {
+    if (!isMobileView()) {
+      document.querySelectorAll('.footer__list').forEach(list => {
+        list.classList.remove('active');
+      });
+      
+      document.querySelectorAll('.footer__heading-icon-up').forEach(icon => {
+        icon.style.display = 'none';
+      });
+      
+      document.querySelectorAll('.footer__heading-icon-down').forEach(icon => {
+        icon.style.display = 'block';
+      });
+    }
   });
 });

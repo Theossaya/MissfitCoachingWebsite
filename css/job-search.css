@@ -454,6 +454,14 @@ body {
     color: #020D43;
 }
 
+.faq__question{
+  color: #000000;
+}
+.faq__answer {
+color: #000000;
+}
+
+
 
 .program-breakdown{
     border: none;

@@ -407,9 +407,10 @@ body {
 }
 
 /* Footer Section */
+/* Base Footer Styles */
 .footer {
   background: #1D1D1D;
-  padding: 8.25rem 3.75rem 11rem; /* Top: 132px, sides: 60px, bottom: 176px (converted to rem) */
+  padding: 8.25rem 3rem; /* Reduced side padding to 48px (3rem) */
   color: #FFFFFF;
   display: flex;
   flex-direction: column;
@@ -421,6 +422,8 @@ body {
   display: flex;
   gap: 5.875rem; /* 94px converted to rem */
   margin: 0 auto; /* Center horizontally */
+  width: 100%;
+  justify-content: space-between;
 }
 
 /* Branding Section */
@@ -460,7 +463,6 @@ body {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* Five columns in one row on desktop */
   gap: 1.5rem; /* 24px horizontal gap between groups, matching original */
-  max-width: calc(5 * 10rem + 4 * 1.5rem); /* Max width: 5 groups * 10rem + 4 gaps * 1.5rem = 50rem + 6rem = 56rem (896px) */
 }
 
 /* Links Group Element */
@@ -479,6 +481,11 @@ body {
   line-height: 1.5rem; /* 24px */
   text-align: left;
   color: #999999;
+}
+
+/* Hide dropdown icon wrapper in desktop view */
+.footer__heading-icon-wrapper {
+  display: none;
 }
 
 .footer__list {
@@ -506,123 +513,133 @@ body {
 }
 
 /* === Responsive Design === */
-
-/* At 1353px: Four columns, two rows (one group moves to bottom) */
-@media (max-width: 1353px) {
-  .footer__links {
-    grid-template-columns: repeat(4, 1fr); /* Four columns */
-    grid-template-rows: repeat(2, auto); /* Two rows, auto height */
-    gap: 3.75rem 1.5rem; /* 24px horizontal, 60px vertical (3.75rem) between rows */
+@media (max-width: 1315px) {
+  .footer {
+    padding: 8.25rem 2.25rem; /* 36px padding */
   }
 
-  /* Position groups to match one on bottom row */
+  .footer__links {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 3.75rem 1.5rem;
+  }
+
   .footer__links-group:nth-child(1) { grid-column: 1; grid-row: 1; }
   .footer__links-group:nth-child(2) { grid-column: 2; grid-row: 1; }
   .footer__links-group:nth-child(3) { grid-column: 3; grid-row: 1; }
   .footer__links-group:nth-child(4) { grid-column: 4; grid-row: 1; }
-  .footer__links-group:nth-child(5) { grid-column: 1 / span 4; grid-row: 2; } /* Span all columns in second row */
+  .footer__links-group:nth-child(5) { grid-column: 1 / span 4; grid-row: 2; }
 }
 
-/* At 1169px: Three columns, two rows (two groups on bottom) */
-@media (max-width: 1169px) {
+@media (max-width: 1107px) {
   .footer__links {
-    grid-template-columns: repeat(3, 1fr); /* Three columns */
-    grid-template-rows: repeat(2, auto); /* Two rows, auto height */
-    gap: 3.75rem 1.5rem; /* 24px horizontal, 60px vertical (3.75rem) between rows */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 3.75rem 1.5rem;
   }
 
-  /* Position groups to match two on bottom row */
   .footer__links-group:nth-child(1) { grid-column: 1; grid-row: 1; }
   .footer__links-group:nth-child(2) { grid-column: 2; grid-row: 1; }
   .footer__links-group:nth-child(3) { grid-column: 3; grid-row: 1; }
   .footer__links-group:nth-child(4) { grid-column: 1; grid-row: 2; }
-  .footer__links-group:nth-child(5) { grid-column: 2 / span 2; grid-row: 2; } /* Span remaining columns in second row */
+  .footer__links-group:nth-child(5) { grid-column: 2 / span 2; grid-row: 2; }
 }
 
-/* At 985px: Two columns, three rows (two top, two middle, one bottom) */
-@media (max-width: 985px) {
+@media (max-width: 923px) {
   .footer__links {
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    grid-template-rows: repeat(3, auto); /* Three rows, auto height */
-    gap: 3.75rem 1.5rem; /* 24px horizontal, 60px vertical (3.75rem) between rows */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 3.75rem 1.5rem;
   }
 
-  /* Position groups to match two top, two middle, one bottom */
   .footer__links-group:nth-child(1) { grid-column: 1; grid-row: 1; }
   .footer__links-group:nth-child(2) { grid-column: 2; grid-row: 1; }
   .footer__links-group:nth-child(3) { grid-column: 1; grid-row: 2; }
   .footer__links-group:nth-child(4) { grid-column: 2; grid-row: 2; }
-  .footer__links-group:nth-child(5) { grid-column: 1 / span 2; grid-row: 3; } /* Span both columns in third row */
+  .footer__links-group:nth-child(5) { grid-column: 1 / span 2; grid-row: 3; }
 }
 
-/* At 801px: Single column, five rows */
-@media (max-width: 801px) {
-  .footer__links {
-    grid-template-columns: 1fr; /* Single column */
-    grid-template-rows: repeat(5, auto); /* Five rows, auto height */
-    gap: 3.75rem; /* 60px vertical spacing between rows */
-    width: 100%; /* Full width on mobile */
-    justify-items: flex-start; /* Center groups horizontally */
-  }
-
-  /* Position groups to stack vertically */
-  .footer__links-group:nth-child(1) { grid-column: 1; grid-row: 1; }
-  .footer__links-group:nth-child(2) { grid-column: 1; grid-row: 2; }
-  .footer__links-group:nth-child(3) { grid-column: 1; grid-row: 3; }
-  .footer__links-group:nth-child(4) { grid-column: 1; grid-row: 4; }
-  .footer__links-group:nth-child(5) { grid-column: 1; grid-row: 5; }
-
-  .footer__links-group {
-    width: auto; /* Allow full width, centered */
-    align-items: left; /* Center text */
-  }
-
-  .footer__heading,
-  .footer__link {
-    text-align: left; /* Center text on mobile */
-  }
-}
-
-/* Below 676px: Entire footer stacks into single column */
-@media (max-width: 676px) {
+@media (max-width: 723px) {
   .footer {
-    padding: 5.5rem 1.5rem; /* Reduce padding for mobile */
+    padding: 5.5rem 1.5rem;
   }
 
   .footer__container {
-    flex-direction: column; /* Stack branding above links */
-    gap: 3.75rem; /* 60px vertical spacing between branding and links */
-    align-items: left; /* Center both sections */
-  }
-
-  .footer__branding {
-    align-items: left; /* Center branding on mobile */
-    text-align: left; /* Center text */
-  }
-
-  .footer__socials {
-    justify-content: flex-start; /* Center social icons */
+    flex-direction: column;
+    gap: 3.75rem;
   }
 
   .footer__links {
-    grid-template-columns: 1fr; /* Single column for links */
-    grid-template-rows: repeat(5, auto); /* Five rows, auto height */
-    gap: 3.75rem; /* Maintain 60px vertical spacing */
-    width: 100%; /* Full width on mobile */
-    justify-items: flex-start; /* Center links horizontally */
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
 
   .footer__links-group {
-    width: auto; /* Allow full width, centered */
-    align-items: left; /* Center text */
+    width: 100%;
+    border-top: 1px solid rgba(255,255,255,0.1);
   }
 
-  .footer__heading,
+  .footer__links-group:last-child {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* Show icon wrapper in mobile view */
+  .footer__heading-icon-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .footer__heading {
+    display: flex;
+    justify-content: space-between; /* Puts text on left and icon on right */
+    align-items: center;
+    padding: 1.813rem 0; /* 29px top and bottom padding */
+    cursor: pointer;
+    user-select: none;
+    width: 100%;
+    margin: 0;
+  }
+
+  .footer__heading-text {
+    flex-grow: 1;
+  }
+
+  .footer__heading-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Hide list by default in mobile view */
+  .footer__list {
+    display: none;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+  }
+
+  /* Show list when active class is applied */
+  .footer__list.active {
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* Remove gap between items */
+  }
+
+  /* Style for each list item in mobile view */
+  .footer__list-item {
+    padding: 1.813rem 0; /* 29px padding top and bottom */
+    margin-left: 3rem; /* 48px left margin */
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .footer__list-item:last-child {
+    padding-bottom: 1.813rem; /* 29px bottom padding for the last item */
+  }
+
   .footer__link {
-    text-align: left; /* Center text on mobile */
+    width: 100%;
+    display: block;
   }
 }
-
 
   /* === SECTION HEADER === */
 .section-header {

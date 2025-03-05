@@ -162,14 +162,18 @@ line-height: clamp(2.625rem, 9.524vw + -0.732rem, 3.75rem);
   color: #000000;
 }
 
-/* Masonry Grid using Masonry.js */
+/* Masonry Grid */
 .masonry-grid {
   max-width: 1200px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  gap: 2rem;
 }
 
 .masonry-item {
-  width: 336px; /* Fixed width of 336px */
+  width: 100%;
   background-color: #1d1d1d;
   padding: 1.875rem 2.25rem;
   border-radius: 0.25rem;
@@ -177,43 +181,49 @@ line-height: clamp(2.625rem, 9.524vw + -0.732rem, 3.75rem);
   border: 1px solid #01051a;
   margin-bottom: 3rem;
   position: relative;
-  height: auto;
+  height: fit-content;
 }
 
-/* Icon Styling */
-.masonry-item__icon {
+.masonry-item::before {
   position: absolute;
-  width: 6rem; /* 96px */
-  height: auto; /* Maintain aspect ratio */
-  opacity: 0.7; /* Semi-transparent */
+  width: 6rem;
+  height: auto;
+  opacity: 0.7;
+  z-index: 1;
 }
 
-.masonry-item:nth-child(1) .masonry-item__icon {
-  right: 4.4rem; /* Adjust position */
+/* Specific positioning for different items in desktop view */
+.masonry-item:nth-child(1)::before {
+  content: url('../assets/icons/Vector\ \(11\).svg');
+  top: 4rem;
+  right: 5rem;
 }
 
-.masonry-item:nth-child(3) .masonry-item__icon {
-  right: 1.3rem; /* Adjust position */
+.masonry-item:nth-child(2)::before {
+  top: 4rem;
+  right: 10rem;
 }
 
-.masonry-item:nth-child(5) .masonry-item__icon {
-  right: 6.6rem; /* Adjust position */
+.masonry-item:nth-child(3)::before {
+  right: 1.3rem;
 }
 
-.masonry-item:nth-child(2) .masonry-item__icon {
-  top: 4rem; /* Adjust position */
-  right: 10rem; /* Adjust position */
+.masonry-item:nth-child(4)::before {
+  top: 3rem;
+  right: 6rem;
 }
 
-.masonry-item:nth-child(4) .masonry-item__icon {
-  top: 3rem; /* Adjust position */
-  right: 6rem; /* Adjust position */
+.masonry-item:nth-child(5)::before {
+  right: 6.6rem;
 }
 
-.masonry-item:nth-child(6) .masonry-item__icon {
-  right: 2rem; /* Adjust position */
-  top: 2rem; /* Adjust position */
+.masonry-item:nth-child(6)::before {
+  right: 2rem;
+  top: 2rem;
 }
+
+
+
 
 /* Title Styling */
 .masonry-item__title {
@@ -239,25 +249,47 @@ line-height: clamp(2.625rem, 9.524vw + -0.732rem, 3.75rem);
 }
 
 /* === RESPONSIVE BREAKPOINTS === */
-
-/* Tablet View (816px - 1219px): 2 columns */
-@media (max-width: 1219px) {
-  .masonry-grid {
-    max-width: 720px; /* Fits 2 × 448px + 1 × 48px = 944px, but limit to 848px for alignment */
-  }
-}
-
-@media (max-width: 815px) {
+/* Between 1031px and 688px: 2 columns with 36px padding */
+@media (max-width: 1031px) and (min-width: 688px) {
   .masonry-section {
-    padding: 5.5rem 1.5rem;
+    padding: 2.75rem 36px 1rem;
+  }
+
+  .masonry-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .masonry-item__icon {
+    /* Hide original icon */
+    background-image: none;
+  }
+  .masonry-item:nth-child(2) .masonry-item__icon {
+    top: 2rem; /* Adjust position */
+    right: 10rem; /* Adjust position */
+  }
+  .masonry-item:nth-child(3) .masonry-item__icon {
+    top: 0; /* Adjust position */
+    right: 1.4rem; /* Adjust position */
+    
   }
   
-  /* Even on mobile, we'll keep the 336px width, but center it */
+  
+}
+
+/* Below 688px: Single column with 24px padding */
+@media (max-width: 688px) {
+  .masonry-section {
+    padding: 2.75rem 24px 1rem;
+  }
+  
+  /* Even on mobile, we'll keep the layout centered */
   .masonry-grid {
+    grid-template-columns: 1fr;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
+  .masonry-item {
+    width: 100%;
+  }
 }
-
-
