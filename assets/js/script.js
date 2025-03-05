@@ -212,11 +212,11 @@ document.addEventListener('DOMContentLoaded', () => {
     slidesContainer.insertBefore(lastSlideClone, slides[0]);
     const allSlides = document.querySelectorAll(`.${sliderClass}__slide`);
 
-    // Initialize position
     function updateSlideWidth() {
       const containerWidth = slidesContainer.parentElement.offsetWidth;
       return containerWidth > 0 ? containerWidth : 700; // Fallback to 700px if width is 0
     }
+    
     let slideWidth = updateSlideWidth();
     slidesContainer.style.transition = 'none';
     slidesContainer.style.transform = `translateX(-${slideWidth}px)`;

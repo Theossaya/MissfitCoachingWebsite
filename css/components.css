@@ -653,8 +653,6 @@ body {
 /* === INFO SECTION === */
 .info {
   padding: 0; /* Top and bottom padding for the entire section */
-  display: grid;
-  gap: 0; /* Space between individual sections, matching your max vertical gap */
   width: 100%; /* Ensure full width for parent */
 }
 
@@ -665,20 +663,17 @@ body {
 
 /* Reversed wrapper for dark background */
 .info__wrapper--reversed {
-  background-color: #1D1D1D; /* Full-width background, can be any color */
-  color: #FFFFFF; /* Contrast text for dark background */
+  background-color: #1D1D1D; /* Dark background */
+  color: #FFFFFF; /* White text for contrast */
 }
 
-/* Ensure .info__container uses grid with high specificity */
+/* Base styles for the container */
 .info__container,
 .info__container--reversed {
-  display: grid;
-  grid-template-columns: 1fr 28.31rem; /* Left column (flexible) and right column (fixed image width) */
-  box-sizing: border-box;
-  padding: 5.5rem 3.75rem; /* 88px top and bottom */
-  max-width: 1200px; /* Limit content width to 1200px */
-  margin: 0 auto; /* Center the container horizontally within the full-width background */
-  width: 100%; /* Ensure full width for content alignment */
+  max-width: 1081px; /* Limits the container width on large screens */
+  margin: 0 auto; /* Centers the container */
+  padding: 5.5rem clamp(2.25rem, 0.2912rem + 4.1237vw, 3rem); /* 88px top/bottom, 60px left/right */
+  box-sizing: border-box; /* Ensures padding is included in width calculations */
 }
 
 /* === Child Elements === */
@@ -687,7 +682,6 @@ body {
   font-size: 1.875rem; /* 30px */
   font-weight: 700;
   line-height: 2.25rem; /* 36px */
-  margin-bottom: 2rem; /* 32px spacing below title */
   text-align: left;
   letter-spacing: 0%;
 }
@@ -697,17 +691,15 @@ body {
   font-size: 1rem; /* 16px */
   font-weight: 400;
   line-height: 2.3rem; /* 36.8px */
-  margin-bottom: 2rem; /* 32px spacing below description */
   max-width: 31.25rem; /* 500px, allows wrapping */
   text-align: left;
 }
 
 .info__features {
-  display: grid; /* Use grid for features list for consistency */
+  display: grid; /* Grid for features list */
   gap: 1.25rem; /* 20px between features */
-  margin-top: 1rem; /* Add spacing above features */
+  margin-top: 1rem; /* Spacing above features */
   font-family: 'Inter', sans-serif;
-
 }
 
 .info__feature {
@@ -722,133 +714,68 @@ body {
   width: 1.5rem; /* 24px */
   height: 1.5rem;
   margin-right: 0.875rem; /* 14px */
-  /* Ensure red checkmark, adjust if SVG needs CSS styling */
-  content: url('../assets/icons/checkmark.svg'); /* Ensure the SVG is red or use filter: hue-rotate() if needed */
+  content: url('../assets/icons/checkmark.svg'); /* Red checkmark */
 }
 
 .info__image {
   display: grid;
-  justify-content: center;
-  align-items: center;
-  /* Match the blue dashed border and rounded corners from the image */
+  justify-content: flex-start;
+  align-items: flex-start;
   border-radius: 0.5rem; /* 8px */
 }
 
 .info__image img {
-  width: 100%;
-  max-width: 28.31rem; /* 453px */
-  height: auto;
+  width: 100%; /* Image scales to full width of its container */
+  height: auto; /* Maintains aspect ratio */
   object-fit: cover;
   border-radius: 0.5rem; /* 8px */
 }
 
-/* === Desktop Layout (Above 1074px) === */
-@media (min-width: 1074px) {
+/* Two-column layout for screens 760px and above */
+@media (min-width: 760px) {
   .info__container,
   .info__container--reversed {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Both columns flexible, image scales naturally */
     grid-template-areas:
       "title image"
       "description image"
-      "features image"; /* Define grid areas for desktop layout */
+      "features image";
+    gap: 0 3rem; /* Space between columns */
   }
-
   .info__title { grid-area: title; }
-  .info__image { grid-area: image; }
   .info__description { grid-area: description; }
   .info__features { grid-area: features; }
-
-  .info__title,
-  .info__description,
-  .info__features {
-    max-width: 35rem; /* Cap width for readability */
-  }
-  
+  .info__image { grid-area: image; }
 }
 
-/* === Mobile Layout (Below 1074px) === */
-@media (max-width: 1074px) {
-  .info__wrapper,
-  .info__wrapper--reversed {
-    width: 100vw; /* Full viewport width for mobile */
-  }
-  .info__description{
-    margin-top: 2rem;
-  }
+/* Single-column layout for screens 759px and below */
+@media (max-width: 759px) {
   .info__container,
   .info__container--reversed {
-    display: flex; /* Switch to flex for stacking on mobile */
-    flex-direction: column; /* Stack vertically for mobile */
-    align-items: center; /* Center the items */
-    max-width: 100%; /* Full width on mobile */
-    margin: 0; /* Remove margin for full-width stacking */
-    width: 100%; /* Ensure full width for content alignment */
+    display: flex;
+    flex-direction: column;
+    padding: 5.5rem clamp(1.5rem, 0.7073rem + 3.252vw, 2.25rem); /* 36px padding on all sides */
+    width: 100%; /* Ensure container takes full viewport width */
   }
-
   .info__title,
-  .info__image,
   .info__description,
   .info__features {
-    width: 100%; /* Full width for all elements */
+    width: 100%; /* Full width for text elements */
   }
-  .info__features{
-    margin-top: 0;
-  }
-
-  .info__image img {
-    max-width: 100%; /* Allow image to scale down to full width */
-  }
-
   .info__image {
-    border: none; /* Remove border on mobile for cleaner design */
+    width: 100%; /* Ensure image container takes full width */
+    margin: 2rem 0; /* Vertical spacing around image */
   }
-
-  /* Reorder for mobile: title → image → description → features */
+  .info__image img {
+    width: 100%; /* Image takes full container width and scales proportionally */
+    max-width: none; /* Remove any max-width restrictions */
+  }
   .info__title { order: 1; }
   .info__image { order: 2; }
   .info__description { order: 3; }
   .info__features { order: 4; }
 }
-
-/* Below 573px: Scale image down and wrap text more flexibly */
-@media (max-width: 573px) {
-  .info__description{
-    margin-top: 2rem;
-  }
-  .info__title {
-    font-size: 1.5rem; /* Reduce title size for mobile */
-    line-height: 2rem; /* Adjust line height */
-  }
-
-  .info__description {
-    font-size: 0.875rem; /* Reduce description size for mobile */
-    line-height: 1.5rem; /* Adjust line height */
-    max-width: 100%; /* Full width, allow wrapping */
-  }
-
-  .info__features {
-    gap: 1rem; /* Reduce gap between features */
-    margin-top: 0;
-  }
-
-  .info__feature {
-    font-size: 0.875rem; /* Reduce feature text size */
-    line-height: 1.25rem; /* Adjust line height */
-    font-family: 'Inter', sans-serif;
-  }
-
-  .info__icon {
-    width: 1.25rem; /* Reduce icon size */
-    height: 1.25rem;
-    margin-right: 0.625rem; /* Reduce margin */
-  }
-
-  .info__image img {
-    max-width: 100%; /* Ensure image scales down fully */
-    border-radius: 0.375rem; /* Slightly reduce border radius */
-  }
-}
-
-
 
 /* === STORY SECTION === */
 .story {

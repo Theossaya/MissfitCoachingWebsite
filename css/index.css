@@ -35,7 +35,7 @@ button, input, select, textarea {
     background-size:cover; /* Cover the hero section */
     background-repeat: no-repeat;
     color: #FFFFFF; /* White text */
-    background-position: right; /* Center the image vertically and position it to keep the face visible */
+    background-position: right 90%; /* Center the image vertically and position it to keep the face visible */
 }
 
 
@@ -353,7 +353,7 @@ button, input, select, textarea {
   transform: scale(1.1);
 }
 
-.testimonial-slider__arrow img{
+.testimonial-slider__arrow img {
   width: 2.4rem; /* 48px */
   height: 2.4rem; /* 48px */
 }
@@ -372,7 +372,8 @@ button, input, select, textarea {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  max-width: 43.75rem; /* 700px */
+  width: 100%; /* Ensure container takes full viewport width */
+  max-width: 43.75rem; /* 700px on larger screens */
   margin: 0 auto; /* Center the content horizontally */
   position: relative; /* For positioning slides */
   overflow: hidden; /* Hide overflow slides */
@@ -391,7 +392,7 @@ button, input, select, textarea {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 300px; /* Minimum height to ensure content fits, adjust as needed */
+  width: 100%; /* Ensure slide takes full width */
 }
 
 .testimonial-slider__quote {
@@ -400,9 +401,10 @@ button, input, select, textarea {
   font-size: 1.125rem; /* 20px */
   font-weight: 400;
   line-height: 1.8rem; /* 32px */
-  
   margin-bottom: 2.25rem; /* Space beneath the quote */
   max-width: 100%; /* Ensure text wraps within container */
+  word-wrap: break-word; /* Force wrapping of long words */
+  word-break: break-word; /* Ensure breaking across words for better wrapping */
 }
 
 .testimonial-slider__author {
@@ -489,11 +491,10 @@ button, input, select, textarea {
   transform: scale(1.1);
 }
 
-.testimonial-slider-2__arrow img{
+.testimonial-slider-2__arrow img {
   width: 2.4rem; /* 48px */
   height: 2.4rem; /* 48px */
 }
-
 
 .testimonial-slider-2__pagination {
   font-family: 'Inter', sans-serif;
@@ -509,7 +510,8 @@ button, input, select, textarea {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  max-width: 43.75rem; /* 700px */
+  width: 100%; /* Ensure container takes full viewport width */
+  max-width: 43.75rem; /* 700px on larger screens */
   margin: 0 auto; /* Center the content horizontally */
   position: relative; /* For positioning slides */
   overflow: hidden; /* Hide overflow slides */
@@ -528,7 +530,7 @@ button, input, select, textarea {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 300px; /* Minimum height to ensure content fits, adjust as needed */
+  width: 100%; /* Ensure slide takes full width */
 }
 
 .testimonial-slider-2__quote {
@@ -539,6 +541,8 @@ button, input, select, textarea {
   line-height: 1.8rem; /* 32px */
   margin-bottom: 2.25rem; /* Space beneath the quote */
   max-width: 100%; /* Ensure text wraps within container */
+  word-wrap: break-word; /* Force wrapping of long words */
+  word-break: break-word; /* Ensure breaking across words for better wrapping */
 }
 
 .testimonial-slider-2__author {
@@ -580,45 +584,4 @@ button, input, select, textarea {
   font-weight: 500;
   line-height: 1.21rem; /* 19.36px */
   text-align: center;
-}
-.testimonial-slider__content,
-.testimonial-slider-2__content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 100%; /* Ensure container takes full viewport width */
-  max-width: 43.75rem; /* 700px on larger screens */
-  margin: 0 auto; /* Center the content horizontally */
-  position: relative; /* For positioning slides */
-  overflow: hidden; /* Hide overflow slides */
-}
-
-.testimonial-slider__slide,
-.testimonial-slider-2__slide {
-  width: 100%; /* Ensure slides match container width */
-  flex: 0 0 100%; /* Maintain flex behavior */
-  box-sizing: border-box; /* Include padding in width */
-  min-height: 300px; /* Minimum height to ensure content fits, adjust as needed */
-}
-
-/* Ensure quote wraps properly at all widths */
-.testimonial-slider__quote,
-.testimonial-slider-2__quote {
-  color: var(--color-white);
-  font-family: 'Barlow', sans-serif;
-  font-size: 1.125rem; /* 20px */
-  font-weight: 400;
-  line-height: 1.8rem; /* 32px */
-  margin-bottom: 2.25rem; /* Space beneath the quote */
-  max-width: 100%; /* Ensure text wraps within container */
-  word-wrap: break-word; /* Force wrapping of long words */
-  word-break: break-word; /* Ensure breaking across words for better wrapping */
-}
-
-/* Reinforce slide width */
-.testimonial-slider__slide,
-.testimonial-slider-2__slide {
-  width: 100%;
-  flex: 0 0 100%;
 }
