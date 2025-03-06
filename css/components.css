@@ -692,6 +692,7 @@ body {
 
 }
 
+
 /* Reversed wrapper for dark background */
 .info__wrapper--reversed {
   background-color: #1D1D1D; /* Dark background */
@@ -775,12 +776,21 @@ body {
   }
   .info__title { grid-area: title; }
   .info__description { grid-area: description; }
-  .info__features { grid-area: features; }
-  .info__image { grid-area: image; }
+  .info__features { 
+    grid-area: features;
+    align-content: start;
+   }
+  .info__image {
+     grid-area: image; 
+     max-width: 28.3125rem;
+    }
 }
 
 /* Single-column layout for screens 759px and below */
 @media (max-width: 759px) {
+  .info__wrapper {
+    padding: 0;
+}
   .info__container,
   .info__container--reversed {
     display: flex;
@@ -805,6 +815,30 @@ body {
   .info__image { order: 2; }
   .info__description { order: 3; }
   .info__features { order: 4; }
+}
+
+
+/* Fix for grid item alignment and spacing issues */
+@media (min-width: 760px) {
+  .info__container,
+  .info__container--reversed {
+    /* Add explicit row sizing to prevent browser auto-spacing */
+    grid-template-rows: auto auto 1fr;
+    row-gap: 2rem; /* Control vertical spacing between grid items */
+  }
+  
+  /* Remove any default margins that might be causing extra space */
+  .info__title,
+  .info__description,
+  .info__features {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  /* Adjust description to fit properly in its grid cell */
+  .info__description {
+    display: block; /* Ensure block-level behavior */
+  }
 }
 
 /* === STORY SECTION === */
@@ -1405,6 +1439,7 @@ body {
 .faq__icon {
   font-size: 1.25rem; /* Responsive icon size */
   font-weight: 700;
+  margin-left: 6px;
 }
 
 .faq__answer {

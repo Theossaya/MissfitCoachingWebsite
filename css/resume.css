@@ -84,7 +84,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 5.5rem 0; /* 64px vertical padding */
+    padding: 5.5rem 3rem; /* 64px vertical padding */
     text-align: center;
   }
   
@@ -107,6 +107,12 @@ body {
 
   }
   
+  @media (max-width: 5px) {
+
+  
+  }
+
+
   
 .info__title{
   color: #020D43;

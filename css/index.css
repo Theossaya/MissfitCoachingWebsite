@@ -281,7 +281,7 @@ button, input, select, textarea {
     grid-column: span 1; /* Third card spans both columns on the bottom row */
   }
   .coaching-programs__title{
-    text-align: center;
+    text-align: left;
   }
   .coaching-programs__container {
     padding: 0 2.25rem; /* Match your original side padding (60px converted to rem) */
