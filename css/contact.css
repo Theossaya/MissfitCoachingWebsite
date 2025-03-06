@@ -34,13 +34,13 @@ body {
 .contact-section {
     display: flex;
     justify-content: center; /* Horizontally center the container */
-    padding: 8.25rem 3.75rem 5.5rem;
+    padding: 8.25rem 2.25rem 5.5rem;
   }
   
   .contact-section__container {
     display: flex;
-    gap: 3.5rem; /* 56px between Contact Info and Form */
-    max-width: 789px; /* Ensures it matches the specified width */
+    gap: clamp(2.25rem, 0.931rem + 2.2989vw, 3rem); /* 56px between Contact Info and Form */
+    max-width: 52.875rem; /* Ensures it matches the specified width */
     width: 100%;
   }
   
@@ -50,16 +50,17 @@ body {
     flex-direction: column;
     gap: 3.5rem; /* 56px between Contact Info Items */
     flex: 1;
+    max-width: 22.5rem;
+
   }
   
   .contact-info__item {
     display: flex;
     position: relative; /* For proper placement of the icon */
-    padding: 2.25rem 2.25rem 2.375rem 2.25rem; /* Top: 36px, Sides: 36px, Bottom: 39px */
+    padding: 2.25rem clamp(1.5rem, 0.181rem + 2.2989vw, 2.25rem) 2.375rem clamp(1.5rem, 0.181rem + 2.2989vw, 2.25rem); /* Top: 36px, Sides: 36px, Bottom: 39px */
     background-color: #1D1D1D; /* Dark background */
     border-radius: 4px; /* Smooth edges */
     overflow: hidden; /* Prevent icon overflow */
-    max-width: 20rem;
   }
   
   .contact-info__icon {
@@ -178,9 +179,12 @@ margin-right: 3px;
   background-color: #ffffff;
   width: 100%;
   box-sizing: border-box; /* Include padding in width */
-  appearance: none; /* Remove default browser styling for select */
-  -webkit-appearance: none; /* For Safari */
-  -moz-appearance: none; /* For Firefox */
+
+}
+.contact-form__input::placeholder{
+  color: #484848;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
 }
 
 .contact-form__textarea {
@@ -188,20 +192,12 @@ margin-right: 3px;
   resize: vertical; /* Allow vertical resizing only */
 }
 
-/* Custom arrow for select (unchanged, but applied to textarea for consistency) */
-.contact-form__select {
-  position: relative; /* For positioning the custom arrow */
-  background-image: url('../assets/icons/angle.svg'); /* Custom arrow image (replace with your SVG or image path) */
-  background-repeat: no-repeat;
-  background-position: right 1.5rem center; /* Position the arrow 1.5rem from the right, centered vertically */
-  background-size: 0.8rem auto; /* Adjust size of the custom arrow */
-}
+
 
 /* Ensure the custom arrow doesn’t interfere with text */
 .contact-form__select:focus,
 .contact-form__textarea:focus {
   outline: none; /* Remove default focus outline if desired */
-  border-color: #C41E3D; /* Optional: Highlight on focus */
 }
 
 /* Contact Form Submit Button */
@@ -222,6 +218,7 @@ margin-right: 3px;
 
 .contact-form__submit:hover {
   opacity: 0.8;
+  background-color: #a91e1e;
 }
 
 /* Contact Form Terms with Links */
@@ -244,7 +241,7 @@ margin-right: 3px;
   color: #ffffff; /* White on hover for emphasis */
 }
 
-  @media (max-width: 902px) {
+  @media (max-width: 716px) {
     .contact-section__container {
       flex-direction: column; /* Stack into one column */
       gap: 3.5rem; /* Maintain the same gap between items */
@@ -253,10 +250,15 @@ margin-right: 3px;
     }
   
     .contact-info {
-      max-width: 21rem;
+      max-width: 100%;
+      width: 100%;
     }
     .contact-form {
-      max-width:25.1825rem; /* Ensure both sections take full width */
+      max-width:100%; /* Ensure both sections take full width */
+      width: 100%;
+    }
+    .contact-section {
+      padding: 8.25rem 1.5rem 5.5rem;
     }
   }
   

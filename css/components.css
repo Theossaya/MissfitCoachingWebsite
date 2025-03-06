@@ -181,11 +181,9 @@ body {
   display: none;
   position: absolute;
   top: 100%; /* Position directly below the hamburger */
-  right: 3rem; /* Align with the left edge of the hamburger */
-  background-color: rgba(29, 29, 29, 0.9); /* Darker semi-transparent background */
-  max-width: 400px; /* Medium width, typical dropdown size */
-  width: 50%; /* Full width within max-width, but limited to 400px */
-  padding: 1rem;
+  background-color: #FFFFFF; /* Darker semi-transparent background */
+  width: 100%; /* Full width within max-width, but limited to 400px */
+  padding: 0 1.5rem;
   flex-direction: column;
   gap: 1rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
@@ -214,12 +212,15 @@ body {
   font-weight: 600;
   font-style: normal;
   text-decoration: none;
-  color: #FFFFFF;
+  color: #1D1D1D;
   font-size: 0.9375rem;
   line-height: 1.5rem;
   display: flex;
   align-items: center;
   cursor: pointer;
+  justify-content: space-between;
+  padding: 28px 0;
+  border-bottom: 1px solid #E4E4E4;
 }
 
 /* Mobile Navigation Link with Dropdown */
@@ -242,7 +243,6 @@ body {
   margin: 0;
   padding: 0 0 0 1rem; /* Indent dropdown items */
   flex-direction: column;
-  gap: 0.5rem;
   animation: slideDownFade 0.3s ease-out; /* Add animation effect */
 }
 
@@ -255,12 +255,14 @@ body {
   font-weight: 600;
   font-style: normal;
   text-decoration: none;
-  color: #FFFFFF; /* White text, match image */
+  color: #1D1D1D; /* White text, match image */
   font-size: 0.875rem; /* Slightly smaller for dropdown items */
   line-height: 1.25rem;
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 1.75rem 2.5rem;
   white-space: nowrap; /* Prevent wrapping in dropdown items */
+  border-top: 1px solid #E4E4E4;
+
 }
 
 .header__mobile-nav-dropdown-link:hover {
@@ -332,7 +334,7 @@ body {
 
   .header__mobile-nav-list {
     flex-direction: column; /* Stack vertically in mobile menu */
-    gap: 1rem;
+    gap: 0;
   }
 }
 
@@ -478,6 +480,8 @@ body {
   line-height: 1.5rem;
   text-align: left;
   color: #999999;
+  margin-bottom: 1.5rem;
+
 }
 
 /* Hide dropdown icons by default on desktop */
@@ -616,11 +620,6 @@ body {
     flex-grow: 1;
   }
 
-  .footer__heading-icon {
-    width: 24px;
-    height: 24px;
-  }
-
   /* Hide list container by default in mobile view */
   .footer__list-container {
     display: none;
@@ -689,6 +688,8 @@ body {
 /* Wrapper for full-width background */
 .info__wrapper {
   width: 100%; /* Full width of the viewport */
+  padding: 5.5rem 3rem; /* 88px top/bottom, 60px left/right */
+
 }
 
 /* Reversed wrapper for dark background */
@@ -702,7 +703,6 @@ body {
 .info__container--reversed {
   max-width: 1081px; /* Limits the container width on large screens */
   margin: 0 auto; /* Centers the container */
-  padding: 5.5rem clamp(2.25rem, 0.2912rem + 4.1237vw, 3rem); /* 88px top/bottom, 60px left/right */
   box-sizing: border-box; /* Ensures padding is included in width calculations */
 }
 
@@ -728,7 +728,7 @@ body {
 .info__features {
   display: grid; /* Grid for features list */
   gap: 1.25rem; /* 20px between features */
-  margin-top: 1rem; /* Spacing above features */
+  margin-top: 2rem; /* Spacing above features */
   font-family: 'Inter', sans-serif;
 }
 
@@ -1177,8 +1177,7 @@ body {
   max-width: 1200px; /* Optional: reasonable max-width for the entire section */
   margin-left: auto;
   margin-right: auto;
-  padding-left: 0;
-  padding-right: 0;
+
 }
 
 .details__back-link {
@@ -1191,14 +1190,21 @@ body {
   font-weight: 400;
   line-height: 1.4rem; /* 22.4px */
   text-align: left;
-  color: #C41E3D;
+  color: #484848;
   display: inline-flex;
   align-items: center;
   gap: 0.75rem; /* 12px */
+  text-decoration: none;
+  cursor: pointer;
 }
 
+
 .details__header {
-  margin-bottom: 7.25rem; /* 116px */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 70rem;
+  margin: 0 auto 7.25rem;
 }
 
 .details__title {
@@ -1213,6 +1219,12 @@ body {
   margin-top: 2rem; /* 32px */
   display: flex;
   gap: 2.6875rem; /* 43px */
+  align-items: center;
+}
+
+.details__content{
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 .details__body-wrapper {
@@ -1247,15 +1259,13 @@ body {
   line-height: 3.45rem; /* 55.2px */
 }
 
-.newsletter {
-  align-self: flex-start;
-}
+
 
 /* Responsive Design */
-@media screen and (max-width: 1270px) {
+@media screen and (max-width: 1115px) {
   .details {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
   }
 
   .details__body-wrapper {
@@ -1264,7 +1274,8 @@ body {
   }
 
   .details__body {
-    max-width: 100%; /* Overrides 689px on mobile */
+    max-width: 43.06rem; /* Overrides 689px on mobile */
+    margin: 0 auto;
   }
 
   .newsletter {
@@ -1284,13 +1295,8 @@ body {
 /* For very small screens */
 @media screen and (max-width: 768px) {
   .details {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .details__meta {
-    flex-direction: column;
-    gap: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 }
 
@@ -1316,7 +1322,7 @@ body {
   gap: 3rem; /* 48px gap between columns */
   max-width: 69rem; /* 1104px */
   margin: 0 auto;
-  padding: 0 1rem; /* Added small padding for mobile edges */
+  padding: 0 2.25rem; /* Added small padding for mobile edges */
 }
 
 /* Optional: Basic article styling (you might already have this elsewhere) */
@@ -1337,6 +1343,7 @@ body {
   .read-next__grid {
     grid-template-columns: 1fr; /* 1 column */
     gap: 1.5rem; /* Further reduced gap for mobile */
+    padding: 0 1.5rem; /* Added small padding for mobile edges */
   }
 
   .read-next__title {

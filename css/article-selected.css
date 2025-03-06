@@ -33,3 +33,9 @@ body {
   }
   
 
+.details__category{
+  background-color: #1D1D1D;
+  color: #FFB400; /* Yellow gold color from your image */
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+}

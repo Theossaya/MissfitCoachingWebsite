@@ -7,3 +7,9 @@ body {
 .header{
     background-color: #000000;
 }
+  /* Newsletter Box */
+  .newsletter {
+    flex: 1;
+    align-self: flex-start;
+    padding: 0;
+  }

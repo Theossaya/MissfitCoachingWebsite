@@ -116,8 +116,8 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem; /* 48px between columns and rows */
-    max-width: 69rem;
     margin: 0 auto;
+    max-width: 69rem;
 
   }
   
@@ -182,7 +182,7 @@ body {
   
 
 /* Responsive Breakpoints */
-@media (max-width: 1200px) {
+@media (max-width: 1032px) {
   /* .newsletter-archive {
     padding: 6.625rem 3.75rem 8.25rem 3.75rem;
   } */
@@ -190,12 +190,14 @@ body {
   .newsletter-archive__grid {
     grid-template-columns: 1fr 1fr; /* Stack newsletter below articles */
     gap: 3rem; /* Maintain gap */
-    max-width: 45rem;
+  }
+  .newsletter-archive {
+    padding: 5.5rem 2.25rem 8.25rem; /* 64px from previous section */
   }
 
 }
 
-@media (max-width: 804px) {
+@media (max-width: 668px) {
   /* .newsletter-archive {
     padding: 6.625rem 3.75rem 8.25rem 3.75rem;
   } */
@@ -203,7 +205,9 @@ body {
   .newsletter-archive__grid {
     grid-template-columns: 1fr; /* Stack newsletter below articles */
     gap: 3rem; /* Maintain gap */
-    max-width: 21rem;
+  }
+  .newsletter-archive {
+    padding: 5.5rem 1.5rem 8.25rem; /* 64px from previous section */
   }
 
 }
@@ -238,7 +242,7 @@ body {
   
   /* Optional: Add hover effect for better UX */
   .newsletter-item__link:hover .newsletter-item__title,
-  .newsletter-item__link:hover .newsletter-item__date {
+  .newsletter-item__link:hover .newsletter-item__number {
     color: #C41E3D; /* Red color on hover, matching your theme */
   }
   
