@@ -180,68 +180,60 @@
   </div>
 
  
-<!-- HTML for the masonry section -->
-<section class="masonry-section">
-  <header class="masonry-section__header">
-    <h2 class="masonry-section__title">HOW DOES IT WORK?</h2>
-  </header>
-  
-  <div class="masonry-grid">
-    <!-- Column elements -->
-    <div class="masonry-grid-col"></div>
-    <div class="masonry-grid-col"></div>
-    <div class="masonry-grid-col"></div>
-    
-    <!-- Items in sequence -->
-    <div class="masonry-item" data-colcade-item>
-      <p class="masonry-item__number">01</p>
-      <p class="masonry-item__title">Purchase resume package</p>
-      <p class="masonry-item__description">
-        Get access to a tailored service that perfectly aligns with your specific objectives.
-      </p>
+  <section class="masonry-section">
+    <header class="masonry-section__header">
+      <h2 class="masonry-section__title">HOW DOES IT WORK?</h2>
+    </header>
+    <div class="masonry-grid">
+      <div class="masonry-item">
+        <p class="masonry-item__number">01</p>
+        <p class="masonry-item__title">Purchase resume package</p>
+        <p class="masonry-item__description">
+          Get access to a tailored service that perfectly aligns with your specific objectives.
+        </p>
+      </div>
+      
+      <div class="masonry-item">
+        <p class="masonry-item__number">02</p>
+        <p class="masonry-item__title">Share your career details</p>
+        <p class="masonry-item__description">
+          Submit your current resume (if available) and provide insights into your professional background, target roles, and career goals.
+        </p>
+      </div>
+      
+      <div class="masonry-item">
+        <p class="masonry-item__number">03</p>
+        <p class="masonry-item__title">Review your first draft</p>
+        <p class="masonry-item__description">
+          Get an initial resume that aligns your achievements, unique value, and experiences with your target employers and job roles. Initial resume also uses the required keywords and is properly formatted for compatibility. Request revisions to ensure the final resume aligns with your vision.
+        </p>
+      </div>
+      
+      <div class="masonry-item">
+        <p class="masonry-item__number">04</p>
+        <p class="masonry-item__title">Get your finalized resume</p>
+        <p class="masonry-item__description">
+          After revisions, receive your polished resume in multiple formats, including PDF, Word, and Google Docs, which is ready to use immediately.
+        </p>
+      </div>
+      
+      <div class="masonry-item">
+        <p class="masonry-item__number">05</p>
+        <p class="masonry-item__title">Leverage additional support</p>
+        <p class="masonry-item__description">
+          Depending on your package, enjoy access to LinkedIn profile optimization or tutorials, interview coaching and mock sessions, and ongoing email support for questions, updates, or advice.
+        </p>
+      </div>
+      
+      <div class="masonry-item">
+        <p class="masonry-item__number">06</p>
+        <p class="masonry-item__title">Track Progress and Adjust</p>
+        <p class="masonry-item__description">
+          Use personalized feedback from the program coach and weekly analytics reviews to refine your approach. Monitor improvements in profile visibility, engagement, and networking outcomes.
+        </p>
+      </div>
     </div>
-    
-    <div class="masonry-item" data-colcade-item>
-      <p class="masonry-item__number">02</p>
-      <p class="masonry-item__title">Share your career details</p>
-      <p class="masonry-item__description">
-        Submit your current resume (if available) and provide insights into your professional background, target roles, and career goals.
-      </p>
-    </div>
-    
-    <div class="masonry-item" data-colcade-item>
-      <p class="masonry-item__number">03</p>
-      <p class="masonry-item__title">Review your first draft</p>
-      <p class="masonry-item__description">
-        Get an initial resume that aligns your achievements, unique value, and experiences with your target employers and job roles. Initial resume also uses the required keywords and is properly formatted for compatibility. Request revisions to ensure the final resume aligns with your vision.
-      </p>
-    </div>
-    
-    <div class="masonry-item" data-colcade-item>
-      <p class="masonry-item__number">04</p>
-      <p class="masonry-item__title">Get your finalized resume</p>
-      <p class="masonry-item__description">
-        After revisions, receive your polished resume in multiple formats, including PDF, Word, and Google Docs, which is ready to use immediately.
-      </p>
-    </div>
-    
-    <div class="masonry-item" data-colcade-item>
-      <p class="masonry-item__number">05</p>
-      <p class="masonry-item__title">Leverage additional support</p>
-      <p class="masonry-item__description">
-        Depending on your package, enjoy access to LinkedIn profile optimization or tutorials, interview coaching and mock sessions, and ongoing email support for questions, updates, or advice.
-      </p>
-    </div>
-    
-    <div class="masonry-item" data-colcade-item>
-      <p class="masonry-item__number">06</p>
-      <p class="masonry-item__title">Track Progress and Adjust</p>
-      <p class="masonry-item__description">
-        Use personalized feedback from the program coach and weekly analytics reviews to refine your approach. Monitor improvements in profile visibility, engagement, and networking outcomes.
-      </p>
-    </div>
-  </div>
-</section>
+  </section>
   
   
   
@@ -690,91 +682,55 @@
 
 
     <script src="../assets/js/script.js"></script>
-    <script src="https://unpkg.com/colcade@0.2.0/colcade.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>   
+    
+    
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        var masonry = new Colcade('.masonry-grid', {
-          columns: '.masonry-grid-col',
-          items: '.masonry-item'
-        });
-        
-        // Handle responsive layout changes
-        function updateLayout() {
-          var grid = document.querySelector('.masonry-grid');
-          var cols = grid.querySelectorAll('.masonry-grid-col');
-          
-          // Modify columns based on screen width
-          if (window.innerWidth <= 804) {
-            // Single column layout
-            cols.forEach((col, i) => {
-              col.style.display = i === 0 ? 'block' : 'none';
-            });
-          } else if (window.innerWidth <= 1200) {
-            // Two column layout
-            cols.forEach((col, i) => {
-              col.style.display = i < 2 ? 'block' : 'none';
-            });
-          } else {
-            // Three column layout
-            cols.forEach(col => {
-              col.style.display = 'block';
-            });
+      $(document).ready(function() {
+        var $grid = $('.masonry-grid').isotope({
+          itemSelector: '.masonry-item',
+          percentPosition: true,
+          transitionDuration: 0, // Set to 0 to disable animations
+          masonry: {
+            columnWidth: '.masonry-item',
+            gutter: 24
           }
-          
-          // Force layout update
-          masonry.layout();
-        }
-        
-        // Handle window resize
-        var resizeTimer;
-        window.addEventListener('resize', function() {
-          clearTimeout(resizeTimer);
-          resizeTimer = setTimeout(updateLayout, 250);
         });
-        
-        // Initial layout
-        updateLayout();
+    
+        // Layout Isotope after images have loaded
+        $grid.imagesLoaded().progress(function() {
+          $grid.isotope('layout');
+        });
+    
+        // Reinitialize on window resize
+        $(window).resize(function() {
+          $grid.isotope('layout');
+        });
       });
     </script>
 
-
-
-
-
-
-
-
-
-    <!-- Include Masonry.js and imagesLoaded via CDN -->
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
-
-<!-- Masonry initialization script -->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize Masonry with options
-    var grid = document.querySelector('.pricing__grid');
-    var masonry = new Masonry(grid, {
-        // Options
-        itemSelector: '.pricing__item',
-        columnWidth: '.pricing__item', // Use the item itself as column width
-        percentPosition: true, // Use percentage-based widths
-        gutter: 30, // Space between items
-        horizontalOrder: true, // Attempt to place items in horizontal order
-        fitWidth: true // Sets the width of the container to fit the available number of columns
+  $(document).ready(function() {
+    var $grid = $('.pricing__grid').isotope({
+      itemSelector: '.pricing__item',
+      transitionDuration: 0,
+      masonry: {
+        columnWidth: 336, // Explicitly set to 336px (21rem)
+        gutter: 32 // Consistent 32px spacing
+      }
     });
-    
-    // Layout Masonry again after all images have loaded
-    imagesLoaded(grid).on('progress', function() {
-        masonry.layout();
-    });
-    
-    // Re-layout Masonry on window resize
-    window.addEventListener('resize', function() {
-        masonry.layout();
-    });
-});
 
+    // Layout after content loads
+    $grid.imagesLoaded().progress(function() {
+      $grid.isotope('layout');
+    });
+
+    // Re-layout on resize
+    $(window).resize(function() {
+      $grid.isotope('layout');
+    });
+  });
 </script>
 
 </body>

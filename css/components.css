@@ -1457,25 +1457,24 @@ body {
 .faq__item--expanded .faq__answer {
   display: block; /* Show answer when expanded */
 }
-
 /* === Pricing Section === */
 /* === Pricing Section === */
 .pricing {
-  padding: 8.25rem 0; /* 132px equivalent */
+  padding: 8.25rem 3rem; /* 132px top/bottom, 48px left/right */
   text-align: center;
   background-color: #FAFAFA;
 }
 
 /* === Pricing Header === */
 .pricing__header {
-  margin-bottom: 8.25rem; /* 132px equivalent */
+  margin-bottom: 8.25rem;
 }
 
 .pricing__title {
   font-family: "Barlow", sans-serif;
   font-weight: 700;
-  font-size: 2.5rem; /* 40px */
-  line-height: 3rem; /* 48px */
+  font-size: 2.5rem;
+  line-height: 3rem;
   letter-spacing: 0;
   text-align: center;
   color: #020D43;
@@ -1483,26 +1482,23 @@ body {
 
 /* === Pricing Grid === */
 .pricing__grid {
-  /* Center the grid */
-  margin: 0 auto;
-  position: relative;
+  max-width: 69rem; /* 1104px */
+  margin: 0 auto; /* Ensures centering */
+  position: relative; /* Required for Isotope */
+  width: 100%; /* Forces grid to respect container padding */
 }
 
 /* === Pricing Items === */
 .pricing__item {
   background: #FFFFFF;
   border: 1px solid #CCCFD9;
-  border-radius: 0.5rem; /* 8px */
-  padding: 2rem 1.875rem 3.75rem; /* 32px top, 30px sides, 60px bottom */
+  border-radius: 0.5rem;
+  padding: 2rem 1.875rem 3.75rem;
   text-align: left;
-  width: 22rem; /* Fixed width: 352px */
-  margin-bottom: 2rem; /* Spacing between items */
-  float: left; /* For Masonry */
-}
-
-/* Ensures all pricing cards adjust dynamically */
-.pricing__item--popular {
+  width: 21rem; /* Total width, now including padding and borders */
+  margin-bottom: 2rem;
   position: relative;
+  box-sizing: border-box; /* Key change to include padding and borders */
 }
 
 /* === "Most Popular" Badge === */
@@ -1515,37 +1511,17 @@ body {
   color: #00901F;
   font-family: "Inter", sans-serif;
   font-weight: 600;
-  font-size: 0.875rem; /* 12px */
+  font-size: 0.875rem;
   line-height: 1.4rem;
-  padding: 0.5rem 1rem; /* 5px 10px */
-  border-radius: 2rem; /* 12px */
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
 }
 
-.pricing__item--best {
-  position: relative;
-}
-
-/* === "Best value" Badge === */
-.pricing__item--best::before {
-  content: "Best Value";
-  position: absolute;
-  top: -4.375rem; /* 14px */
-  left: 30%; /* 10px */
-  background-color: #B3DBFF;
-  color: #1D55C4;
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-  font-size: 0.875rem; /* 12px */
-  line-height: 1.4rem;
-  padding: 0.5rem 1rem; /* 5px 10px */
-  border-radius: 2rem; /* 12px */
-}
-
-/* Rest of your styles remain unchanged */
+/* === Pricing Item Details === */
 .pricing__plan {
   font-family: "Inter", sans-serif;
   font-weight: 600;
-  font-size: 1rem; /* 16px */
+  font-size: 1rem;
   line-height: 1.2rem;
   letter-spacing: 0;
   margin-bottom: 1.3rem;
@@ -1554,7 +1530,7 @@ body {
 .pricing__price {
   font-family: "Barlow", sans-serif;
   font-weight: 600;
-  font-size: 2.5rem; /* 40px */
+  font-size: 2.5rem;
   line-height: 3rem;
   letter-spacing: 0;
   margin-bottom: 2.25rem;
@@ -1563,14 +1539,14 @@ body {
 .pricing__button {
   font-family: "Barlow", sans-serif;
   font-weight: 600;
-  font-size: 0.9375rem; /* 15px */
-  line-height: 1.5rem; /* 24px */
+  font-size: 0.9375rem;
+  line-height: 1.5rem;
   text-align: center;
-  padding: 0.9375rem 5rem; /* 15px 80px */
+  padding: 0.9375rem 5rem;
   background-color: #0044CC;
   color: white;
   border: none;
-  border-radius: 0.375rem; /* 6px */
+  border-radius: 0.375rem;
   cursor: pointer;
   display: block;
   width: 100%;
@@ -1585,8 +1561,8 @@ body {
 .pricing__contact {
   font-family: "Inter", sans-serif;
   font-weight: 400;
-  font-size: 1rem; /* 16px */
-  line-height: 1.6rem; /* 25.6px */
+  font-size: 1rem;
+  line-height: 1.6rem;
   letter-spacing: 0;
   margin-top: 1.9rem;
 }
@@ -1594,7 +1570,7 @@ body {
 .pricing__included-title {
   font-family: "Inter", sans-serif;
   font-weight: 600;
-  font-size: 1rem; /* 16px */
+  font-size: 1rem;
   line-height: 1.6rem;
   letter-spacing: 0;
   margin-top: 2rem;
@@ -1603,32 +1579,30 @@ body {
 .pricing__features {
   font-family: "Inter", sans-serif;
   font-weight: 400;
-  font-size: 1rem; /* 16px */
-  line-height: 1.6rem; /* 25.6px */
+  font-size: 1rem;
+  line-height: 1.6rem;
   letter-spacing: 0;
   margin-top: 1rem;
-  padding-left: 1.75rem; /* 28px */
-  padding-right: 2.75rem; /* 44px */
+  padding-left: 1.75rem;
+  padding-right: 2.75rem;
 }
 
 .pricing__features li {
-  margin-bottom: 0.625rem; /* 10px */
+  margin-bottom: 0.625rem;
 }
 
-/* Media queries for Masonry columns */
+/* Media queries for responsive layout */
 @media (max-width: 1200px) {
-  .pricing__grid {
-      /* No max-width here - Masonry will handle it */
+  .pricing__item {
+    width: calc(50% - 2rem); /* 2 columns with gap */
   }
 }
 
 @media (max-width: 805px) {
   .pricing__item {
-      width: 100%; /* Full width on mobile */
-      max-width: 352px; /* Match original max-width */
-      margin-left: auto;
-      margin-right: auto;
-      float: none; /* Remove float on mobile */
+    width: 100%;
+    max-width: 21rem; /* Use max-width here for centering on small screens */
+    margin-left: auto;
+    margin-right: auto;
   }
 }
-
