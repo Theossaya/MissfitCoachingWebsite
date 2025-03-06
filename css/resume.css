@@ -100,16 +100,11 @@ body {
 
   .testimonial__author {
     font-family: "Inter", sans-serif;
-    font-size: 1.125rem; /* 16px */
+    font-size: 1rem; /* 16px */
     font-weight: 400;
     line-height: 2.25rem; /* 38.86x */
     font-style: normal; /* Removes the default italic style */
 
-  }
-  
-  @media (max-width: 5px) {
-
-  
   }
 
 
@@ -131,65 +126,108 @@ body {
   }
 
 
-/* Masonry Section Styling */
-.masonry-section {
-  background-color: #020D43;
-  color: #ffffff;
-  padding: 8.25rem 1rem; /* Reduced side padding, centered with max-width */
-  text-align: left;
-}
-
-.masonry-section__title {
-  font-family: "Barlow", sans-serif;
-  font-size: 2.5rem;
-  line-height: 3rem;
-  font-weight: 600;
-  margin-bottom: 5.5rem;
-  text-align: center;
-}
-
-.masonry-grid {
-  max-width: 1080px; /* 3 columns * 336px + 2 gutters * 36px = 1080px */
-  margin: 0 auto;
-}
-
-/* Individual Item Styling */
-.masonry-item {
-  background-color: #020E4A;
-  width: 336px; /* Fixed width as requested */
-  margin-bottom: 36px; /* Vertical spacing, matches gutter */
-  padding: 1.875rem 2.25rem;
-  border-radius: 0.25rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid #01051A;
-}
-
-/* Number Styling */
-.masonry-item__number {
-  font-family: "Inter", sans-serif;
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.8125rem;
-  margin-bottom: 1rem;
-  color: #ffffff;
-}
-
-/* Title Styling */
-.masonry-item__title {
-  font-family: "Inter", sans-serif;
-  font-size: 1.25rem;
-  line-height: 1.5125rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-/* Description Styling */
-.masonry-item__description {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  line-height: 1.6rem;
-  color: #d1d1d1;
-  text-align: left;
-}
 
 
+  
+  /* Masonry Section Styling */
+  .masonry-section {
+    background-color: #020D43;
+    color: #ffffff;
+    padding: 8.25rem 3rem;
+    text-align: left;
+  }
+
+  .masonry-section__title {
+    font-family: "Barlow", sans-serif;
+    font-size: 2.5rem;
+    line-height: 3rem;
+    font-weight: 600;
+    margin-bottom: 5.5rem;
+    text-align: center;
+  }
+
+  /* Masonry Grid container */
+  .masonry-grid {
+    max-width: 69rem;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* Column styling */
+  .masonry-grid-col {
+    width: calc(33.333% - 2rem);
+    float: left;
+    margin-right: 3rem;
+  }
+
+  .masonry-grid-col:last-child {
+    margin-right: 0;
+  }
+
+  .masonry-item {
+    background-color: #020E4A;
+    display: block; 
+    margin-bottom: 3rem;
+    padding: 1.875rem 2.25rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border: 1px solid #01051A;
+  }
+
+  /* Number Styling */
+  .masonry-item__number {
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.8125rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+
+  /* Title Styling */
+  .masonry-item__title {
+    font-family: "Inter", sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.5125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  /* Description Styling */
+  .masonry-item__description {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    line-height: 1.6rem;
+    color: #d1d1d1;
+    text-align: left;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .masonry-section {
+      padding: 8.25rem 2.25rem;
+    }
+    
+    .masonry-grid-col {
+      width: calc(50% - 1.5rem);
+    }
+  }
+
+  @media (max-width: 804px) {
+    .masonry-section {
+      padding: 8.25rem 1.5rem;
+    }
+    
+    .masonry-grid-col {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+
+  /* Clearfix */
+  .masonry-grid:after {
+    content: '';
+    display: block;
+    clear: both;
+  }

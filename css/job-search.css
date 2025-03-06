@@ -34,6 +34,10 @@ body {
     background-color: #FAFAFA; /* Hover effect */
   }
 
+  .header__cta.executive-cta:hover{
+    background-color: #F0F0F0;
+  }
+
   .content-section {
     border: none; /* Bottom border */
     background: #020D43; /* Dark background */
@@ -174,6 +178,7 @@ body {
 }
 
 .program-not__title {
+  color: #1D55C4;
     font-family: "Barlow", sans-serif;
     font-weight: 700;
     font-size: 1.875rem; /* 30px */
@@ -199,6 +204,7 @@ body {
 }
 .program-not__text{
     max-width: 22.8125rem; /* Keeps text from stretching too wide */
+    color: #000000;
 }
 
 /* === Icon Wrapper (Circular Background) === */
@@ -426,7 +432,7 @@ body {
     color: #FFFFFF;
 }
 .cta-section__button:hover{
-  background-color: #3F7ECB;
+  background-color: #2E6BE5;
 }
 
 .cta-section__title{
@@ -507,4 +513,10 @@ color: #000000;
 
 .pricing__plan {
   margin-bottom: 1rem;
+}
+
+
+.footer__link:hover {
+  text-decoration: underline;
+  color: #1D55C4;
 }

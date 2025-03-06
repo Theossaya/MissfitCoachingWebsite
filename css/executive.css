@@ -46,8 +46,7 @@ body {
   }
   
   .header__cta:hover {
-    background-color: #000000;
-    color: #FFB400;
+    background-color: #E5A200; /* Slightly darker yellow on hover */
   }
   .hero__button {
     background-color: #FFB400;
@@ -775,6 +774,7 @@ section.content-section p.content-text:last-of-type {
 
 .footer__link:hover {
     text-decoration: underline;
+    color: #E5A200;
 }
 
 /* Copyright Text */

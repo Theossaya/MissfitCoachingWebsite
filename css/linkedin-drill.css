@@ -18,15 +18,8 @@ body {
   }
   .hero__subtitle{
     padding-bottom: 1.6rem;
-    font-weight: 200;
   }
-.hero__session__subtitle{
-  font-weight: 500 ;
-}
 
-.hero__title{
-  font-weight: 600;
-}
 .info__wrapper--reversed{
   background: #FFFFFF;
   color: #000000;

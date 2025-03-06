@@ -25,3 +25,8 @@ body {
 .faq__answer {
 color: #000000;
 }
+
+.footer__link:hover {
+  text-decoration: underline;
+  color: #1D55C4;
+}
