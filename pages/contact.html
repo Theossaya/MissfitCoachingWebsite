@@ -173,38 +173,47 @@
         </div>
       </div>
   
-      <!-- Contact Form -->
-      <div class="contact-form">
-        <h3 class="contact-form__title">CONTACT FORM</h3>
-        <form action="#" method="POST" class="contact-form__body">
-          <div class="contact-form__field">
-            <label for="first-name" class="contact-form__label">First Name<span class="required-asterisk">*</span> </label>
-            <input type="text" id="first-name" name="first-name" placeholder="First Name" class="contact-form__input">
-          </div>
-          <div class="contact-form__field">
-            <label for="email" class="contact-form__label">Email Address<span class="required-asterisk">*</span> </label>
-            <input type="email" id="email" name="email" placeholder="Email Address" class="contact-form__input">
-          </div>
-          <div class="contact-form__field">
-            <label for="phone" class="contact-form__label">Phone Number<span class="required-asterisk">*</span> </label>
-            <input type="tel" id="phone" name="phone" placeholder="Phone Number" class="contact-form__input">
-          </div>
-          <div class="contact-form__field">
-            <label for="purpose" class="contact-form__label">Purpose of Contact<span class="required-asterisk">*</span> </label>
-            <select id="purpose" name="purpose" class="contact-form__select">
-              <option value="" disabled selected>Purpose of Contact</option>
-              <option value="general">General Inquiry</option>
-              <option value="support">Support</option>
-              <option value="feedback">Feedback</option>
-            </select>
-          </div>
-          <button type="submit" class="contact-form__submit">SUBMIT</button>
-          <p class="contact-form__terms">
-            By clicking submit, you are agreeing to the Terms and Privacy Policy of MissFit Coaching. This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
-          </p>
-        </form>
-      </div>
+  <!-- Contact Form -->
+<div class="contact-form">
+  <div class="contact-form__header">
+    <h3 class="contact-form__title">CONTACT FORM</h3>
+    <span class="contact-form__required"><span class="required-asterisk">*</span>Required</span>
+  </div>
+  <form action="#" method="POST" class="contact-form__body">
+    <div class="contact-form__field">
+      <label for="first-name" class="contact-form__label">First Name<span class="required-asterisk">*</span></label>
+      <input type="text" id="first-name" name="first-name" placeholder="First Name" class="contact-form__input">
     </div>
+    <div class="contact-form__field">
+      <label for="email" class="contact-form__label">Email Address<span class="required-asterisk">*</span></label>
+      <input type="email" id="email" name="email" placeholder="Email Address" class="contact-form__input">
+    </div>
+    <div class="contact-form__field">
+      <label for="phone" class="contact-form__label">Phone Number<span class="required-asterisk">*</span></label>
+      <input type="tel" id="phone" name="phone" placeholder="Phone Number" class="contact-form__input">
+    </div>
+    <div class="contact-form__field">
+      <label for="purpose" class="contact-form__label">Purpose of Contact<span class="required-asterisk">*</span></label>
+      <select id="purpose" name="purpose" class="contact-form__select">
+        <option value="" disabled selected>Purpose of Contact</option>
+        <option value="executive">Executive Coaching</option>
+        <option value="career">Career Coaching</option>
+        <option value="job-search">Job Search Coaching</option>
+        <option value="enquiry">Enquiry</option>
+        <option value="complaint">Complaint</option>
+        <option value="press">Press</option>
+      </select>
+    </div>
+    <div class="contact-form__field">
+      <label for="message" class="contact-form__label">Message<span class="required-asterisk">*</span></label>
+      <textarea id="message" name="message" placeholder="Comments" class="contact-form__input contact-form__textarea"></textarea>
+    </div>
+    <button type="submit" class="contact-form__submit">SUBMIT</button>
+    <p class="contact-form__terms">
+      By clicking submit, you are agreeing to the <a href="https://policies.google.com/terms" target="_blank" class="contact-form__terms-link">Terms</a> and <a href="https://policies.google.com/privacy" target="_blank" class="contact-form__terms-link">Privacy Policy</a> of MissFit Coaching. This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" class="contact-form__terms-link">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" class="contact-form__terms-link">Terms of Service</a> apply.
+    </p>
+  </form>
+</div>
   </section>
 
   <!-- Newsletter Section -->

@@ -281,6 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Footer dropdown functionality
+// Footer dropdown functionality
 document.addEventListener('DOMContentLoaded', function() {
   // Get all footer headings
   const footerHeadings = document.querySelectorAll('.footer__heading');
@@ -295,16 +296,16 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!isMobileView()) return; // Don't do anything if not in mobile view
     
     const heading = event.currentTarget;
-    const list = heading.nextElementSibling;
+    const listContainer = heading.nextElementSibling;
     const upIcon = heading.querySelector('.footer__heading-icon-up');
     const downIcon = heading.querySelector('.footer__heading-icon-down');
     
-    // Toggle the active class on the list
-    list.classList.toggle('active');
+    // Toggle the active class on the list container
+    listContainer.classList.toggle('active');
     
     // Toggle the visibility of the icons
     if (upIcon && downIcon) {
-      if (list.classList.contains('active')) {
+      if (listContainer.classList.contains('active')) {
         upIcon.style.display = 'block';
         downIcon.style.display = 'none';
       } else {
@@ -322,8 +323,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Reset all dropdowns when resizing above mobile breakpoint
   window.addEventListener('resize', function() {
     if (!isMobileView()) {
-      document.querySelectorAll('.footer__list').forEach(list => {
-        list.classList.remove('active');
+      document.querySelectorAll('.footer__list-container').forEach(container => {
+        container.classList.remove('active');
       });
       
       document.querySelectorAll('.footer__heading-icon-up').forEach(icon => {

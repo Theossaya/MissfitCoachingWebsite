@@ -92,7 +92,6 @@ body {
   right: -6rem; /* Align with the left edge of the nav item */
   background-color: #000; /* Black background, match image */
   min-width: 13.43rem; /* Adjust based on content width */
-  padding:  1.125rem 0 1.125rem 1.25rem ;
   list-style: none;
   margin: 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
@@ -100,6 +99,7 @@ body {
   animation: slideDownFade 0.3s ease-out; /* Add animation effect */
   border: 1px solid #333333;
   border-radius: 0.25rem;
+  padding: 0; /* Removed padding to allow full control via links */
 }
 
 /* Animation for dropdown */
@@ -127,17 +127,15 @@ body {
   font-size: 0.9375rem; /* Slightly smaller for dropdown items */
   line-height: 1.5rem;
   display: block;
+  padding: 1.125rem 1.25rem; /* Added top/bottom 1.125rem, left/right 1.25rem */
   padding-bottom: 1rem;
   white-space: nowrap; /* Prevent wrapping in dropdown items */
 }
 
 .header__nav-dropdown-link:hover {
-  background-color: #272727; /* Darker background on hover, optional */
+  background-color: #333333; /* Darker background on hover, optional */
 }
 
-.hero__nav-item:nth-child(2) .header__nav-dropdown li:nth-child(3) a {
-  padding-bottom: 0;
-}
 
 
 /* CTA Button */
@@ -410,7 +408,7 @@ body {
 /* Base Footer Styles */
 .footer {
   background: #1D1D1D;
-  padding: 8.25rem 3rem; /* Reduced side padding to 48px (3rem) */
+  padding: 8.25rem 3rem;
   color: #FFFFFF;
   display: flex;
   flex-direction: column;
@@ -420,8 +418,8 @@ body {
 /* Footer Container */
 .footer__container {
   display: flex;
-  gap: 5.875rem; /* 94px converted to rem */
-  margin: 0 auto; /* Center horizontally */
+  gap: 5.875rem;
+  margin: 0 auto;
   width: 100%;
   justify-content: space-between;
 }
@@ -431,61 +429,65 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.5rem; /* 24px converted to rem */
+  gap: 1.5rem;
 }
 
 .footer__logo img {
-  width: 15rem; /* 240.16px converted to rem */
-  height: 1.39rem; /* 22.24px converted to rem */
+  width: 15rem;
+  height: 1.39rem;
 }
 
 .footer__tagline,
 .footer__copyright {
   font-family: 'Inter', sans-serif;
-  font-size: 0.9375rem; /* 15px */
+  font-size: 0.9375rem;
   font-weight: 400;
-  line-height: 1.5rem; /* 24px */
+  line-height: 1.5rem;
   text-align: left;
 }
 
 .footer__socials {
   display: flex;
-  gap: 1.5rem; /* 24px converted to rem */
+  gap: 1.5rem;
 }
 
 .footer__social-link img {
-  width: 2.625rem; /* 42px converted to rem */
-  height: 2.625rem; /* 42px converted to rem */
+  width: 2.625rem;
+  height: 2.625rem;
 }
 
-/* Links Section (Refined Grid) */
+/* Links Section */
 .footer__links {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Five columns in one row on desktop */
-  gap: 1.5rem; /* 24px horizontal gap between groups, matching original */
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
 }
 
 /* Links Group Element */
 .footer__links-group {
   display: flex;
-  gap: 1.5rem;
   flex-direction: column;
   align-items: flex-start;
-  width: 10rem; /* 160px converted to rem */
+  width: 10rem;
 }
 
 .footer__heading {
   font-family: 'Barlow', sans-serif;
-  font-size: 0.9375rem; /* 15px */
+  font-size: 0.9375rem;
   font-weight: 600;
-  line-height: 1.5rem; /* 24px */
+  line-height: 1.5rem;
   text-align: left;
   color: #999999;
 }
 
-/* Hide dropdown icon wrapper in desktop view */
+/* Hide dropdown icons by default on desktop */
 .footer__heading-icon-wrapper {
   display: none;
+}
+
+/* List container - new element */
+.footer__list-container {
+  width: 100%;
 }
 
 .footer__list {
@@ -494,14 +496,23 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 1rem; /* 16px converted to rem */
+  gap: 1rem;
+}
+
+.footer__list-item {
+  margin: 0;
+  padding: 0;
+}
+
+.footer__link-wrapper {
+  padding: 0;
 }
 
 .footer__link {
   font-family: 'Inter', sans-serif;
-  font-size: 0.9375rem; /* 15px */
+  font-size: 0.9375rem;
   font-weight: 400;
-  line-height: 1.5rem; /* 24px */
+  line-height: 1.5rem;
   text-align: left;
   color: #FFFFFF;
   text-decoration: none;
@@ -515,7 +526,7 @@ body {
 /* === Responsive Design === */
 @media (max-width: 1315px) {
   .footer {
-    padding: 8.25rem 2.25rem; /* 36px padding */
+    padding: 8.25rem 2.25rem;
   }
 
   .footer__links {
@@ -592,9 +603,9 @@ body {
 
   .footer__heading {
     display: flex;
-    justify-content: space-between; /* Puts text on left and icon on right */
+    justify-content: space-between;
     align-items: center;
-    padding: 1.813rem 0; /* 29px top and bottom padding */
+    padding: 1.813rem 0;
     cursor: pointer;
     user-select: none;
     width: 100%;
@@ -610,34 +621,36 @@ body {
     height: 24px;
   }
 
-  /* Hide list by default in mobile view */
-  .footer__list {
+  /* Hide list container by default in mobile view */
+  .footer__list-container {
     display: none;
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
   }
 
-  /* Show list when active class is applied */
-  .footer__list.active {
-    display: flex;
-    flex-direction: column;
-    gap: 0; /* Remove gap between items */
+  /* Show list container when active class is applied */
+  .footer__list-container.active {
+    display: block;
+    width: 100%;
+  }
+
+  .footer__list {
+    gap: 0;
   }
 
   /* Style for each list item in mobile view */
   .footer__list-item {
-    padding: 1.813rem 0; /* 29px padding top and bottom */
-    margin-left: 3rem; /* 48px left margin */
     border-top: 1px solid rgba(255,255,255,0.1);
+    width: 100%;
   }
 
-  .footer__list-item:last-child {
-    padding-bottom: 1.813rem; /* 29px bottom padding for the last item */
+  /* Wrapper for the link content with padding */
+  .footer__link-wrapper {
+    padding: 1.813rem 0 1.813rem 3rem;
+    display: block;
   }
 
   .footer__link {
-    width: 100%;
     display: block;
+    width: 100%;
   }
 }
 
@@ -1115,11 +1128,9 @@ body {
 }
 
 .article__link {
-  max-width: 21rem;
 }
 
 .article__image {
-  width: 21rem; /* 336px */
   height: 13.75rem; /* 220px */
   border-radius: 0.25rem; /* 4px */
   border: 1px solid #eaeaea;

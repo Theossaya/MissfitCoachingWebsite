@@ -4,9 +4,7 @@ body {
   text-rendering: optimizeLegibility;
   
 }
-* {
-  z-index: 100;
-}
+
 
 /* === CONTACT HERO SECTION === */
 .contact-hero {
@@ -81,6 +79,7 @@ body {
     text-align: left;
     color: #C41E3D;
     margin-bottom: 1.5rem; /* 24px below */
+    position: relative;
   }
   
   .contact-info__details {
@@ -90,7 +89,7 @@ body {
     line-height: 1.6rem; /* 25.6px */
     text-align: left;
     color: #ffffff; /* White text */
-
+    position: relative;
   }
   
 /* === Contact Form === */
@@ -102,6 +101,14 @@ body {
   box-sizing: border-box; /* Include padding in width */
 }
 
+/* Contact Form Header (Title and Required Text) */
+.contact-form__header {
+  display: flex; /* Use flex to position title and required text */
+  justify-content: space-between; /* Push title left, required text right */
+  align-items: center; /* Vertically align title and required text */
+  margin-bottom: 2.0625rem; /* 33px below, matching original title margin */
+}
+
 /* Contact Form Title */
 .contact-form__title {
   font-family: "Barlow", sans-serif;
@@ -110,9 +117,21 @@ body {
   line-height: 1.575rem; /* 25.25px */
   text-align: left;
   color: #C41E3D;
-  margin-bottom: 2.0625rem; /* 33px below */
 }
 
+/* Required Text (Separated to Right) */
+.contact-form__required {
+  color: #999999; /* Red color as specified */
+  font-family: "Inter", sans-serif;
+  font-size: 0.8125rem; /* 16px, match label font size for consistency */
+  font-weight: 400; /* Match label font weight */
+  line-height: 1.3rem; /* 25.6px, match label line height */
+  text-align: right; /* Align to the right edge */
+}
+.contact-form__required .required-asterisk{
+margin-left: 0;
+margin-right: 3px;
+}
 /* Contact Form Body */
 .contact-form__body {
   display: flex;
@@ -144,15 +163,16 @@ body {
   font-weight: bold; /* Make it stand out */
 }
 
-/* Contact Form Input and Select */
+/* Contact Form Input, Select, and Textarea */
 .contact-form__input,
-.contact-form__select {
+.contact-form__select,
+.contact-form__textarea {
   font-family: "Inter", sans-serif;
   font-size: 0.9375rem; /* 15px */
   font-weight: 400;
   line-height: 1.5rem; /* 24px */
   text-align: left;
-  padding: 1rem 1.5rem; /* Add padding inside, now affects both input and select */
+  padding: 1rem 1.5rem; /* Add padding inside, now affects input, select, and textarea */
   border: 1px solid #EFEFEF; /* Light border */
   border-radius: 4px;
   background-color: #ffffff;
@@ -161,6 +181,15 @@ body {
   appearance: none; /* Remove default browser styling for select */
   -webkit-appearance: none; /* For Safari */
   -moz-appearance: none; /* For Firefox */
+}
+
+.contact-form__textarea {
+  height: 10.5rem; /* Fixed height for textarea, adjust as needed */
+  resize: vertical; /* Allow vertical resizing only */
+}
+
+/* Custom arrow for select (unchanged, but applied to textarea for consistency) */
+.contact-form__select {
   position: relative; /* For positioning the custom arrow */
   background-image: url('../assets/icons/angle.svg'); /* Custom arrow image (replace with your SVG or image path) */
   background-repeat: no-repeat;
@@ -169,7 +198,8 @@ body {
 }
 
 /* Ensure the custom arrow doesn’t interfere with text */
-.contact-form__select:focus {
+.contact-form__select:focus,
+.contact-form__textarea:focus {
   outline: none; /* Remove default focus outline if desired */
   border-color: #C41E3D; /* Optional: Highlight on focus */
 }
@@ -187,20 +217,31 @@ body {
   padding: 1rem; /* 16px padding */
   cursor: pointer;
   transition: background-color 0.3s ease, opacity 0.3s ease;
+  width: 100%; /* Ensure button takes full width */
 }
 
 .contact-form__submit:hover {
   opacity: 0.8;
 }
 
-/* Contact Form Terms */
+/* Contact Form Terms with Links */
 .contact-form__terms {
-  color: #999999; /* White text */
+  color: #999999; /* Light gray text */
   font-family: "Inter", sans-serif;
   font-size: 0.8125rem; /* 13px */
   font-weight: 400;
   line-height: 1.3rem; /* 20.8px */
   text-align: left;
+}
+
+.contact-form__terms-link {
+  color: #999999; /* Match text color */
+  text-decoration: underline; /* Underline for links */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.contact-form__terms-link:hover {
+  color: #ffffff; /* White on hover for emphasis */
 }
 
   @media (max-width: 902px) {

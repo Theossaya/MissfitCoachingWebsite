@@ -189,7 +189,7 @@ button, input, select, textarea {
   display: grid;
   max-width: 1200px; /* Limit content width, matching original intent */
   margin: 0 auto; /* Center horizontally */
-  padding: 0 3.75rem; /* Match your original side padding (60px converted to rem) */
+  padding: 0 3rem; /* Match your original side padding (60px converted to rem) */
   justify-content: center;
 }
 
@@ -216,10 +216,9 @@ button, input, select, textarea {
 /* Card Element */
 .coaching-programs__card {
   position: relative;
-  width: 20rem; /* 320px converted to rem */
   height: 22.875rem; /* 366px converted to rem */
   overflow: hidden;
-  border-radius: 0.5rem; /* Optional: Rounded corners */
+  border-radius: 0.1rem; /* Optional: Rounded corners */
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   display: flex; /* Keep flex for internal card layout, as overlay uses absolute positioning */
   flex-direction: column;
@@ -278,15 +277,22 @@ button, input, select, textarea {
   }
 
   .coaching-programs__card:nth-child(3) {
-    grid-column: span 2; /* Third card spans both columns on the bottom row */
+    grid-column: span 1; /* Third card spans both columns on the bottom row */
   }
   .coaching-programs__title{
     text-align: center;
+  }
+  .coaching-programs__container {
+    padding: 0 2.25rem; /* Match your original side padding (60px converted to rem) */
   }
 }
 
 /* Mobile Layout (Below 796px) - Single Column */
 @media (max-width: 796px) {
+
+  .coaching-programs__container {
+    padding: 0 2.25rem; /* Match your original side padding (60px converted to rem) */
+  }
 
   .coaching-programs__title {
     font-size: 1.5rem; /* Reduce heading size, matching original */
@@ -300,11 +306,9 @@ button, input, select, textarea {
     gap: 3rem; /* Maintain original gap between cards (48px) */
     justify-items: center; /* Center cards horizontally */
     width: 100%; /* Ensure full width to center properly */
-    max-width: 20rem; /* Cap width to match card width, ensuring centering */
   }
 
   .coaching-programs__card {
-    width: 20rem; /* Maintain original card width (320px) */
     height: 22.875rem; /* Maintain original card height (366px) */
     /* Keep other styling (border-radius, shadow, etc.) as is */
   }

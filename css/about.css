@@ -79,6 +79,7 @@ button, input, select, textarea {
   .hero__title {
     font-size: clamp(2.188rem, 7.937vw + -0.61rem, 3.125rem);
 line-height: clamp(2.625rem, 9.524vw + -0.732rem, 3.75rem);
+text-align: center;
   }
 }
 
@@ -154,12 +155,12 @@ line-height: clamp(2.625rem, 9.524vw + -0.732rem, 3.75rem);
 
 .masonry-section__title {
   font-family: "Barlow", sans-serif;
-  font-size: 2.5rem;
+  font-size: 1.875rem;
   line-height: 3rem;
-  font-weight: 600;
-  margin-bottom: 5.5rem;
+  font-weight: 700;
+  margin-bottom: 1.75rem;
   text-align: center;
-  color: #000000;
+  color: #C41E3D;
 }
 
 /* Masonry Grid */
@@ -175,19 +176,20 @@ line-height: clamp(2.625rem, 9.524vw + -0.732rem, 3.75rem);
 .masonry-item {
   width: 100%;
   background-color: #1d1d1d;
-  padding: 1.875rem 2.25rem;
+  padding: 2.375rem 2.25rem;
   border-radius: 0.25rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: 1px solid #01051a;
   margin-bottom: 3rem;
   position: relative;
   height: fit-content;
+  overflow: hidden;
 }
 
 .masonry-item::before {
   position: absolute;
   width: 6rem;
-  height: auto;
+  height:auto;
   opacity: 0.7;
   z-index: 1;
 }
@@ -196,30 +198,35 @@ line-height: clamp(2.625rem, 9.524vw + -0.732rem, 3.75rem);
 .masonry-item:nth-child(1)::before {
   content: url('../assets/icons/Vector\ \(11\).svg');
   top: 4rem;
-  right: 5rem;
+  right: 4.5rem;
 }
 
 .masonry-item:nth-child(2)::before {
+  content: url('../assets/icons/Vector\ \(12\).svg');
   top: 4rem;
   right: 10rem;
 }
 
 .masonry-item:nth-child(3)::before {
+  content: url('../assets/icons/Vector\ \(13\).svg');
   right: 1.3rem;
 }
 
 .masonry-item:nth-child(4)::before {
+  content: url('../assets/icons/Vector\ \(14\).svg');
   top: 3rem;
   right: 6rem;
 }
 
 .masonry-item:nth-child(5)::before {
+  content: url('../assets/icons/Vector\ \(15\).svg');
   right: 6.6rem;
 }
 
 .masonry-item:nth-child(6)::before {
+  content: url('../assets/icons/Vector\ \(16\).svg');
   right: 2rem;
-  top: 2rem;
+  top: 0;
 }
 
 
@@ -258,19 +265,43 @@ line-height: clamp(2.625rem, 9.524vw + -0.732rem, 3.75rem);
   .masonry-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .masonry-item__icon {
-    /* Hide original icon */
-    background-image: none;
-  }
-  .masonry-item:nth-child(2) .masonry-item__icon {
-    top: 2rem; /* Adjust position */
-    right: 10rem; /* Adjust position */
-  }
-  .masonry-item:nth-child(3) .masonry-item__icon {
-    top: 0; /* Adjust position */
-    right: 1.4rem; /* Adjust position */
-    
-  }
+/* Specific positioning for different items in desktop view */
+.masonry-item:nth-child(1)::before {
+  content: url('../assets/icons/expertise.svg');
+  top: 2rem;
+  right: 50%;
+}
+
+.masonry-item:nth-child(2)::before {
+  content: url('../assets/icons/Vector\ \(12\).svg');
+  top: 2.3rem;
+  right: 60%;
+}
+
+.masonry-item:nth-child(3)::before {
+  content: url('../assets/icons/client-centered.svg');
+  right: 50%;
+  top: 0;
+}
+
+.masonry-item:nth-child(4)::before {
+  content: url('../assets/icons/authenticity.svg');
+  top: 0;
+  right: 50%
+}
+
+.masonry-item:nth-child(5)::before {
+  content: url('../assets/icons/supportive.svg');
+  top: 0;
+  right: 50%;
+  max-height: 1rem;
+}
+
+.masonry-item:nth-child(6)::before {
+  content: url('../assets/icons/accessibility.svg');
+  right: 50%;
+  top: 0;
+}
   
   
 }
@@ -292,4 +323,41 @@ line-height: clamp(2.625rem, 9.524vw + -0.732rem, 3.75rem);
   .masonry-item {
     width: 100%;
   }
+  /* Specific positioning for different items in desktop view */
+.masonry-item:nth-child(1)::before {
+  content: url('../assets/icons/expertise.svg');
+  top: 2rem;
+  right: 50%;
+}
+
+.masonry-item:nth-child(2)::before {
+  content: url('../assets/icons/Vector\ \(12\).svg');
+  top: 2.3rem;
+  right: 60%;
+}
+
+.masonry-item:nth-child(3)::before {
+  content: url('../assets/icons/client-centered.svg');
+  right: 50%;
+  top: 0;
+}
+
+.masonry-item:nth-child(4)::before {
+  content: url('../assets/icons/authenticity.svg');
+  top: 0;
+  right: 50%
+}
+
+.masonry-item:nth-child(5)::before {
+  content: url('../assets/icons/supportive.svg');
+  top: 0;
+  right: 50%;
+  max-height: 1rem;
+}
+
+.masonry-item:nth-child(6)::before {
+  content: url('../assets/icons/accessibility.svg');
+  right: 50%;
+  top: 0;
+}
 }

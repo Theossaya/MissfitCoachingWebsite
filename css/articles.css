@@ -167,7 +167,6 @@ body {
   display: grid;
   grid-template-columns: 2fr 1fr; /* Articles take 2 parts, newsletter 1 part on desktop */
   gap: 3rem; /* 48px gap between articles and newsletter */
-  max-width: 73.8125rem; /* 1152px */
   width: 100%;
 }
 
@@ -242,7 +241,6 @@ body {
     margin: 0 auto;
     grid-template-columns: 1fr; /* Stack newsletter below articles */
     gap: 3rem; /* Maintain gap */
-    max-width: 45rem;
   }
 
   .articles__main {
@@ -270,7 +268,6 @@ body {
     margin-right: auto; /* Keep centered */
   }
   .articles__wrapper{
-    max-width: 21rem;
   }
 }
 
