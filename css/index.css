@@ -224,6 +224,22 @@ button, input, select, textarea {
   flex-direction: column;
 }
 
+.coaching-programs__card-link {
+  text-decoration: none; /* Removes underline from the link */
+  color: inherit; /* Inherits text color from parent */
+  display: block; /* Makes the entire card area clickable */
+}
+
+.coaching-programs__card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.coaching-programs__card-link:hover .coaching-programs__card {
+  transform: scale(1.05); /* Slight zoom on hover */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Optional shadow effect */
+  cursor: pointer; /* Shows it's clickable */
+}
+
 /* Image Element */
 .coaching-programs__image {
   flex: 1; /* Take up available space, matching original */
