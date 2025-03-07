@@ -48,7 +48,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1.5rem; 
-    width: 50.9%;
+    max-width: 21.3125rem;
+    width: 100%;
   }
   
   .newsletter-hero__input {
@@ -65,7 +66,7 @@ body {
     font-family: "Inter", sans-serif;
     font-size: 0.9375rem; /* 16px */
     line-height: 1.5rem;
-    font-weight: 300;
+    font-weight: 600;
     background-color: #c41e3d;
     color: #ffffff;
     border: none;
@@ -141,7 +142,7 @@ body {
   
   .newsletter-item__title {
     font-family: "Inter", sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1.25rem; /* 20px */
     line-height: 1.5125rem; /* 24.2px */
     letter-spacing: 0;
@@ -189,7 +190,7 @@ body {
 
   .newsletter-archive__grid {
     grid-template-columns: 1fr 1fr; /* Stack newsletter below articles */
-    gap: 3rem; /* Maintain gap */
+    gap: 2.25rem; /* Maintain gap */
   }
   .newsletter-archive {
     padding: 5.5rem 2.25rem 8.25rem; /* 64px from previous section */

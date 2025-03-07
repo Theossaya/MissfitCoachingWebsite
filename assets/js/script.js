@@ -101,50 +101,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.querySelector('.header__menu-toggle');
   const mobileMenu = document.querySelector('.header__mobile-menu');
-  const desktopDropdownToggles = document.querySelectorAll('.header__nav-link--dropdown');
   const mobileDropdownToggles = document.querySelectorAll('.header__mobile-nav-link--dropdown');
-  const navLinks = document.querySelectorAll('.header__nav-link, .header__mobile-nav-link');
 
   // Toggle mobile menu
   menuToggle.addEventListener('click', () => {
     const isExpanded = mobileMenu.classList.toggle('active');
     menuToggle.setAttribute('aria-expanded', isExpanded);
-  });
-
-  // Toggle desktop dropdowns (on click)
-  desktopDropdownToggles.forEach(toggle => {
-    toggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      const dropdown = toggle.nextElementSibling;
-      const isExpanded = dropdown.classList.toggle('active');
-      
-      // Update aria-expanded
-      toggle.setAttribute('aria-expanded', isExpanded);
-      
-      // Rotate angle icon
-      const icon = toggle.querySelector('.header__nav-icon');
-      if (icon) {
-        icon.style.transform = isExpanded ? 'rotate(180deg)' : 'rotate(0deg)';
-      }
-    });
-
-    // Close other desktop dropdowns when one opens
-    toggle.addEventListener('click', () => {
-      desktopDropdownToggles.forEach(otherToggle => {
-        if (otherToggle !== toggle) {
-          const otherDropdown = otherToggle.nextElementSibling;
-          otherDropdown.classList.remove('active');
-          otherToggle.setAttribute('aria-expanded', 'false');
-          const otherIcon = otherToggle.querySelector('.header__nav-icon');
-          if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
-        }
-      });
-    });
   });
 
   // Toggle mobile dropdowns (on click)
@@ -174,25 +139,11 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       // Reset mobile angle icons
       document.querySelectorAll('.header__mobile-nav-icon').forEach(icon => {
-        icon.style.transform = 'rotate(0deg)';
-      });
-    }
-
-    // Close desktop dropdowns when clicking outside
-    if (!document.querySelector('.header__nav.hero__nav').contains(e.target)) {
-      document.querySelectorAll('.header__nav-dropdown').forEach(dropdown => {
-        dropdown.classList.remove('active');
-      });
-      desktopDropdownToggles.forEach(toggle => {
-        toggle.setAttribute('aria-expanded', 'false');
-      });
-      document.querySelectorAll('.header__nav-icon').forEach(icon => {
-        icon.style.transform = 'rotate(0deg)';
+        // icon.style.transform = 'rotate(0deg)';
       });
     }
   });
 });
-
 
 document.addEventListener('DOMContentLoaded', () => {
   function initSlider(sliderClass) {

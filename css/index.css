@@ -72,7 +72,7 @@ button, input, select, textarea {
 /* Logos Wrapper Element */
 .clients__logos {
   display: grid;
-  gap: 5rem; /* 80px spacing between logos, matching original */
+  gap: clamp(3.125rem, -2.8542rem + 11.6667vw, 4rem); /* 80px spacing between logos, matching original */
   justify-items: center;
   max-width: calc(5 * 6.25rem + 4 * 5rem); /* Max width: 5 logos * 6.25rem + 4 gaps * 5rem = 31.25rem + 20rem = 51.25rem (820px) */
 }
@@ -113,7 +113,7 @@ button, input, select, textarea {
   .clients__logo:nth-child(5) { grid-row: 2; } /* Span all four columns in second row */
 
   .clients__container {
-    padding: 0 calc((100% - 40rem) / 2); /* Dynamic padding to center and allow margins to grow */
+    padding: 0 3rem; 
   }
 }
 
@@ -133,7 +133,7 @@ button, input, select, textarea {
   .clients__logo:nth-child(5) {  grid-row: 2; } /* Span remaining columns in second row */
 
   .clients__container {
-    padding: 0 calc((100% - 28.75rem) / 2); /* Dynamic padding to center and allow margins to grow */
+    padding: 0 3rem; 
   }
 }
 
@@ -153,7 +153,7 @@ button, input, select, textarea {
   .clients__logo:nth-child(5) { grid-row: 3; } /* Span both columns in third row */
 
   .clients__container {
-    padding: 0 calc((100% - 17.5rem) / 2); /* Dynamic padding to center and allow margins to grow */
+    padding: 0 2.25rem; 
   }
 }
 
@@ -163,6 +163,7 @@ button, input, select, textarea {
     grid-template-columns: 1fr; /* Single column */
     grid-template-rows: repeat(5, 1fr); /* Five rows */
     max-width: 6.25rem; /* Max width: single logo width (100px) */
+    margin: 0 auto;
   }
 
   /* Position logos to stack vertically */
@@ -173,7 +174,7 @@ button, input, select, textarea {
   .clients__logo:nth-child(5) { grid-column: 1; grid-row: 5; }
 
   .clients__container {
-    padding: 0 calc((100% - 6.25rem) / 2); /* Dynamic padding to center and allow margins to grow */
+    padding: 0 2.25rem; /* Dynamic padding to center and allow margins to grow */
   }
 }
 
@@ -235,7 +236,7 @@ button, input, select, textarea {
 }
 
 .coaching-programs__card-link:hover .coaching-programs__card {
-  transform: scale(1.05); /* Slight zoom on hover */
+  transform: scale(1.01); /* Slight zoom on hover */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Optional shadow effect */
   cursor: pointer; /* Shows it's clickable */
 }
@@ -308,7 +309,7 @@ button, input, select, textarea {
 @media (max-width: 796px) {
 
   .coaching-programs__container {
-    padding: 0 2.25rem; /* Match your original side padding (60px converted to rem) */
+    padding: 0 3.75rem; /* Match your original side padding (60px converted to rem) */
   }
 
   .coaching-programs__title {
