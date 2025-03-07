@@ -256,6 +256,8 @@ margin-right: 3px;
     .contact-form {
       max-width:100%; /* Ensure both sections take full width */
       width: 100%;
+      padding: 3.875rem 1.5rem;
+
     }
     .contact-section {
       padding: 8.25rem 1.5rem 5.5rem;

@@ -20,7 +20,7 @@ body {
   }
   
   .header__cta:hover {
-    background-color: #FAFAFA; /* Hover effect */
+    background-color: #eeeaea; /* Hover effect */
   }
   .hero__button {
     background-color: #FFFFFF;
@@ -31,16 +31,29 @@ body {
   }
   
   .hero__button:hover {
-    background-color: #FAFAFA; /* Hover effect */
+    background-color: #f5eeee; /* Hover effect */
   }
 
   .header__cta.executive-cta:hover{
-    background-color: #F0F0F0;
+    background-color: #f5eeee;
   }
 
   .content-section {
     border: none; /* Bottom border */
     background: #020D43; /* Dark background */
+}
+
+.executive-header {
+  position: relative; /* Ensure this is the positioning context for the mobile menu */
+}
+/* Fix for executive header mobile menu positioning */
+.executive-header .header__mobile-menu {
+  position: absolute;
+  top: 100%; /* Position directly below the header */
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 100; /* Ensure it appears above other content */
 }
 
 .content-section--alt{
@@ -167,7 +180,7 @@ body {
 
 /* === Section Styling === */
 .program-not {
-    background-color: #D6D6D6;
+    background-color: #FFFFFF;
     padding: 5.5rem 2rem; /* 88px converted to rem */
     text-align: center;
 }
@@ -432,7 +445,7 @@ body {
     color: #FFFFFF;
 }
 .cta-section__button:hover{
-  background-color: #2E6BE5;
+  background-color: #0c41aa;
 }
 
 .cta-section__title{
@@ -520,3 +533,4 @@ color: #000000;
   text-decoration: underline;
   color: #1D55C4;
 }
+

@@ -1184,6 +1184,14 @@ body {
   background-color: #a91e1e; /* Darker red on hover */
 }
 
+/* For very small screens */
+@media screen and (max-width: 768px) {
+  .newsletter{
+    padding: 5.5rem 3rem;
+  }
+}
+
+
 
 
 
@@ -1233,10 +1241,9 @@ body {
   margin-top: 5.625rem; /* 90px */
   display: grid;
   grid-template-columns: 1fr; /* Single column by default */
-  max-width: 1200px; /* Optional: reasonable max-width for the entire section */
   margin-left: auto;
   margin-right: auto;
-
+  padding: 3rem;
 }
 
 .details__back-link {
@@ -1281,10 +1288,6 @@ body {
   align-items: center;
 }
 
-.details__content{
-  padding-left: 3rem;
-  padding-right: 3rem;
-}
 
 .details__body-wrapper {
   display: grid;
@@ -1322,10 +1325,7 @@ body {
 
 /* Responsive Design */
 @media screen and (max-width: 1115px) {
-  .details {
-    padding-left: 2.25rem;
-    padding-right: 2.25rem;
-  }
+
 
   .details__body-wrapper {
     grid-template-columns: 1fr;
@@ -1345,21 +1345,20 @@ body {
     margin-bottom: 3rem;
   }
 
-  .details__title {
-    font-size: 2.25rem;
-    line-height: 2.75rem;
-  }
 }
 
 /* For very small screens */
 @media screen and (max-width: 768px) {
   .details {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding: 0 2.25rem;
   }
 }
 
-
+@media screen and (max-width: 582px) {
+  .details {
+    padding: 0 1.5rem;
+  }
+}
 
 /* Read Next Section */
 .read-next {
@@ -1402,7 +1401,7 @@ body {
   .read-next__grid {
     grid-template-columns: 1fr; /* 1 column */
     gap: 1.5rem; /* Further reduced gap for mobile */
-    padding: 0 1.5rem; /* Added small padding for mobile edges */
+    padding: 0 2.25rem; /* Added small padding for mobile edges */
   }
 
   .read-next__title {
@@ -1411,6 +1410,12 @@ body {
     margin-bottom: 3rem; /* Reduced spacing */
   }
 }
+@media screen and (max-width: 768px) {
+  .read-next__grid {
+    padding: 0 1.5rem;
+  }
+}
+
   
 /* === FAQ Section === */
 .faq {

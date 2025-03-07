@@ -6,7 +6,7 @@ body {
   
 /* Hero Section */
 .header {
-  background: #000000;
+  background: #1D1D1D;
 }
 
 .hero--terms {
@@ -57,12 +57,14 @@ body {
   margin-top: 0.5rem; /* 10px (10 / 16 = 0.625rem) */
 }
 
-/* Terms of Use Sections */
-.terms-of-use {
+
+
+/* Privacy Policy Sections */
+.terms-of-use{
+  padding:  5.5rem 3rem 8.25rem clamp(3rem, -3.1701rem + 12.2029vw, 7.8125rem);
+}
+.terms-of-use__container{
   max-width: 43.0625rem; /* 689px (689 / 16 = 43.0625rem) */
-  margin-left: 7.8125rem; /* 125px (125 / 16 = 7.8125rem) */
-  margin-top: 5.5rem;
-  margin-right: auto; /* Center the container */
 }
 
 .terms-of-use__section {
@@ -88,6 +90,11 @@ body {
   margin-bottom: 2.3rem; /* 36.8px (36.8 / 16 = 2.3rem) */
 }
 
+.terms-of-use__subheading{
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
 .terms-of-use__list {
   list-style-type: disc; /* Bullet points for lists */
   padding-left: 2.5rem; /* 40px (40 / 16 = 2.5rem) */
@@ -111,4 +118,21 @@ body {
 
 .terms-of-use__link:hover {
   text-decoration: underline; /* Underline on hover */
+}
+
+
+@media (max-width: 606px) {
+    
+  .terms-of-use {
+      padding:  5.5rem 2.25rem 8.25rem;
+  }
+}
+
+
+@media (max-width: 522px) {
+  
+  .terms-of-use {
+      padding:  5.5rem 1.5rem 8.25rem;
+  }
+
 }
