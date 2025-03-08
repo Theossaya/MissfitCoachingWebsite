@@ -89,7 +89,10 @@ body {
   color: #000000; /* Dark gray color */
   margin-bottom: 2.3rem; /* 36.8px (36.8 / 16 = 2.3rem) */
 }
+.terms-of-use-list__intro{
+  margin-bottom: 0;
 
+}
 .terms-of-use__subheading{
   font-size: 1.25rem;
   font-weight: 500;
@@ -97,18 +100,21 @@ body {
 
 .terms-of-use__list {
   list-style-type: disc; /* Bullet points for lists */
-  padding-left: 2.5rem; /* 40px (40 / 16 = 2.5rem) */
+  padding-left: 2rem; /* 40px (40 / 16 = 2.5rem) */
   margin-bottom: 2.3rem; /* 36.8px (36.8 / 16 = 2.3rem) */
 }
 
-.terms-of-use__list-item {
+.terms-of-use__subtext{
+  margin-bottom: 0;
+}
+
+.terms-of-use__list li {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 1rem; /* 16px (16 / 16 = 1rem) */
   line-height: 2.3rem; /* 36.8px (36.8 / 16 = 2.3rem) */
   letter-spacing: 0%;
-  color: #333; /* Dark gray color */
-  margin-bottom: 0.625rem; /* 10px (10 / 16 = 0.625rem) */
+  color: #000000; /* Dark gray color */
 }
 
 .terms-of-use__link {

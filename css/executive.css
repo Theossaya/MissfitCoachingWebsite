@@ -64,7 +64,6 @@ body {
   padding-left: 3.75rem; /* 60px left padding, match existing */
   padding-right: 3.4375rem; /* 55px right padding, match existing */
   box-sizing: border-box;
-  overflow: hidden; /* Prevent container overflow */
 }
 
 /* Executive Header Container (Switch to Grid with fr units for intuitive spacing) */
