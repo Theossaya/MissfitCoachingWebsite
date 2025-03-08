@@ -30,3 +30,46 @@ color: #000000;
   text-decoration: underline;
   color: #1D55C4;
 }
+
+
+.pricing__grid {
+  max-width: 45rem; /* 1104px */
+  margin: 0 auto;
+  column-count: 2; /* Default: 3 columns */
+  column-gap: 2rem; /* Horizontal gap between columns */
+}
+
+/* Media queries for responsive column count */
+@media (max-width: 812px) {
+  .pricing__grid {
+    column-count: 1; /* 2 columns on medium screens */
+    max-width: 21rem;
+  }
+  .pricing__item:nth-child(1) {
+    margin-bottom: 97px;
+}
+}
+
+
+/* === "Most Popular" Badge === */
+.pricing__item--popular::before {
+  content: "Most Popular";
+  position: absolute;
+  background-color: #D0FFDA;
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%) translateY(-200%); /* Center and move above */
+  top: 0; /* Align to top edge, then transform moves it up */
+  color: #00901F;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+}
+
+.pricing__item--best::before {
+
+  transform: translateX(-50%) translateY(-200%); /* Center and move above */
+
+}

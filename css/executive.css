@@ -61,8 +61,6 @@ body {
 /* Extend or override existing header styles for executive-header */
 .header.executive-header {
   height: 5.5rem; /* Match existing height */
-  padding-left: 3.75rem; /* 60px left padding, match existing */
-  padding-right: 3.4375rem; /* 55px right padding, match existing */
   box-sizing: border-box;
 }
 
@@ -192,8 +190,8 @@ body {
 /* At 1200px: Break nav links into hamburger menu */
 @media (max-width: 1200px) {
   .header.executive-header {
-    padding-left: clamp(3rem, 2.0709rem + 2.2388vw, 3.75rem);
-    padding-right: clamp(3rem, 2.0709rem + 2.2388vw, 3.75rem);
+    /* padding-left: clamp(3rem, 2.0709rem + 2.2388vw, 3.75rem);
+    padding-right: clamp(3rem, 2.0709rem + 2.2388vw, 3.75rem); */
   }
 
   .header__container.executive-container {
@@ -233,10 +231,10 @@ body {
     display: none; /* Hide desktop CTA */
   }
 
-  .header.executive-header {
+  /* .header.executive-header {
     padding-left: clamp(2.25rem, 0.6058rem + 5.7692vw, 3rem);
     padding-right: clamp(2.25rem, 0.6058rem + 5.7692vw, 3rem);
-  }
+  } */
 
   .header__mobile-menu.active {
     display: flex;
@@ -280,8 +278,11 @@ body {
   
   }
 
-  .header__mobile-menu{
-    
+  @media (max-width: 572px) {
+    .hero__content{
+      padding: 8rem 1.5rem;
+    }
+  
   }
 
   /* === Content Section Styling === */
@@ -355,72 +356,88 @@ section.content-section p.content-text:last-of-type {
 
 /* === Testimonial Section === */
 .testimonial-section {
-    text-align: center;
-    padding: 8.25rem 5%; /* Ensures responsiveness on all screens */
-    color: #FFFFFF;
-    background-color: #1D1D1D;
-    border-bottom: 2px solid #000000;
-  }
-  
-  /* === Testimonial Header === */
-  .testimonial-title {
-    font-family: "Barlow", sans-serif;
-    font-weight: 700;
-    font-size: 2.5rem; /* 40px */
-    line-height: 3rem; /* 48px */
-    letter-spacing: 0;
-    text-align: center;
-  }
-  
-  /* === Spacing Below Header === */
+  text-align: center;
+  padding: 8.25rem 5%; /* Ensures responsiveness on all screens */
+  color: #FFFFFF;
+  background-color: #1D1D1D;
+  border-bottom: 2px solid #000000;
+}
+
+/* === Testimonial Header === */
+.testimonial-title {
+  font-family: "Barlow", sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem; /* 40px */
+  line-height: 3rem; /* 48px */
+  letter-spacing: 0;
+  text-align: center;
+}
+
+/* === Testimonial Grid - now using column-count === */
+.testimonial-grid {
+  margin-top: 5.5rem; /* 88px */
+  max-width: 1296px;
+  margin-left: auto;
+  margin-right: auto;
+  column-count: 3; /* Default: 3 columns on desktop */
+  column-gap: 48px; /* Horizontal gap between columns */
+}
+
+/* Media queries for responsive column count */
+@media (max-width: 1416px) {
   .testimonial-grid {
-    position: relative; /* Better for Masonry.js absolute positioning */    margin-top: 5.5rem; /* 88px */
-    max-width: 1296px; /* Max width for three-column layout */
-    margin-left: auto;
-    margin-right: auto;
-    /* Default: 3 columns on desktop (above 1416px) */
-    margin-bottom: -48px; /* Offsets the extra margin from the last row */
+    column-count: 2; /* 2 columns on medium screens */
   }
-  
-  /* === Testimonial Card === */
-  .testimonial-card {
-    background-color: #272727;
-    padding: 2.5rem 2.25rem; /* 40px top/bottom, 36px sides */
-    border-radius: 4px;
-    text-align: left;
-    width: 400px;
-    box-sizing: border-box; /* Include padding in width */
-    margin-bottom: 48px; /* Adds 48px vertical gap between cards */
-    transition: transform 0.1s ease, opacity 0.1s ease;
-    border: 1px solid #000000;
+}
+
+@media (max-width: 944px) {
+  .testimonial-grid {
+    column-count: 1; /* 1 column on small screens */
   }
-  
-  /* === Stars Row === */
-  .testimonial-stars {
-    display: flex;
-    gap: 0.88rem; /* 14.1px */
-  }
-  
-  /* === Testimonial Text === */
-  .testimonial-text {
-    font-family: "Inter", sans-serif;
-    font-weight: 400;
-    font-size: 1rem; /* 16px */
-    line-height: 1.6rem; /* 25.6px */
-    letter-spacing: 0;
-    margin-top: 1.5rem; /* 24px */
-  }
-  
-  /* === Testimonial Author === */
-  .testimonial-author {
-    font-family: "Inter", sans-serif;
-    font-weight: 600;
-    font-size: 1rem; /* 16px */
-    line-height: 1.6rem; /* 25.6px */
-    letter-spacing: 0;
-    margin-top: 1.5rem; /* 24px */
-  }
-  
+}
+
+/* === Testimonial Card === */
+.testimonial-card {
+  background-color: #272727;
+  padding: 2.5rem 2.25rem; /* 40px top/bottom, 36px sides */
+  border-radius: 4px;
+  text-align: left;
+  box-sizing: border-box;
+  margin-bottom: 48px; /* Vertical gap between cards */
+  break-inside: avoid; /* Prevents cards from breaking across columns */
+  page-break-inside: avoid; /* For older browsers */
+  -webkit-column-break-inside: avoid; /* For Safari */
+  transition: transform 0.1s ease, opacity 0.1s ease;
+  border: 1px solid #000000;
+  display: inline-block; /* Important for proper flow */
+  width: 100%; /* Take full width of the column */
+}
+
+/* === Stars Row === */
+.testimonial-stars {
+  display: flex;
+  gap: 0.88rem; /* 14.1px */
+}
+
+/* === Testimonial Text === */
+.testimonial-text {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 1rem; /* 16px */
+  line-height: 1.6rem; /* 25.6px */
+  letter-spacing: 0;
+  margin-top: 1.5rem; /* 24px */
+}
+
+/* === Testimonial Author === */
+.testimonial-author {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 1rem; /* 16px */
+  line-height: 1.6rem; /* 25.6px */
+  letter-spacing: 0;
+  margin-top: 1.5rem; /* 24px */
+}
   /* Responsive Breakpoint at 1416px (Two Columns, Max Width 848px) */
   @media (max-width: 1416px) {
     .testimonial-grid {

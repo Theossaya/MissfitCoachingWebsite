@@ -46,3 +46,17 @@ body {
   }
 
 }
+
+
+/* Media queries for responsive column count */
+@media (max-width: 1200px) {
+  .pricing__item:nth-child(1) {
+    margin-bottom: 87px;
+}
+}
+
+@media (max-width: 804px) {
+  .pricing__item:nth-child(1) {
+    margin-bottom: 110px;
+}
+}

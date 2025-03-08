@@ -679,56 +679,7 @@
 
 
     <script src="../assets/js/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>   
-    
-    
-    <script>
-      $(document).ready(function() {
-        var $grid = $('.masonry-grid').isotope({
-          itemSelector: '.masonry-item',
-          percentPosition: true,
-          transitionDuration: 0, // Set to 0 to disable animations
-          masonry: {
-            columnWidth: '.masonry-item',
-            gutter: 24
-          }
-        });
-    
-        // Layout Isotope after images have loaded
-        $grid.imagesLoaded().progress(function() {
-          $grid.isotope('layout');
-        });
-    
-        // Reinitialize on window resize
-        $(window).resize(function() {
-          $grid.isotope('layout');
-        });
-      });
-    </script>
 
-<script>
-  $(document).ready(function() {
-    var $grid = $('.pricing__grid').isotope({
-      itemSelector: '.pricing__item',
-      transitionDuration: 0,
-      masonry: {
-        columnWidth: 336, // Explicitly set to 336px (21rem)
-        gutter: 32 // Consistent 32px spacing
-      }
-    });
-
-    // Layout after content loads
-    $grid.imagesLoaded().progress(function() {
-      $grid.isotope('layout');
-    });
-
-    // Re-layout on resize
-    $(window).resize(function() {
-      $grid.isotope('layout');
-    });
-  });
-</script>
 
 </body>
 </html>

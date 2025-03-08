@@ -488,26 +488,22 @@ color: #000000;
 }
 
 .pricing__grid {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 45rem ;
+  max-width: 45rem; /* 1104px */
+  margin: 0 auto;
+  column-count: 2; /* Default: 3 columns */
+  column-gap: 2rem; /* Horizontal gap between columns */
 }
 
-@media (max-width: 768px) {
-    .pricing__grid {
-      grid-template-columns: 1fr; /* Single column for very small screens */
-      grid-auto-flow: row; /* Stack vertically */
-    margin: 0 auto;
+/* Media queries for responsive column count */
+@media (max-width: 812px) {
+  .pricing__grid {
+    column-count: 1; /* 2 columns on medium screens */
     max-width: 21rem;
-    }
-  
-    /* Reset explicit positioning for mobile */
-    .pricing__item--popular,
-    .pricing__item:nth-child(2),
-    .pricing__item:nth-child(3) {
-      grid-column: auto;
-      grid-row: auto;
-    }
   }
+  .pricing__item:nth-child(1) {
+    margin-bottom: 97px;
+}
+}
 
 .pricing__item--popular::before{
     top: -4.375rem;
@@ -533,4 +529,10 @@ color: #000000;
   text-decoration: underline;
   color: #1D55C4;
 }
+
+/* === "Most Popular" Badge === */
+.pricing__item--popular::before {
+  transform: translateX(-50%) translateY(-0%); /* Center and move above */
+}
+
 

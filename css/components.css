@@ -1530,12 +1530,27 @@ body {
   color: #020D43;
 }
 
-/* === Pricing Grid === */
+/* === Pricing Grid with column-count === */
 .pricing__grid {
   max-width: 69rem; /* 1104px */
-  margin: 0 auto; /* Ensures centering */
-  position: relative; /* Required for Isotope */
-  width: 100%; /* Forces grid to respect container padding */
+  margin: 0 auto;
+  column-count: 3; /* Default: 3 columns */
+  column-gap: 2rem; /* Horizontal gap between columns */
+}
+
+/* Media queries for responsive column count */
+@media (max-width: 1200px) {
+  .pricing__grid {
+    column-count: 2; /* 2 columns on medium screens */
+    max-width: 44.25rem;
+  }
+}
+
+@media (max-width: 804px) {
+  .pricing__grid {
+    column-count: 1; /* 1 column on small screens */
+    max-width: 21rem;
+  }
 }
 
 /* === Pricing Items === */
@@ -1545,10 +1560,13 @@ body {
   border-radius: 0.5rem;
   padding: 2rem 1.875rem 3.75rem;
   text-align: left;
-  width: 21rem; /* Total width, now including padding and borders */
   margin-bottom: 2rem;
   position: relative;
-  box-sizing: border-box; /* Key change to include padding and borders */
+  width: 336px; /* Take full width of the column */
+  box-sizing: border-box;
+  break-inside: avoid; /* Prevents cards from breaking across columns */
+  page-break-inside: avoid; /* For older browsers */
+  -webkit-column-break-inside: avoid; /* For Safari */
 }
 
 /* === "Most Popular" Badge === */
@@ -1556,9 +1574,26 @@ body {
   content: "Most Popular";
   position: absolute;
   background-color: #D0FFDA;
-  left: 30%;
-  top: -4%;
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%) translateY(-200%); /* Center and move above */
+  top: 0; /* Align to top edge, then transform moves it up */
   color: #00901F;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+}
+
+.pricing__item--best::before {
+  content: "Best Value";
+  position: absolute;
+  background-color: #B3DBFF;
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%) translateY(-200%); /* Center and move above */
+  top: 0; /* Align to top edge, then transform moves it up */
+  color: #1D55C4;
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 0.875rem;
@@ -1639,20 +1674,4 @@ body {
 
 .pricing__features li {
   margin-bottom: 0.625rem;
-}
-
-/* Media queries for responsive layout */
-@media (max-width: 1200px) {
-  .pricing__item {
-    width: calc(50% - 2rem); /* 2 columns with gap */
-  }
-}
-
-@media (max-width: 805px) {
-  .pricing__item {
-    width: 100%;
-    max-width: 21rem; /* Use max-width here for centering on small screens */
-    margin-left: auto;
-    margin-right: auto;
-  }
 }

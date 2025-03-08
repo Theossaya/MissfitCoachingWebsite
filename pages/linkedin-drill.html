@@ -536,6 +536,43 @@
         <h2 class="pricing__title">INVEST IN YOUR FUTURE WITH <br> MISSFIT’S LINKEDIN WORKSHOP</h2>
     </header>
     <div class="pricing__grid">
+
+        <!-- Premier Plan -->
+        <div class="pricing__item pricing__item--popular">
+          <h3 class="pricing__plan">FLEXIBLE</h3>
+          <p class="pricing__price">$750</p>
+          <button class="pricing__button">ENROLL NOW</button>
+          <h4 class="pricing__included-title">What’s Included?</h4>
+          <ul class="pricing__features">
+              <li>Live Weekly Workshops (60 minutes)</li>
+              <li>Dedicated Q&A Sessions (30 minutes)</li>
+              <li>On-Demand Recordings</li>
+              <li>Resource Library</li>
+              <li>Slack Community Access</li>
+              <li>Progress Tracker and Accountability Framework</li>
+              <li>Guest Speaker Sessions</li>                
+          </ul>
+      </div>
+
+        <!-- Standard Plan -->
+        <div class="pricing__item pricing__item--best">
+          <h3 class="pricing__plan">UPFRONT</h3>
+          <p class="pricing__price">$2200</p>
+          <button class="pricing__button">ENROLL NOW</button>
+          <p class="pricing__contact"><strong>What's Included</strong></p>
+          <ul class="pricing__features">
+              <li>Live Weekly Workshops (60 minutes)</li>
+              <li>Dedicated Q&A Sessions (30 minutes)</li>
+              <li>On-Demand Recordings</li>
+              <li>Resource Library</li>
+              <li>Slack Community Access</li>
+              <li>Progress Tracker and Accountability Framework</li>
+              <li>Guest Speaker Sessions</li>
+          </ul>
+      </div>   
+
+
+
         <!-- Starter Plan -->
         <div class="pricing__item">
             <h3 class="pricing__plan">EARLY BIRD</h3>
@@ -554,39 +591,9 @@
             </ul>
         </div>
 
-        <!-- Standard Plan -->
-        <div class="pricing__item pricing__item--best">
-            <h3 class="pricing__plan">UPFRONT</h3>
-            <p class="pricing__price">$2200</p>
-            <button class="pricing__button">ENROLL NOW</button>
-            <p class="pricing__contact"><strong>What's Included</strong></p>
-            <ul class="pricing__features">
-                <li>Live Weekly Workshops (60 minutes)</li>
-                <li>Dedicated Q&A Sessions (30 minutes)</li>
-                <li>On-Demand Recordings</li>
-                <li>Resource Library</li>
-                <li>Slack Community Access</li>
-                <li>Progress Tracker and Accountability Framework</li>
-                <li>Guest Speaker Sessions</li>
-            </ul>
-        </div>
 
-        <!-- Premier Plan -->
-        <div class="pricing__item pricing__item--popular">
-            <h3 class="pricing__plan">FLEXIBLE</h3>
-            <p class="pricing__price">$750</p>
-            <button class="pricing__button">ENROLL NOW</button>
-            <h4 class="pricing__included-title">What’s Included?</h4>
-            <ul class="pricing__features">
-                <li>Live Weekly Workshops (60 minutes)</li>
-                <li>Dedicated Q&A Sessions (30 minutes)</li>
-                <li>On-Demand Recordings</li>
-                <li>Resource Library</li>
-                <li>Slack Community Access</li>
-                <li>Progress Tracker and Accountability Framework</li>
-                <li>Guest Speaker Sessions</li>                
-            </ul>
-        </div>
+
+
     </div>
 </section>
 
@@ -760,63 +767,7 @@
       </footer>
       
       
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
-    <script>
 
-
-document.addEventListener('DOMContentLoaded', () => {
-  const grid = document.querySelector('.pricing__grid');
-  if (grid) {
-    console.log('Initializing Masonry for pricing grid');
-
-    // Add class to grid for initial freezing
-    grid.classList.add('freeze');
-
-    const msnry = new Masonry(grid, {
-      itemSelector: '.pricing__item',
-      columnWidth: '.pricing__item',
-      gutter: 48,
-      percentPosition: true,
-      transitionDuration: 0, // Disable transitions for instant layout changes
-      fitWidth: true
-    });
-
-    let currentBreakpoint = getBreakpoint();
-    function getBreakpoint() {
-      if (window.innerWidth > 1200) return 'desktop';
-      if (window.innerWidth > 768) return 'medium';
-      return 'mobile';
-    }
-
-    // Handle resize with breakpoint-based layout
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        const newBreakpoint = getBreakpoint();
-        if (newBreakpoint !== currentBreakpoint) {
-          // Only update layout if a breakpoint is crossed
-          grid.classList.add('freeze'); // Disable transitions during layout
-          msnry.layout();
-          setTimeout(() => {
-            grid.classList.remove('freeze'); // Re-enable transitions after layout
-          }, 100); // Give time for layout to settle
-          currentBreakpoint = newBreakpoint;
-        }
-      }, 100); // Debounce resize to prevent excessive recalculations
-    });
-
-    // Re-layout after images load
-    imagesLoaded(grid, () => {
-      msnry.layout();
-      grid.classList.remove('freeze'); // Remove freeze after initial load
-    });
-  } else {
-    console.warn('Pricing grid not found');
-  }
-});
-    </script>
 
 
     <script src="../assets/js/script.js"></script>
