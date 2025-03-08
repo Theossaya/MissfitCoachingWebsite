@@ -14,8 +14,8 @@ body {
   width: 100%;
   height: 5.5rem; /* Set header height */
   background-color: rgba(29, 29, 29, 0.6); /* Semi-transparent background */
-  padding-left: 3.75rem; /* 60px left padding */
-  padding-right: 3.4375rem; /* 55px right padding */
+  padding-left: clamp(1.5rem, 0.4573rem + 3.6585vw, 3.75rem); /* 60px left padding */
+  padding-right: clamp(1.5rem, 0.4573rem + 3.6585vw, 3.75rem);
   box-sizing: border-box; /* Include padding in width calculation */
   position: relative; /* For positioning mobile menu */
 }
@@ -296,10 +296,10 @@ body {
     display: none; /* Hide desktop CTA */
   }
 
-  .header {
+  /* .header {
     padding-left: clamp(2.25rem, 0.6058rem + 5.7692vw, 3rem);
     padding-right: clamp(2.25rem, 0.6058rem + 5.7692vw, 3rem);
-  }
+  } */
 
   /* Ensure CONTACT appears as a text link in mobile menu */
   .header__mobile-nav-link[href="pages/contact.html"] {
@@ -313,10 +313,10 @@ body {
     justify-content: space-between; /* Maintain space between logo and right elements */
   }
 
-  .header {
+  /* .header {
     padding-left: clamp(3rem, 2.0709rem + 2.2388vw, 3.75rem);
     padding-right: clamp(3rem, 2.0709rem + 2.2388vw, 3.75rem);
-  }
+  } */
 
   .header__nav {
     display: none; /* Hide default nav */
@@ -358,7 +358,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-left: clamp(3.75rem, -5.0754rem + 16.7504vw, 10rem);/* Align the content properly */
+  margin-left: clamp(1.5rem, -2.4517rem + 13.8352vw, 10rem);/* Align the content properly */
   margin-top: 7.9375rem;
   margin-right: 60px;
 }
@@ -415,7 +415,7 @@ body {
     line-height: clamp(2.625rem, 8.654vw + 0.153rem, 3.75rem);
   }
   .hero__content{
-    margin-left: clamp(2.1875rem, 0.1277rem + 7.2115vw, 3.125rem);
+    /* margin-left: clamp(2.1875rem, 0.1277rem + 7.2115vw, 3.125rem); */
     margin-right:  clamp(3.0625rem, 0.1788rem + 10.0962vw, 4.375rem);
   }
 }
