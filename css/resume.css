@@ -136,6 +136,8 @@ body {
   }
 
     /* Masonry Section Styling */
+
+    
     .masonry-section {
       background-color: #020D43;
       color: #ffffff;
@@ -152,21 +154,20 @@ body {
       text-align: center;
     }
     
-    /* Masonry Grid - Modified for Isotope */
     .masonry-grid {
-      max-width: 69rem;
+      max-width: 69rem; /* 1104px */
       margin: 0 auto;
-      position: relative; /* Required for isotope */
+      position: relative;
     }
     
     .masonry-item {
       background-color: #020E4A;
-      margin-bottom: 3rem;
       padding: 1.875rem 2.25rem;
       border-radius: 0.25rem;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       border: 1px solid #01051A;
       width: calc(33.333% - 2rem); /* Column width with gap consideration */
+      margin-bottom: 48px;
     }
     
     /* Number Styling */

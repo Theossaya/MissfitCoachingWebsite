@@ -71,7 +71,7 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
-  padding-bottom: 0.5rem; /* Extend hover area downward */
+  /* padding-bottom: 0.5rem;  */
 }
 
 .header__nav-link--dropdown:hover {

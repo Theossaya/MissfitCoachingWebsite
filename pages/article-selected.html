@@ -424,6 +424,55 @@
 
     <script src="assets/js/slider.js"></script>
     <script src="../assets/js/script.js"></script>
-
+    <!-- <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+      import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+  
+      // Firebase Config
+      const firebaseConfig = {
+          apiKey: "AIzaSyChLc_2YkWUW5-oGY-N4W54vvhD9x6CETU",
+          authDomain: "missfit-d2924.firebaseapp.com",
+          projectId: "missfit-d2924",
+          storageBucket: "missfit-d2924.appspot.com",
+          messagingSenderId: "1052588043114",
+          appId: "1:1052588043114:web:c4390a5669cbfc1cfc5313",
+          measurementId: "G-EWMZRBP8HT"
+      };
+  
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+  
+      // Function to Get Article ID from URL
+      function getArticleId() {
+          const params = new URLSearchParams(window.location.search);
+          return params.get("id"); // Example: article-selected.html?id=article1
+      }
+  
+      // Function to Load Article Content
+      async function loadArticle() {
+          const articleId = getArticleId();
+          if (!articleId) {
+              document.querySelector(".details__body").innerHTML = "<p>Article not found.</p>";
+              return;
+          }
+  
+          const docRef = doc(db, "articles", articleId);
+          const docSnap = await getDoc(docRef);
+  
+          if (docSnap.exists()) {
+              const data = docSnap.data();
+              document.querySelector(".details__title").innerText = data.title;
+              document.querySelector(".details__category").innerText = data.category;
+              document.querySelector(".details__body").innerHTML = `<p>${data.content}</p>`;
+          } else {
+              document.querySelector(".details__body").innerHTML = "<p>Article not found.</p>";
+          }
+      }
+  
+      // Load the article when the page loads
+      window.onload = loadArticle;
+  </script> -->
+  
 </body>
 </html>

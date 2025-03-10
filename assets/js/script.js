@@ -161,6 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const lastSlideClone = slides[totalSlides - 1].cloneNode(true);
     slidesContainer.appendChild(firstSlideClone);
     slidesContainer.insertBefore(lastSlideClone, slides[0]);
+
     const allSlides = document.querySelectorAll(`.${sliderClass}__slide`);
 
     function updateSlideWidth() {
@@ -171,9 +172,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let slideWidth = updateSlideWidth();
     slidesContainer.style.transition = 'none';
     slidesContainer.style.transform = `translateX(-${slideWidth}px)`;
-    setTimeout(() => {
-      slidesContainer.style.transition = 'transform 0.5s ease';
-    }, 0);
+
+    function updateHeight() {
+      const activeSlide = slidesContainer.querySelector(`.${sliderClass}__slide:nth-child(${currentSlide + 1})`);
+      if (activeSlide) {
+          const newHeight = activeSlide.offsetHeight;
+          slidesContainer.style.height = `${newHeight}px`;
+          slidesContainer.parentElement.style.height = `${newHeight}px`;
+      }
+  }
 
     // Show slide function
     function showSlide(index, skipTransition = false) {
@@ -181,12 +188,14 @@ document.addEventListener('DOMContentLoaded', () => {
       isTransitioning = true;
 
       slideWidth = updateSlideWidth();
-      slidesContainer.style.transition = skipTransition ? 'none' : 'transform 0.5s ease';
+      slidesContainer.style.transition = skipTransition ? 'none' : 'transform 0.2s ease';
       slidesContainer.style.transform = `translateX(-${index * slideWidth}px)`;
       currentSlide = index;
 
       let paginationNumber = ((currentSlide - 1 + totalSlides) % totalSlides) + 1;
       pagination.textContent = `${paginationNumber} / ${totalSlides}`;
+      
+      updateHeight(); // Adjust height when changing slides
 
       if (!skipTransition) {
         setTimeout(() => { isTransitioning = false; }, 500);
@@ -198,13 +207,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle transition end for looping
     slidesContainer.addEventListener('transitionend', () => {
       if (currentSlide === 0) {
-        showSlide(totalSlides, true);
+        slidesContainer.style.transition = 'none';
+        currentSlide = totalSlides;
+        slidesContainer.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+        setTimeout(() => slidesContainer.style.transition = 'transform 0.5s ease', 50);
       } else if (currentSlide === totalSlides + 1) {
-        showSlide(1, true);
-      } else {
-        isTransitioning = false;
+        slidesContainer.style.transition = 'none';
+        currentSlide = 1;
+        slidesContainer.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+        setTimeout(() => slidesContainer.style.transition = 'transform 0.5s ease', 50);
       }
     });
+
 
     // Navigation
     prevArrow.addEventListener('click', () => {
@@ -214,6 +228,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!isTransitioning) showSlide(currentSlide + 1);
     });
 
+    
+
     // Handle resize
     window.addEventListener('resize', () => {
       setTimeout(() => {
@@ -221,6 +237,8 @@ document.addEventListener('DOMContentLoaded', () => {
         showSlide(currentSlide, true); // Update position without transition
       }, 100);
     });
+
+    updateHeight();
 
     // Start at first slide
     showSlide(1);

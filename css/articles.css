@@ -388,23 +388,7 @@ body {
   }
 }
 
-@media (max-width: 432px) {
-  .articles {
-    padding: 6.625rem 1.5rem 8.25rem 1.5rem; /* Reduce padding for smaller screens */
-  }
-  .articles__grid {
-    gap: 3rem; /* Even smaller gap on tiny screens */
-  }
 
-  .articles__load-more {
-    padding: 0.75rem 1rem; /* Reduce padding for smaller screens */
-  }
-
-  .newsletter__title {
-    font-size: 1.5rem; /* Reduce title size for mobile */
-    line-height: 2rem; /* Adjust line height */
-  }
-}
 
 
   .footer__heading{

@@ -7,7 +7,11 @@ body {
 .benefit-item {
     border-bottom: none;
 }
-
+.hero {
+  background: url('../assets/images/career-coaching-background.png');
+  background-size: cover;
+  background-position: -1% 85px;
+}
 
 /* .faq {
   background-color:#1D1D1D;

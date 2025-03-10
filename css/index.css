@@ -399,12 +399,15 @@ button, input, select, textarea {
   margin: 0 auto; /* Center the content horizontally */
   position: relative; /* For positioning slides */
   overflow: hidden; /* Hide overflow slides */
+  height: auto; /* Allow height to be dynamically determined */
+  transition: height 0.3s ease; /* Smooth transition */
 }
 
 .testimonial-slider__slides {
   display: flex;
   width: 100%;
-  transition: transform 0.5s ease; /* Smooth slide transition */
+  transition: transform 0.2s ease; /* Smooth slide transition */
+  height: auto;
 }
 
 .testimonial-slider__slide {
@@ -415,6 +418,11 @@ button, input, select, textarea {
   align-items: center;
   justify-content: center;
   width: 100%; /* Ensure slide takes full width */
+  height: fit-content;
+}
+
+.testimonial-slider__slide > * {
+  flex: none; /* Prevent content from stretching */
 }
 
 .testimonial-slider__quote {
@@ -537,12 +545,16 @@ button, input, select, textarea {
   margin: 0 auto; /* Center the content horizontally */
   position: relative; /* For positioning slides */
   overflow: hidden; /* Hide overflow slides */
+  height: auto;
+  transition: height 0.3s ease;
+
 }
 
 .testimonial-slider-2__slides {
   display: flex;
   width: 100%;
   transition: transform 0.5s ease; /* Smooth slide transition */
+  height: auto;
 }
 
 .testimonial-slider-2__slide {
@@ -553,6 +565,7 @@ button, input, select, textarea {
   align-items: center;
   justify-content: center;
   width: 100%; /* Ensure slide takes full width */
+  height: fit-content;
 }
 
 .testimonial-slider-2__quote {
