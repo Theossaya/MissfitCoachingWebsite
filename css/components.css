@@ -1187,7 +1187,7 @@ body {
 /* For very small screens */
 @media screen and (max-width: 768px) {
   .newsletter{
-    padding: 5.5rem 3rem;
+    padding: 5.5rem 1.5rem;
   }
 }
 

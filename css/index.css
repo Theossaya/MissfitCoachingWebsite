@@ -309,7 +309,7 @@ button, input, select, textarea {
 @media (max-width: 796px) {
 
   .coaching-programs__container {
-    padding: 0 3.75rem; /* Match your original side padding (60px converted to rem) */
+    padding: 0 1.5rem; /* Match your original side padding (60px converted to rem) */
   }
 
   .coaching-programs__title {
