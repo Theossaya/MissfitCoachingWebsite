@@ -836,4 +836,7 @@ section.content-section p.content-text:last-of-type {
     width: 100%;
     gap: 2rem;
 }
+.footer__copyright {
+  text-align: left;
+}
 }

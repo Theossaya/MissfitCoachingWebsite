@@ -1358,6 +1358,11 @@ body {
   .details {
     padding: 0 1.5rem;
   }
+  .details__title {
+    font-size: clamp(2.188rem, 1.938vw + 1.795rem, 2.5rem);
+    line-height: clamp(3.281rem, 2.907vw + 2.693rem, 3.75rem);
+
+  }
 }
 
 /* Read Next Section */
@@ -1562,7 +1567,7 @@ body {
   text-align: left;
   margin-bottom: 2rem;
   position: relative;
-  width: 336px; /* Take full width of the column */
+  max-width: 336px; /* Take full width of the column */
   box-sizing: border-box;
   break-inside: avoid; /* Prevents cards from breaking across columns */
   page-break-inside: avoid; /* For older browsers */
