@@ -38,6 +38,11 @@ body {
     background-color: #f5eeee;
   }
 
+  
+.header__mobile-nav-link:hover {
+  color: #0c41aa;; /* Darker background on hover, optional */
+}
+
   .content-section {
     border: none; /* Bottom border */
     background: #020D43; /* Dark background */
