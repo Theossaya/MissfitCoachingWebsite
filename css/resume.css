@@ -216,3 +216,38 @@ body {
         padding: 8.25rem 1.5rem;
       }
     }
+
+
+    .pricing__price s {
+      font-size: 1.875rem; /* Smaller size for strikethrough price */
+      color: #6A6A6A; /* Grayed out for strikethrough */
+      margin-left: 0.75rem; /* Space between strikethrough and current price */
+    }
+
+    .pricing__item {
+      max-width: 100%; 
+    }
+    .pricing__grid {
+      max-width: 84rem; /* 1104px */
+      margin: 0 auto;
+      column-count: 4; /* Default: 3 columns */
+      column-gap: 2rem; /* Horizontal gap between columns */
+    }
+
+
+    @media (max-width: 1411px) {
+      .pricing__grid {
+        column-count: 2; /* 2 columns on medium screens */
+        max-width: 100%
+      }
+      .pricing {
+        padding: 8.25rem 1.5rem; /* 132px top/bottom, 48px left/right */
+      }
+    }
+    
+    @media (max-width: 804px) {
+      .pricing__grid {
+        column-count: 1; /* 1 column on small screens */
+        max-width: 100%;
+      }
+    }

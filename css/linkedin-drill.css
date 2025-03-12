@@ -47,18 +47,31 @@ body {
 
 }
 
+.pricing__grid {
+  max-width: 84rem; /* 1104px */
+  margin: 0 auto;
+  column-count: 2; /* Default: 3 columns */
+  column-gap: 2rem; /* Horizontal gap between columns */
+}
 
 /* Media queries for responsive column count */
 @media (max-width: 1200px) {
   .pricing__item:nth-child(1) {
-    margin-bottom: 87px;
+    margin-bottom: 124px;
 }
 }
 
 @media (max-width: 804px) {
   .pricing__item:nth-child(1) {
-    margin-bottom: 110px;
+    margin-bottom: 124px;
 }
+}
+
+@media (max-width: 804px) {
+  .pricing__grid {
+    column-count: 1; /* 1 column on small screens */
+    max-width: 100%;
+  }
 }
 
 .pricing__plan-subtitle{
