@@ -173,50 +173,62 @@
         </div>
       </div>
   
-<!-- Contact Form -->
+<!-- Contact Form Section -->
 <div class="contact-form" id="contact-form">
-  <div class="contact-form__header">
-    <h3 class="contact-form__title">CONTACT FORM</h3>
-    <span class="contact-form__required"><span class="required-asterisk">*</span>Required</span>
+  <div id="contactFormContainer">
+    <div class="contact-form__header">
+      <h3 class="contact-form__title">CONTACT FORM</h3>
+      <span class="contact-form__required"><span class="required-asterisk">*</span>Required</span>
+    </div>
+    <form id="contactForm" action="https://submit-form.com/wGugSzbz7" method="POST" class="contact-form__body">
+      <input type="hidden" name="_redirect" value="false" />
+      <div class="contact-form__field">
+        <label for="first-name" class="contact-form__label">First Name<span class="required-asterisk">*</span></label>
+        <input type="text" id="first-name" name="first-name" placeholder="First Name" class="contact-form__input" required>
+      </div>
+      <div class="contact-form__field">
+        <label for="email" class="contact-form__label">Email Address<span class="required-asterisk">*</span></label>
+        <input type="email" id="email" name="email" placeholder="Email Address" class="contact-form__input" required>
+      </div>
+      <div class="contact-form__field">
+        <label for="phone" class="contact-form__label">Phone Number<span class="required-asterisk">*</span></label>
+        <input type="tel" id="phone" name="phone" placeholder="Phone Number" class="contact-form__input" required>
+      </div>
+      <div class="contact-form__field">
+        <label for="purpose" class="contact-form__label">Purpose of Contact<span class="required-asterisk">*</span></label>
+        <select id="purpose" name="purpose" class="contact-form__select" required>
+          <option value="" disabled selected>Purpose of Contact</option>
+          <option value="executive">Executive Coaching</option>
+          <option value="career">Career Coaching</option>
+          <option value="job-search">Job Search Coaching</option>
+          <option value="enquiry">Enquiry</option>
+          <option value="complaint">Complaint</option>
+          <option value="press">Press</option>
+        </select>
+      </div>
+      <div class="contact-form__field">
+        <label for="message" class="contact-form__label">Message<span class="required-asterisk">*</span></label>
+        <textarea id="message" name="message" placeholder="Comments" class="contact-form__input contact-form__textarea" required></textarea>
+      </div>
+      <button type="submit" class="contact-form__submit">SUBMIT</button>
+    </form>
   </div>
-  <form id="contactForm" method="POST" class="contact-form__body">
-    <div class="contact-form__field">
-      <label for="first-name" class="contact-form__label">First Name<span class="required-asterisk">*</span></label>
-      <input type="text" id="first-name" name="first-name" placeholder="First Name" class="contact-form__input" required>
+  
+  <!-- Contact Form Success Message (Hidden by default) -->
+  <div class="contact-confirmation" id="contact-confirmation" style="display: none;">
+    <div class="contact-form__header">
+      <h3 class="contact-form__title">CONTACT FORM</h3>
     </div>
-    <div class="contact-form__field">
-      <label for="email" class="contact-form__label">Email Address<span class="required-asterisk">*</span></label>
-      <input type="email" id="email" name="email" placeholder="Email Address" class="contact-form__input" required>
-    </div>
-    <div class="contact-form__field">
-      <label for="phone" class="contact-form__label">Phone Number<span class="required-asterisk">*</span></label>
-      <input type="tel" id="phone" name="phone" placeholder="Phone Number" class="contact-form__input" required>
-    </div>
-    <div class="contact-form__field">
-      <label for="purpose" class="contact-form__label">Purpose of Contact<span class="required-asterisk">*</span></label>
-      <select id="purpose" name="purpose" class="contact-form__select" required>
-        <option value="" disabled selected>Purpose of Contact</option>
-        <option value="executive">Executive Coaching</option>
-        <option value="career">Career Coaching</option>
-        <option value="job-search">Job Search Coaching</option>
-        <option value="enquiry">Enquiry</option>
-        <option value="complaint">Complaint</option>
-        <option value="press">Press</option>
-      </select>
-    </div>
-    <div class="contact-form__field">
-      <label for="message" class="contact-form__label">Message<span class="required-asterisk">*</span></label>
-      <textarea id="message" name="message" placeholder="Comments" class="contact-form__input contact-form__textarea" required></textarea>
-    </div>
-    <button type="submit" class="contact-form__submit">SUBMIT</button>
-  </form>
+    <h1 class="subscription-confirmation__title">Thank you for reaching out!</h1>
+    <p class="subscription-confirmation__text">Your submission has been received and will be attended to promptly.</p>
+  </div>
 </div>
 </div>
   </section>
 
 <!-- Newsletter Section -->
 <section class="newsletter" id="newsletter">
-  <div class="newsletter__container">
+  <div class="newsletter__container" id="newsletterFormContainer">
     <header class="newsletter__header">
       <h2 class="newsletter__title">
         SUBSCRIBE TO OUR<span class="newsletter__highlight"> NEWSLETTER</span>
@@ -225,13 +237,23 @@
         Join the Insider Edge Newsletter. 45k+ professionals subscribed.
       </p>
     </header>
-    <form id="newsletterForm" class="newsletter__form">
-      <input type="email" id="newsletterEmail" class="newsletter__input" placeholder="Email Address" required />
+    <form id="newsletterForm" action="https://submit-form.com/A5nOzg8eh" method="POST" class="newsletter__form">
+      <input type="hidden" name="_redirect" value="false" />
+      <input type="email" id="newsletterEmail" name="email" class="newsletter__input" placeholder="Email Address" required />
       <button type="submit" class="newsletter__submit">SUBMIT</button>
     </form>
   </div>
-</section>
   
+  <!-- Newsletter Success Message (Hidden by default) -->
+  <div class="subscription-confirmation" id="newsletter-confirmation" style="display: none;">
+    <div class="subscription-confirmation__checkmark-circle">
+      <img src="../assets/icons/checkmark-large.svg" alt="Checkmark" class="subscription-confirmation__checkmark">
+    </div>
+    <h1 class="subscription-confirmation__title">CONFIRMED!</h1>
+    <p class="subscription-confirmation__text">You have successfully subscribed to our list.</p>
+    <p class="subscription-confirmation__text">We'll send you actionable career tips weekly.</p>
+  </div>
+</section>
 
 
 
@@ -400,68 +422,111 @@
     <script src="../assets/js/script.js"></script>
 
     <script>
-      document.getElementById("contactForm").addEventListener("submit", async function (event) {
-        event.preventDefault(); // Prevent page reload
-    
-        const formData = new FormData(this);
-        const formAction = "https://submit-form.com/wGugSzbz7"; // FormSpark endpoint
-        const contactFormContainer = document.getElementById("contact-form");
-    
-        try {
-          const response = await fetch(formAction, {
-            method: "POST",
-            body: formData,
-          });
-    
-          if (response.ok) {
-            contactFormContainer.innerHTML = `
-              <div class="contact-form__header">
-                <h3 class="contact-form__title">CONTACT FORM</h3>
-              </div>
-              <h1 class="subscription-confirmation__title">Thank you for reaching out!</h1>
-              <p class="subscription-confirmation__text">Your submission has been received and will be attended to promptly.</p>
-            `;
-          } else {
-            alert("Something went wrong. Please try again.");
-          }
-        } catch (error) {
-          alert("Submission failed. Please check your connection.");
-        }
+      document.addEventListener('DOMContentLoaded', function() {
+  // Contact Form Handling
+  const contactForm = document.getElementById('contactForm');
+  
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(contactForm);
+      const formDataObj = {};
+      formData.forEach((value, key) => {
+        formDataObj[key] = value;
       });
-    
-      document.getElementById("newsletterForm").addEventListener("submit", async function (event) {
-        event.preventDefault(); // Prevent page reload
-    
-        const formData = new FormData();
-        formData.append("email", document.getElementById("newsletterEmail").value);
-        const formAction = "https://submit-form.com/A5nOzg8eh"; // FormSpark endpoint
-        const newsletterContainer = document.getElementById("newsletter");
-    
-        try {
-          const response = await fetch(formAction, {
-            method: "POST",
-            body: formData,
-          });
-    
-          if (response.ok) {
-            newsletterContainer.innerHTML = `
-              <div class="subscription-confirmation">
-                <div class="subscription-confirmation__checkmark-circle">
-                  <img src="../assets/icons/checkmark-large.svg" alt="Checkmark" class="subscription-confirmation__checkmark">
-                </div>
-                <h1 class="subscription-confirmation__title">CONFIRMED!</h1>
-                <p class="subscription-confirmation__text">You have successfully subscribed to our list.</p>
-                <p class="subscription-confirmation__text">We’ll send you actionable career tips weekly.</p>
-              </div>
-            `;
-          } else {
-            alert("Something went wrong. Please try again.");
-          }
-        } catch (error) {
-          alert("Submission failed. Please check your connection.");
+      
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: JSON.stringify(formDataObj),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
         }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Create the replacement confirmation element
+          const confirmationElement = document.createElement('div');
+          confirmationElement.className = 'contact-confirmation';
+          confirmationElement.id = 'contact-confirmation';
+          confirmationElement.innerHTML = `
+            <div class="contact-form__header">
+              <h3 class="contact-form__title">CONTACT FORM</h3>
+            </div>
+            <h1 class="subscription-confirmation__title">Thank you for reaching out!</h1>
+            <p class="subscription-confirmation__text">Your submission has been received and will be attended to promptly.</p>
+          `;
+          
+          // Get the parent container and the contact form element
+          const contactFormElement = document.getElementById('contact-form');
+          const parentContainer = contactFormElement.parentNode;
+          
+          // Replace the contact form with the confirmation
+          parentContainer.replaceChild(confirmationElement, contactFormElement);
+        } else {
+          console.error('Form submission error:', response);
+          alert('Something went wrong. Please try again.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Something went wrong. Please try again.');
       });
-    </script>
+    });
+  }
+  
+  // Newsletter Form Handling
+  const newsletterForm = document.getElementById('newsletterForm');
+  
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(newsletterForm);
+      const formDataObj = {};
+      formData.forEach((value, key) => {
+        formDataObj[key] = value;
+      });
+      
+      fetch(newsletterForm.action, {
+        method: 'POST',
+        body: JSON.stringify(formDataObj),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Create the replacement confirmation HTML
+          const confirmationHTML = `
+            <div class="subscription-confirmation">
+              <div class="subscription-confirmation__checkmark-circle">
+                <img src="../assets/icons/checkmark-large.svg" alt="Checkmark" class="subscription-confirmation__checkmark">
+              </div>
+              <h1 class="subscription-confirmation__title">CONFIRMED!</h1>
+              <p class="subscription-confirmation__text">You have successfully subscribed to our list.</p>
+              <p class="subscription-confirmation__text">We'll send you actionable career tips weekly.</p>
+            </div>
+          `;
+          
+          // Replace the entire newsletter container with the confirmation
+          const newsletterSection = document.getElementById('newsletter');
+          newsletterSection.innerHTML = confirmationHTML;
+        } else {
+          console.error('Form submission error:', response);
+          alert('Something went wrong. Please try again.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Something went wrong. Please try again.');
+      });
+    });
+  }
+});
+      </script>
 
 </body>
 </html>

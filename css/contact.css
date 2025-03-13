@@ -324,6 +324,7 @@ margin-right: 3px;
   max-width: 450px;
   background-color: #1D1D1D;
   padding: 3rem 2.25rem;
+  height: fit-content;
 }
 
 .contact-confirmation .contact-form__header{
