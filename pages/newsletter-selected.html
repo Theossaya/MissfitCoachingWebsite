@@ -207,23 +207,34 @@
           </p>
           <p><strong>You’ve Got This!</strong></p>
         </div>
-        <aside class="newsletter">
-          <div class="newsletter__container shared-box">
-            <header class="newsletter__header">
-              <h2 class="newsletter__title">SUBSCRIBE TO OUR <span class="newsletter__highlight">NEWSLETTER</span></h2>
-              <p class="newsletter__subtitle">Join the Insider Edge Newsletter. 45k+ professionals subscribed.</p>
-            </header>
-            <form class="newsletter__form">
-              <input
-                type="email"
-                class="newsletter__input"
-                placeholder="Email Address"
-                required
-              />
-              <button type="submit" class="newsletter__submit">SUBMIT</button>
-            </form>
-          </div>
-        </aside>
+    <!-- Newsletter Section -->
+    <aside class="newsletter" id="newsletter">
+      <div class="newsletter__container" id="newsletterFormContainer">
+        <header class="newsletter__header">
+          <h2 class="newsletter__title">
+            SUBSCRIBE TO OUR<span class="newsletter__highlight"> NEWSLETTER</span>
+          </h2>
+          <p class="newsletter__subtitle">
+            Join the Insider Edge Newsletter. 45k+ professionals subscribed.
+          </p>
+        </header>
+        <form id="newsletterForm" action="https://submit-form.com/A5nOzg8eh" method="POST" class="newsletter__form">
+          <input type="hidden" name="_redirect" value="false" />
+          <input type="email" id="newsletterEmail" name="email" class="newsletter__input" placeholder="Email Address" required />
+          <button type="submit" class="newsletter__submit">SUBMIT</button>
+        </form>
+      </div>
+      
+      <!-- Newsletter Success Message (Hidden by default) -->
+      <div class="subscription-confirmation" id="newsletter-confirmation" style="display: none;">
+        <div class="subscription-confirmation__checkmark-circle">
+          <img src="../assets/icons/checkmark-large.svg" alt="Checkmark" class="subscription-confirmation__checkmark">
+        </div>
+        <h1 class="subscription-confirmation__title">CONFIRMED!</h1>
+        <p class="subscription-confirmation__text">You have successfully subscribed to our list.</p>
+        <p class="subscription-confirmation__text">We'll send you actionable career tips weekly.</p>
+      </div>
+    </aside>
       </div>
       
     </div>

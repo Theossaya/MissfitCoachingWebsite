@@ -1682,7 +1682,7 @@ body {
 
 .pricing__features {
   font-family: "Inter", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1rem;
   line-height: 1.6rem;
   letter-spacing: 0;
@@ -1697,4 +1697,74 @@ body {
   margin-bottom: 0.625rem;
   color: #020D43;
 
+
 }
+
+
+
+  /* Block: subscription-confirmation (the main container) */
+  .subscription-confirmation {
+    max-width: 413px; /* Maximum width of the box */
+    padding: 74px 36px; /* Padding: 74px top/bottom, 36px left/right */
+    color: #ffffff; /* White text */
+    background-color: #1D1D1D;
+    text-align: center;
+    box-sizing: border-box; /* Ensures padding is included in max-width */
+  }
+  
+  /* Element: checkmark-circle (the red circle containing the checkmark) */
+  .subscription-confirmation__checkmark-circle {
+    width: 96px; /* Size of the circle */
+    height: 96px;
+    background-color: #C41E3D; /* Red circle */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 36px; /* Centered with 36px bottom margin */
+  }
+  
+  /* Element: checkmark (the SVG image) */
+  .subscription-confirmation__checkmark {
+    width: 48px; /* Half the circle size for proper fit */
+    height: 48px;
+  }
+  
+  /* Element: title (the main heading) */
+  .subscription-confirmation__title {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700; /* Bold */
+    font-size: 35px; /* Title size */
+    margin: 0 0 22px; /* 22px margin below the title */
+  }
+  
+  /* Element: text (the paragraphs) */
+  .subscription-confirmation__text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400; /* Regular weight */
+    font-size: 16px; /* Text size */
+    margin: 0; /* Reset margin */
+    line-height: 1.5; /* For readability */
+  }
+  
+  
+  .contact-confirmation{
+    max-width: 450px;
+    background-color: #1D1D1D;
+    padding: 3rem 2.25rem;
+    height: fit-content;
+  }
+  
+  .contact-confirmation .contact-form__header{
+    margin-bottom: 1.5rem;
+  }
+  .subscription-confirmation__title{
+    color: #ffffff;
+    font-size: 1.25rem;
+  
+  }
+  
+  .subscription-confirmation__text{
+    color: #ffffff;
+    font-size: 1rem;
+  }

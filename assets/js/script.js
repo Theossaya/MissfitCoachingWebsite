@@ -306,3 +306,113 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Contact Form Handling
+  const contactForm = document.getElementById('contactForm');
+  
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(contactForm);
+      const formDataObj = {};
+      formData.forEach((value, key) => {
+        formDataObj[key] = value;
+      });
+      
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: JSON.stringify(formDataObj),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Create the replacement confirmation element
+          const confirmationElement = document.createElement('div');
+          confirmationElement.className = 'contact-confirmation';
+          confirmationElement.id = 'contact-confirmation';
+          confirmationElement.innerHTML = `
+            <div class="contact-form__header">
+              <h3 class="contact-form__title">CONTACT FORM</h3>
+            </div>
+            <h1 class="subscription-confirmation__title">Thank you for reaching out!</h1>
+            <p class="subscription-confirmation__text">Your submission has been received and will be attended to promptly.</p>
+          `;
+          
+          // Get the parent container and the contact form element
+          const contactFormElement = document.getElementById('contact-form');
+          const parentContainer = contactFormElement.parentNode;
+          
+          // Replace the contact form with the confirmation
+          parentContainer.replaceChild(confirmationElement, contactFormElement);
+        } else {
+          console.error('Form submission error:', response);
+          alert('Something went wrong. Please try again.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Something went wrong. Please try again.');
+      });
+    });
+  }
+  
+  // Newsletter Form Handling
+  const newsletterForm = document.getElementById('newsletterForm');
+  
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(newsletterForm);
+      const formDataObj = {};
+      formData.forEach((value, key) => {
+        formDataObj[key] = value;
+      });
+      
+      fetch(newsletterForm.action, {
+        method: 'POST',
+        body: JSON.stringify(formDataObj),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Create the replacement confirmation HTML
+          const confirmationHTML = `
+            <div class="subscription-confirmation">
+              <div class="subscription-confirmation__checkmark-circle">
+                <img src="../assets/icons/checkmark-large.svg" alt="Checkmark" class="subscription-confirmation__checkmark">
+              </div>
+              <h1 class="subscription-confirmation__title">CONFIRMED!</h1>
+              <p class="subscription-confirmation__text">You have successfully subscribed to our list.</p>
+              <p class="subscription-confirmation__text">We'll send you actionable career tips weekly.</p>
+            </div>
+          `;
+          
+          // Replace the entire newsletter container with the confirmation
+          const newsletterSection = document.getElementById('newsletter');
+          newsletterSection.innerHTML = confirmationHTML;
+        } else {
+          console.error('Form submission error:', response);
+          alert('Something went wrong. Please try again.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Something went wrong. Please try again.');
+      });
+    });
+  }
+});
