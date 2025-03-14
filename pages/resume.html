@@ -740,7 +740,7 @@
       const planPrice = button.getAttribute('data-price');
 
       // Replace with your actual Cloudflare Worker URL
-      const response = await fetch('https://your-worker-name.your-workers-subdomain.workers.dev', {
+      const response = await fetch('https://stripe-payment-worker.theossaya.workers.dev', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
