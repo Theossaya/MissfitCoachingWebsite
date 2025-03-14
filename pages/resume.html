@@ -11,7 +11,7 @@
    <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
     </style>
-    
+
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/typography.css">
     <link rel="stylesheet" href="../css/components.css">
@@ -436,11 +436,11 @@
         <!-- Premier Plan -->
         <div class="pricing__item pricing__item--best">
             <h3 class="pricing__plan">PREMIER</h3>
-            <p class="pricing__price"> $1397<s>$3772</s></p>
+            <p class="pricing__price">$1397<s>$3772</s></p>
             <button class="pricing__button" 
-            data-plan="PREMIER" 
-            data-price="1397" 
-            onclick="handlePayment(this)">ORDER NOW</button>            <p class="pricing__contact">or call <strong>+1 312 380 5682</strong> for flexible payments.</p>
+                    data-plan="PREMIER" 
+                    data-price="1397">ORDER NOW</button>
+            <p class="pricing__contact">or call <strong>+1 312 380 5682</strong> for flexible payments.</p>
             <h4 class="pricing__included-title">What’s Included?</h4>
             <ul class="pricing__features">
                 <li>Everything in Professional +</li>
@@ -469,7 +469,9 @@
         <div class="pricing__item pricing__item--popular">
             <h3 class="pricing__plan">PROFESSIONAL</h3>
             <p class="pricing__price">$997<s>$2513</s></p>
-            <button class="pricing__button">ORDER NOW</button>
+            <button class="pricing__button" 
+                    data-plan="PROFESSIONAL" 
+                    data-price="997">ORDER NOW</button>
             <p class="pricing__contact">or call <strong>+1 312 380 5682</strong> for flexible payments.</p>
             <h4 class="pricing__included-title">What’s Included?</h4>
             <ul class="pricing__features">
@@ -490,7 +492,9 @@
         <div class="pricing__item">
             <h3 class="pricing__plan">ESSENTIALS</h3>
             <p class="pricing__price">$947<s>$1680</s></p>
-            <button class="pricing__button">ORDER NOW</button>
+            <button class="pricing__button" 
+                    data-plan="ESSENTIALS" 
+                    data-price="947">ORDER NOW</button>
             <p class="pricing__contact">or call <strong>+1 312 380 5682</strong> for flexible payments.</p>
             <h4 class="pricing__included-title">What’s Included?</h4>
             <ul class="pricing__features">
@@ -509,7 +513,9 @@
         <div class="pricing__item">
             <h3 class="pricing__plan">BASIC</h3>
             <p class="pricing__price">$297<s>$855</s></p>
-            <button class="pricing__button">ORDER NOW</button>
+            <button class="pricing__button" 
+                    data-plan="BASIC" 
+                    data-price="297">ORDER NOW</button>
             <p class="pricing__contact">or call <strong>+1 312 380 5682</strong> for flexible payments.</p>
             <h4 class="pricing__included-title">What’s Included?</h4>
             <ul class="pricing__features">
@@ -523,7 +529,6 @@
         </div>
     </div>
 </section>
-
 
     <!-- Testimonial Section -->
     <section class="testimonial testimonial-section--white">
@@ -720,21 +725,21 @@
        });
       </script>
 
+<script src="https://js.stripe.com/v3/"></script>
+
 <script>
   // Initialize Stripe with your publishable key
-  const stripe = Stripe('YOUR_STRIPE_PUBLISHABLE_KEY');
-  
+  const stripe = Stripe('pk_test_51R2dMLP3TwKfCku1aLatGYAG8YFllSi0QPmBc8h7fv6zWPto5If9hLzHdO4MIqUTYs2OyTcc1lC87KVkOXZeTOtu00XRYDtGQh');
+
+  // Define the handlePayment function
   async function handlePayment(button) {
-    // Disable the button during processing
     button.disabled = true;
     button.textContent = 'Processing...';
-    
+
     try {
-      // Get plan data from button attributes
       const planName = button.getAttribute('data-plan');
       const planPrice = button.getAttribute('data-price');
-      
-      // Call your Cloudflare Worker
+
       const response = await fetch('https://stripe-payment-worker.your-workers-dev-subdomain.workers.dev', {
         method: 'POST',
         headers: {
@@ -747,14 +752,13 @@
           cancelUrl: window.location.origin + '/pricing.html'
         }),
       });
-      
+
       const result = await response.json();
-      
+
       if (result.error) {
         throw new Error(result.error);
       }
-      
-      // Redirect to Stripe Checkout
+
       if (result.id) {
         stripe.redirectToCheckout({
           sessionId: result.id
@@ -763,12 +767,20 @@
     } catch (error) {
       console.error('Payment error:', error);
       alert('There was an error processing your payment. Please try again.');
-      
-      // Reset button
       button.disabled = false;
       button.textContent = 'ORDER NOW';
     }
   }
+
+  // Attach event listeners after DOM is loaded
+  document.addEventListener('DOMContentLoaded', function () {
+    const buttons = document.querySelectorAll('.pricing__button');
+    buttons.forEach(button => {
+      button.addEventListener('click', function () {
+        handlePayment(this);
+      });
+    });
+  });
 </script>
 
 </body>
