@@ -61,13 +61,13 @@ export default {
           },
         ],
         mode: 'payment',
-        success_url: data.successUrl || `${request.headers.get('Origin') || 'https://yourdomain.com'}/success`,
-        cancel_url: data.cancelUrl || `${request.headers.get('Origin') || 'https://yourdomain.com'}/pricing`,
+        success_url: `${request.headers.get('Origin') || 'https://missfitcoachingweb.pages.dev'}/success.html?plan=${encodeURIComponent(data.planName)}`,
+        cancel_url: data.cancelUrl || `${request.headers.get('Origin') || 'https://missfitcoachingweb.pages.dev'}/pricing`,
       });
       
-      // Return the session ID
+      // Return the session URL instead of the session ID
       return new Response(
-        JSON.stringify({ id: session.id }),
+        JSON.stringify({ url: session.url }),
         {
           status: 200,
           headers: {
