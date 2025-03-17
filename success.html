@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Success</title>
+</head>
+<body>
+    <h1>Payment Successful!</h1>
+    <p>Thank you for your purchase. Your plan: <span id="plan"></span></p>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById('plan').textContent = urlParams.get('plan') || 'Unknown';
+    </script>
+</body>
+</html>
