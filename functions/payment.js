@@ -1,90 +1,91 @@
-import Stripe from 'stripe';
-
 export async function onRequest(context) {
-  // Handle CORS for cross-origin requests
-  if (context.request.method === "OPTIONS") {
-    return new Response(null, {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type",
-      }
-    });
-  }
-
-  // Only process POST requests
-  if (context.request.method !== "POST") {
-    return new Response(JSON.stringify({ error: "Method not allowed" }), { 
-      status: 405,
-      headers: { 
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*"
-      }
-    });
-  }
-
-  try {
-    // Parse request body
-    const data = await context.request.json();
-    
-    // Validate required fields
-    if (!data.planName || !data.amount) {
-      return new Response(JSON.stringify({ error: "Missing required fields" }), {
-        status: 400,
+    // Handle CORS
+    if (context.request.method === "OPTIONS") {
+      return new Response(null, {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "POST, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type",
+        }
+      });
+    }
+  
+    if (context.request.method !== "POST") {
+      return new Response(JSON.stringify({ error: "Method not allowed" }), { 
+        status: 405,
         headers: { 
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*"
         }
       });
     }
-
-    // Initialize Stripe with your secret key from environment variables
-    const stripe = new Stripe(context.env.STRIPE_SECRET_KEY);
-    
-    // Create a checkout session
-    const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
-      line_items: [
-        {
-          price_data: {
-            currency: 'usd',
-            product_data: {
-              name: `MissFit Resume Writing - ${data.planName} Plan`,
-              description: `${data.planName} Package`,
-            },
-            unit_amount: Math.round(parseFloat(data.amount) * 100), // Convert to cents
-          },
-          quantity: 1,
+  
+    try {
+      const data = await context.request.json();
+      
+      if (!data.planName || !data.amount) {
+        return new Response(JSON.stringify({ error: "Missing required fields" }), {
+          status: 400,
+          headers: { 
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
+          }
+        });
+      }
+  
+      const stripeSecretKey = context.env.STRIPE_SECRET_KEY;
+      const origin = context.request.headers.get('Origin') || 'https://missfitcoachingweb.pages.dev';
+      
+      // Build form data for Stripe API
+      const formData = new URLSearchParams();
+      formData.append('payment_method_types[0]', 'card');
+      formData.append('line_items[0][price_data][currency]', 'usd');
+      formData.append('line_items[0][price_data][product_data][name]', `MissFit Resume Writing - ${data.planName} Plan`);
+      formData.append('line_items[0][price_data][product_data][description]', `${data.planName} Package`);
+      formData.append('line_items[0][price_data][unit_amount]', Math.round(parseFloat(data.amount) * 100));
+      formData.append('line_items[0][quantity]', 1);
+      formData.append('mode', 'payment');
+      formData.append('success_url', `${origin}/success?plan=${encodeURIComponent(data.planName)}`);
+      formData.append('cancel_url', `${origin}/resume`);
+      
+      // Call Stripe API directly
+      const stripeResponse = await fetch('https://api.stripe.com/v1/checkout/sessions', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${stripeSecretKey}`,
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-      ],
-      mode: 'payment',
-      success_url: `${context.request.headers.get('Origin') || 'https://missfitcoachingweb.pages.dev'}/success?plan=${encodeURIComponent(data.planName)}`,
-      cancel_url: `${context.request.headers.get('Origin') || 'https://missfitcoachingweb.pages.dev'}/resume`,
-    });
-    
-    // Return the session ID for redirectToCheckout
-    return new Response(
-      JSON.stringify({ sessionId: session.id }),
-      {
-        status: 200,
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*"
-        }
+        body: formData,
+      });
+      
+      if (!stripeResponse.ok) {
+        const errorData = await stripeResponse.json();
+        throw new Error(errorData.error?.message || 'Error creating Stripe session');
       }
-    );
-  } catch (error) {
-    // Handle errors
-    console.error(error);
-    return new Response(
-      JSON.stringify({ error: error.message }),
-      {
-        status: 500,
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*"
+      
+      const session = await stripeResponse.json();
+      
+      return new Response(
+        JSON.stringify({ sessionId: session.id }),
+        {
+          status: 200,
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
+          }
         }
-      }
-    );
+      );
+    } catch (error) {
+      console.error(error);
+      return new Response(
+        JSON.stringify({ error: error.message }),
+        {
+          status: 500,
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
+          }
+        }
+      );
+    }
   }
-}
