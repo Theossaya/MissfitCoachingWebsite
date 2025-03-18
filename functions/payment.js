@@ -3,7 +3,7 @@ addEventListener('fetch', event => {
 });
 
 async function handleRequest(request) {
-    console.log('Request received:', request.method, request.url); // Debug log
+    console.log('Request received:', request.method, request.url);
 
     if (request.method === 'OPTIONS') {
         console.log('Handling OPTIONS request');
@@ -25,7 +25,6 @@ async function handleRequest(request) {
     }
 
     try {
-        console.log('Processing POST request');
         if (!env.STRIPE_SECRET_KEY) {
             console.error('STRIPE_SECRET_KEY not set');
             return new Response(JSON.stringify({ error: 'Server configuration error: STRIPE_SECRET_KEY not set' }), {
@@ -79,7 +78,7 @@ async function handleRequest(request) {
             },
         });
     } catch (error) {
-        console.error('Worker error:', error.message, error.stack);
+        console.error('Worker error:', error.message);
         return new Response(JSON.stringify({ error: error.message }), {
             status: 500,
             headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
