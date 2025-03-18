@@ -1,0 +1,6 @@
+{
+    "routes": [
+        { "pattern": "/resume", "custom_response": true },
+        { "pattern": "/success", "custom_response": true }
+    ]
+}
