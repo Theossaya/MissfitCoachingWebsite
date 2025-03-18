@@ -3,7 +3,7 @@ addEventListener('fetch', event => {
 });
 
 async function handleRequest(request) {
-    console.log('Request received:', request.method, request.url); // Debug log
+    console.log('Request received:', request.method, request.url);
 
     if (request.method === 'OPTIONS') {
         console.log('Handling OPTIONS request');
@@ -25,8 +25,17 @@ async function handleRequest(request) {
     }
 
     try {
+        // Check if STRIPE_SECRET_KEY is available
+        if (!env.STRIPE_SECRET_KEY) {
+            console.error('STRIPE_SECRET_KEY not set');
+            return new Response(JSON.stringify({ error: 'Server configuration error: STRIPE_SECRET_KEY not set' }), {
+                status: 500,
+                headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+            });
+        }
+
         const { planName, amount } = await request.json();
-        console.log('Request body:', { planName, amount }); // Debug log
+        console.log('Request body:', { planName, amount });
 
         if (!planName || !amount) {
             console.log('Missing planName or amount');
@@ -36,29 +45,32 @@ async function handleRequest(request) {
             });
         }
 
-        // Use Stripe via environment variable
-        const stripe = new Stripe(env.STRIPE_SECRET_KEY);
-        console.log('Stripe initialized'); // Debug log
-
-        const session = await stripe.checkout.sessions.create({
-            payment_method_types: ['card'],
-            line_items: [{
-                price_data: {
-                    currency: 'usd',
-                    product_data: {
-                        name: `MissFit Resume Writing - ${planName} Plan`,
-                        description: `${planName} Package`,
-                    },
-                    unit_amount: Math.round(parseFloat(amount) * 100),
-                },
-                quantity: 1,
-            }],
-            mode: 'payment',
-            success_url: `${request.headers.get('Origin') || 'https://65cb7696.missfitcoachingweb.pages.dev'}/success?plan=${encodeURIComponent(planName)}`,
-            cancel_url: `${request.headers.get('Origin') || 'https://65cb7696.missfitcoachingweb.pages.dev'}/resume`,
+        // Call Stripe API directly
+        const response = await fetch('https://api.stripe.com/v1/checkout/sessions', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${env.STRIPE_SECRET_KEY}`,
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'payment_method_types[]': 'card',
+                'line_items[0][price_data][currency]': 'usd',
+                'line_items[0][price_data][product_data][name]': `MissFit Resume Writing - ${planName} Plan`,
+                'line_items[0][price_data][product_data][description]': `${planName} Package`,
+                'line_items[0][price_data][unit_amount]': Math.round(parseFloat(amount) * 100).toString(),
+                'line_items[0][quantity]': '1',
+                'mode': 'payment',
+                'success_url': `${request.headers.get('Origin') || 'https://979d1b9b.missfitcoachingweb.pages.dev'}/success?plan=${encodeURIComponent(planName)}`,
+                'cancel_url': `${request.headers.get('Origin') || 'https://979d1b9b.missfitcoachingweb.pages.dev'}/resume`,
+            }).toString(),
         });
 
-        console.log('Session created:', session.id); // Debug log
+        const session = await response.json();
+        console.log('Stripe session created:', session.id);
+
+        if (!response.ok) {
+            throw new Error(session.error?.message || 'Failed to create Stripe session');
+        }
 
         return new Response(JSON.stringify({ sessionId: session.id }), {
             status: 200,
