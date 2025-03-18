@@ -3,6 +3,7 @@ addEventListener('fetch', event => {
 });
 
 async function handleRequest(request) {
+    console.log('hello')
     console.log('Request received:', request.method, request.url);
 
     if (request.method === 'OPTIONS') {
