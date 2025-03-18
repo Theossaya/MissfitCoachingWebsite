@@ -25,7 +25,6 @@ async function handleRequest(request) {
     }
 
     try {
-        // Check if STRIPE_SECRET_KEY is available
         if (!env.STRIPE_SECRET_KEY) {
             console.error('STRIPE_SECRET_KEY not set');
             return new Response(JSON.stringify({ error: 'Server configuration error: STRIPE_SECRET_KEY not set' }), {
@@ -45,7 +44,6 @@ async function handleRequest(request) {
             });
         }
 
-        // Call Stripe API directly
         const response = await fetch('https://api.stripe.com/v1/checkout/sessions', {
             method: 'POST',
             headers: {
@@ -57,11 +55,11 @@ async function handleRequest(request) {
                 'line_items[0][price_data][currency]': 'usd',
                 'line_items[0][price_data][product_data][name]': `MissFit Resume Writing - ${planName} Plan`,
                 'line_items[0][price_data][product_data][description]': `${planName} Package`,
-                'line_items[0][price_data][unit_amount]': Math.round(parseFloat(amount) * 100).toString(),
+                'line_items[0][price_data][unit_amount': Math.round(parseFloat(amount) * 100).toString(),
                 'line_items[0][quantity]': '1',
                 'mode': 'payment',
-                'success_url': `${request.headers.get('Origin') || 'https://979d1b9b.missfitcoachingweb.pages.dev'}/success?plan=${encodeURIComponent(planName)}`,
-                'cancel_url': `${request.headers.get('Origin') || 'https://979d1b9b.missfitcoachingweb.pages.dev'}/resume`,
+                'success_url': `${request.headers.get('Origin') || 'https://b44718bf.missfitcoachingweb.pages.dev'}/success?plan=${encodeURIComponent(planName)}`,
+                'cancel_url': `${request.headers.get('Origin') || 'https://b44718bf.missfitcoachingweb.pages.dev'}/resume`,
             }).toString(),
         });
 
