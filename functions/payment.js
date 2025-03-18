@@ -1,5 +1,5 @@
 export async function onRequest(context) {
-    console.log('hello');
+    console.log('hello world');
     console.log('Request received:', context.request.method, context.request.url);
     
     // Handle CORS preflight
