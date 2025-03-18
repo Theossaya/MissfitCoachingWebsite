@@ -38,8 +38,8 @@ async function handleRequest(request) {
                 quantity: 1,
             }],
             mode: 'payment',
-            success_url: `${request.headers.get('Origin') || 'https://your-site.pages.dev'}/success?plan=${encodeURIComponent(planName)}`,
-            cancel_url: `${request.headers.get('Origin') || 'https://your-site.pages.dev'}/resume`,
+            success_url: `${request.headers.get('Origin') || 'https://eac0019e.missfitcoachingweb.pages.dev'}/success?plan=${encodeURIComponent(planName)}`,
+            cancel_url: `${request.headers.get('Origin') || 'https://eac0019e.missfitcoachingweb.pages.dev'}/resume`,
         });
 
         return new Response(JSON.stringify({ sessionId: session.id }), {
