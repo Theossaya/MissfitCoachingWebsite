@@ -1,89 +1,91 @@
-addEventListener('fetch', event => {
-    event.respondWith(handleRequest(event.request));
-});
-
-async function handleRequest(request) {
-    console.log('Request received:', request.method, request.url);
-
-    if (request.method === 'OPTIONS') {
-        console.log('Handling OPTIONS request');
-        return new Response(null, {
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'POST, OPTIONS',
-                'Access-Control-Allow-Headers': 'Content-Type',
-            },
-        });
+export async function onRequest(context) {
+    // Handle CORS
+    if (context.request.method === "OPTIONS") {
+      return new Response(null, {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "POST, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type",
+        }
+      });
     }
-
-    if (request.method !== 'POST') {
-        console.log('Method not allowed:', request.method);
-        return new Response(JSON.stringify({ error: 'Method Not Allowed' }), {
-            status: 405,
-            headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-        });
+  
+    if (context.request.method !== "POST") {
+      return new Response(JSON.stringify({ error: "Method not allowed" }), { 
+        status: 405,
+        headers: { 
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*"
+        }
+      });
     }
-
+  
     try {
-        // Check if STRIPE_SECRET_KEY is available
-        if (!env.STRIPE_SECRET_KEY) {
-            console.error('STRIPE_SECRET_KEY not set');
-            return new Response(JSON.stringify({ error: 'Server configuration error: STRIPE_SECRET_KEY not set' }), {
-                status: 500,
-                headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-            });
-        }
-
-        const { planName, amount } = await request.json();
-        console.log('Request body:', { planName, amount });
-
-        if (!planName || !amount) {
-            console.log('Missing planName or amount');
-            return new Response(JSON.stringify({ error: 'Missing planName or amount' }), {
-                status: 400,
-                headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-            });
-        }
-
-        // Call Stripe API directly
-        const response = await fetch('https://api.stripe.com/v1/checkout/sessions', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${env.STRIPE_SECRET_KEY}`,
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({
-                'payment_method_types[]': 'card',
-                'line_items[0][price_data][currency]': 'usd',
-                'line_items[0][price_data][product_data][name]': `MissFit Resume Writing - ${planName} Plan`,
-                'line_items[0][price_data][product_data][description]': `${planName} Package`,
-                'line_items[0][price_data][unit_amount]': Math.round(parseFloat(amount) * 100).toString(),
-                'line_items[0][quantity]': '1',
-                'mode': 'payment',
-                'success_url': `${request.headers.get('Origin') || 'https://979d1b9b.missfitcoachingweb.pages.dev'}/success?plan=${encodeURIComponent(planName)}`,
-                'cancel_url': `${request.headers.get('Origin') || 'https://979d1b9b.missfitcoachingweb.pages.dev'}/resume`,
-            }).toString(),
+      const data = await context.request.json();
+      
+      if (!data.planName || !data.amount) {
+        return new Response(JSON.stringify({ error: "Missing required fields" }), {
+          status: 400,
+          headers: { 
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
+          }
         });
-
-        const session = await response.json();
-        console.log('Stripe session created:', session.id);
-
-        if (!response.ok) {
-            throw new Error(session.error?.message || 'Failed to create Stripe session');
+      }
+  
+      const stripeSecretKey = context.env.STRIPE_SECRET_KEY;
+      const origin = context.request.headers.get('Origin') || 'https://missfitcoachingweb.pages.dev';
+      
+      // Build form data for Stripe API
+      const formData = new URLSearchParams();
+      formData.append('payment_method_types[0]', 'card');
+      formData.append('line_items[0][price_data][currency]', 'usd');
+      formData.append('line_items[0][price_data][product_data][name]', `MissFit Resume Writing - ${data.planName} Plan`);
+      formData.append('line_items[0][price_data][product_data][description]', `${data.planName} Package`);
+      formData.append('line_items[0][price_data][unit_amount]', Math.round(parseFloat(data.amount) * 100));
+      formData.append('line_items[0][quantity]', 1);
+      formData.append('mode', 'payment');
+      formData.append('success_url', `${origin}/success?plan=${encodeURIComponent(data.planName)}`);
+      formData.append('cancel_url', `${origin}/resume`);
+      
+      // Call Stripe API directly
+      const stripeResponse = await fetch('https://api.stripe.com/v1/checkout/sessions', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${stripeSecretKey}`,
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formData,
+      });
+      
+      if (!stripeResponse.ok) {
+        const errorData = await stripeResponse.json();
+        throw new Error(errorData.error?.message || 'Error creating Stripe session');
+      }
+      
+      const session = await stripeResponse.json();
+      
+      return new Response(
+        JSON.stringify({ sessionId: session.id }),
+        {
+          status: 200,
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
+          }
         }
-
-        return new Response(JSON.stringify({ sessionId: session.id }), {
-            status: 200,
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-            },
-        });
+      );
     } catch (error) {
-        console.error('Worker error:', error.message);
-        return new Response(JSON.stringify({ error: error.message }), {
-            status: 500,
-            headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-        });
+      console.error(error);
+      return new Response(
+        JSON.stringify({ error: error.message }),
+        {
+          status: 500,
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
+          }
+        }
+      );
     }
-}
+  }
