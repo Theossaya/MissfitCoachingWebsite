@@ -31,8 +31,8 @@ export async function onRequest(context) {
             });
         }
         
-        const { planName, amount } = await request.json();
-        console.log('Request body:', { planName, amount });
+        const { planName, amount, paymentType, intervalCount } = await request.json();
+        console.log('Request body:', { planName, amount, paymentType, intervalCount });
         
         if (!planName || !amount) {
             console.log('Missing planName or amount');
@@ -42,23 +42,48 @@ export async function onRequest(context) {
             });
         }
         
+        const origin = request.headers.get('Origin') || 'https://2846a354.missfitcoachingweb.pages.dev';
+        const productName = `MissFit - ${planName} Plan`;
+        
+        let sessionParams;
+        
+        if (paymentType === 'subscription') {
+            // Create a subscription-based checkout session
+            sessionParams = {
+                'payment_method_types[]': 'card',
+                'line_items[0][price_data][currency]': 'usd',
+                'line_items[0][price_data][product_data][name]': productName,
+                'line_items[0][price_data][product_data][description]': `${planName} Package - Monthly Payments`,
+                'line_items[0][price_data][unit_amount]': Math.round(parseFloat(amount) * 100).toString(),
+                'line_items[0][price_data][recurring][interval]': 'month',
+                'line_items[0][price_data][recurring][interval_count]': intervalCount || 1,
+                'line_items[0][quantity]': '1',
+                'mode': 'subscription',
+                'success_url': `${origin}/success.html?plan=${encodeURIComponent(planName)}&type=subscription`,
+                'cancel_url': `${origin}`,
+            };
+        } else {
+            // Create a one-time payment checkout session
+            sessionParams = {
+                'payment_method_types[]': 'card',
+                'line_items[0][price_data][currency]': 'usd',
+                'line_items[0][price_data][product_data][name]': productName,
+                'line_items[0][price_data][product_data][description]': `${planName} Package`,
+                'line_items[0][price_data][unit_amount]': Math.round(parseFloat(amount) * 100).toString(),
+                'line_items[0][quantity]': '1',
+                'mode': 'payment',
+                'success_url': `${origin}/success.html?plan=${encodeURIComponent(planName)}&type=onetime`,
+                'cancel_url': `${origin}`,
+            };
+        }
+        
         const response = await fetch('https://api.stripe.com/v1/checkout/sessions', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${env.STRIPE_SECRET_KEY}`,
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: new URLSearchParams({
-                'payment_method_types[]': 'card',
-                'line_items[0][price_data][currency]': 'usd',
-                'line_items[0][price_data][product_data][name]': `MissFit Resume Writing - ${planName} Plan`,
-                'line_items[0][price_data][product_data][description]': `${planName} Package`,
-                'line_items[0][price_data][unit_amount]': Math.round(parseFloat(amount) * 100).toString(),
-                'line_items[0][quantity]': '1',
-                'mode': 'payment',
-                'success_url': `${request.headers.get('Origin') || 'https://2846a354.missfitcoachingweb.pages.dev'}/success?plan=${encodeURIComponent(planName)}`,
-                'cancel_url': `${request.headers.get('Origin') || 'https://2846a354.missfitcoachingweb.pages.dev'}/resume`,
-            }).toString(),
+            body: new URLSearchParams(sessionParams).toString(),
         });
         
         const session = await response.json();

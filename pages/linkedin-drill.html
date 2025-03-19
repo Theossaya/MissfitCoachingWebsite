@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MissFit Coaching - Homepage</title>
-    <link rel="stylesheet" href="css/style.css">
+    <script src="https://js.stripe.com/v3/"></script>
+
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
     </style>
@@ -544,7 +545,7 @@
           <h3 class="pricing__plan">FLEXIBLE</h3>
           <h3 class="pricing__plan-subtitle">3 Monthly Payments of</h3>
           <p class="pricing__price">$750</p>
-          <button class="pricing__button">ENROLL NOW</button>
+          <button class="pricing__button" data-plan="FLEXIBLE" data-price="750">ENROLL NOW</button>
           <h4 class="pricing__included-title">What’s Included?</h4>
           <ul class="pricing__features">
               <li>Live Weekly Workshops (60 minutes)</li>
@@ -561,7 +562,7 @@
         <div class="pricing__item pricing__item--best">
           <h3 class="pricing__plan">UPFRONT</h3>
           <p class="pricing__price">$2200</p>
-          <button class="pricing__button">ENROLL NOW</button>
+          <button class="pricing__button" data-plan="UPFRONT" data-price="2200">ENROLL NOW</button>
           <p class="pricing__contact"><strong>What's Included</strong></p>
           <ul class="pricing__features">
               <li>Live Weekly Workshops (60 minutes)</li>

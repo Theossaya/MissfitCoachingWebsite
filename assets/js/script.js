@@ -416,3 +416,65 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const stripe = Stripe('pk_test_51R2dMLP3TwKfCku1aLatGYAG8YFllSi0QPmBc8h7fv6zWPto5If9hLzHdO4MIqUTYs2OyTcc1lC87KVkOXZeTOtu00XRYDtGQh');
+  
+  const orderButtons = document.querySelectorAll('.pricing__button');
+  
+  orderButtons.forEach(button => {
+    button.addEventListener('click', async function () {
+      const planName = this.getAttribute('data-plan');
+      const price = parseFloat(this.getAttribute('data-price'));
+      
+      // Check if this is a subscription plan
+      const isSubscription = this.closest('.pricing__item').querySelector('.pricing__plan-subtitle');
+      let paymentType = 'onetime';
+      let intervalCount = 1;
+      
+      if (isSubscription) {
+        paymentType = 'subscription';
+        // Parse the number of months from the subtitle text
+        const subtitleText = isSubscription.textContent;
+        const monthsMatch = subtitleText.match(/(\d+)\s*Monthly/i);
+        if (monthsMatch && monthsMatch[1]) {
+          intervalCount = parseInt(monthsMatch[1]);
+        }
+      }
+      
+      const originalText = this.textContent;
+      this.textContent = 'Processing...';
+      this.disabled = true;
+      
+      try {
+        const response = await fetch('/payment', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+            planName, 
+            amount: price, 
+            paymentType,
+            intervalCount
+          }),
+        });
+        
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Network response was not ok');
+        }
+        
+        const { sessionId } = await response.json();
+        const { error } = await stripe.redirectToCheckout({ sessionId });
+        
+        if (error) throw error;
+      } catch (error) {
+        console.error('Payment error:', error.message);
+        alert(`Payment error: ${error.message}`);
+      } finally {
+        this.textContent = originalText;
+        this.disabled = false;
+      }
+    });
+  });
+});
