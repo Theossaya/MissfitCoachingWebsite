@@ -254,6 +254,9 @@ body {
       .pricing {
         padding: 8.25rem 1.5rem; /* 132px top/bottom, 48px left/right */
       }
+      .pricing__item--best{
+        margin-bottom: 7.2rem;
+      }
       
     }
     
