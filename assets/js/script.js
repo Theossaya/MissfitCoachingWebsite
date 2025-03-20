@@ -424,57 +424,59 @@ document.addEventListener('DOMContentLoaded', () => {
   const orderButtons = document.querySelectorAll('.pricing__button');
   
   orderButtons.forEach(button => {
-    button.addEventListener('click', async function () {
-      const planName = this.getAttribute('data-plan');
-      const price = parseFloat(this.getAttribute('data-price'));
-      
-      // Check if this is a subscription plan
-      const isSubscription = this.closest('.pricing__item').querySelector('.pricing__plan-subtitle');
-      let paymentType = 'onetime';
-      let intervalCount = 1;
-      
-      if (isSubscription) {
-        paymentType = 'subscription';
-        // Parse the number of months from the subtitle text
-        const subtitleText = isSubscription.textContent;
-        const monthsMatch = subtitleText.match(/(\d+)\s*Monthly/i);
-        if (monthsMatch && monthsMatch[1]) {
-          intervalCount = parseInt(monthsMatch[1]);
-        }
-      }
-      
-      const originalText = this.textContent;
-      this.textContent = 'Processing...';
-      this.disabled = true;
-      
-      try {
-        const response = await fetch('/payment', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ 
-            planName, 
-            amount: price, 
-            paymentType,
-            intervalCount
-          }),
-        });
-        
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || 'Network response was not ok');
-        }
-        
-        const { sessionId } = await response.json();
-        const { error } = await stripe.redirectToCheckout({ sessionId });
-        
-        if (error) throw error;
-      } catch (error) {
-        console.error('Payment error:', error.message);
-        alert(`Payment error: ${error.message}`);
-      } finally {
-        this.textContent = originalText;
-        this.disabled = false;
-      }
-    });
+      button.addEventListener('click', async function () {
+          const planName = this.getAttribute('data-plan');
+          const price = parseFloat(this.getAttribute('data-price'));
+          
+          const isSubscription = this.closest('.pricing__item').querySelector('.pricing__plan-subtitle');
+          let paymentType = 'onetime';
+          let intervalCount = 1;
+          
+          if (isSubscription) {
+              paymentType = 'subscription';
+              const subtitleText = isSubscription.textContent;
+              const monthsMatch = subtitleText.match(/(\d+)\s*Monthly/i);
+              if (monthsMatch && monthsMatch[1]) {
+                  intervalCount = parseInt(monthsMatch[1]);
+              }
+          }
+          
+          const originalText = this.textContent;
+          this.textContent = 'Processing...';
+          this.disabled = true;
+          
+          try {
+              // Send the current page path to the Worker for the cancel_url
+              const currentPath = window.location.pathname; // e.g., "/resume", "/linkedin-drill"
+
+              const response = await fetch('/payment', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ 
+                      planName, 
+                      amount: price, 
+                      paymentType,
+                      intervalCount,
+                      cancelPath: currentPath
+                  }),
+              });
+              
+              if (!response.ok) {
+                  const errorData = await response.json();
+                  throw new Error(errorData.error || 'Network response was not ok');
+              }
+              
+              const { sessionId } = await response.json();
+              const { error } = await stripe.redirectToCheckout({ sessionId });
+              
+              if (error) throw error;
+          } catch (error) {
+              console.error('Payment error:', error.message);
+              alert(`Payment error: ${error.message}`);
+          } finally {
+              this.textContent = originalText;
+              this.disabled = false;
+          }
+      });
   });
 });

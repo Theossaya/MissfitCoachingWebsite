@@ -42,7 +42,7 @@ export async function onRequest(context) {
             });
         }
         
-        const origin = request.headers.get('Origin') || 'https://2846a354.missfitcoachingweb.pages.dev';
+        const origin = request.headers.get('Origin') || 'https://missfitcoaching.pages.dev';
         const productName = `MissFit - ${planName} Plan`;
         
         let sessionParams;
